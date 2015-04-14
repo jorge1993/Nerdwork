@@ -29,7 +29,7 @@
     </style>
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server" >
     <div id="index"; style="height: 646px">
 
        <div id="description"; style="float: left; width: 300px;margin-left: 150px; margin-top: 150px">            

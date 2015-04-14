@@ -21,9 +21,9 @@ public partial class _Default : System.Web.UI.Page
         String pass = TextBox7.Text;
 
         UserCEN user = new UserCEN();
-        if (user.Searchbynick(nick) != null)
-        {
-            UserEN en = user.Searchbynick(nick);
+        UserEN en = user.Searchbynick(nick);
+        if (en != null)
+        {  
             if (en.Password == pass)
             {
                 Session["Name"] = nick;
@@ -31,8 +31,8 @@ public partial class _Default : System.Web.UI.Page
             }
         }
         
-            Label9.Text = "Invalid nickname/password";
-            Label9.Visible = true;
+        Label9.Text = "Invalid nickname/password";       
+        Label9.Visible = true;
         
     }
 
