@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ProjectGenNHibernate.CEN.Project;
+using ProjectGenNHibernate.EN.Project;
 
 
 public partial class _Default : System.Web.UI.Page
@@ -22,8 +23,16 @@ public partial class _Default : System.Web.UI.Page
         UserCEN user = new UserCEN();
         if (user.Searchbynick(nick) != null)
         {
-            
+            UserEN en = user.Searchbynick(nick);
+            if (en.Password == pass)
+            {
+                Response.Redirect("Default4.aspx");
+            }
         }
+        
+            Label9.Text = "Invalid nickname/password";
+            Label9.Visible = true;
+        
     }
 
     protected void Button2_Click(object sender, EventArgs e)

@@ -76,6 +76,8 @@
              
              <tr>
                  <td align="center" class="style2" colspan="3">
+                     <asp:Label ID="Label9" runat="server" Text="Label" Visible="false"></asp:Label>
+                     <br />
                      <asp:Button ID="Button1" runat="server" BorderColor="#999999" 
                          BorderStyle="Solid" Text="Log in" OnClick="Button1_Click" 
                           ValidationGroup ="Login"/>
