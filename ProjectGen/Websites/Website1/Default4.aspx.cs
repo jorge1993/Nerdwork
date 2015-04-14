@@ -10,10 +10,7 @@ public partial class Default4 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
        
-        if (Session.Count!=0)
-        { 
         
-        }
-        else Response.Redirect("Default.aspx");
+        
     }
 }
