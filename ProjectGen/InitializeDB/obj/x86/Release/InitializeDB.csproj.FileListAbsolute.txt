@@ -18,3 +18,6 @@ C:\Users\Carlos\Desktop\Trabajos\Año 3\DSS\ProjectGen\InitializeDB\bin\Release\
 C:\Users\Carlos\Desktop\Trabajos\Año 3\DSS\ProjectGen\InitializeDB\obj\x86\Release\InitializeDB.csprojResolveAssemblyReference.cache
 C:\Users\Carlos\Desktop\Trabajos\Año 3\DSS\ProjectGen\InitializeDB\obj\x86\Release\InitializeDB.exe
 C:\Users\Carlos\Desktop\Trabajos\Año 3\DSS\ProjectGen\InitializeDB\obj\x86\Release\InitializeDB.pdb
+Y:\Nerdwork\ProjectGen\InitializeDB\bin\Release\InitializeDB.exe.config
+Y:\Nerdwork\ProjectGen\InitializeDB\obj\x86\Release\InitializeDB.exe
+Y:\Nerdwork\ProjectGen\InitializeDB\obj\x86\Release\InitializeDB.pdb
