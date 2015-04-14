@@ -26,6 +26,7 @@ public partial class _Default : System.Web.UI.Page
             UserEN en = user.Searchbynick(nick);
             if (en.Password == pass)
             {
+                Session["Name"] = nick;
                 Response.Redirect("Default4.aspx");
             }
         }
