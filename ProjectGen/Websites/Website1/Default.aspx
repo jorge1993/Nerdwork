@@ -24,7 +24,7 @@
                <table style="width: 250px; height: 180px; margin-left: 0px;" align="center" border="1">
              <tr>
                  <td colspan="3" valign="middle" align="center" class="auto-style3">
-                     <h1>Log IN</h1></td>
+                     <h1>Log In</h1></td>
                  
              </tr>
              <tr>
