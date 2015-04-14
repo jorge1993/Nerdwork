@@ -14,39 +14,59 @@
         {
             width: 171px;
         }
+        .auto-style5
+        {
+            width: 146px;
+        }
+        .auto-style6
+        {
+            width: 76px;
+        }
+        .auto-style7
+        {
+            width: 117px;
+        }
     </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <div id="index"; style="height: 646px">
+
+       <div id="description"; style="float: left; width: 300px;margin-left: 150px; margin-top: 150px">            
+            <h2>Connect with your friends — and other fascinating people. <br />
+            Get in-the-moment updates on the things that interest you. <br />
+            And watch events unfold, in real time, from every angle.</h2>
+            
+       </div>
         <div id="login"; style="float: right; width: 500px; margin-right: 300px; margin-top: 120px;">
         
-               <table style="width: 250px; height: 180px; margin-left: 0px;" align="center" border="1">
+               <table style="width: 370px; height: 200px; margin-left: 0px;" align="center" 
+                   border="1">
              <tr>
                  <td colspan="3" valign="middle" align="center" class="auto-style3">
                      <h1>Log In</h1></td>
                  
              </tr>
              <tr>
-                 <td align="right" class="style4">
+                 <td align="right" class="auto-style6">
                      <asp:Label ID="Label7" runat="server" Text="Nickname:"></asp:Label>
                  </td>
-                 <td align="left" class="auto-style1">
+                 <td align="left" class="auto-style7">
                      <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                  </td>
-                 <td align="left" class="style3">
+                 <td align="left" class="auto-style5">
                      <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ForeColor="Red" ValidationGroup="Login" runat="server" ErrorMessage="*Nick is required" ControlToValidate ="TextBox2"></asp:RequiredFieldValidator>
                      <br />
                  </td>
              </tr>
                  <tr>
-                 <td align="right" class="style4">
+                 <td align="right" class="auto-style6">
                      <asp:Label ID="Label8" runat="server" Text="Password:"></asp:Label>
                      </td>
-                 <td align="left" class="auto-style1">
+                 <td align="left" class="auto-style7">
                      <asp:TextBox ID="TextBox7" runat="server" TextMode="Password"></asp:TextBox>
                      </td>
-                     <td align="left" class="style3">
+                     <td align="left" class="auto-style5">
                           
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="Login" ForeColor="Red" ErrorMessage="*Password is required" ControlToValidate="TextBox7"></asp:RequiredFieldValidator>
                           
@@ -56,7 +76,6 @@
              
              <tr>
                  <td align="center" class="style2" colspan="3">
-                     <asp:Label ID="Label10" runat="server" Text="Label" Visible="false"></asp:Label><br />
                      <asp:Button ID="Button1" runat="server" BorderColor="#999999" 
                          BorderStyle="Solid" Text="Log in" OnClick="Button1_Click" 
                           ValidationGroup ="Login"/>
@@ -64,7 +83,7 @@
              </tr>
          </table>
          <br />
-            <table style="width: 400px; height: 250px; margin-left: 0px; background-color: #ffd800" align="center" border="1">
+            <table style="width: 500px; height: 250px; margin-left: 0px; background-color: #ffd800" align="center" border="1">
              <tr>
                  <td colspan="3" valign="middle" align="center" class="auto-style3">
                      <h1>Register Now</h1></td>
@@ -141,12 +160,6 @@
          
        </div>
 
-       <div id="description"; style="float: left; width: 300px;margin-left: 150px; margin-top: 150px">            
-            <h2>Connect with your friends — and other fascinating people. <br />
-            Get in-the-moment updates on the things that interest you. <br />
-            And watch events unfold, in real time, from every angle.</h2>
-            
-       </div>
        </div>
         
 </asp:Content>
