@@ -7,8 +7,12 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
+    String p_hobby;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        p_hobby = Request.QueryString["Hobby"];
+        HyperLink1.Text = p_hobby;
     }
+
 }

@@ -30,6 +30,7 @@ public partial class MasterPage2 : System.Web.UI.MasterPage
 
     protected void ButtonSearch_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("Busqueda.aspx?Hobby=" +
+            TextBox1.Text);
     }
 }

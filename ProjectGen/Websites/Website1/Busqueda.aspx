@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.master" AutoEventWireup="true" CodeFile="Busqueda.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -38,7 +38,15 @@
                 <asp:BoundField DataField="avatar" HeaderText="avatar" SortExpression="avatar" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT Post.description, [User].nickname, [User].avatar FROM Post INNER JOIN hobby_post ON Post.id = hobby_post.FK_id_idPost INNER JOIN Hobby ON hobby_post.FK_name_idHobby = Hobby.name INNER JOIN [User] ON Post.FK_nickname_idUser = [User].nickname WHERE (Hobby.name = '')"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT Post.description, [User].nickname, [User].avatar
+
+FROM Post INNER JOIN hobby_post ON Post.id = hobby_post.FK_id_idPost INNER JOIN Hobby ON hobby_post.FK_name_idHobby = Hobby.name INNER JOIN [User] ON Post.FK_nickname_idUser = [User].nickname 
+
+WHERE (Hobby.name = @name)">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="name" QueryStringField="Hobby" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </div>
 </asp:Content>
 
