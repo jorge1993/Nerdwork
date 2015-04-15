@@ -36,7 +36,7 @@
         </div>
 
         <div id="divTimeline" style="height: 50%; margin-left: 2%; margin-right: 2%">
-            <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" OnSelectedIndexChanged="GridViewTimeline_SelectedIndexChanged">
+            <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="nickname" HeaderText="Nickname" ReadOnly="True" SortExpression="name" />
                     <asp:ImageField DataAlternateTextField="avatar" HeaderText="Avatar" ReadOnly="True" SortExpression="avatar"/>

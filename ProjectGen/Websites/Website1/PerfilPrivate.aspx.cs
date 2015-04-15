@@ -23,7 +23,7 @@ public partial class PerfilPrivate : System.Web.UI.Page
 
         foreach (ListItem item in selected)
         {
-
+            
         }
     }
 
