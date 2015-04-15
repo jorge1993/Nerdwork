@@ -13,16 +13,11 @@ public partial class MasterPage2 : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session.Count == 0)
-        {
-            Response.Redirect("Default.aspx");
-        }
+        
+    }
 
-        UserCEN u = new UserCEN();
-        user = new UserEN();
-        user = u.Searchbynick((String)Session["Name"]);
+    protected void ButtonSearch_Click(object sender, EventArgs e)
+    {
 
-        avatar.ImageUrl = user.Avatar;
-        linkNickname.Text = user.Nickname;
     }
 }

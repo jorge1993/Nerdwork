@@ -1,37 +1,17 @@
-<<<<<<< HEAD
 ﻿    html 
 {  
-    width: 100%;  
-    height: 100%;   
+    height: 100%;
+    width: 100%;     
 }
      
-#primera
+#body1
 {  
     background: url( 'images/Backgroundproyect2.png' ) no-repeat center center;   
 }
 
-#segunda
-{
-    background: url( 'images/BackgroundMasterPage2.png' ) no-repeat center center;
-}
-
-=======
-﻿    html 
-{  
-    height: 100%;     
-} 
-body 
-{  
-    background-image: url( 'images/Backgroundproyect2.png' );
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: rgb(255,165,75);
-}
-
-form1
+#body2
 {
     background: url( 'images/BackgroundMasterPage2.png' ) no-repeat center center;
     
 }
 
->>>>>>> origin/master
