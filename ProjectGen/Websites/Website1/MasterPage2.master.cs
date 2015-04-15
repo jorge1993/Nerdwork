@@ -24,6 +24,5 @@ public partial class MasterPage2 : System.Web.UI.MasterPage
 
         avatar.ImageUrl = user.Avatar;
         linkNickname.Text = user.Nickname;
-
     }
 }
