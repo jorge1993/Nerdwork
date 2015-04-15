@@ -8,8 +8,16 @@
 
 <div style="height: 261px">
 
-<asp:Label ID="userslist" runat="server" BorderColor="Black"></asp:Label>
-<asp:Label ID="message" runat="server" BorderColor="Black"></asp:Label>
+    <br />
+&nbsp;
+
+<asp:TextBox ID="userslist" runat="server" BorderColor="Black" ReadOnly="true" 
+        Height="165px"></asp:TextBox>
+   
+&nbsp;&nbsp;&nbsp;
+   
+<asp:TextBOx ID="message" runat="server" BorderColor="Black" ReadOnly="true" 
+        Height="184px" Width="584px"></asp:TextBOx>
 </div>
 
 <div style="height: 252px">
