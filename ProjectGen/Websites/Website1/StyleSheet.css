@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿    html 
+﻿﻿    html 
 {  
     height: 100%;
     width: 100%;     
@@ -20,23 +19,3 @@
     background-repeat: no-repeat;
     background-color: rgb(255,165,75);
 }
-
-=======
-﻿    html 
-{  
-    height: 100%;
-    width: 100%;     
-}
-     
-#body1
-{  
-    background: url( 'images/Backgroundproyect2.png' ) no-repeat center center;   
-}
-
-#body2
-{
-    background: url( 'images/BackgroundMasterPage2.png' ) no-repeat center center;
-    
-}
-
->>>>>>> origin/master
