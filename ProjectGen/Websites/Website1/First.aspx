@@ -68,7 +68,7 @@
                      <td align="left" class="style3">
                           
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="Login" ForeColor="Red" ErrorMessage="*Password is required" ControlToValidate="TextBox7"></asp:RequiredFieldValidator>
-                          
+                         
                       <br />
                      </td>
              </tr>

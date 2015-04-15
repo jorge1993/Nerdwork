@@ -27,7 +27,14 @@ public partial class _Default : System.Web.UI.Page
             if (en.Password == pass)
             {
                 Session["Name"] = nick;
-                Response.Redirect("Into.aspx");
+                if (en.Hobby==null)
+                {
+                    Response.Redirect("ModifyProfile.aspx");
+                }
+                else
+                {
+                    Response.Redirect("Into.aspx");
+                }
             }
        }
         
@@ -41,14 +48,21 @@ public partial class _Default : System.Web.UI.Page
         String email = TextBox5.Text;
         String nick = TextBox3.Text;
         String pass = TextBox4.Text;
-        String conf = TextBox6.Text;
         Boolean ok = false;
         System.Collections.Generic.IList<string> p_hobby = null;
 
-        UserCEN user = new UserCEN();
-        user.Create(nick, email, pass, "", "", "", "", p_hobby);
-        Label5.Text = "Register successfully";
-        Label5.Visible = true;
+        if (pass.Length >= 4 && pass.Length <= 16)
+        {
+            UserCEN user = new UserCEN();
+            user.Create(nick, email, pass, "", "", "", "", p_hobby);
+            Label5.Text = "Register successfully";
+            Label5.Visible = true;
+        }
+        else
+        {
+            Label5.Text = "Invalid Password: Length(4-16)";
+            Label5.Visible = true;
+        }
 
     }
 
