@@ -21,8 +21,8 @@
                             </asp:ListBox>
                         </td>
                         <td>
-                            <asp:Button ID="Button1" runat="server" Text=">>" />
-                            <asp:Button ID="Button2" runat="server" Text="<<" />
+                            <asp:Button ID="ButtonToRight" runat="server" Text=">>" OnClick="ButtonToRight_Click" />
+                            <asp:Button ID="ButtonToLeft" runat="server" Text="<<" OnClick="ButtonToLeft_Click" />
                         </td>
                         <td>
                             <asp:ListBox ID="ListPostHobbies" runat="server" SelectionMode="Multiple" Width="80">

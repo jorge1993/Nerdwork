@@ -17,8 +17,27 @@ public partial class PerfilPrivate : System.Web.UI.Page
 
     }
 
-    protected void GridViewTimeline_SelectedIndexChanged(object sender, EventArgs e)
+    protected void ButtonToRight_Click(object sender, EventArgs e)
+    {
+        IEnumerable<ListItem> selected = ListUserHobbies.Items.GetSelectedItems();
+
+        foreach (ListItem item in selected)
+        {
+
+        }
+    }
+
+    protected void ButtonToLeft_Click(object sender, EventArgs e)
     {
 
+    }
+}
+
+
+public static class Extensions
+{
+    public static IEnumerable<ListItem> GetSelectedItems(this ListItemCollection items)
+    {
+        return items.OfType<ListItem>().Where(item => item.Selected);
     }
 }
