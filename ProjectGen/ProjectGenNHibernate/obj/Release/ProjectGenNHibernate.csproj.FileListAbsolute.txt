@@ -28,3 +28,18 @@ C:\Users\Carlos\Desktop\Trabajos\Año 3\DSS\ProjectGen\ProjectGenNHibernate\bin\
 C:\Users\Carlos\Desktop\Trabajos\Año 3\DSS\ProjectGen\ProjectGenNHibernate\obj\Release\ProjectGenNHibernate.csprojResolveAssemblyReference.cache
 C:\Users\Carlos\Desktop\Trabajos\Año 3\DSS\ProjectGen\ProjectGenNHibernate\obj\Release\ProjectGenNHibernate.dll
 C:\Users\Carlos\Desktop\Trabajos\Año 3\DSS\ProjectGen\ProjectGenNHibernate\obj\Release\ProjectGenNHibernate.pdb
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\hibernate.cfg.xml
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\ProjectGenNHibernate.dll.config
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\ProjectGenNHibernate.dll
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\ProjectGenNHibernate.pdb
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\Castle.DynamicProxy2.dll
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\LinFu.DynamicProxy.dll
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\NHibernate.ByteCode.Castle.dll
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\NHibernate.ByteCode.LinFu.dll
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\NHibernate.dll
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\Iesi.Collections.dll
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\Antlr3.Runtime.dll
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Release\log4net.dll
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Release\ProjectGenNHibernate.csprojResolveAssemblyReference.cache
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Release\ProjectGenNHibernate.dll
+Y:\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Release\ProjectGenNHibernate.pdb

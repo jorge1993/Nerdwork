@@ -6,12 +6,17 @@
      
 #body1
 {  
-    background: url( 'images/Backgroundproyect2.png' ) no-repeat center center;   
+    background-image: url( 'images/Backgroundproyect2.png' );
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgb(255,165,75);  
 }
 
 #body2
 {
-    background: url( 'images/BackgroundMasterPage2.png' ) no-repeat center center;
-    
+   background-image: url( 'images/BackgroundMasterPage2.png' );
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgb(255,165,75);
 }
 
