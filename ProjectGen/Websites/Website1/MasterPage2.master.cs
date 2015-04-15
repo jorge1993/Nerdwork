@@ -18,8 +18,7 @@ public partial class MasterPage2 : System.Web.UI.MasterPage
         {
             Response.Redirect("First.aspx");
         }
-
-
+        
         UserCEN u = new  UserCEN();
         user = new UserEN();
         user = u.Searchbynick((String)Session["Name"]);

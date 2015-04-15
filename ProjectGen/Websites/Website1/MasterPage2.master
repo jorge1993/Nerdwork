@@ -28,7 +28,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:HyperLink ID="linkPrivateMessages" runat="server" NavigateUrl="~/First.aspx">Private Messages</asp:HyperLink>
+                            <asp:HyperLink ID="linkPrivateMessages" runat="server" NavigateUrl="~/Messages.aspx">Private Messages</asp:HyperLink>
                         </td>
                     </tr>
                     <tr><td></td></tr>
