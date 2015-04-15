@@ -1,13 +1,15 @@
 ﻿    html 
 {  
-    height: 100%;     
-} 
-body 
+    width: 100%;  
+    height: 100%;   
+}
+     
+#primera
 {  
     background: url( 'images/Backgroundproyect2.png' ) no-repeat center center;   
 }
 
-form1
+#segunda
 {
     background: url( 'images/BackgroundMasterPage2.png' ) no-repeat center center;
 }
