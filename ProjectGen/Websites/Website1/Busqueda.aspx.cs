@@ -12,6 +12,5 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         p_hobby = Request.QueryString["Hobby"];
-        HyperLink1.Text = p_hobby;
     }
 }
