@@ -37,7 +37,7 @@
                     <tr><td></td></tr>
                     <tr>
                         <td>
-                            <asp:HyperLink ID="linkModifyProfile" runat="server">Modify Profile</asp:HyperLink>
+                            <asp:HyperLink ID="linkModifyProfile" runat="server" NavigateUrl="~/ModifyProfile.aspx">Modify Profile</asp:HyperLink>
                         </td>
                     </tr>
                 </table>

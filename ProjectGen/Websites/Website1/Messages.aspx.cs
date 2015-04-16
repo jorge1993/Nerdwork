@@ -25,8 +25,28 @@ public partial class Messages : System.Web.UI.Page
 
     }
 
-    protected void Button_Click(object sender, EventArgs e)
+    protected void Button_Select(object sender, EventArgs e)
     {
+        int i;
+        for (i = 0; i < sendlist.Items.Count; i++)
+        {
+            ListItem item = sendlist.Items[i];
+            if (item.Selected == true)
+            {
+                reciever.Text = item.Text;
+            }
+        }
         
+    }
+
+    protected void Button_Send(object sender, EventArgs e)
+    {
+        String s = subject.Text;
+        String d = writebox.Text;
+        String r = reciever.Text;
+        String n = Session["NAME"].ToString();
+
+        //MessagesCEN mes = new MessagesCEN(1, subject, description, recieve, send);
+
     }
 }

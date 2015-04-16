@@ -48,7 +48,6 @@ public partial class _Default : System.Web.UI.Page
         String email = TextBox5.Text;
         String nick = TextBox3.Text;
         String pass = TextBox4.Text;
-        Boolean ok = false;
         System.Collections.Generic.IList<string> p_hobby = null;
 
         if (pass.Length >= 4 && pass.Length <= 16)
