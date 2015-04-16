@@ -50,7 +50,10 @@ Height="100%" Width="100%"></asp:TextBox>
 </p>
  
 
-<p style="float: right; margin-right: 15%";><asp:Button ID="Button" runat="server" BorderColor="#999999" 
+<p style="float: right; margin-right: 15%";>
+                          <asp:Label id="Label1" runat="server"></asp:Label>
+
+<asp:Button ID="Button" runat="server" BorderColor="#999999" 
                          BorderStyle="Solid" Text="SEND" OnClick="Button_Send"
                           />
 </p>

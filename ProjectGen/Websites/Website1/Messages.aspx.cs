@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using ProjectGenNHibernate.CEN.Project;
 using ProjectGenNHibernate.EN.Project;
@@ -41,11 +37,29 @@ public partial class Messages : System.Web.UI.Page
 
     protected void Button_Send(object sender, EventArgs e)
     {
+        int ID = 0;
         String s = subject.Text;
         String d = writebox.Text;
         String r = reciever.Text;
         String n = Session["NAME"].ToString();
 
+        MessagesCEN mes = new MessagesCEN();
+
+        mes.Create(ID, s, d, r, n);
+
+        bool creado = false;
+
+        if (creado == true)
+        {
+            Label1.Text = "Message has been sent.";
+            Label1.Visible = true;
+        }
+
+        else
+        {
+            Label1.Text = "Message has not been sent.";
+            Label1.Visible = true;
+        }
         //MessagesCEN mes = new MessagesCEN(1, subject, description, recieve, send);
 
     }
