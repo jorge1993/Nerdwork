@@ -57,12 +57,12 @@ public int Create (MessagesEN messages)
         {
                 SessionInitializeTransaction ();
                 if (messages.Userreceive != null) {
-                        messages.Userreceive = (ProjectGenNHibernate.EN.Project.UserEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.UserEN), messages.Userreceive.Nickname);
+                        messages.Userreceive = (ProjectGenNHibernate.EN.Project.UsuarioEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.UsuarioEN), messages.Userreceive.Nickname);
 
                         messages.Userreceive.Messagesreceive.Add (messages);
                 }
                 if (messages.Usersend != null) {
-                        messages.Usersend = (ProjectGenNHibernate.EN.Project.UserEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.UserEN), messages.Usersend.Nickname);
+                        messages.Usersend = (ProjectGenNHibernate.EN.Project.UsuarioEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.UsuarioEN), messages.Usersend.Nickname);
 
                         messages.Usersend.Messagessend.Add (messages);
                 }

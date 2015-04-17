@@ -3,7 +3,7 @@ using System;
 
 namespace ProjectGenNHibernate.EN.Project
 {
-public partial class UserEN
+public partial class UsuarioEN
 {
 /**
  *
@@ -133,7 +133,7 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 
 
 
-public UserEN()
+public UsuarioEN()
 {
         messagesreceive = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.MessagesEN>();
         post = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.PostEN>();
@@ -143,15 +143,15 @@ public UserEN()
 
 
 
-public UserEN(string nickname, string email, string password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
+public UsuarioEN(string nickname, string email, string password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
 {
         this.init (nickname, email, password, name, surname, phone, avatar, messagesreceive, post, messagessend, hobby);
 }
 
 
-public UserEN(UserEN user)
+public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (user.Nickname, user.Email, user.Password, user.Name, user.Surname, user.Phone, user.Avatar, user.Messagesreceive, user.Post, user.Messagessend, user.Hobby);
+        this.init (usuario.Nickname, usuario.Email, usuario.Password, usuario.Name, usuario.Surname, usuario.Phone, usuario.Avatar, usuario.Messagesreceive, usuario.Post, usuario.Messagessend, usuario.Hobby);
 }
 
 private void init (string nickname, string email, string password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
@@ -184,7 +184,7 @@ public override bool Equals (object obj)
 {
         if (obj == null)
                 return false;
-        UserEN t = obj as UserEN;
+        UsuarioEN t = obj as UsuarioEN;
         if (t == null)
                 return false;
         if (Nickname.Equals (t.Nickname))

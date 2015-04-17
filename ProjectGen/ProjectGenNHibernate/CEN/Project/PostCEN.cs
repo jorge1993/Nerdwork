@@ -45,7 +45,7 @@ public int Create (int p_id, string p_description, string p_user)
 
 
         if (p_user != null) {
-                postEN.User = new ProjectGenNHibernate.EN.Project.UserEN ();
+                postEN.User = new ProjectGenNHibernate.EN.Project.UsuarioEN ();
                 postEN.User.Nickname = p_user;
         }
 

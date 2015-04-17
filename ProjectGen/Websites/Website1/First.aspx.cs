@@ -20,10 +20,10 @@ public partial class _Default : System.Web.UI.Page
         String nick = TextBox2.Text;
         String pass = TextBox7.Text;
 
-        UserCEN user = new UserCEN();
+        UsuarioCEN user = new UsuarioCEN();
         if (user.Searchbynick(nick) != null)
         {
-            UserEN en = user.Searchbynick(nick);
+            UsuarioEN en = user.Searchbynick(nick);
             if (en.Password == pass)
             {
                 Session["Name"] = nick;
@@ -52,7 +52,7 @@ public partial class _Default : System.Web.UI.Page
 
         if (pass.Length >= 4 && pass.Length <= 16)
         {
-            UserCEN user = new UserCEN();
+            UsuarioCEN user = new UsuarioCEN();
             user.Create(nick, email, pass, "", "", "", "~/images/default_avatar.png", p_hobby);
             Label5.Text = "Register successfully";
             Label5.Visible = true;

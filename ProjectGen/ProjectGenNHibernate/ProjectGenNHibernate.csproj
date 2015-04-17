@@ -107,11 +107,11 @@
 	<Compile Include="CAD\Project\IPostCAD.cs" />
 	<Compile Include="CAD\Project\PostCAD.cs" />
 			<Compile Include="CEN\Project\PostCEN_Searchbyhobby.cs" />
-	<Compile Include="EN\Project\UserEN.cs" />
-	<Compile Include="CEN\Project\UserCEN.cs" />
-	<Compile Include="CAD\Project\IUserCAD.cs" />
-	<Compile Include="CAD\Project\UserCAD.cs" />
-			<Compile Include="CEN\Project\UserCEN_Searchbyhobby.cs" />
+	<Compile Include="EN\Project\UsuarioEN.cs" />
+	<Compile Include="CEN\Project\UsuarioCEN.cs" />
+	<Compile Include="CAD\Project\IUsuarioCAD.cs" />
+	<Compile Include="CAD\Project\UsuarioCAD.cs" />
+			<Compile Include="CEN\Project\UsuarioCEN_Searchbyhobby.cs" />
 	<Compile Include="EN\Project\MessagesEN.cs" />
 	<Compile Include="CEN\Project\MessagesCEN.cs" />
 	<Compile Include="CAD\Project\IMessagesCAD.cs" />
@@ -136,7 +136,7 @@
 		  <ItemGroup>
 		  
 	<EmbeddedResource Include="Mappings\Project\post.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Project\user.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Project\usuario.hbm.xml" />
 	<EmbeddedResource Include="Mappings\Project\messages.hbm.xml" />
 	<EmbeddedResource Include="Mappings\Project\hobby.hbm.xml" />
 	

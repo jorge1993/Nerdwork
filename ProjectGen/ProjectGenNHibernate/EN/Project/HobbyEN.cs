@@ -21,7 +21,7 @@ private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN>
  *
  */
 
-private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UserEN> user;
+private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user;
 
 
 
@@ -37,7 +37,7 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 }
 
 
-public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UserEN> User {
+public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> User {
         get { return user; } set { user = value;  }
 }
 
@@ -48,12 +48,12 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 public HobbyEN()
 {
         post = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.PostEN>();
-        user = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.UserEN>();
+        user = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.UsuarioEN>();
 }
 
 
 
-public HobbyEN(string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UserEN> user)
+public HobbyEN(string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user)
 {
         this.init (name, post, user);
 }
@@ -64,7 +64,7 @@ public HobbyEN(HobbyEN hobby)
         this.init (hobby.Name, hobby.Post, hobby.User);
 }
 
-private void init (string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UserEN> user)
+private void init (string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user)
 {
         this.Name = name;
 

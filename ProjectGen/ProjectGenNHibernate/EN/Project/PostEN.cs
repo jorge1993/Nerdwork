@@ -21,7 +21,7 @@ private string description;
  *
  */
 
-private ProjectGenNHibernate.EN.Project.UserEN user;
+private ProjectGenNHibernate.EN.Project.UsuarioEN user;
 
 /**
  *
@@ -43,7 +43,7 @@ public virtual string Description {
 }
 
 
-public virtual ProjectGenNHibernate.EN.Project.UserEN User {
+public virtual ProjectGenNHibernate.EN.Project.UsuarioEN User {
         get { return user; } set { user = value;  }
 }
 
@@ -63,7 +63,7 @@ public PostEN()
 
 
 
-public PostEN(int id, string description, ProjectGenNHibernate.EN.Project.UserEN user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
+public PostEN(int id, string description, ProjectGenNHibernate.EN.Project.UsuarioEN user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
 {
         this.init (id, description, user, hobby);
 }
@@ -74,7 +74,7 @@ public PostEN(PostEN post)
         this.init (post.Id, post.Description, post.User, post.Hobby);
 }
 
-private void init (int id, string description, ProjectGenNHibernate.EN.Project.UserEN user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
+private void init (int id, string description, ProjectGenNHibernate.EN.Project.UsuarioEN user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
 {
         this.Id = id;
 

@@ -11,7 +11,7 @@
 			
 			
 		  			
-						<many-to-one name="User" class="ProjectGenNHibernate.EN.Project.UserEN" >	
+						<many-to-one name="User" class="ProjectGenNHibernate.EN.Project.UsuarioEN" >	
 								<column name="[FK_nickname_idUser]"/>
 						</many-to-one>
 											 					

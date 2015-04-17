@@ -11,26 +11,26 @@ using ProjectGenNHibernate.Exceptions;
 
 namespace ProjectGenNHibernate.CAD.Project
 {
-public partial class UserCAD : BasicCAD, IUserCAD
+public partial class UsuarioCAD : BasicCAD, IUsuarioCAD
 {
-public UserCAD() : base ()
-{
-}
-
-public UserCAD(ISession sessionAux) : base (sessionAux)
+public UsuarioCAD() : base ()
 {
 }
 
-
-
-public UserEN ReadOIDDefault (string nickname)
+public UsuarioCAD(ISession sessionAux) : base (sessionAux)
 {
-        UserEN userEN = null;
+}
+
+
+
+public UsuarioEN ReadOIDDefault (string nickname)
+{
+        UsuarioEN usuarioEN = null;
 
         try
         {
                 SessionInitializeTransaction ();
-                userEN = (UserEN)session.Get (typeof(UserEN), nickname);
+                usuarioEN = (UsuarioEN)session.Get (typeof(UsuarioEN), nickname);
                 SessionCommit ();
         }
 
@@ -38,7 +38,7 @@ public UserEN ReadOIDDefault (string nickname)
                 SessionRollBack ();
                 if (ex is ProjectGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -47,23 +47,23 @@ public UserEN ReadOIDDefault (string nickname)
                 SessionClose ();
         }
 
-        return userEN;
+        return usuarioEN;
 }
 
 
-public string Create (UserEN user)
+public string Create (UsuarioEN usuario)
 {
         try
         {
                 SessionInitializeTransaction ();
-                if (user.Hobby != null) {
-                        for (int i = 0; i < user.Hobby.Count; i++) {
-                                user.Hobby [i] = (ProjectGenNHibernate.EN.Project.HobbyEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.HobbyEN), user.Hobby [i].Name);
-                                user.Hobby [i].User.Add (user);
+                if (usuario.Hobby != null) {
+                        for (int i = 0; i < usuario.Hobby.Count; i++) {
+                                usuario.Hobby [i] = (ProjectGenNHibernate.EN.Project.HobbyEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.HobbyEN), usuario.Hobby [i].Name);
+                                usuario.Hobby [i].User.Add (usuario);
                         }
                 }
 
-                session.Save (user);
+                session.Save (usuario);
                 SessionCommit ();
         }
 
@@ -71,7 +71,7 @@ public string Create (UserEN user)
                 SessionRollBack ();
                 if (ex is ProjectGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -80,34 +80,34 @@ public string Create (UserEN user)
                 SessionClose ();
         }
 
-        return user.Nickname;
+        return usuario.Nickname;
 }
 
-public void Modify (UserEN user)
+public void Modify (UsuarioEN usuario)
 {
         try
         {
                 SessionInitializeTransaction ();
-                UserEN userEN = (UserEN)session.Load (typeof(UserEN), user.Nickname);
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Nickname);
 
-                userEN.Email = user.Email;
-
-
-                userEN.Password = user.Password;
+                usuarioEN.Email = usuario.Email;
 
 
-                userEN.Name = user.Name;
+                usuarioEN.Password = usuario.Password;
 
 
-                userEN.Surname = user.Surname;
+                usuarioEN.Name = usuario.Name;
 
 
-                userEN.Phone = user.Phone;
+                usuarioEN.Surname = usuario.Surname;
 
 
-                userEN.Avatar = user.Avatar;
+                usuarioEN.Phone = usuario.Phone;
 
-                session.Update (userEN);
+
+                usuarioEN.Avatar = usuario.Avatar;
+
+                session.Update (usuarioEN);
                 SessionCommit ();
         }
 
@@ -115,7 +115,7 @@ public void Modify (UserEN user)
                 SessionRollBack ();
                 if (ex is ProjectGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -129,8 +129,8 @@ public void Delete (string nickname)
         try
         {
                 SessionInitializeTransaction ();
-                UserEN userEN = (UserEN)session.Load (typeof(UserEN), nickname);
-                session.Delete (userEN);
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), nickname);
+                session.Delete (usuarioEN);
                 SessionCommit ();
         }
 
@@ -138,7 +138,7 @@ public void Delete (string nickname)
                 SessionRollBack ();
                 if (ex is ProjectGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -148,14 +148,14 @@ public void Delete (string nickname)
         }
 }
 
-public UserEN Searchbynick (string nickname)
+public UsuarioEN Searchbynick (string nickname)
 {
-        UserEN userEN = null;
+        UsuarioEN usuarioEN = null;
 
         try
         {
                 SessionInitializeTransaction ();
-                userEN = (UserEN)session.Get (typeof(UserEN), nickname);
+                usuarioEN = (UsuarioEN)session.Get (typeof(UsuarioEN), nickname);
                 SessionCommit ();
         }
 
@@ -163,7 +163,7 @@ public UserEN Searchbynick (string nickname)
                 SessionRollBack ();
                 if (ex is ProjectGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -172,7 +172,7 @@ public UserEN Searchbynick (string nickname)
                 SessionClose ();
         }
 
-        return userEN;
+        return usuarioEN;
 }
 }
 }

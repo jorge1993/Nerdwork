@@ -9,7 +9,7 @@ using ProjectGenNHibernate.EN.Project;
 
 public partial class MasterPage2 : System.Web.UI.MasterPage
 {
-    private UserEN user;
+    private UsuarioEN user;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -19,8 +19,8 @@ public partial class MasterPage2 : System.Web.UI.MasterPage
             Response.Redirect("First.aspx");
         }
         
-        UserCEN u = new  UserCEN();
-        user = new UserEN();
+        UsuarioCEN u = new  UsuarioCEN();
+        user = new UsuarioEN();
         user = u.Searchbynick((String)Session["Name"]);
 
         avatar.ImageUrl = user.Avatar;

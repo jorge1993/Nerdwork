@@ -57,7 +57,7 @@ public int Create (PostEN post)
         {
                 SessionInitializeTransaction ();
                 if (post.User != null) {
-                        post.User = (ProjectGenNHibernate.EN.Project.UserEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.UserEN), post.User.Nickname);
+                        post.User = (ProjectGenNHibernate.EN.Project.UsuarioEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.UsuarioEN), post.User.Nickname);
 
                         post.User.Post.Add (post);
                 }

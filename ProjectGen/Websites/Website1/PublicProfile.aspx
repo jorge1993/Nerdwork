@@ -3,40 +3,49 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
-     <div id="profileglobal" style="width:100%;height:100%;">
-         <table style="width: 100%; height: 359px; text-align: center;">
-             <tr>
-                 <td>
-                     <asp:Image ID="Image1" runat="server" />
-                 </td>
-                 <td>
-                     <asp:Label ID="Label1" runat="server" Text="Myname"></asp:Label>
-                 </td>
-                 <td>&nbsp;</td>
-             </tr>
-             <tr>
-                 <td>&nbsp;</td>
-                 <td>
-                     <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
-                         <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-                         <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-                         <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                         <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                         <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                         <SortedAscendingCellStyle BackColor="#FFF1D4" />
-                         <SortedAscendingHeaderStyle BackColor="#B95C30" />
-                         <SortedDescendingCellStyle BackColor="#F1E5CE" />
-                         <SortedDescendingHeaderStyle BackColor="#93451F" />
-                     </asp:GridView>
-                 </td>
-                 <td>&nbsp;</td>
-             </tr>
-             <tr>
-                 <td>&nbsp;</td>
-                 <td>&nbsp;</td>
-                 <td>&nbsp;</td>
-             </tr>
-         </table>
+    <div id="profileglobal" style="width:100%;height:100%;">
+        <div id="divUser" style="height: 20%; margin-left: 2%; margin-right: 2%">
+            <table style="width: 100%; height: 100%; text-align: center;">
+                <tr>
+                    <td>
+                        <asp:Image ID="Image1" runat="server" />
+                    </td>
+                    <td>
+                        <asp:Label ID="Label1" runat="server" Text="Myname"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="divTimeline" style="height: 80%; margin-left: 2%; margin-right: 2%">
+            <div id="cabecera" style="height:25px; width:100%;">
+                <table id="cabeceraTimeline" style="width: 100%; background-color:#A55129; color:white; font-weight: bold; border-color: #DEBA84; border-style:none; border-width: 1px; text-align:center">
+                    <tr>
+                        <td style ="width:20%;">Nickname</td>
+                        <td style ="width:60%;">Post</td>
+                        <td style ="width:20%;">Hobby</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="grid" style="height:175px; width:100%; overflow:scroll;">
+                <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="false" >
+                    <Columns>
+                        <asp:BoundField DataField="FK_nickname_idUser" HeaderText="FK_nickname_idUser" SortExpression="FK_nickname_idUser" ItemStyle-Width="20%" />
+                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="60%" />
+                        <asp:BoundField DataField="FK_name_idHobby" HeaderText="FK_name_idHobby" SortExpression="FK_name_idHobby" ItemStyle-Width="20" />
+                    </Columns>
 
+                    <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+                    <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                    <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#FFF1D4" />
+                    <SortedAscendingHeaderStyle BackColor="#B95C30" />
+                    <SortedDescendingCellStyle BackColor="#F1E5CE" />
+                    <SortedDescendingHeaderStyle BackColor="#93451F" />
+                </asp:GridView>
+            </div>
+        </div>
+    </div>
 </asp:Content>
 

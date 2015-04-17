@@ -21,7 +21,7 @@
 							<key>
 									<column name="[FK_name_idHobby]"/>
 							</key>
-      						<many-to-many class="ProjectGenNHibernate.EN.Project.UserEN">
+      						<many-to-many class="ProjectGenNHibernate.EN.Project.UsuarioEN">
 									<column name="[FK_nickname_idUser]"/>
       						</many-to-many>
     					</bag>

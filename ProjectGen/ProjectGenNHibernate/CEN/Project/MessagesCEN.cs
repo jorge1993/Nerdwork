@@ -47,13 +47,13 @@ public int Create (int p_id, string p_subject, string p_description, string p_us
 
 
         if (p_userreceive != null) {
-                messagesEN.Userreceive = new ProjectGenNHibernate.EN.Project.UserEN ();
+                messagesEN.Userreceive = new ProjectGenNHibernate.EN.Project.UsuarioEN ();
                 messagesEN.Userreceive.Nickname = p_userreceive;
         }
 
 
         if (p_usersend != null) {
-                messagesEN.Usersend = new ProjectGenNHibernate.EN.Project.UserEN ();
+                messagesEN.Usersend = new ProjectGenNHibernate.EN.Project.UsuarioEN ();
                 messagesEN.Usersend.Nickname = p_usersend;
         }
 

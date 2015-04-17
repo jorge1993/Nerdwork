@@ -12,8 +12,8 @@ public partial class Messages : System.Web.UI.Page
             Response.Redirect("First.aspx");
         }
         
-        UserCEN user = new UserCEN();
-        UserEN u = new UserEN();
+        UsuarioCEN user = new UsuarioCEN();
+        UsuarioEN u = new UsuarioEN();
         u = user.Searchbynick((String)Session["Name"]);
             userslist.Items.Add("NONE");
             sendlist.Items.Add("NONE");

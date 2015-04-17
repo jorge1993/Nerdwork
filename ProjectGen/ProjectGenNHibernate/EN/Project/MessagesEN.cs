@@ -27,13 +27,13 @@ private string description;
  *
  */
 
-private ProjectGenNHibernate.EN.Project.UserEN userreceive;
+private ProjectGenNHibernate.EN.Project.UsuarioEN userreceive;
 
 /**
  *
  */
 
-private ProjectGenNHibernate.EN.Project.UserEN usersend;
+private ProjectGenNHibernate.EN.Project.UsuarioEN usersend;
 
 
 
@@ -54,12 +54,12 @@ public virtual string Description {
 }
 
 
-public virtual ProjectGenNHibernate.EN.Project.UserEN Userreceive {
+public virtual ProjectGenNHibernate.EN.Project.UsuarioEN Userreceive {
         get { return userreceive; } set { userreceive = value;  }
 }
 
 
-public virtual ProjectGenNHibernate.EN.Project.UserEN Usersend {
+public virtual ProjectGenNHibernate.EN.Project.UsuarioEN Usersend {
         get { return usersend; } set { usersend = value;  }
 }
 
@@ -73,7 +73,7 @@ public MessagesEN()
 
 
 
-public MessagesEN(int id, string subject, string description, ProjectGenNHibernate.EN.Project.UserEN userreceive, ProjectGenNHibernate.EN.Project.UserEN usersend)
+public MessagesEN(int id, string subject, string description, ProjectGenNHibernate.EN.Project.UsuarioEN userreceive, ProjectGenNHibernate.EN.Project.UsuarioEN usersend)
 {
         this.init (id, subject, description, userreceive, usersend);
 }
@@ -84,7 +84,7 @@ public MessagesEN(MessagesEN messages)
         this.init (messages.Id, messages.Subject, messages.Description, messages.Userreceive, messages.Usersend);
 }
 
-private void init (int id, string subject, string description, ProjectGenNHibernate.EN.Project.UserEN userreceive, ProjectGenNHibernate.EN.Project.UserEN usersend)
+private void init (int id, string subject, string description, ProjectGenNHibernate.EN.Project.UsuarioEN userreceive, ProjectGenNHibernate.EN.Project.UsuarioEN usersend)
 {
         this.Id = id;
 

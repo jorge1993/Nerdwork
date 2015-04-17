@@ -27,7 +27,7 @@
                         <td>
                             <asp:ListBox ID="ListUserHobbies" runat="server" Width="150px" DataSourceID="SqlDataSourceHobbyUser" DataTextField="FK_name_idHobby" DataValueField="FK_name_idHobby">
                             </asp:ListBox>
-                            <asp:SqlDataSource ID="SqlDataSourceHobbyUser" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT [FK_name_idHobby] FROM [hobby_user] WHERE ([FK_nickname_idUser] = @FK_nickname_idUser)">
+                            <asp:SqlDataSource ID="SqlDataSourceHobbyUser" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT FK_name_idHobby FROM hobby_user WHERE (FK_nickname_idUser = @FK_nickname_idUser) ORDER BY FK_name_idHobby">
                                 <SelectParameters>
                                     <asp:SessionParameter Name="FK_nickname_idUser" SessionField="Name" Type="String" />
                                 </SelectParameters>
@@ -61,9 +61,10 @@
             <div id="cabecera" style="height:25px; width:100%;">
                 <table id="cabeceraTimeline" style="width: 100%; background-color:#A55129; color:white; font-weight: bold; border-color: #DEBA84; border-style:none; border-width: 1px; text-align:center">
                     <tr>
-                        <td style ="width:20%;">Nickname</td>
+                        <td style ="width:10%;">Avatar</td>
+                        <td style ="width:15%;">Nickname</td>
                         <td style ="width:60%;">Post</td>
-                        <td style ="width:20%;">Hobby</td>
+                        <td style ="width:15%;">Hobby</td>
                     </tr>
                 </table>
             </div>
