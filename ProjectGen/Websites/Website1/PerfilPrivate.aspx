@@ -62,18 +62,32 @@
                 <table id="cabeceraTimeline" style="width: 100%; background-color:#A55129; color:white; font-weight: bold; border-color: #DEBA84; border-style:none; border-width: 1px; text-align:center">
                     <tr>
                         <td style ="width:10%;">Avatar</td>
-                        <td style ="width:15%;">Nickname</td>
-                        <td style ="width:60%;">Post</td>
-                        <td style ="width:15%;">Hobby</td>
+                        <td style ="width:20%;">Nickname</td>
+                        <td style ="width:50%;">Post</td>
+                        <td style ="width:20%;">Hobby</td>
                     </tr>
                 </table>
             </div>
             <div id="grid" style="height:175px; width:100%; overflow:scroll;">
-                <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" DataSourceID="SqlDataSourcePostsTimeline" Width="100%" Height="100%" ShowHeader="false" >
+                <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" DataSourceID="SqlDataSourcePostsTimeline" Width="100%" Height="100%" ShowHeader="False" >
                     <Columns>
-                        <asp:BoundField DataField="FK_nickname_idUser" HeaderText="FK_nickname_idUser" SortExpression="FK_nickname_idUser" ItemStyle-Width="20%" />
-                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="60%" />
-                        <asp:BoundField DataField="FK_name_idHobby" HeaderText="FK_name_idHobby" SortExpression="FK_name_idHobby" ItemStyle-Width="20" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Image ID="avatarUser" runat="server" Height="50px" Width="50px" CommandName="avatar"
+                                        CommandArgument='<%# Eval("avatar") %>'  ImageUrl='<%# Eval("avatar") %>' >
+                                </asp:Image>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField ItemStyle-Width="20%">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="nicknameLinkButton" runat="server" OnClick="NicknameLinkButton_Click" CommandName="FK_nickname_idUser"
+                                        CommandArgument='<%# Eval("FK_nickname_idUser") %>'  Text='<%# Eval("FK_nickname_idUser") %>' ></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="50%" />
+                        <asp:BoundField DataField="FK_name_idHobby" HeaderText="FK_name_idHobby" SortExpression="FK_name_idHobby" ItemStyle-Width="20%" />
                     </Columns>
 
                     <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
@@ -86,7 +100,7 @@
                     <SortedDescendingCellStyle BackColor="#F1E5CE" />
                     <SortedDescendingHeaderStyle BackColor="#93451F" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSourcePostsTimeline" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT Post.FK_nickname_idUser, Post.description, hobby_post.FK_name_idHobby FROM Post INNER JOIN hobby_post ON Post.id = hobby_post.FK_id_idPost"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSourcePostsTimeline" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT Usuario.avatar, Post.FK_nickname_idUser, Post.description, hobby_post.FK_name_idHobby FROM Post INNER JOIN hobby_post ON Post.id = hobby_post.FK_id_idPost INNER JOIN Usuario ON Usuario.nickname = Post.FK_nickname_idUser"></asp:SqlDataSource>
             </div>
         </div>
     </div>

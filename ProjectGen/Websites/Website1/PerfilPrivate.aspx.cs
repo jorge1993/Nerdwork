@@ -121,4 +121,11 @@ public partial class PerfilPrivate : System.Web.UI.Page
         cmdInsert.ExecuteNonQuery();
         thisConnection.Close();
     }
+
+    protected void NicknameLinkButton_Click(object sender, EventArgs e)
+    {
+        LinkButton pressed = sender as LinkButton;
+        String newUrl = "PublicProfile.aspx?nickname=" + pressed.Text;
+        Response.Redirect(newUrl);
+    }
 }

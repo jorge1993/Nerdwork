@@ -24,8 +24,8 @@ public partial class MasterPage2 : System.Web.UI.MasterPage
         user = u.Searchbynick((String)Session["Name"]);
 
         avatar.ImageUrl = user.Avatar;
-        avatar.Width = 80;
-        avatar.Height = 80;
+        avatar.Width = 100;
+        avatar.Height = 100;
         linkNickname.Text = user.Nickname;
     }
 
