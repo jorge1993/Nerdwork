@@ -16,7 +16,7 @@ public partial class MasterPage2 : System.Web.UI.MasterPage
 
         if (Session.Count == 0)
         {
-            Response.Redirect("First.aspx");
+           Response.Redirect("First.aspx");
         }
         
         UsuarioCEN u = new  UsuarioCEN();

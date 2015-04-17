@@ -7,10 +7,21 @@
 <div style="float: left; margin-left: 5%";>
 &nbsp;
 
-<asp:ListBox ID="userslist" runat="server" BorderColor="Black" ReadOnly="true" 
-        Height="20%" Width="100%">
-    </asp:ListBox>
-  
+<p>
+<asp:ListBox ID="recievelist" runat="server" BorderColor="Black" ReadOnly="true" 
+        Height="30%" Width="100%" DataSourceID="SqlDataSourceMail" DataTextField="FK_nickname_idUser_0" DataValueField="FK_nickname_idUser_0">
+            </asp:ListBox>
+            <asp:SqlDataSource ID="SqlDataSourceMail" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT FK_nickname_idUser_0 FROM Messages WHERE (FK_nickname_idUser = @nickname) ORDER BY ID">
+                <SelectParameters>
+                    <asp:SessionParameter Name="nickname" SessionField="Name" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+    </p>
+    <p>
+    <asp:Button ID="select" runat="server" BorderColor="#999999" 
+                         BorderStyle="Solid" Text="SELECT" OnClick="Button_SelectSee"
+                          />
+  </p>
    
 </div>
 <div style="float: right; margin-right: 5%; height:50%; width:75% ";>
@@ -29,12 +40,18 @@
 </p>
 <p>
 <asp:ListBox ID="sendlist" runat="server" BorderColor="Black" ReadOnly="true" 
-        Height="20%" Width="45%">
-    </asp:ListBox>
+        Height="20%" Width="45%" DataSourceID="SqlDataSourceMessages" DataTextField="nickname" DataValueField="nickname">
+            </asp:ListBox>
+            <asp:SqlDataSource ID="SqlDataSourceMessages" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT nickname FROM Usuario WHERE (nickname != @nickname) ORDER BY nickname">
+                <SelectParameters>
+                    <asp:SessionParameter Name="nickname" SessionField="Name" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+    
   </p>
   <p>
-  <asp:Button ID="select" runat="server" BorderColor="#999999" 
-                         BorderStyle="Solid" Text="SELECT" OnClick="Button_Select"
+  <asp:Button ID="select1" runat="server" BorderColor="#999999" 
+                         BorderStyle="Solid" Text="SELECT" OnClick="Button_SelectSend"
                           />
   </p>
    

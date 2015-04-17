@@ -28,3 +28,18 @@ E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\log4
 E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.csprojResolveAssemblyReference.cache
 E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.dll
 E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.pdb
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\hibernate.cfg.xml
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.dll.config
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.pdb
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\Iesi.Collections.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\log4net.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.csprojResolveAssemblyReference.cache
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.pdb
