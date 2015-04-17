@@ -38,7 +38,7 @@
                             <asp:Button ID="ButtonToLeft" runat="server" Text="<<" OnClick="ButtonToLeft_Click" />
                         </td>
                         <td>
-                            <asp:ListBox ID="ListPostHobbies" runat="server" S Width="150">
+                            <asp:ListBox ID="ListPostHobbies" runat="server"  Width="150">
                             </asp:ListBox>
                         </td>
                     </tr>
@@ -69,7 +69,7 @@
                 </table>
             </div>
             <div id="grid" style="height:175px; width:100%; overflow:scroll;">
-                <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" DataSourceID="SqlDataSourcePostsTimeline" Width="100%" Height="100%" ShowHeader="False" >
+                <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" DataSourceID="SqlDataSourcePostsTimeline" Width="100%" Height="100%" ShowHeader="False" OnSelectedIndexChanged="GridViewTimeline_SelectedIndexChanged" >
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>

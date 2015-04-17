@@ -23,3 +23,6 @@ E:\Mis Documentos\Dropbox\DSS Grupal\Pedro\CambioUML\ProjectGen\InitializeDB\obj
 E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\InitializeDB.exe.config
 E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
 E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+Y:\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+Y:\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+Y:\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb

@@ -4,10 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitializeDB", "InitializeD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectGenNHibernate", "ProjectGenNHibernate\ProjectGenNHibernate.csproj", "{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website1(3)", "http://localhost:2701", "{D13FE4A2-C6BE-4102-ABF2-18880AF1FF68}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website1(2)", "http://localhost:2701", "{D13FE4A2-C6BE-4102-ABF2-18880AF1FF68}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		ProjectReferences = "{66c66636-fd6a-4a3f-a7c5-fe88bba117af}|ProjectGenNHibernate.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_2701"
 		Debug.AspNetCompiler.PhysicalPath = "Websites\Website1\"
