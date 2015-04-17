@@ -5,33 +5,33 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <div id="profileglobal" style="width:100%;height:100%;">
         <div id="divUser" style="height: 20%; margin-left: 2%; margin-right: 2%">
-            <table style="width: 100%; height: 100%; text-align: center;">
+            <table style="width: 100%; text-align: center;">
                 <tr>
                     <td>
-                        <asp:Image ID="Image1" runat="server" />
+                        <asp:Image ID="avatarPublic" runat="server" />
                     </td>
                     <td>
-                        <asp:Label ID="Label1" runat="server" Text="Myname"></asp:Label>
+                        <h1>
+                            <asp:Label ID="nicknamePublic" runat="server" Text="Public Nickname"></asp:Label>
+                        </h1>
                     </td>
                 </tr>
             </table>
         </div>
-        <div id="divTimeline" style="height: 80%; margin-left: 2%; margin-right: 2%">
-            <div id="cabecera" style="height:25px; width:100%;">
-                <table id="cabeceraTimeline" style="width: 100%; background-color:#A55129; color:white; font-weight: bold; border-color: #DEBA84; border-style:none; border-width: 1px; text-align:center">
+        <div id="divTimeline" style="height: 80%; margin-left: 2%; margin-right: 2%; margin-bottom: 2%; margin-top: 2%;">
+            <div id="cabecera" style="height:40px; width:100%;">
+                <table id="cabeceraTimeline" style="width: 100%; height:100%; background-color:#A55129; color:white; font-weight: bold; border-color: #DEBA84; border-style:none; border-width: 1px; text-align:center">
                     <tr>
-                        <td style ="width:20%;">Nickname</td>
-                        <td style ="width:60%;">Post</td>
-                        <td style ="width:20%;">Hobby</td>
+                        <td style ="width:70%;">Post</td>
+                        <td style ="width:30%;">Hobby</td>
                     </tr>
                 </table>
             </div>
-            <div id="grid" style="height:175px; width:100%; overflow:scroll;">
-                <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="false" >
+            <div id="grid" style="height:330px; width:100%; overflow:scroll;">
+                <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="False" >
                     <Columns>
-                        <asp:BoundField DataField="FK_nickname_idUser" HeaderText="FK_nickname_idUser" SortExpression="FK_nickname_idUser" ItemStyle-Width="20%" />
-                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="60%" />
-                        <asp:BoundField DataField="FK_name_idHobby" HeaderText="FK_name_idHobby" SortExpression="FK_name_idHobby" ItemStyle-Width="20" />
+                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="70%" />
+                        <asp:BoundField DataField="FK_name_idHobby" HeaderText="FK_name_idHobby" SortExpression="FK_name_idHobby" ItemStyle-Width="30" />
                     </Columns>
 
                     <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
