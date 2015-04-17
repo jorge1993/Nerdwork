@@ -24,6 +24,8 @@ public partial class MasterPage2 : System.Web.UI.MasterPage
         user = u.Searchbynick((String)Session["Name"]);
 
         avatar.ImageUrl = user.Avatar;
+        avatar.Width = 80;
+        avatar.Height = 80;
         linkNickname.Text = user.Nickname;
     }
 
@@ -31,5 +33,11 @@ public partial class MasterPage2 : System.Web.UI.MasterPage
     {
         Response.Redirect("Busqueda.aspx?Hobby=" +
             TextBox1.Text);
+    }
+
+    protected void LinkButtonLogOut_Click(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Redirect("~/First.aspx", true);
     }
 }

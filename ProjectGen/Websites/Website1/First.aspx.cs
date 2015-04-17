@@ -53,7 +53,7 @@ public partial class _Default : System.Web.UI.Page
         if (pass.Length >= 4 && pass.Length <= 16)
         {
             UserCEN user = new UserCEN();
-            user.Create(nick, email, pass, "", "", "", "", p_hobby);
+            user.Create(nick, email, pass, "", "", "", "~/images/default_avatar.png", p_hobby);
             Label5.Text = "Register successfully";
             Label5.Visible = true;
         }
