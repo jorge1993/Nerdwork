@@ -128,4 +128,8 @@ public partial class PerfilPrivate : System.Web.UI.Page
         String newUrl = "PublicProfile.aspx?nickname=" + pressed.Text;
         Response.Redirect(newUrl);
     }
+    protected void GridViewTimeline_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }
