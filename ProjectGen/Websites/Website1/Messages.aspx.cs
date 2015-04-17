@@ -5,6 +5,7 @@ using ProjectGenNHibernate.EN.Project;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Data;
 
 public partial class Messages : System.Web.UI.Page
 {
@@ -12,6 +13,13 @@ public partial class Messages : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+    }
+
+    protected void NicknameLinkButton_Click(object sender, EventArgs e)
+    {
+        LinkButton pressed = sender as LinkButton;
+        String newUrl = "PublicProfile.aspx?nickname=" + pressed.Text;
+        Response.Redirect(newUrl);
     }
 
     protected void Button_SelectSee(object sender, EventArgs e)
@@ -41,12 +49,24 @@ public partial class Messages : System.Web.UI.Page
 
         if (dr.HasRows)
         {
-
+            
             while (dr.Read())
             {
                 if (dr["FK_nickname_idUser"].Equals((String)Session["NAME"]))
                 {
-                    message.Text = ((String)dr["description"]);
+                    DataTable dt = GridViewTimeline.DataSource as DataTable;
+
+                    DataRow row = dt.NewRow();
+
+                    row["campo1"] = dr["FK_nickname_idUser"];
+
+                    row["campo2"] = dr["subject"];
+
+                    row["campo3"] = dr["description"];
+
+                    dt.Rows.Add(row);
+
+                    GridViewTimeline.DataSource = dt;
                 }
 
             }
@@ -124,6 +144,11 @@ public partial class Messages : System.Web.UI.Page
         }
 
          dr.Close();
+
+    }
+
+    protected void GridViewTimeline_SelectedIndexChanged(object sender, EventArgs e)
+    {
 
     }
 }
