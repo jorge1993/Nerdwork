@@ -49,24 +49,26 @@ public partial class Messages : System.Web.UI.Page
 
         if (dr.HasRows)
         {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("nickname", typeof(string));
+            dt.Columns.Add("subject", typeof(string));
+            dt.Columns.Add("description", typeof(String));
             
             while (dr.Read())
             {
-                if (dr["FK_nickname_idUser"].Equals((String)Session["NAME"]))
+                if (dr["FK_nickname_idUser"].Equals((String)Session["NAME"]) && dr["FK_nickname_idUser_0"].Equals(selected))
                 {
-                    DataTable dt = GridViewTimeline.DataSource as DataTable;
+                    
+                    DataRow Row1;
+                    Row1 = dt.NewRow();
+                    Row1["nickname"] = dr["FK_nickname_idUser_0"];
+                    Row1["subject"] = dr["subject"];
+                    Row1["description"] = dr["description"];
 
-                    DataRow row = dt.NewRow();
-
-                    row["campo1"] = dr["FK_nickname_idUser"];
-
-                    row["campo2"] = dr["subject"];
-
-                    row["campo3"] = dr["description"];
-
-                    dt.Rows.Add(row);
-
+                    dt.Rows.Add(Row1);
                     GridViewTimeline.DataSource = dt;
+                    GridViewTimeline.DataBind();
+
                 }
 
             }

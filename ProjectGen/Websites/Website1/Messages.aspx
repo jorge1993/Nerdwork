@@ -11,7 +11,7 @@
 <asp:ListBox ID="recievelist" runat="server" BorderColor="Black" ReadOnly="true" 
         Height="30%" Width="100%" DataSourceID="SqlDataSourceMail" DataTextField="FK_nickname_idUser_0" DataValueField="FK_nickname_idUser_0">
             </asp:ListBox>
-            <asp:SqlDataSource ID="SqlDataSourceMail" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT FK_nickname_idUser_0 FROM Messages WHERE (FK_nickname_idUser = @nickname) ORDER BY ID">
+            <asp:SqlDataSource ID="SqlDataSourceMail" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT DISTINCT FK_nickname_idUser_0 FROM Messages WHERE (FK_nickname_idUser = @nickname) ORDER BY FK_nickname_idUser_0">
                 <SelectParameters>
                     <asp:SessionParameter Name="nickname" SessionField="Name" Type="String" />
                 </SelectParameters>
@@ -36,9 +36,17 @@
 
 <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="False" OnSelectedIndexChanged="GridViewTimeline_SelectedIndexChanged" >
                     <Columns>
+                    <asp:TemplateField ItemStyle-Width="20%">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="nicknameLinkButton" runat="server" OnClick="NicknameLinkButton_Click" CommandName="nickname"
+                                        CommandArgument='<%# Eval("nickname") %>'  Text='<%# Eval("nickname") %>' ></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
                         <asp:BoundField DataField="nickname" HeaderText="nickname" SortExpression="nickname" ItemStyle-Width="20%" />
+                        <asp:BoundField DataField="subject" HeaderText="subject" SortExpression="subject" ItemStyle-Width="20%" />
                         <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="50%" />
-                        <asp:BoundField DataField="FK_name_idHobby" HeaderText="FK_name_idHobby" SortExpression="FK_name_idHobby" ItemStyle-Width="20%" />
+                        
                     </Columns>
 
                     <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
