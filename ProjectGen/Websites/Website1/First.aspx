@@ -156,13 +156,15 @@
             </table> 
         </div>
 
-        <div id="description"; style="float: left; width: 300px;margin-left: 150px; margin-top: 150px">            
-            <h2>
-                Connect with your friends — and other fascinating people. 
+        <div id="description"; style="float: left; width: 400px;margin-left: 150px; margin-top: 150px">            
+            <h2 style="color: rgb(52, 50, 50)">
+                Met people like you with unusual hobbies. 
                 <br />
-                Get in-the-moment updates on the things that interest you. 
                 <br />
-                And watch events unfold, in real time, from every angle.
+                Post your thinkings about a specific topic or topics. 
+                <br />
+                <br />
+                And create groups and events around a topic.
             </h2> 
             <h3>
 	            <a href="AboutUS.aspx">About US</a>  
