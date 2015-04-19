@@ -13,15 +13,16 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        UsuarioCEN usuario = new UsuarioCEN();
+        if(Session["Name"] != null) {
+            UsuarioCEN usuario = new UsuarioCEN();
 
-        UsuarioEN usuario2 = new UsuarioEN();
-        usuario2 = usuario.Searchbynick((String)Session["Name"]);
+            UsuarioEN usuario2 = new UsuarioEN();
+            usuario2 = usuario.Searchbynick((String)Session["Name"]);
 
-        Image1.ImageUrl = usuario2.Avatar;
-
-
+            Image1.ImageUrl = usuario2.Avatar;
+        }
     }
+
     protected void Toleft_Click(object sender, EventArgs e)
     {
         int i;
@@ -64,7 +65,7 @@ public partial class _Default : System.Web.UI.Page
         String nombredefoto = Image1.ImageUrl;
         if (FileUpload1.FileName != "")
         {
-            nombredefoto = "~/images/" + FileUpload1.FileName + usuario2.Name;
+            nombredefoto = "~/images/" + usuario2.Name + FileUpload1.FileName;
             FileUpload1.SaveAs(Server.MapPath(nombredefoto));
         }
 
@@ -83,9 +84,9 @@ public partial class _Default : System.Web.UI.Page
         cmdInsert2.ExecuteNonQuery();
         thisConnection2.Close();
 
-        int i;
-        for (i = 0; i < ListUserHobbies.Items.Count; i++)
-        {
+       int i;
+       for (i = 0; i < ListUserHobbies.Items.Count; i++)
+       {
             String hobbyinsert = ListUserHobbies.Items[i].Text;
             String stmt = "INSERT INTO hobby_user (FK_nickname_idUser,FK_name_idHobby) VALUES (@nombredeusuario, @hobbyinsert)";
 
@@ -99,6 +100,6 @@ public partial class _Default : System.Web.UI.Page
             thisConnection.Open();
             cmdInsert.ExecuteNonQuery();
             thisConnection.Close();
-        }
+      }
     }
 }

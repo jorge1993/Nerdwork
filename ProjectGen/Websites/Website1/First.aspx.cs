@@ -85,10 +85,18 @@ public partial class _Default : System.Web.UI.Page
 
         if (pass.Length >= 4 && pass.Length <= 16)
         {
-            UsuarioCEN user = new UsuarioCEN();
-            user.Create(nick, email, pass, "", "", "", "~/images/default_avatar.png", null);
-            Label5.Text = "Register successfully";
-            Label5.Visible = true;
+            try
+            {
+                UsuarioCEN user = new UsuarioCEN();
+                user.Create(nick, email, pass, "", "", "", "~/images/default_avatar.png", null);
+                Label5.Text = "Register successfully";
+                Label5.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                Label5.Text = "Error: user already exists";
+                Label5.Visible = true;
+            }
         }
         else
         {
