@@ -23,15 +23,22 @@
                     <td><asp:Image ID="Image1" runat="server" Height="100px" Width="100px" /></td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">
-                        <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+                        <asp:ListBox ID="ListAllHobbies" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name"></asp:ListBox>
+                       
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT [name] FROM [Hobby]"></asp:SqlDataSource>
                        
                     </td>
-                    <td> <asp:Button ID="Button1" runat="server" Text="Button" /><br>
-                        <asp:Button ID="Button2" runat="server" Text="Button" Width="56px" />
+                    <td> <asp:Button ID="Toleft" runat="server" Text="&gt;" OnClick="Toleft_Click" style="width: 22px" /><br>
+                        <asp:Button ID="ToRight" runat="server" Text="&lt;" Width="56px" OnClick="ToRight_Click" />
 
                     </td>
                     <td>
-                        <asp:ListBox ID="ListBox2" runat="server"></asp:ListBox>
+                        <asp:ListBox ID="ListUserHobbies" runat="server" DataSourceID="SqlDataSource2" DataTextField="FK_name_idHobby" DataValueField="FK_name_idHobby"></asp:ListBox>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT [FK_name_idHobby] FROM [hobby_user] WHERE ([FK_nickname_idUser] = @FK_nickname_idUser)">
+                            <SelectParameters>
+                                <asp:SessionParameter Name="FK_nickname_idUser" SessionField="Name" Type="String" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -51,7 +58,7 @@
                     <td class="auto-style1">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:Button ID="Button3" runat="server" Text="Button" />
+                        <asp:Button ID="Save" runat="server" Text="Save changes" OnClick="Save_Click" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
