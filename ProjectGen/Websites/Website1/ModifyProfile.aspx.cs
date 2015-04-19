@@ -20,6 +20,8 @@ public partial class _Default : System.Web.UI.Page
             usuario2 = usuario.Searchbynick((String)Session["Name"]);
 
             Image1.ImageUrl = usuario2.Avatar;
+
+            Save_Click(null, null);
         }
     }
 
