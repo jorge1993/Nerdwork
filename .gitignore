@@ -2,3 +2,7 @@
 ProjectGen/ProjectGenNHibernate/obj/Release/ProjectGenNHibernate.csproj.FileListAbsolute.txt
 
 ProjectGen/ProjectGenNHibernate/obj/Release/ProjectGenNHibernate.csproj.FileListAbsolute.txt
+
+*.suo
+
+ProjectGen/ProjectGenNHibernate.v11.suo
