@@ -20,8 +20,6 @@ public partial class _Default : System.Web.UI.Page
             usuario2 = usuario.Searchbynick((String)Session["Name"]);
 
             Image1.ImageUrl = usuario2.Avatar;
-
-            Save_Click(null, null);
         }
     }
 
@@ -100,7 +98,16 @@ public partial class _Default : System.Web.UI.Page
             cmdInsert.Parameters.AddWithValue("hobbyinsert", hobbyinsert);
 
             thisConnection.Open();
-            cmdInsert.ExecuteNonQuery();
+            try
+            {
+                cmdInsert.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // Hago esto porque no entiendo el error que da al pulsar el botón Save sólo 
+                // si es la primera vez que entro y sólo al guardar los hobbies.
+                Save_Click(sender, e);
+            }
             thisConnection.Close();
       }
     }
