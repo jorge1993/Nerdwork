@@ -25,7 +25,11 @@
                     <td class="auto-style1">
                         <asp:ListBox ID="ListAllHobbies" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name"></asp:ListBox>
                        
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT [name] FROM [Hobby]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT name FROM Hobby WHERE (name NOT IN (SELECT FK_name_idHobby FROM hobby_user  WHERE (FK_nickname_idUser = @name)))">
+                            <SelectParameters>
+                                <asp:SessionParameter DefaultValue="" Name="name" SessionField="Name" Type="String" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                        
                     </td>
                     <td> <asp:Button ID="Toleft" runat="server" Text="&gt;" OnClick="Toleft_Click" style="width: 22px" /><br>
