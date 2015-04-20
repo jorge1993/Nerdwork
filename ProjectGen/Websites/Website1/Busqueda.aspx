@@ -30,19 +30,19 @@
 
 
     </div>
-    <div id="left" style=" float: left;">
+    <div id="left" style=" float: left; margin-left: 5px">
         <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="70%" DataKeyNames="nickname" DataSourceID="SqlDataSource1" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="60%" DataKeyNames="nickname" DataSourceID="SqlDataSource1" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                 <Columns>
-                    <asp:TemplateField HeaderText="Avatar">
+                    <asp:TemplateField HeaderText="Avatar" ItemStyle-Width="20%">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("avatar") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("avatar") %>' />
+                            <asp:Image ID="Image1" runat="server" Width="100px" Height="100px" ImageUrl='<%# Eval("avatar") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Nick" SortExpression="nickname">
+                    <asp:TemplateField HeaderText="Nick" SortExpression="nickname" ItemStyle-Width="20%">
                         <ItemTemplate>
                             <asp:LinkButton ID="LinkButton1" runat="server"  OnClick="NicknameLinkButton_Click" Text='<%# Eval("nickname") %>'></asp:LinkButton>
                         </ItemTemplate>
@@ -66,9 +66,14 @@
         <br />
         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="nickname" DataSourceID="SqlDataSource2">
             <Columns>
-                <asp:ImageField DataImageUrlField="avatar" HeaderText="Avatar">
-                    <ItemStyle Height="20px" Width="20px" />
-                </asp:ImageField>
+                <asp:TemplateField HeaderText="Avatar" ItemStyle-Width="20%">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("avatar") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Image ID="Image1" runat="server" Width="100px" Height="100px" ImageUrl='<%# Eval("avatar") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 <asp:TemplateField HeaderText="Nick">
                     <ItemTemplate>
                         <asp:LinkButton ID="LinkButton2" runat="server"  OnClick="NicknameLinkButton_Click" NavigateUrl="" Text='<%# Eval("nickname") %>'></asp:LinkButton>
