@@ -20,6 +20,7 @@ public partial class _Default : System.Web.UI.Page
             usuario2 = usuario.Searchbynick((String)Session["Name"]);
 
             Image1.ImageUrl = usuario2.Avatar;
+            SavedText.Text = "";
         }
     }
 
@@ -110,5 +111,8 @@ public partial class _Default : System.Web.UI.Page
             }
             thisConnection.Close();
       }
+       SavedText.Text = "Changes Saved";
+       Response.Redirect("~/ModifyProfile.aspx");
+
     }
 }

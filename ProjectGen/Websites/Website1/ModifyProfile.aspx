@@ -23,6 +23,7 @@
                     <td><asp:Image ID="Image1" runat="server" Height="100px" Width="100px" /></td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">
+                        <strong>List of Hobbies</strong><br />
                         <asp:ListBox ID="ListAllHobbies" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name"></asp:ListBox>
                        
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT name FROM Hobby WHERE (name NOT IN (SELECT FK_name_idHobby FROM hobby_user  WHERE (FK_nickname_idUser = @name)))">
@@ -33,10 +34,11 @@
                        
                     </td>
                     <td> <asp:Button ID="Toleft" runat="server" Text="&gt;" OnClick="Toleft_Click" style="width: 22px" /><br>
-                        <asp:Button ID="ToRight" runat="server" Text="&lt;" Width="56px" OnClick="ToRight_Click" />
+                        <asp:Button ID="ToRight" runat="server" Text="&lt;" OnClick="ToRight_Click" />
 
                     </td>
                     <td>
+                        <strong>My Hobbies</strong><br />
                         <asp:ListBox ID="ListUserHobbies" runat="server" DataSourceID="SqlDataSource2" DataTextField="FK_name_idHobby" DataValueField="FK_name_idHobby"></asp:ListBox>
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT [FK_name_idHobby] FROM [hobby_user] WHERE ([FK_nickname_idUser] = @FK_nickname_idUser)">
                             <SelectParameters>
@@ -48,7 +50,8 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
-                    <td><asp:FileUpload ID="FileUpload1" runat="server" /></td>
+                    <td>Upload your photo<br />
+                        <asp:FileUpload ID="FileUpload1" runat="server" /></td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
                     <td>&nbsp;</td>
@@ -63,6 +66,8 @@
                     <td>&nbsp;</td>
                     <td>
                         <asp:Button ID="Save" runat="server" Text="Save changes" OnClick="Save_Click" />
+                        <br />
+                        <asp:Label ID="SavedText" runat="server" style="font-weight: 700" Text="Label"></asp:Label>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
