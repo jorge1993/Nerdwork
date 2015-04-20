@@ -102,50 +102,63 @@ public partial class Messages : System.Web.UI.Page
         String r = reciever.Text;
         String n = Session["NAME"].ToString();
 
-        MessagesCEN mes = new MessagesCEN();
-        
-        String stmt1 = "SELECT MAX(ID) from Messages";
-        String con = ConfigurationManager.ConnectionStrings["ProjectGenNHibernateConnectionString"].ToString();
-
-        SqlConnection thisConnection = new SqlConnection(con);
-        SqlCommand cmdSelect = new SqlCommand(stmt1, thisConnection);
-        
-        thisConnection.Open();
-
-        SqlDataReader dr = cmdSelect.ExecuteReader();
-
-        if (dr.HasRows)
+        if (subject.Text == "" || subject.Text == null)
         {
-            dr.Read();
-            ID = (int)dr[0]+1;
+            Label1.Text = "Subject is needed";
+            Label1.Visible = true;
         }
-        else
+        else if (writebox.Text == "" || writebox.Text == null)
         {
-            ID = 0;
-        }       
-
-        String stmt2 = "SELECT ID from Messages where ID = " + ID.ToString();
-
-        mes.Create(ID, s, d, r, n);
-
-        SqlCommand cmdSelect2 = new SqlCommand(stmt2, thisConnection);
-
-        dr.Close();
-
-        SqlDataReader dr2 = cmdSelect.ExecuteReader();
-
-        if (dr2.HasRows)
-        {
-            Label1.Text = "Message has been sent.";
+            Label1.Text = "A message is needed";
             Label1.Visible = true;
         }
         else
         {
-            Label1.Text = "Message has not been sent.";
-            Label1.Visible = true;
-        }
+            MessagesCEN mes = new MessagesCEN();
 
-         dr.Close();
+            String stmt1 = "SELECT MAX(ID) from Messages";
+            String con = ConfigurationManager.ConnectionStrings["ProjectGenNHibernateConnectionString"].ToString();
+
+            SqlConnection thisConnection = new SqlConnection(con);
+            SqlCommand cmdSelect = new SqlCommand(stmt1, thisConnection);
+
+            thisConnection.Open();
+
+            SqlDataReader dr = cmdSelect.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                dr.Read();
+                ID = (int)dr[0] + 1;
+            }
+            else
+            {
+                ID = 0;
+            }
+
+            String stmt2 = "SELECT ID from Messages where ID = " + ID.ToString();
+
+            mes.Create(ID, s, d, r, n);
+
+            SqlCommand cmdSelect2 = new SqlCommand(stmt2, thisConnection);
+
+            dr.Close();
+
+            SqlDataReader dr2 = cmdSelect.ExecuteReader();
+
+            if (dr2.HasRows)
+            {
+                Label1.Text = "Message has been sent.";
+                Label1.Visible = true;
+            }
+            else
+            {
+                Label1.Text = "Message has not been sent.";
+                Label1.Visible = true;
+            }
+
+            dr.Close();
+        }
 
     }
 

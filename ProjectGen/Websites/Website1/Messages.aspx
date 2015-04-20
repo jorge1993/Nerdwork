@@ -5,8 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
 
 <div style="float: left; margin-left: 5%";>
-&nbsp;
-
+INBOX
 <p>
 <asp:ListBox ID="recievelist" runat="server" BorderColor="Black" ReadOnly="true" 
         Height="30%" Width="100%" DataSourceID="SqlDataSourceMail" DataTextField="FK_nickname_idUser_0" DataValueField="FK_nickname_idUser_0">
@@ -96,8 +95,7 @@ SUBJECT <asp:TextBox ID="subject" runat="server" BorderColor="Black" Height="8%"
 
 <p style="float: right; margin-right: 5%; height:50%; width:100% ";>
 
-<asp:TextBox ID="writebox" runat="server" BorderColor="Black" 
-Height="100%" Width="100%"></asp:TextBox>
+<asp:TextBox ID="writebox" runat="server" BorderColor="Black" Height="100%" Width="100%" TextMode="MultiLine"></asp:TextBox>
 </p>
  
 
