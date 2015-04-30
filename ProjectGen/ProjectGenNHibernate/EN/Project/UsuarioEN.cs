@@ -21,7 +21,7 @@ private string email;
  *
  */
 
-private string password;
+private String password;
 
 /**
  *
@@ -85,7 +85,7 @@ public virtual string Email {
 }
 
 
-public virtual string Password {
+public virtual String Password {
         get { return password; } set { password = value;  }
 }
 
@@ -143,7 +143,7 @@ public UsuarioEN()
 
 
 
-public UsuarioEN(string nickname, string email, string password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
+public UsuarioEN(string nickname, string email, String password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
 {
         this.init (nickname, email, password, name, surname, phone, avatar, messagesreceive, post, messagessend, hobby);
 }
@@ -154,7 +154,7 @@ public UsuarioEN(UsuarioEN usuario)
         this.init (usuario.Nickname, usuario.Email, usuario.Password, usuario.Name, usuario.Surname, usuario.Phone, usuario.Avatar, usuario.Messagesreceive, usuario.Post, usuario.Messagessend, usuario.Hobby);
 }
 
-private void init (string nickname, string email, string password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
+private void init (string nickname, string email, String password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
 {
         this.Nickname = nickname;
 

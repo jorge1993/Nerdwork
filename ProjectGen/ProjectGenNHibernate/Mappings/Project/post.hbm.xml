@@ -33,5 +33,6 @@
 		  </class>
 		  
 		  <query name="PostENReadAllHQL">from PostEN</query>
+		  <query name="PostENgetMaxHQL"><![CDATA[select max(id) FROM PostEN]]></query>
 		</hibernate-mapping>
 	

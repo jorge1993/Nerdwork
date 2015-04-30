@@ -32,7 +32,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public string Create (string p_nickname, string p_email, string p_password, string p_name, string p_surname, string p_phone, string p_avatar, System.Collections.Generic.IList<string> p_hobby)
+public string Create (string p_nickname, string p_email, String p_password, string p_name, string p_surname, string p_phone, string p_avatar, System.Collections.Generic.IList<string> p_hobby)
 {
         UsuarioEN usuarioEN = null;
         string oid;
@@ -43,7 +43,7 @@ public string Create (string p_nickname, string p_email, string p_password, stri
 
         usuarioEN.Email = p_email;
 
-        usuarioEN.Password = p_password;
+        usuarioEN.Password = Utils.Util.GetEncondeMD5 (p_password);
 
         usuarioEN.Name = p_name;
 
@@ -73,7 +73,7 @@ public string Create (string p_nickname, string p_email, string p_password, stri
         return oid;
 }
 
-public void Modify (string p_Usuario_OID, string p_email, string p_password, string p_name, string p_surname, string p_phone, string p_avatar)
+public void Modify (string p_Usuario_OID, string p_email, String p_password, string p_name, string p_surname, string p_phone, string p_avatar)
 {
         UsuarioEN usuarioEN = null;
 
@@ -81,7 +81,7 @@ public void Modify (string p_Usuario_OID, string p_email, string p_password, str
         usuarioEN = new UsuarioEN ();
         usuarioEN.Nickname = p_Usuario_OID;
         usuarioEN.Email = p_email;
-        usuarioEN.Password = p_password;
+        usuarioEN.Password = Utils.Util.GetEncondeMD5 (p_password);
         usuarioEN.Name = p_name;
         usuarioEN.Surname = p_surname;
         usuarioEN.Phone = p_phone;

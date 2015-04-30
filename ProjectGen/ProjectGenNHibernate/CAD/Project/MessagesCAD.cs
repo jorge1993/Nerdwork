@@ -110,5 +110,95 @@ public void Delete (int id)
                 SessionClose ();
         }
 }
+
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> GetSend (string usuario)
+{
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MessagesEN self where FROM MessagesEN Where usersend = :usuario ";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MessagesENgetSendHQL");
+                query.SetParameter ("usuario", usuario);
+
+                result = query.List<ProjectGenNHibernate.EN.Project.MessagesEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in MessagesCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> GetMax ()
+{
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MessagesEN self where select Max(message.id) FROM MessagesEN as message";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MessagesENgetMaxHQL");
+
+                result = query.List<ProjectGenNHibernate.EN.Project.MessagesEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in MessagesCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> GetReceive (string arg0)
+{
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MessagesEN self where FROM MessagesEN Where userreceive = :usuario ";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MessagesENgetReceiveHQL");
+                query.SetParameter ("arg0", arg0);
+
+                result = query.List<ProjectGenNHibernate.EN.Project.MessagesEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in MessagesCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

@@ -67,5 +67,18 @@ public void Delete (int id)
 {
         _IMessagesCAD.Delete (id);
 }
+
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> GetSend (string usuario)
+{
+        return _IMessagesCAD.GetSend (usuario);
+}
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> GetMax ()
+{
+        return _IMessagesCAD.GetMax ();
+}
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> GetReceive (string arg0)
+{
+        return _IMessagesCAD.GetReceive (arg0);
+}
 }
 }

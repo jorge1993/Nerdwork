@@ -72,5 +72,9 @@ public void DeleteHobbies (int p_Post_OID, System.Collections.Generic.IList<stri
 
         _IPostCAD.DeleteHobbies (p_Post_OID, p_hobby_OIDs);
 }
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> GetMax ()
+{
+        return _IPostCAD.GetMax ();
+}
 }
 }
