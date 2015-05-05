@@ -8,13 +8,8 @@
 INBOX
 <p>
 <asp:ListBox ID="recievelist" runat="server" BorderColor="Black" ReadOnly="true" 
-        Height="30%" Width="100%" DataSourceID="SqlDataSourceMail" DataTextField="FK_nickname_idUser_0" DataValueField="FK_nickname_idUser_0">
+        Height="30%" Width="100%">
             </asp:ListBox>
-            <asp:SqlDataSource ID="SqlDataSourceMail" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT DISTINCT FK_nickname_idUser_0 FROM Messages WHERE (FK_nickname_idUser = @nickname) ORDER BY FK_nickname_idUser_0">
-                <SelectParameters>
-                    <asp:SessionParameter Name="nickname" SessionField="Name" Type="String" />
-                </SelectParameters>
-            </asp:SqlDataSource>
     </p>
     <p>
     <asp:Button ID="select" runat="server" BorderColor="#999999" 
@@ -32,7 +27,7 @@ INBOX
                         <td style ="width:50%;">Description</td>
                     </tr>
                 </table>
-
+<asp:GridView ID="GridView1" runat="server"></asp:GridView>
 <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="False" OnSelectedIndexChanged="GridViewTimeline_SelectedIndexChanged" >
                     <Columns>
                     <asp:TemplateField ItemStyle-Width="20%">

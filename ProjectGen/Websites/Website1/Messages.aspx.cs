@@ -1,17 +1,28 @@
 ﻿using System;
 using System.Web.UI.WebControls;
-using ProjectGenNHibernate.CEN.Project;
-using ProjectGenNHibernate.EN.Project;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Data;
+using ProjectGenNHibernate.CEN.Project;
+using ProjectGenNHibernate;
+using ProjectGenNHibernate.CAD.Project;
+using System.Collections.Generic;
 
 public partial class Messages : System.Web.UI.Page
 {
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        ProjectGenNHibernate.CEN.Project.MessagesCEN m = new ProjectGenNHibernate.CEN.Project.MessagesCEN();
+        IList<String> dr = m.GetUserReceive((string)Session["NAME"]);
+
+        //recievelist.Items.Clear();
+        foreach (string s in dr) 
+        {
+            recievelist.Items.Add(s);
+        }
+        //recievelist.DataSource = dr;
 
     }
 
@@ -25,57 +36,32 @@ public partial class Messages : System.Web.UI.Page
     protected void Button_SelectSee(object sender, EventArgs e)
     {
         int i;
-        String selected = "";
+        
+        string selected = recievelist.SelectedItem.Text;
+       
+        ProjectGenNHibernate.CEN.Project.MessagesCEN m = new ProjectGenNHibernate.CEN.Project.MessagesCEN();
+        
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> dr;
 
-        for (i = 0; i < recievelist.Items.Count; i++)
-        {
-            ListItem item = recievelist.Items[i];
-            if (item.Selected == true)
-            {
-                selected = item.Text;
-                break;
-            }
+        dr = m.GetReceive(selected, (string)Session["NAME"]);
+         
+        DataTable dt = new DataTable();
+        dt.Columns.Add("nickname", typeof(string));
+        dt.Columns.Add("subject", typeof(string));
+        dt.Columns.Add("description", typeof(String));
+
+        for (int j = 0; j < dr.Count; j++) {
+
+            DataRow Row1;
+            Row1 = dt.NewRow();
+            Row1["nickname"] = selected;
+            Row1["subject"] = dr[j].Subject;
+            Row1["description"] = dr[j].Description;
+
+            dt.Rows.Add(Row1);
+            GridViewTimeline.DataSource = dt;
+            GridViewTimeline.DataBind();
         }
-
-        String stmt = "SELECT * from Messages";
-        String con = ConfigurationManager.ConnectionStrings["ProjectGenNHibernateConnectionString"].ToString();
-
-        SqlConnection thisConnection = new SqlConnection(con);
-        SqlCommand cmdSelect = new SqlCommand(stmt, thisConnection);
-
-        thisConnection.Open();
-
-        SqlDataReader dr = cmdSelect.ExecuteReader();
-
-        if (dr.HasRows)
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("nickname", typeof(string));
-            dt.Columns.Add("subject", typeof(string));
-            dt.Columns.Add("description", typeof(String));
-            
-            while (dr.Read())
-            {
-                if (dr["FK_nickname_idUser"].Equals((String)Session["NAME"]) && dr["FK_nickname_idUser_0"].Equals(selected))
-                {
-                    
-                    DataRow Row1;
-                    Row1 = dt.NewRow();
-                    Row1["nickname"] = dr["FK_nickname_idUser_0"];
-                    Row1["subject"] = dr["subject"];
-                    Row1["description"] = dr["description"];
-
-                    dt.Rows.Add(Row1);
-                    GridViewTimeline.DataSource = dt;
-                    GridViewTimeline.DataBind();
-
-                }
-
-            }
-        }
-
-        thisConnection.Close();
-
     }
 
 

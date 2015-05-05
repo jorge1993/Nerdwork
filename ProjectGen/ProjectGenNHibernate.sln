@@ -8,6 +8,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website1(4)", "http://local
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{66c66636-fd6a-4a3f-a7c5-fe88bba117af}|ProjectGenNHibernate.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_1835"
 		Debug.AspNetCompiler.PhysicalPath = "WebSites\Website1\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1835\"

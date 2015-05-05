@@ -13,3 +13,18 @@
 \\psf\Home\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.csprojResolveAssemblyReference.cache
 \\psf\Home\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.dll
 \\psf\Home\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.pdb
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\hibernate.cfg.xml
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.dll.config
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.pdb
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\Iesi.Collections.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\bin\Debug\log4net.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.pdb
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.csprojResolveAssemblyReference.cache

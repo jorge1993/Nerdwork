@@ -101,6 +101,10 @@
 	<Compile Include="CEN\Project\MessagesCEN.cs" />
 	<Compile Include="CAD\Project\IMessagesCAD.cs" />
 	<Compile Include="CAD\Project\MessagesCAD.cs" />
+			<Compile Include="CEN\Project\MessagesCEN_GetSend.cs" />
+			<Compile Include="CEN\Project\MessagesCEN_GetMax.cs" />
+			<Compile Include="CEN\Project\MessagesCEN_GetReceive.cs" />
+			<Compile Include="CEN\Project\MessagesCEN_GetUserReceive.cs" />
 	<Compile Include="EN\Project\HobbyEN.cs" />
 	<Compile Include="CEN\Project\HobbyCEN.cs" />
 	<Compile Include="CAD\Project\IHobbyCAD.cs" />

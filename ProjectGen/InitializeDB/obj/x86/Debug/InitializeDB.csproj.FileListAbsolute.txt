@@ -1,4 +1,3 @@
-\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\InitializeDB.exe.config
 Y:\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\bin\Debug\InitializeDB.exe.config
 \\psf\Home\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\bin\Debug\InitializeDB.exe.config
 \\psf\Home\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\bin\Debug\hibernate.cfg.xml
@@ -19,3 +18,22 @@ Y:\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\bin\Debug\InitializeDB
 \\psf\Home\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.csprojResolveAssemblyReference.cache
 \\psf\Home\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
 \\psf\Home\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\hibernate.cfg.xml
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\InitializeDB.exe
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\InitializeDB.pdb
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\Antlr3.Runtime.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\Castle.DynamicProxy2.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\Iesi.Collections.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\LinFu.DynamicProxy.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\log4net.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\NHibernate.ByteCode.Castle.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\NHibernate.ByteCode.LinFu.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\NHibernate.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\nunit.core.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\nunit.framework.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\ProjectGenNHibernate.dll
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\bin\Debug\ProjectGenNHibernate.pdb
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.csprojResolveAssemblyReference.cache
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+\\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
