@@ -29,8 +29,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN>
 
         foreach (HobbyEN hobianos in useren.Hobby)
         {
-            if (hobianos.User == useren)
-                lista.Add(hobianos);
+            lista.Add(hobianos);
         }
         SessionCommit();
     }
