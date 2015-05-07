@@ -183,5 +183,34 @@ public void DeleteHobbies (int p_Post_OID, System.Collections.Generic.IList<stri
                 SessionClose ();
         }
 }
+public System.Collections.Generic.IList<PostEN> GetAllPost (int first, int size)
+{
+        System.Collections.Generic.IList<PostEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(PostEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<PostEN>();
+                else
+                        result = session.CreateCriteria (typeof(PostEN)).List<PostEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in PostCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

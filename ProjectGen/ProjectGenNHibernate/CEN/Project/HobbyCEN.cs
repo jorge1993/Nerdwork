@@ -54,5 +54,13 @@ public HobbyEN Search (string name)
         hobbyEN = _IHobbyCAD.Search (name);
         return hobbyEN;
 }
+
+public System.Collections.Generic.IList<HobbyEN> GetAllHobby (int first, int size)
+{
+        System.Collections.Generic.IList<HobbyEN> list = null;
+
+        list = _IHobbyCAD.GetAllHobby (first, size);
+        return list;
+}
 }
 }

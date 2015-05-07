@@ -70,5 +70,12 @@ public void DeleteHobbies (int p_Post_OID, System.Collections.Generic.IList<stri
 
         _IPostCAD.DeleteHobbies (p_Post_OID, p_hobby_OIDs);
 }
+public System.Collections.Generic.IList<PostEN> GetAllPost (int first, int size)
+{
+        System.Collections.Generic.IList<PostEN> list = null;
+
+        list = _IPostCAD.GetAllPost (first, size);
+        return list;
+}
 }
 }

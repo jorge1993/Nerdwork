@@ -56,3 +56,5 @@ D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\nunit.framework.
 D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\ProjectGenNHibernate.dll
 D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\ProjectGenNHibernate.pdb
 D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.csprojResolveAssemblyReference.cache
+Y:\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+Y:\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb

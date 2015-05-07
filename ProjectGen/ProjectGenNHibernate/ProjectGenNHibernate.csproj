@@ -113,7 +113,6 @@
 	<Compile Include="CAD\Project\IUsuarioCAD.cs" />
 	<Compile Include="CAD\Project\UsuarioCAD.cs" />
 			<Compile Include="CEN\Project\UsuarioCEN_HasHobbies.cs" />
-			<Compile Include="CEN\Project\UsuarioCEN_GetAllUsers.cs" />
 	<Compile Include="EN\Project\MessagesEN.cs" />
 	<Compile Include="CEN\Project\MessagesCEN.cs" />
 	<Compile Include="CAD\Project\IMessagesCAD.cs" />

@@ -22,5 +22,8 @@ UsuarioEN Searchbynick (string nickname);
 void AddHobbies (string p_Usuario_OID, System.Collections.Generic.IList<string> p_hobby_OIDs);
 
 void DeleteHobbies (string p_Usuario_OID, System.Collections.Generic.IList<string> p_hobby_OIDs);
+
+
+System.Collections.Generic.IList<UsuarioEN> GetAllUsers (int first, int size);
 }
 }

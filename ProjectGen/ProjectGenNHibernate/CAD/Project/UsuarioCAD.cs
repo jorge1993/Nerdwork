@@ -252,5 +252,34 @@ public void DeleteHobbies (string p_Usuario_OID, System.Collections.Generic.ILis
                 SessionClose ();
         }
 }
+public System.Collections.Generic.IList<UsuarioEN> GetAllUsers (int first, int size)
+{
+        System.Collections.Generic.IList<UsuarioEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(UsuarioEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<UsuarioEN>();
+                else
+                        result = session.CreateCriteria (typeof(UsuarioEN)).List<UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

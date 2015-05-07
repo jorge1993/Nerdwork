@@ -103,5 +103,35 @@ public HobbyEN Search (string name)
 
         return hobbyEN;
 }
+
+public System.Collections.Generic.IList<HobbyEN> GetAllHobby (int first, int size)
+{
+        System.Collections.Generic.IList<HobbyEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(HobbyEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<HobbyEN>();
+                else
+                        result = session.CreateCriteria (typeof(HobbyEN)).List<HobbyEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in HobbyCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }
