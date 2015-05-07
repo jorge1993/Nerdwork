@@ -21,16 +21,19 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN>
         // Write here your custom code...
 
         System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> lista = new System.Collections.Generic.List<HobbyEN>();
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> listaTotal = new System.Collections.Generic.List<HobbyEN>();
         try
         {
                 SessionInitializeTransaction ();
                 HobbyCAD hobbycad = new HobbyCAD (session);
                 UsuarioCAD usercad = new UsuarioCAD (session);
                 UsuarioEN useren = usercad.ReadOIDDefault (p_oid);
+                HobbyCEN todosloahobbies = new HobbyCEN();
+                lista=todosloahobbies.GetAllHobby();
 
-                foreach (HobbyEN hobianos in useren.Hobby) {
-                        if (hobianos.User != useren)
-                                lista.Add (hobianos);
+                foreach (HobbyEN hobianos in lista) {
+                        if (!useren.Hobby.Contains(hobianos))
+                            listaTotal.Add(hobianos);
                 }
                 SessionCommit ();
         }
@@ -38,7 +41,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN>
         {
                 SessionRollBack ();
         }
-        return lista;
+        return listaTotal;
 
 
 
