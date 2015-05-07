@@ -3,7 +3,10 @@
 		                   assembly="ProjectGenNHibernate"
 		                   namespace="ProjectGenNHibernate.EN.Project">
 			<class name="PostEN" table="[Post]">
-						<id name="Id" column="[id]"/>
+				  	
+						<id name="Id" column="[id]" type="integer">
+							<generator class="identity"/>
+						</id>
 					<property name="Description" type="string"> 
 						<column name="[description]"  not-null="true"/>
 					</property>
@@ -33,6 +36,5 @@
 		  </class>
 		  
 		  <query name="PostENReadAllHQL">from PostEN</query>
-		  <query name="PostENgetMaxHQL"><![CDATA[select max(id) FROM PostEN]]></query>
 		</hibernate-mapping>
 	

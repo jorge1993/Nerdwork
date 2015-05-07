@@ -32,15 +32,13 @@ public IPostCAD get_IPostCAD ()
         return this._IPostCAD;
 }
 
-public int Create (int p_id, string p_description, string p_user)
+public int Create (string p_description, string p_user)
 {
         PostEN postEN = null;
         int oid;
 
         //Initialized PostEN
         postEN = new PostEN ();
-        postEN.Id = p_id;
-
         postEN.Description = p_description;
 
 
@@ -71,10 +69,6 @@ public void DeleteHobbies (int p_Post_OID, System.Collections.Generic.IList<stri
         //Call to PostCAD
 
         _IPostCAD.DeleteHobbies (p_Post_OID, p_hobby_OIDs);
-}
-public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> GetMax ()
-{
-        return _IPostCAD.GetMax ();
 }
 }
 }

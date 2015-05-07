@@ -93,10 +93,14 @@
 	<Compile Include="CEN\Project\PostCEN.cs" />
 	<Compile Include="CAD\Project\IPostCAD.cs" />
 	<Compile Include="CAD\Project\PostCAD.cs" />
+			<Compile Include="CEN\Project\PostCEN_GetMax.cs" />
+			<Compile Include="CEN\Project\PostCEN_GetUserPosts.cs" />
 	<Compile Include="EN\Project\UsuarioEN.cs" />
 	<Compile Include="CEN\Project\UsuarioCEN.cs" />
 	<Compile Include="CAD\Project\IUsuarioCAD.cs" />
 	<Compile Include="CAD\Project\UsuarioCAD.cs" />
+			<Compile Include="CEN\Project\UsuarioCEN_HasHobbies.cs" />
+			<Compile Include="CEN\Project\UsuarioCEN_GetAllUsers.cs" />
 	<Compile Include="EN\Project\MessagesEN.cs" />
 	<Compile Include="CEN\Project\MessagesCEN.cs" />
 	<Compile Include="CAD\Project\IMessagesCAD.cs" />
@@ -109,6 +113,9 @@
 	<Compile Include="CEN\Project\HobbyCEN.cs" />
 	<Compile Include="CAD\Project\IHobbyCAD.cs" />
 	<Compile Include="CAD\Project\HobbyCAD.cs" />
+			<Compile Include="CEN\Project\HobbyCEN_GetHobbybyID.cs" />
+			<Compile Include="CEN\Project\HobbyCEN_GetHobbyAssign.cs" />
+			<Compile Include="CEN\Project\HobbyCEN_GetHobbyNotAssign.cs" />
 	
 	
 

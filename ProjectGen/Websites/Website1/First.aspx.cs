@@ -34,29 +34,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 Session["Name"] = nick;
 
-                String con = ConfigurationManager.ConnectionStrings["ProjectGenNHibernateConnectionString"].ToString();
-                SqlConnection sqlConnection1 = new SqlConnection(con);
-                SqlCommand cmd = new SqlCommand();
-                SqlDataReader reader;
-
-                cmd.CommandText = "SELECT * FROM  hobby_user WHERE (FK_nickname_idUser = '" + nick + "')";
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = sqlConnection1;
-
-                sqlConnection1.Open();
-
-                reader = cmd.ExecuteReader();
-                // Data is accessible through the DataReader object here.
-
-                while (reader.HasRows && reader.Read())
-                {
-                    RowCount++;
-                }
-                sqlConnection1.Close();
-
-
-
-                if (RowCount == 0)
+                if (!user.HasHobbies(nick))
                 {
                     Response.Redirect("ModifyProfile.aspx");
                 }

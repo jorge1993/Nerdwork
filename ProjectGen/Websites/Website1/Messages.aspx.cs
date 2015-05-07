@@ -137,7 +137,7 @@ public partial class Messages : System.Web.UI.Page
 
             String stmt2 = "SELECT ID from Messages where ID = " + ID.ToString();
 
-            mes.Create(ID, s, d, r, n);
+            mes.Create (s, d, r, n);
 
             SqlCommand cmdSelect2 = new SqlCommand(stmt2, thisConnection);
 

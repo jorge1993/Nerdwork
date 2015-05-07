@@ -7,12 +7,62 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ProjectGenNHibernate.CEN.Project;
 using System.Configuration;
+using ProjectGenNHibernate.EN.Project;
+using System.Data;
 
 public partial class PerfilPrivate : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        IList<PostEN> dr = new List<PostEN>();
+        PostCEN p = new PostCEN();
+        int size = p.GetMax();
+        //dr = p.GetMax();
 
+        DataTable dt = new DataTable();
+        dt.Columns.Add("avatar", typeof(string));
+        dt.Columns.Add("nickname", typeof(string));
+        dt.Columns.Add("descripton", typeof(string));
+        dt.Columns.Add("hobbies", typeof(string));
+
+        for (int j = 0; j < size; j++)
+        {
+
+            DataRow Row1;
+            string listaHobbies = "";
+            Row1 = dt.NewRow();
+            UsuarioCEN us = new UsuarioCEN();
+            UsuarioEN use = new UsuarioEN();
+            //use = dr[j].User;
+            use = us.Searchbynick(dr[j].User.Nickname);
+           
+            Row1[0] = use.Avatar ;
+            Row1[1] = dr[j].User.Nickname;
+            Row1[2] = dr[j].Description;
+
+            IList<HobbyEN> listaHobby = dr[j].Hobby;
+            
+            int tam = 1;
+
+            for (int i = 0; i < tam; i++)
+            {
+                HobbyCEN hobb = new HobbyCEN();
+                HobbyEN hob = new HobbyEN();
+
+                HobbyEN ho = listaHobby[i];
+
+                listaHobbies += ho.Post + " ";
+            }
+            Row1[3] = listaHobbies;
+
+            dt.Rows.Add(Row1);
+            GridViewTimeline.DataSource = dt;
+            GridViewTimeline.DataBind();
+        }
+
+        //posts = p.ReadAll(0,p.GetMax());
+
+        //GridViewTimeline.DataSource = 
     }
 
     protected void ButtonPost_Click(object sender, EventArgs e)
@@ -29,7 +79,7 @@ public partial class PerfilPrivate : System.Web.UI.Page
             String postUser = Session["Name"].ToString();
 
             PostCEN post = new PostCEN();
-            post.Create(postID, postDesc, postUser);
+            post.Create(postDesc, postUser);
 
             List<String> post_hobbies = new List<string>();
 

@@ -183,34 +183,5 @@ public void DeleteHobbies (int p_Post_OID, System.Collections.Generic.IList<stri
                 SessionClose ();
         }
 }
-public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> GetMax ()
-{
-        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> result;
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM PostEN self where select max(id) FROM PostEN";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("PostENgetMaxHQL");
-
-                result = query.List<ProjectGenNHibernate.EN.Project.PostEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in PostCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
 }
 }

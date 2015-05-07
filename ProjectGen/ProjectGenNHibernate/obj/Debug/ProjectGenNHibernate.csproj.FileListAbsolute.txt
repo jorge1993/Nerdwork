@@ -28,3 +28,18 @@
 \\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.dll
 \\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.pdb
 \\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.csprojResolveAssemblyReference.cache
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\hibernate.cfg.xml
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.dll.config
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.dll
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.pdb
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.dll
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\Iesi.Collections.dll
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\log4net.dll
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.csprojResolveAssemblyReference.cache
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.dll
+Y:\Documents\Universidad\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.pdb

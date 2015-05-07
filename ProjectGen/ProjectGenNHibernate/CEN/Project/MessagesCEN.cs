@@ -32,15 +32,13 @@ public IMessagesCAD get_IMessagesCAD ()
         return this._IMessagesCAD;
 }
 
-public int Create (int p_id, string p_subject, string p_description, string p_userreceive, string p_usersend)
+public int Create (string p_subject, string p_description, string p_userreceive, string p_usersend)
 {
         MessagesEN messagesEN = null;
         int oid;
 
         //Initialized MessagesEN
         messagesEN = new MessagesEN ();
-        messagesEN.Id = p_id;
-
         messagesEN.Subject = p_subject;
 
         messagesEN.Description = p_description;

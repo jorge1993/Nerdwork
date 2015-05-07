@@ -69,26 +69,7 @@
                 </table>
             </div>
             <div id="grid" style="height:175px; width:100%; overflow:scroll;">
-                <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" DataSourceID="SqlDataSourcePostsTimeline" Width="100%" Height="100%" ShowHeader="False" >
-                    <Columns>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:Image ID="avatarUser" runat="server" Height="50px" Width="50px" CommandName="avatar"
-                                        CommandArgument='<%# Eval("avatar") %>'  ImageUrl='<%# Eval("avatar") %>' >
-                                </asp:Image>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField ItemStyle-Width="20%">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="nicknameLinkButton" runat="server" OnClick="NicknameLinkButton_Click" CommandName="FK_nickname_idUser"
-                                        CommandArgument='<%# Eval("FK_nickname_idUser") %>'  Text='<%# Eval("FK_nickname_idUser") %>' ></asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="50%" />
-                        <asp:BoundField DataField="FK_name_idHobby" HeaderText="FK_name_idHobby" SortExpression="FK_name_idHobby" ItemStyle-Width="20%" />
-                    </Columns>
+                <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="False" >
 
                     <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                     <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
