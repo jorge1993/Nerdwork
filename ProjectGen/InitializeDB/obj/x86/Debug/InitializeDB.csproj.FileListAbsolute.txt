@@ -37,3 +37,22 @@ Y:\Documents\Universidad\Nerdwork\ProjectGen\InitializeDB\bin\Debug\InitializeDB
 \\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.csprojResolveAssemblyReference.cache
 \\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
 \\psf\Home\Documents\Universidad\3º Curso\Diseño de Sistema Software\Practicas\Practica1\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\hibernate.cfg.xml
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\InitializeDB.exe
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\InitializeDB.pdb
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\Antlr3.Runtime.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\Castle.DynamicProxy2.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\Iesi.Collections.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\LinFu.DynamicProxy.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\log4net.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\NHibernate.ByteCode.Castle.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\NHibernate.ByteCode.LinFu.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\NHibernate.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\nunit.core.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\nunit.framework.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\ProjectGenNHibernate.dll
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\bin\Debug\ProjectGenNHibernate.pdb
+D:\Documentos\GitHub\Nerdwork\ProjectGen\InitializeDB\obj\x86\Debug\InitializeDB.csprojResolveAssemblyReference.cache
