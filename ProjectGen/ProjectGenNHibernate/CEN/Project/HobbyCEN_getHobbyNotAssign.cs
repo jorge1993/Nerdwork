@@ -12,7 +12,7 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class HobbyCEN
+public partial class HobbyCEN : BasicCAD
 {
 public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> GetHobbyNotAssign (string p_oid)
 {
@@ -20,7 +20,28 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN>
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method GetHobbyNotAssign() not yet implemented.");
+    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> lista = new System.Collections.Generic.List<HobbyEN>();
+    try
+    {
+        SessionInitializeTransaction();
+        HobbyCAD hobbycad = new HobbyCAD(session);
+        UsuarioCAD usercad = new UsuarioCAD(session);
+        UsuarioEN useren = usercad.ReadOIDDefault(p_oid);
+
+        foreach (HobbyEN hobianos in useren.Hobby)
+        {
+            if (hobianos.User != useren)
+                lista.Add(hobianos);
+        }
+        SessionCommit();
+    }
+    catch (Exception ex)
+    {
+        SessionRollBack();
+    }
+    return lista;
+
+       
 
         /*PROTECTED REGION END*/
 }

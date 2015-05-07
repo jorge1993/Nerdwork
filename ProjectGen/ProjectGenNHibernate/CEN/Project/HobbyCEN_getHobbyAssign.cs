@@ -19,8 +19,26 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN>
         /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Hobby_getHobbyAssign) ENABLED START*/
 
         // Write here your custom code...
+    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> lista = new System.Collections.Generic.List<HobbyEN>();
+    try
+    {
+        SessionInitializeTransaction();
+        HobbyCAD hobbycad = new HobbyCAD(session);
+        UsuarioCAD usercad = new UsuarioCAD(session);
+        UsuarioEN useren = usercad.ReadOIDDefault(p_oid);
 
-        throw new NotImplementedException ("Method GetHobbyAssign() not yet implemented.");
+        foreach (HobbyEN hobianos in useren.Hobby)
+        {
+            if (hobianos.User == useren)
+                lista.Add(hobianos);
+        }
+        SessionCommit();
+    }
+    catch (Exception ex)
+    {
+        SessionRollBack();
+    }
+    return lista;
 
         /*PROTECTED REGION END*/
 }
