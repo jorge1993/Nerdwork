@@ -70,7 +70,19 @@
             </div>
             <div id="grid" style="height:175px; width:100%; overflow:scroll;">
                 <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="False" >
+                    <Columns>
+                    <asp:BoundField DataField="Avatar" HeaderText="Avatar" SortExpression="Avatar" ItemStyle-Width="20%"/>
+                        <asp:TemplateField ItemStyle-Width="20%">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="nicknameLinkButton" runat="server" OnClick="NicknameLinkButton_Click" CommandName="nickname"
+                                        CommandArgument='<%# Eval("nickname") %>'  Text='<%# Eval("nickname") %>' ></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
+                            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="20%" />
+                            <asp:BoundField DataField="hobbies" HeaderText="hobbies" SortExpression="hobbies" ItemStyle-Width="50%" />
+                        
+                    </Columns>
                     <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                     <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
                     <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />

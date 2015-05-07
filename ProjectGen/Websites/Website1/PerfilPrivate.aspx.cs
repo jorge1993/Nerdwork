@@ -14,16 +14,17 @@ public partial class PerfilPrivate : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        IList<PostEN> dr = new List<PostEN>();
+        IList<PostEN> dr = new List<PostEN>();        
         PostCEN p = new PostCEN();
-        int size = p.GetMax();
-        //dr = p.GetMax();
+        dr = p.GetAllPost();
+        int size = p.GetAllPost().Count;
 
         DataTable dt = new DataTable();
         dt.Columns.Add("avatar", typeof(string));
         dt.Columns.Add("nickname", typeof(string));
-        dt.Columns.Add("descripton", typeof(string));
+        dt.Columns.Add("description", typeof(string));
         dt.Columns.Add("hobbies", typeof(string));
+
 
         for (int j = 0; j < size; j++)
         {
@@ -33,26 +34,23 @@ public partial class PerfilPrivate : System.Web.UI.Page
             Row1 = dt.NewRow();
             UsuarioCEN us = new UsuarioCEN();
             UsuarioEN use = new UsuarioEN();
-            //use = dr[j].User;
+            
             use = us.Searchbynick(dr[j].User.Nickname);
            
-            Row1[0] = use.Avatar ;
-            Row1[1] = dr[j].User.Nickname;
+            Row1[0] = "HOLA";
+            Row1[1] = use.Nickname;
             Row1[2] = dr[j].Description;
 
-            IList<HobbyEN> listaHobby = dr[j].Hobby;
-            
-            int tam = 1;
+            IList<HobbyEN> listaHobby = new List<HobbyEN>();
+            HobbyCEN hobbycen = new HobbyCEN();
+            listaHobby = hobbycen.GetHobbybyID(dr[j].Id);
 
-            for (int i = 0; i < tam; i++)
+            foreach (HobbyEN hobby in listaHobby)
             {
-                HobbyCEN hobb = new HobbyCEN();
-                HobbyEN hob = new HobbyEN();
-
-                HobbyEN ho = listaHobby[i];
-
-                listaHobbies += ho.Post + " ";
+                listaHobbies += hobby.Name;
+                listaHobbies += " - ";
             }
+            
             Row1[3] = listaHobbies;
 
             dt.Rows.Add(Row1);
@@ -60,9 +58,6 @@ public partial class PerfilPrivate : System.Web.UI.Page
             GridViewTimeline.DataBind();
         }
 
-        //posts = p.ReadAll(0,p.GetMax());
-
-        //GridViewTimeline.DataSource = 
     }
 
     protected void ButtonPost_Click(object sender, EventArgs e)
