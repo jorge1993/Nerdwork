@@ -25,13 +25,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:ListBox ID="ListUserHobbies" runat="server" Width="150px" DataSourceID="SqlDataSourceHobbyUser" DataTextField="FK_name_idHobby" DataValueField="FK_name_idHobby">
+                            <asp:ListBox ID="ListUserHobbies" runat="server" Width="150px" >
                             </asp:ListBox>
-                            <asp:SqlDataSource ID="SqlDataSourceHobbyUser" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT FK_name_idHobby FROM hobby_user WHERE (FK_nickname_idUser = @FK_nickname_idUser) ORDER BY FK_name_idHobby">
-                                <SelectParameters>
-                                    <asp:SessionParameter Name="FK_nickname_idUser" SessionField="Name" Type="String" />
-                                </SelectParameters>
-                            </asp:SqlDataSource>
                         </td>
                         <td>
                             <asp:Button ID="ButtonToRight" runat="server" Text=">>" OnClick="ButtonToRight_Click" />
@@ -71,7 +66,14 @@
             <div id="grid" style="height:175px; width:100%; overflow:scroll;">
                 <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="False" >
                     <Columns>
-                    <asp:BoundField DataField="Avatar" HeaderText="Avatar" SortExpression="Avatar" ItemStyle-Width="20%"/>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Image ID="avatarUser" runat="server" Height="50px" Width="50px" CommandName="avatar"
+                                        CommandArgument='<%# Eval("avatar") %>'  ImageUrl='<%# Eval("avatar") %>' >
+                                </asp:Image>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    
                         <asp:TemplateField ItemStyle-Width="20%">
                             <ItemTemplate>
                                 <asp:LinkButton ID="nicknameLinkButton" runat="server" OnClick="NicknameLinkButton_Click" CommandName="nickname"
@@ -93,7 +95,6 @@
                     <SortedDescendingCellStyle BackColor="#F1E5CE" />
                     <SortedDescendingHeaderStyle BackColor="#93451F" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSourcePostsTimeline" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT Usuario.avatar, Post.FK_nickname_idUser, Post.description, hobby_post.FK_name_idHobby FROM Post INNER JOIN hobby_post ON Post.id = hobby_post.FK_id_idPost INNER JOIN Usuario ON Usuario.nickname = Post.FK_nickname_idUser"></asp:SqlDataSource>
             </div>
         </div>
     </div>

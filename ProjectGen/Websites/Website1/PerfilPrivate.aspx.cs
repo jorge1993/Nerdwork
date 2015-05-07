@@ -14,8 +14,11 @@ public partial class PerfilPrivate : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        IList<PostEN> dr = new List<PostEN>();        
+        
+        IList<PostEN> dr = new List<PostEN>();
+        IList<HobbyEN> hobbydr = new List<HobbyEN>();
         PostCEN p = new PostCEN();
+
         dr = p.GetAllPost();
         int size = p.GetAllPost().Count;
 
@@ -37,18 +40,22 @@ public partial class PerfilPrivate : System.Web.UI.Page
             
             use = us.Searchbynick(dr[j].User.Nickname);
            
-            Row1[0] = "HOLA";
+            Row1[0] = use.Avatar;
             Row1[1] = use.Nickname;
             Row1[2] = dr[j].Description;
 
             IList<HobbyEN> listaHobby = new List<HobbyEN>();
             HobbyCEN hobbycen = new HobbyCEN();
             listaHobby = hobbycen.GetHobbybyID(dr[j].Id);
+            int aux = listaHobby.Count;
+            int contador = 1;
 
             foreach (HobbyEN hobby in listaHobby)
             {
                 listaHobbies += hobby.Name;
-                listaHobbies += " - ";
+                if(aux != contador)
+                    listaHobbies += " - ";
+                contador++;
             }
             
             Row1[3] = listaHobbies;
@@ -57,6 +64,12 @@ public partial class PerfilPrivate : System.Web.UI.Page
             GridViewTimeline.DataSource = dt;
             GridViewTimeline.DataBind();
         }
+
+        HobbyCEN ho = new HobbyCEN();
+        hobbydr = ho.GetHobbyAssign((string)Session["NAME"]);
+
+        foreach(HobbyEN s in hobbydr)
+            ListUserHobbies.Items.Add(s.Name);
 
     }
 
