@@ -16,32 +16,32 @@ public partial class UsuarioCEN : BasicCAD
 {
 public bool HasHobbies (string p_oid)
 {
-        /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Usuario_hasHobbies) ENABLED START*/
+    /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Usuario_hasHobbies) ENABLED START*/
 
-        // Write here your custom code...
+    // Write here your custom code...
 
-        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> lista = new System.Collections.Generic.List<HobbyEN>();
-        try
+    try
+    {
+        SessionInitializeTransaction();
+        HobbyCAD mes = new HobbyCAD(session);
+        UsuarioCAD usercad = new UsuarioCAD(session);
+        UsuarioEN useren = usercad.ReadOIDDefault(p_oid);
+        int i = 0;
+        foreach (HobbyEN hobby in useren.Hobby)
         {
-                SessionInitializeTransaction ();
-                HobbyCAD hobbycad = new HobbyCAD (session);
-                UsuarioCAD usercad = new UsuarioCAD (session);
-                UsuarioEN useren = usercad.ReadOIDDefault (p_oid);
-
-                foreach (HobbyEN hobianos in useren.Hobby) {
-                        if (hobianos.User == useren)
-                                lista.Add (hobianos);
-                }
-                SessionCommit ();
+            i++;
         }
-        catch (Exception ex)
-        {
-                SessionRollBack ();
-        }
-        //return lista;
+        SessionCommit();
+        if (i != 0) return true;
+        else return false;
+    }
+    catch (Exception ex)
+    {
+        SessionRollBack();
         return false;
+    }
 
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION END*/
 }
 }
 }
