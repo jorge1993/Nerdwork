@@ -252,17 +252,17 @@ public void DeleteHobbies (string p_Usuario_OID, System.Collections.Generic.ILis
                 SessionClose ();
         }
 }
-public System.Collections.Generic.IList<UsuarioEN> GetAllUsers (int first, int size)
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> GetAllUsers ()
 {
-        System.Collections.Generic.IList<UsuarioEN> result = null;
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(UsuarioEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<UsuarioEN>();
-                else
-                        result = session.CreateCriteria (typeof(UsuarioEN)).List<UsuarioEN>();
+                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENgetAllUsersHQL");
+
+                result = query.List<ProjectGenNHibernate.EN.Project.UsuarioEN>();
                 SessionCommit ();
         }
 

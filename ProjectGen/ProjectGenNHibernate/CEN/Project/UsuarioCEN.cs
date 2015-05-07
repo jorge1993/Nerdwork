@@ -116,12 +116,9 @@ public void DeleteHobbies (string p_Usuario_OID, System.Collections.Generic.ILis
 
         _IUsuarioCAD.DeleteHobbies (p_Usuario_OID, p_hobby_OIDs);
 }
-public System.Collections.Generic.IList<UsuarioEN> GetAllUsers (int first, int size)
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> GetAllUsers ()
 {
-        System.Collections.Generic.IList<UsuarioEN> list = null;
-
-        list = _IUsuarioCAD.GetAllUsers (first, size);
-        return list;
+        return _IUsuarioCAD.GetAllUsers ();
 }
 }
 }

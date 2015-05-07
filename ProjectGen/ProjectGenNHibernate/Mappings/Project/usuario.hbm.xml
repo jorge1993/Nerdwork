@@ -81,5 +81,6 @@
 		  </class>
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENgetAllUsersHQL"><![CDATA[FROM UsuarioEN]]></query>
 		</hibernate-mapping>
 	

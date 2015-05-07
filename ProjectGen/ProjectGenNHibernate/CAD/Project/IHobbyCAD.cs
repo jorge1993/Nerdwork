@@ -16,6 +16,6 @@ HobbyEN Search (string name);
 
 
 
-System.Collections.Generic.IList<HobbyEN> GetAllHobby (int first, int size);
+System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> GetAllHobby ();
 }
 }

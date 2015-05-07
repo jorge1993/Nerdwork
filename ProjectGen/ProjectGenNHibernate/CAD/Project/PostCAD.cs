@@ -183,17 +183,17 @@ public void DeleteHobbies (int p_Post_OID, System.Collections.Generic.IList<stri
                 SessionClose ();
         }
 }
-public System.Collections.Generic.IList<PostEN> GetAllPost (int first, int size)
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> GetAllPost ()
 {
-        System.Collections.Generic.IList<PostEN> result = null;
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(PostEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<PostEN>();
-                else
-                        result = session.CreateCriteria (typeof(PostEN)).List<PostEN>();
+                //String sql = @"FROM PostEN self where FROM PostEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PostENgetAllPostHQL");
+
+                result = query.List<ProjectGenNHibernate.EN.Project.PostEN>();
                 SessionCommit ();
         }
 

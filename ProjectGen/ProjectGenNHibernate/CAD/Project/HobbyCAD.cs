@@ -104,17 +104,17 @@ public HobbyEN Search (string name)
         return hobbyEN;
 }
 
-public System.Collections.Generic.IList<HobbyEN> GetAllHobby (int first, int size)
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> GetAllHobby ()
 {
-        System.Collections.Generic.IList<HobbyEN> result = null;
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(HobbyEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<HobbyEN>();
-                else
-                        result = session.CreateCriteria (typeof(HobbyEN)).List<HobbyEN>();
+                //String sql = @"FROM HobbyEN self where FROM HobbyEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("HobbyENgetAllHobbyHQL");
+
+                result = query.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
                 SessionCommit ();
         }
 

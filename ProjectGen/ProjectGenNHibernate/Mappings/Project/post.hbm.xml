@@ -36,5 +36,6 @@
 		  </class>
 		  
 		  <query name="PostENReadAllHQL">from PostEN</query>
+		  <query name="PostENgetAllPostHQL"><![CDATA[FROM PostEN]]></query>
 		</hibernate-mapping>
 	

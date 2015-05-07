@@ -19,6 +19,6 @@ void DeleteHobbies (int p_Post_OID, System.Collections.Generic.IList<string> p_h
 
 
 
-System.Collections.Generic.IList<PostEN> GetAllPost (int first, int size);
+System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> GetAllPost ();
 }
 }

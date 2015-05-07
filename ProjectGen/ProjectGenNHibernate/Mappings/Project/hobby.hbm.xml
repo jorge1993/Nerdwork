@@ -32,5 +32,6 @@
 		  </class>
 		  
 		  <query name="HobbyENReadAllHQL">from HobbyEN</query>
+		  <query name="HobbyENgetAllHobbyHQL"><![CDATA[FROM HobbyEN]]></query>
 		</hibernate-mapping>
 	
