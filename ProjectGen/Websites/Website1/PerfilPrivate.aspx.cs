@@ -12,68 +12,75 @@ using System.Data;
 
 public partial class PerfilPrivate : System.Web.UI.Page
 {
+
+    private void reloadTimeLine() 
+    {
+        IList<PostEN> dr = new List<PostEN>();
+        PostCEN p = new PostCEN();
+
+        dr = p.GetAllPost();
+        int size = p.GetAllPost().Count;
+
+        DataTable dt = new DataTable();
+        dt.Columns.Add("avatar", typeof(string));
+        dt.Columns.Add("nickname", typeof(string));
+        dt.Columns.Add("description", typeof(string));
+        dt.Columns.Add("hobbies", typeof(string));
+
+
+        for (int j = 0; j < size; j++)
+        {
+
+            DataRow Row1;
+            string listaHobbies = "";
+            Row1 = dt.NewRow();
+            UsuarioCEN us = new UsuarioCEN();
+            UsuarioEN use = new UsuarioEN();
+
+            use = us.Searchbynick(dr[j].User.Nickname);
+
+            Row1[0] = use.Avatar;
+            Row1[1] = use.Nickname;
+            Row1[2] = dr[j].Description;
+
+            IList<HobbyEN> listaHobby = new List<HobbyEN>();
+            HobbyCEN hobbycen = new HobbyCEN();
+            listaHobby = hobbycen.GetHobbybyID(dr[j].Id);
+            int aux = listaHobby.Count;
+            int contador = 1;
+
+            foreach (HobbyEN hobby in listaHobby)
+            {
+                listaHobbies += hobby.Name;
+                if (aux != contador)
+                    listaHobbies += " - ";
+                contador++;
+            }
+
+            Row1[3] = listaHobbies;
+
+            dt.Rows.Add(Row1);
+            GridViewTimeline.DataSource = dt;
+            GridViewTimeline.DataBind();
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-           
-            IList<PostEN> dr = new List<PostEN>();
-            IList<HobbyEN> hobbydr = new List<HobbyEN>();
-            PostCEN p = new PostCEN();
-
-            dr = p.GetAllPost();
-            int size = p.GetAllPost().Count;
-
-            DataTable dt = new DataTable();
-            dt.Columns.Add("avatar", typeof(string));
-            dt.Columns.Add("nickname", typeof(string));
-            dt.Columns.Add("description", typeof(string));
-            dt.Columns.Add("hobbies", typeof(string));
 
 
-            for (int j = 0; j < size; j++)
-            {
+        reloadTimeLine();
+        IList<HobbyEN> hobbydr = new List<HobbyEN>();
 
-                DataRow Row1;
-                string listaHobbies = "";
-                Row1 = dt.NewRow();
-                UsuarioCEN us = new UsuarioCEN();
-                UsuarioEN use = new UsuarioEN();
-            
-                use = us.Searchbynick(dr[j].User.Nickname);
-           
-                Row1[0] = use.Avatar;
-                Row1[1] = use.Nickname;
-                Row1[2] = dr[j].Description;
+        if (!IsPostBack)
+        {
+            HobbyCEN ho = new HobbyCEN();
+            hobbydr = ho.GetHobbyAssign((string)Session["NAME"]);
 
-                IList<HobbyEN> listaHobby = new List<HobbyEN>();
-                HobbyCEN hobbycen = new HobbyCEN();
-                listaHobby = hobbycen.GetHobbybyID(dr[j].Id);
-                int aux = listaHobby.Count;
-                int contador = 1;
+            foreach (HobbyEN s in hobbydr)
+                ListUserHobbies.Items.Add(s.Name);
 
-                foreach (HobbyEN hobby in listaHobby)
-                {
-                    listaHobbies += hobby.Name;
-                    if(aux != contador)
-                        listaHobbies += " - ";
-                    contador++;
-                }
-            
-                Row1[3] = listaHobbies;
-
-                dt.Rows.Add(Row1);
-                GridViewTimeline.DataSource = dt;
-                GridViewTimeline.DataBind();
-            }
-            if (!IsPostBack)
-            {
-                HobbyCEN ho = new HobbyCEN();
-                hobbydr = ho.GetHobbyAssign((string)Session["NAME"]);
-
-                foreach (HobbyEN s in hobbydr)
-                    ListUserHobbies.Items.Add(s.Name);
-
-            }
+        }
     }
 
     protected void ButtonPost_Click(object sender, EventArgs e)
@@ -86,7 +93,6 @@ public partial class PerfilPrivate : System.Web.UI.Page
             // que tiene la tabla Post y aumentarlo en 1.
             // Pero cuando hagamos lo de borrar posts vamos a tener problemas. Lo que se podría hacer al
             // eliminarlos es modificar todos los ID de los mensajes posteriores.
-            int postID = CountRows_PostTable();
             String postUser = Session["Name"].ToString();
 
             PostCEN post = new PostCEN();
@@ -101,6 +107,7 @@ public partial class PerfilPrivate : System.Web.UI.Page
                 String itemText = item.Text;
                 post_hobbies.Add(itemText);
             }
+            int postID = post.GetAllPost().Count;
 
             post.AddHobbies(postID, post_hobbies);
             
@@ -151,24 +158,6 @@ public partial class PerfilPrivate : System.Web.UI.Page
                 ListPostHobbies.ClearSelection();
             }
         }
-    }
-
-
-    public int CountRows_PostTable()
-    {
-        String stmt = "SELECT COUNT(*) FROM Post";
-        int count = 0;
-
-        String con = ConfigurationManager.ConnectionStrings["ProjectGenNHibernateConnectionString"].ToString();
-
-        SqlConnection thisConnection = new SqlConnection(con);
-        SqlCommand cmdCount = new SqlCommand(stmt, thisConnection);
-        
-        thisConnection.Open();
-        count = (int)cmdCount.ExecuteScalar();
-        thisConnection.Close();
-
-        return count;
     }
 
     protected void NicknameLinkButton_Click(object sender, EventArgs e)
