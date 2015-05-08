@@ -67,13 +67,9 @@ INBOX
 </p>
 <p>
 <asp:ListBox ID="sendlist" runat="server" BorderColor="Black" ReadOnly="true" 
-        Height="20%" Width="45%" DataSourceID="SqlDataSourceMessages" DataTextField="nickname" DataValueField="nickname">
+        Height="20%" Width="45%">
             </asp:ListBox>
-            <asp:SqlDataSource ID="SqlDataSourceMessages" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT nickname FROM Usuario WHERE (nickname != @nickname) ORDER BY nickname">
-                <SelectParameters>
-                    <asp:SessionParameter Name="nickname" SessionField="Name" Type="String" />
-                </SelectParameters>
-            </asp:SqlDataSource>
+            
     
   </p>
   <p>

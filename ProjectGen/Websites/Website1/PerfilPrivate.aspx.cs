@@ -114,7 +114,7 @@ public partial class PerfilPrivate : System.Web.UI.Page
             LabelPosted.Text = "Posted correctly.";
             LabelPosted.Visible = true;
             TextBoxPost.Text = "";
-            GridViewTimeline.DataBind();
+            reloadTimeLine(); // databind del timeline
             ListUserHobbies.DataBind();
             ListPostHobbies.Items.Clear();
         }

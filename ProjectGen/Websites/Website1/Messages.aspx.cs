@@ -15,15 +15,25 @@ public partial class Messages : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         ProjectGenNHibernate.CEN.Project.MessagesCEN m = new ProjectGenNHibernate.CEN.Project.MessagesCEN();
+        ProjectGenNHibernate.CEN.Project.UsuarioCEN m2 = new ProjectGenNHibernate.CEN.Project.UsuarioCEN();
         IList<String> dr = m.GetUserReceive((string)Session["NAME"]);
+        IList<ProjectGenNHibernate.EN.Project.UsuarioEN> dr2 = m2.GetAllUsers();
 
         //recievelist.Items.Clear();
-        foreach (string s in dr) 
+        
+        if (!IsPostBack)
         {
-            recievelist.Items.Add(s);
-        }
-        //recievelist.DataSource = dr;
+            foreach (string s in dr)
+            {
+                recievelist.Items.Add(s);
+            }
 
+            foreach (ProjectGenNHibernate.EN.Project.UsuarioEN user in dr2)
+            {
+                if (user.Nickname != (string)Session["Name"])
+                    sendlist.Items.Add(user.Nickname);
+            }
+        }
     }
 
     protected void NicknameLinkButton_Click(object sender, EventArgs e)
@@ -74,7 +84,6 @@ public partial class Messages : System.Web.UI.Page
             if (item.Selected == true)
             {
                 reciever.Text = item.Text;
-                sendlist.Items.Remove(item);
                 break;
             }
         }
@@ -108,44 +117,7 @@ public partial class Messages : System.Web.UI.Page
         {
             MessagesCEN mes = new MessagesCEN();
 
-            String stmt1 = "SELECT MAX(ID) from Messages";
-            String con = ConfigurationManager.ConnectionStrings["ProjectGenNHibernateConnectionString"].ToString();
-
-            SqlConnection thisConnection = new SqlConnection(con);
-            SqlCommand cmdSelect = new SqlCommand(stmt1, thisConnection);
-
-            thisConnection.Open();
-
-            SqlDataReader dr = cmdSelect.ExecuteReader();
-
-            if (dr.HasRows)
-            {
-                try
-                {
-                    dr.Read();
-                    ID = (int)dr[0] + 1;
-                }
-                catch (Exception ex)
-                {
-                    ID = 0;
-                }
-            }
-            else
-            {
-                ID = 0;
-            }
-
-            String stmt2 = "SELECT ID from Messages where ID = " + ID.ToString();
-
-            mes.Create (s, d, r, n);
-
-            SqlCommand cmdSelect2 = new SqlCommand(stmt2, thisConnection);
-
-            dr.Close();
-
-            SqlDataReader dr2 = cmdSelect.ExecuteReader();
-
-            if (dr2.HasRows)
+            if (mes.Create (s, d, r, n)!= -1)
             {
                 Label1.Text = "Message has been sent.";
                 Label1.Visible = true;
@@ -155,8 +127,6 @@ public partial class Messages : System.Web.UI.Page
                 Label1.Text = "Message has not been sent.";
                 Label1.Visible = true;
             }
-
-            dr.Close();
         }
 
     }
