@@ -30,8 +30,8 @@
             <div id="grid" style="height:330px; width:100%; overflow:scroll;">
                 <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="False" >
                     <Columns>
-                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="70%" />
-                        <asp:BoundField DataField="FK_name_idHobby" HeaderText="FK_name_idHobby" SortExpression="FK_name_idHobby" ItemStyle-Width="30" />
+                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="60%" />
+                        <asp:BoundField DataField="hobbies" HeaderText="hobbies" SortExpression="hobbies" ItemStyle-Width="40%" />
                     </Columns>
 
                     <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
