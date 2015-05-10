@@ -13,6 +13,19 @@ public partial class Send : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        ProjectGenNHibernate.CEN.Project.UsuarioCEN m2 = new ProjectGenNHibernate.CEN.Project.UsuarioCEN();
+        IList<ProjectGenNHibernate.EN.Project.UsuarioEN> dr2 = m2.GetAllUsers();
+
+        //recievelist.Items.Clear();
+
+        if (!IsPostBack)
+        {
+            foreach (ProjectGenNHibernate.EN.Project.UsuarioEN user in dr2)
+            {
+                if (user.Nickname != (string)Session["Name"])
+                    sendlist.Items.Add(user.Nickname);
+            }
+        }
 
     }
 

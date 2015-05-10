@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
-<div style="float: left; margin-left:5%; width:20%">
+<div style="float: left; margin-left:5%; margin-top:15%; width:20%">
 <p>
 <asp:Label id="destino" runat="server">ADDRESSEE</asp:Label>
 </p>
@@ -13,7 +13,7 @@
 </p>
 <p>
 <asp:ListBox ID="sendlist" runat="server" BorderColor="Black" ReadOnly="true" 
-        Height="20%" Width="45%" DataSourceID="SqlDataSourceMessages" DataTextField="nickname" DataValueField="nickname">
+        Height="20%" Width="45%">
             </asp:ListBox>  
   </p>
   <p>
@@ -24,7 +24,7 @@
    
 </div>
 
-<div style="float: right; margin-right: 5%; height:50%; width:70% ";>
+<div style="float: right; margin-right: 5%; margin-top: 15%; height:50%; width:70% ";>
 SUBJECT <asp:TextBox ID="subject" runat="server" BorderColor="Black" Height="8%" Width="80%"></asp:TextBox>
 
 <p style="float: right; margin-right: 5%; height:50%; width:100% ";>

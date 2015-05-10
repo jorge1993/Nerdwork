@@ -8,17 +8,17 @@ using ProjectGenNHibernate.CEN.Project;
 using ProjectGenNHibernate;
 using ProjectGenNHibernate.CAD.Project;
 using System.Collections.Generic;
+using ProjectGenNHibernate.EN.Project;
 
 public partial class Messages : System.Web.UI.Page
 {
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        ProjectGenNHibernate.CEN.Project.MessagesCEN m = new ProjectGenNHibernate.CEN.Project.MessagesCEN();
-        ProjectGenNHibernate.CEN.Project.UsuarioCEN m2 = new ProjectGenNHibernate.CEN.Project.UsuarioCEN();
+        ProjectGenNHibernate.CEN.Project.MessagesCEN m = new ProjectGenNHibernate.CEN.Project.MessagesCEN();       
         IList<String> dr = m.GetUserReceive((string)Session["NAME"]);
-        IList<ProjectGenNHibernate.EN.Project.UsuarioEN> dr2 = m2.GetAllUsers();
-
+        //IList<MessagesEN> dr2 = m.GetSend((string)Session["NAME"]);
+        
         //recievelist.Items.Clear();
         
         if (!IsPostBack)
@@ -28,11 +28,14 @@ public partial class Messages : System.Web.UI.Page
                 recievelist.Items.Add(s);
             }
 
-            foreach (ProjectGenNHibernate.EN.Project.UsuarioEN user in dr2)
+            /*foreach (MessagesEN mes in dr2)
             {
-                if (user.Nickname != (string)Session["Name"])
-                    sendlist.Items.Add(user.Nickname);
-            }
+                if (sendlist.Items.FindByText(mes.Userreceive.ToString())==null)
+                {
+                    sendlist.Items.Add(mes.Userreceive.ToString());
+                }
+            }*/
+            
         }
     }
 
@@ -72,63 +75,6 @@ public partial class Messages : System.Web.UI.Page
             GridViewTimeline.DataSource = dt;
             GridViewTimeline.DataBind();
         }
-    }
-
-
-    protected void Button_SelectSend(object sender, EventArgs e)
-    {
-        int i;
-        for (i = 0; i < sendlist.Items.Count; i++)
-        {
-            ListItem item = sendlist.Items[i];
-            if (item.Selected == true)
-            {
-                reciever.Text = item.Text;
-                break;
-            }
-        }
-    }
-
-    protected void Button_Send(object sender, EventArgs e)
-    {
-        int ID;
-        String s = subject.Text;
-        String d = writebox.Text;
-        String r = reciever.Text;
-        String n = Session["NAME"].ToString();
-
-        if (subject.Text == "" || subject.Text == null)
-        {
-            Label1.Text = "Subject is needed";
-            Label1.Visible = true;
-        }
-        else if (writebox.Text == "" || writebox.Text == null)
-        {
-            Label1.Text = "A message is needed";
-            Label1.Visible = true;
-        }
-
-        else if (reciever.Text == "" || reciever.Text == null)
-        {
-            Label1.Text = "A receiver is needed";
-            Label1.Visible = true;
-        }
-        else
-        {
-            MessagesCEN mes = new MessagesCEN();
-
-            if (mes.Create (s, d, r, n)!= -1)
-            {
-                Label1.Text = "Message has been sent.";
-                Label1.Visible = true;
-            }
-            else
-            {
-                Label1.Text = "Message has not been sent.";
-                Label1.Visible = true;
-            }
-        }
-
     }
 
     protected void GridViewTimeline_SelectedIndexChanged(object sender, EventArgs e)
