@@ -29,8 +29,8 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.Messages
                 UsuarioEN useren = usercad.ReadOIDDefault (emisor);
 
                 foreach (MessagesEN message in useren.Messagessend) {
-                        if (message.Usersend.Nickname.Equals (emisor))
-                                lista.Add (message);
+                        if (message.Usersend.Nickname.Equals(emisor))
+                                lista.Add(message);
                 }
                 SessionCommit ();
         }

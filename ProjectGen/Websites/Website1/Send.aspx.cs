@@ -47,7 +47,6 @@ public partial class Send : System.Web.UI.Page
 
     protected void Button_Send(object sender, EventArgs e)
     {
-        int ID;
         String s = subject.Text;
         String d = writebox.Text;
         String r = reciever.Text;
@@ -73,55 +72,19 @@ public partial class Send : System.Web.UI.Page
         {
             MessagesCEN mes = new MessagesCEN();
 
-            String stmt1 = "SELECT MAX(ID) from Messages";
-            String con = ConfigurationManager.ConnectionStrings["ProjectGenNHibernateConnectionString"].ToString();
-
-            SqlConnection thisConnection = new SqlConnection(con);
-            SqlCommand cmdSelect = new SqlCommand(stmt1, thisConnection);
-
-            thisConnection.Open();
-
-            SqlDataReader dr = cmdSelect.ExecuteReader();
-
-            if (dr.HasRows)
+            try
             {
-                try
-                {
-                    dr.Read();
-                    ID = (int)dr[0] + 1;
-                }
-                catch (Exception ex)
-                {
-                    ID = 0;
-                }
-            }
-            else
-            {
-                ID = 0;
-            }
+                mes.Create(s, d, r, n);
 
-            String stmt2 = "SELECT ID from Messages where ID = " + ID.ToString();
-
-            mes.Create(s, d, r, n);
-
-            SqlCommand cmdSelect2 = new SqlCommand(stmt2, thisConnection);
-
-            dr.Close();
-
-            SqlDataReader dr2 = cmdSelect.ExecuteReader();
-
-            if (dr2.HasRows)
-            {
-                Label1.Text = "Message has been sent.";
-                Label1.Visible = true;
-            }
-            else
-            {
+            }catch(Exception ex){
+                
                 Label1.Text = "Message has not been sent.";
                 Label1.Visible = true;
             }
 
-            dr.Close();
+                Label1.Text = "Message has been sent.";
+                Label1.Visible = true;
+
         }
 
     }
