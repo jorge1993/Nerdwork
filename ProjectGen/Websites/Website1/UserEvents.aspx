@@ -8,6 +8,9 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
+<h2 style="margin-left:30%">
+Create an event
+</h2>
 
 <div>
 <p>&nbsp; Name&nbsp; <asp:TextBox ID="reciever" ReadOnly="true" Height="30%" Width="50%" BorderColor="Black" runat="server">
