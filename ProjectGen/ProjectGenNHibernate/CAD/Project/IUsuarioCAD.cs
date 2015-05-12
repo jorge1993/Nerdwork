@@ -25,5 +25,15 @@ void DeleteHobbies (string p_Usuario_OID, System.Collections.Generic.IList<strin
 
 
 System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> GetAllUsers ();
+
+
+
+void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs);
+
+void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs);
+
+void AddGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs);
+
+void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs);
 }
 }

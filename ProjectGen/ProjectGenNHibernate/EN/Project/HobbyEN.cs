@@ -23,6 +23,18 @@ private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN>
 
 private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user;
 
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events;
+
 
 
 
@@ -42,6 +54,16 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 }
 
 
+public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> Groups {
+        get { return groups; } set { groups = value;  }
+}
+
+
+public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> Events {
+        get { return events; } set { events = value;  }
+}
+
+
 
 
 
@@ -49,22 +71,24 @@ public HobbyEN()
 {
         post = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.PostEN>();
         user = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.UsuarioEN>();
+        groups = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.GroupsEN>();
+        events = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventsEN>();
 }
 
 
 
-public HobbyEN(string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user)
+public HobbyEN(string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events)
 {
-        this.init (name, post, user);
+        this.init (name, post, user, groups, events);
 }
 
 
 public HobbyEN(HobbyEN hobby)
 {
-        this.init (hobby.Name, hobby.Post, hobby.User);
+        this.init (hobby.Name, hobby.Post, hobby.User, hobby.Groups, hobby.Events);
 }
 
-private void init (string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user)
+private void init (string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events)
 {
         this.Name = name;
 
@@ -72,6 +96,10 @@ private void init (string name, System.Collections.Generic.IList<ProjectGenNHibe
         this.Post = post;
 
         this.User = user;
+
+        this.Groups = groups;
+
+        this.Events = events;
 }
 
 public override bool Equals (object obj)

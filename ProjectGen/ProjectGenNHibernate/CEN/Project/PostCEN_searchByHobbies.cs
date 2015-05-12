@@ -14,13 +14,13 @@ namespace ProjectGenNHibernate.CEN.Project
 {
 public partial class PostCEN
 {
-public int GetMax ()
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> SearchByHobbies (int p_oid)
 {
-        /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Post_getMax) ENABLED START*/
+        /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Post_searchByHobbies) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method GetUserReceive() not yet implemented.");
+        throw new NotImplementedException ("Method SearchByHobbies() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

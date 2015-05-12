@@ -66,6 +66,28 @@
 									<column name="[FK_name_idHobby]"/>
       						</many-to-many>
     					</bag>
+			
+		  			
+						<bag name="Groups" table="[groups_usuario]" inverse="true" >
+							<key>
+									<column name="[FK_nickname_idUsuario]"/>
+							</key>
+      						<many-to-many class="ProjectGenNHibernate.EN.Project.GroupsEN">
+									<column name="[FK_Id_idGroups]"/>
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Events" table="[events_usuario]" inverse="true" >
+							<key>
+									<column name="[FK_nickname_idUsuario]"/>
+							</key>
+      						<many-to-many class="ProjectGenNHibernate.EN.Project.EventsEN">
+									<column name="[FK_Id_idEvents]"/>
+      						</many-to-many>
+    					</bag>
+					
+					
 					
 					
 					

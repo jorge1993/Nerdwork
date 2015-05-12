@@ -21,7 +21,7 @@ private string email;
  *
  */
 
-private String password;
+private string password;
 
 /**
  *
@@ -71,6 +71,18 @@ private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.Message
 
 private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby;
 
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events;
+
 
 
 
@@ -85,7 +97,7 @@ public virtual string Email {
 }
 
 
-public virtual String Password {
+public virtual string Password {
         get { return password; } set { password = value;  }
 }
 
@@ -130,6 +142,16 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 }
 
 
+public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> Groups {
+        get { return groups; } set { groups = value;  }
+}
+
+
+public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> Events {
+        get { return events; } set { events = value;  }
+}
+
+
 
 
 
@@ -139,22 +161,24 @@ public UsuarioEN()
         post = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.PostEN>();
         messagessend = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.MessagesEN>();
         hobby = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
+        groups = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.GroupsEN>();
+        events = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventsEN>();
 }
 
 
 
-public UsuarioEN(string nickname, string email, String password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
+public UsuarioEN(string nickname, string email, string password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events)
 {
-        this.init (nickname, email, password, name, surname, phone, avatar, messagesreceive, post, messagessend, hobby);
+        this.init (nickname, email, password, name, surname, phone, avatar, messagesreceive, post, messagessend, hobby, groups, events);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (usuario.Nickname, usuario.Email, usuario.Password, usuario.Name, usuario.Surname, usuario.Phone, usuario.Avatar, usuario.Messagesreceive, usuario.Post, usuario.Messagessend, usuario.Hobby);
+        this.init (usuario.Nickname, usuario.Email, usuario.Password, usuario.Name, usuario.Surname, usuario.Phone, usuario.Avatar, usuario.Messagesreceive, usuario.Post, usuario.Messagessend, usuario.Hobby, usuario.Groups, usuario.Events);
 }
 
-private void init (string nickname, string email, String password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
+private void init (string nickname, string email, string password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events)
 {
         this.Nickname = nickname;
 
@@ -178,6 +202,10 @@ private void init (string nickname, string email, String password, string name, 
         this.Messagessend = messagessend;
 
         this.Hobby = hobby;
+
+        this.Groups = groups;
+
+        this.Events = events;
 }
 
 public override bool Equals (object obj)

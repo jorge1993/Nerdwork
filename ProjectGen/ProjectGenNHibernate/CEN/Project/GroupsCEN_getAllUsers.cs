@@ -12,15 +12,15 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class PostCEN
+public partial class GroupsCEN
 {
-public int GetMax ()
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> GetAllUsers ()
 {
-        /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Post_getMax) ENABLED START*/
+        /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Groups_getAllUsers) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method GetUserReceive() not yet implemented.");
+        throw new NotImplementedException ("Method GetAllUsers() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

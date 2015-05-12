@@ -281,5 +281,159 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioE
 
         return result;
 }
+public void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs)
+{
+        ProjectGenNHibernate.EN.Project.UsuarioEN usuarioEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
+                ProjectGenNHibernate.EN.Project.EventsEN eventsENAux = null;
+                if (usuarioEN.Events == null) {
+                        usuarioEN.Events = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventsEN>();
+                }
+
+                foreach (int item in p_events_OIDs) {
+                        eventsENAux = new ProjectGenNHibernate.EN.Project.EventsEN ();
+                        eventsENAux = (ProjectGenNHibernate.EN.Project.EventsEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventsEN), item);
+                        eventsENAux.Usuario.Add (usuarioEN);
+
+                        usuarioEN.Events.Add (eventsENAux);
+                }
+
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                ProjectGenNHibernate.EN.Project.UsuarioEN usuarioEN = null;
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
+
+                ProjectGenNHibernate.EN.Project.EventsEN eventsENAux = null;
+                if (usuarioEN.Events != null) {
+                        foreach (int item in p_events_OIDs) {
+                                eventsENAux = (ProjectGenNHibernate.EN.Project.EventsEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventsEN), item);
+                                if (usuarioEN.Events.Contains (eventsENAux) == true) {
+                                        usuarioEN.Events.Remove (eventsENAux);
+                                        eventsENAux.Usuario.Remove (usuarioEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_events_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
+                        }
+                }
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void AddGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs)
+{
+        ProjectGenNHibernate.EN.Project.UsuarioEN usuarioEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
+                ProjectGenNHibernate.EN.Project.GroupsEN groupsENAux = null;
+                if (usuarioEN.Groups == null) {
+                        usuarioEN.Groups = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.GroupsEN>();
+                }
+
+                foreach (int item in p_groups_OIDs) {
+                        groupsENAux = new ProjectGenNHibernate.EN.Project.GroupsEN ();
+                        groupsENAux = (ProjectGenNHibernate.EN.Project.GroupsEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.GroupsEN), item);
+                        groupsENAux.Usuario.Add (usuarioEN);
+
+                        usuarioEN.Groups.Add (groupsENAux);
+                }
+
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                ProjectGenNHibernate.EN.Project.UsuarioEN usuarioEN = null;
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
+
+                ProjectGenNHibernate.EN.Project.EventsEN eventsENAux = null;
+                if (usuarioEN.Events != null) {
+                        foreach (int item in p_events_OIDs) {
+                                eventsENAux = (ProjectGenNHibernate.EN.Project.EventsEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventsEN), item);
+                                if (usuarioEN.Events.Contains (eventsENAux) == true) {
+                                        usuarioEN.Events.Remove (eventsENAux);
+                                        eventsENAux.Usuario.Remove (usuarioEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_events_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
+                        }
+                }
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 }
 }

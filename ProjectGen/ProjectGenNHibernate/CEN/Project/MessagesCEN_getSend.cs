@@ -12,7 +12,7 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class MessagesCEN
+public partial class MessagesCEN : BasicCAD
 {
 public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> GetSend (string emisor)
 {
@@ -29,8 +29,8 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.Messages
                 UsuarioEN useren = usercad.ReadOIDDefault (emisor);
 
                 foreach (MessagesEN message in useren.Messagessend) {
-                        if (message.Usersend.Nickname.Equals(emisor))
-                                lista.Add(message);
+                        if (message.Usersend.Nickname.Equals (emisor))
+                                lista.Add (message);
                 }
                 SessionCommit ();
         }

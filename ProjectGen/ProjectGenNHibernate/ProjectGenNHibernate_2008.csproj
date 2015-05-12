@@ -95,11 +95,14 @@
 	<Compile Include="CAD\Project\PostCAD.cs" />
 			<Compile Include="CEN\Project\PostCEN_GetMax.cs" />
 			<Compile Include="CEN\Project\PostCEN_GetUserPosts.cs" />
+			<Compile Include="CEN\Project\PostCEN_SearchByHobbies.cs" />
 	<Compile Include="EN\Project\UsuarioEN.cs" />
 	<Compile Include="CEN\Project\UsuarioCEN.cs" />
 	<Compile Include="CAD\Project\IUsuarioCAD.cs" />
 	<Compile Include="CAD\Project\UsuarioCAD.cs" />
 			<Compile Include="CEN\Project\UsuarioCEN_HasHobbies.cs" />
+			<Compile Include="CEN\Project\UsuarioCEN_SearchByHobbies.cs" />
+			<Compile Include="CEN\Project\UsuarioCEN_Encrypt.cs" />
 	<Compile Include="EN\Project\MessagesEN.cs" />
 	<Compile Include="CEN\Project\MessagesCEN.cs" />
 	<Compile Include="CAD\Project\IMessagesCAD.cs" />
@@ -115,6 +118,23 @@
 			<Compile Include="CEN\Project\HobbyCEN_GetHobbybyID.cs" />
 			<Compile Include="CEN\Project\HobbyCEN_GetHobbyAssign.cs" />
 			<Compile Include="CEN\Project\HobbyCEN_GetHobbyNotAssign.cs" />
+	<Compile Include="EN\Project\GroupsEN.cs" />
+	<Compile Include="CEN\Project\GroupsCEN.cs" />
+	<Compile Include="CAD\Project\IGroupsCAD.cs" />
+	<Compile Include="CAD\Project\GroupsCAD.cs" />
+			<Compile Include="CEN\Project\GroupsCEN_GetAllPost.cs" />
+			<Compile Include="CEN\Project\GroupsCEN_GetAllHobbies.cs" />
+			<Compile Include="CEN\Project\GroupsCEN_GetAllUsers.cs" />
+			<Compile Include="CEN\Project\GroupsCEN_SearchByHobbies.cs" />
+	<Compile Include="EN\Project\EventsEN.cs" />
+	<Compile Include="CEN\Project\EventsCEN.cs" />
+	<Compile Include="CAD\Project\IEventsCAD.cs" />
+	<Compile Include="CAD\Project\EventsCAD.cs" />
+			<Compile Include="CEN\Project\EventsCEN_GetAllHobbies.cs" />
+			<Compile Include="CEN\Project\EventsCEN_GetAllUsers.cs" />
+			<Compile Include="CEN\Project\EventsCEN_SearchByName.cs" />
+			<Compile Include="CEN\Project\EventsCEN_SearchByHobbies.cs" />
+	<Compile Include="Enumerated\Project\EstadoEnum.cs" />
 	
 	
 
@@ -134,6 +154,8 @@
 	<EmbeddedResource Include="Mappings\Project\usuario.hbm.xml" />
 	<EmbeddedResource Include="Mappings\Project\messages.hbm.xml" />
 	<EmbeddedResource Include="Mappings\Project\hobby.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Project\groups.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Project\events.hbm.xml" />
 	
 	
 
