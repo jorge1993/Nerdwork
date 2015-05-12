@@ -17,24 +17,21 @@ public partial class Messages : System.Web.UI.Page
     {
         ProjectGenNHibernate.CEN.Project.MessagesCEN m = new ProjectGenNHibernate.CEN.Project.MessagesCEN();       
         IList<String> dr = m.GetUserReceive((string)Session["NAME"]);
-        //IList<MessagesEN> dr2 = m.GetSend((string)Session["NAME"]);
+        IList<MessagesEN> dr2 = m.GetSend((string)Session["NAME"]);
         
         //recievelist.Items.Clear();
         
         if (!IsPostBack)
         {
-            foreach (string s in dr)
+            foreach(string s in dr)
             {
                 recievelist.Items.Add(s);
             }
 
-            /*foreach (MessagesEN mes in dr2)
-            {
-                if (sendlist.Items.FindByText(mes.Userreceive.ToString())==null)
-                {
-                    sendlist.Items.Add(mes.Userreceive.ToString());
-                }
-            }*/
+            foreach (MessagesEN mes in dr2)
+            {               
+                sendlist.Items.Add(mes.Userreceive.Nickname);                
+            }
             
         }
     }
@@ -50,7 +47,7 @@ public partial class Messages : System.Web.UI.Page
     {
         int i;
         
-        string selected = recievelist.SelectedItem.Text;
+        string selected = sendlist.SelectedItem.Text;
        
         ProjectGenNHibernate.CEN.Project.MessagesCEN m = new ProjectGenNHibernate.CEN.Project.MessagesCEN();
         

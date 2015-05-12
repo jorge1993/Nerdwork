@@ -32,6 +32,7 @@ public System.Collections.Generic.IList<string> GetUserReceive (string emisor)
                                 lista.Add (message.Usersend.Nickname.ToString ());
                 }
                 SessionCommit ();
+                SessionClose();
         }
         catch (Exception ex)
         {
