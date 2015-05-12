@@ -82,27 +82,18 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void Save_Click(object sender, EventArgs e)
     {
-        UsuarioCEN usuario = new UsuarioCEN();
+        /*UsuarioCEN usuario = new UsuarioCEN();
         UsuarioEN usuario2 = new UsuarioEN();
         usuario2 = usuario.Searchbynick((String)Session["Name"]);
-        String password;
-        if (TextBoxPassword.Text != "")
-        {
-            password = TextBoxPassword.Text;
-        }
-        else
-        {
-            password = usuario2.Password;
-        }
         if (FileUpload1.HasFile)
         {
-            usuario.Modify(usuario2.Nickname, TextBoxEmail.Text, password, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, FileUpload1.FileName);
+            usuario.Modify(usuario2.Nickname, TextBoxEmail.Text, TextBoxPassword.Text, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, FileUpload1.FileName);
         }
         else
         {
-            usuario.Modify(usuario2.Nickname, TextBoxEmail.Text, password, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, usuario2.Avatar);
+            usuario.Modify(usuario2.Nickname, TextBoxEmail.Text, TextBoxPassword.Text, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, usuario2.Avatar);
         }
-        usuario2.Hobby.Clear();
+        //usuario2.Hobby.Clear();
         HobbyCEN allhobby = new HobbyCEN();
         IList<HobbyEN> listaHobbies = new List<HobbyEN>();
         listaHobbies = allhobby.GetAllHobby();
@@ -110,8 +101,13 @@ public partial class _Default : System.Web.UI.Page
            
             usuario2.Hobby.Add(allhobby.Search(ListUserHobbies.Items[i].Text));
         }
-     
+     */
+
+        UsuarioCEN us = new UsuarioCEN();
+        us.
     }
-
-
+    protected void TextBoxPassword_TextChanged(object sender, EventArgs e)
+    {
+        TextBoxConfirm.Enabled = true;
+    }
 }

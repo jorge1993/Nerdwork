@@ -98,21 +98,18 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>New Password:<asp:TextBox ID="TextBoxPassword" runat="server" TextMode="Password"></asp:TextBox>
+                    <td>New Password:<asp:TextBox ID="TextBoxPassword" runat="server" TextMode="Password" OnTextChanged="TextBoxPassword_TextChanged" ></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">          
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                                 ControlToValidate="TextBoxPassword" ValidationGroup="Register" ErrorMessage="*Password is required" 
-                                 ForeColor="Red"></asp:RequiredFieldValidator>
-                    </td>
+                        &nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>Confirm New Password:<asp:TextBox ID="TextBoxConfirm" runat="server" TextMode="Password"></asp:TextBox>
+                    <td>Confirm New Password:<asp:TextBox ID="TextBoxConfirm" runat="server" TextMode="Password" Enabled="False"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">
