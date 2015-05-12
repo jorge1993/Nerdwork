@@ -39,7 +39,6 @@ public partial class Send : System.Web.UI.Page
             if (item.Selected == true)
             {
                 reciever.Text = item.Text;
-                sendlist.Items.Remove(item);
                 break;
             }
         }
