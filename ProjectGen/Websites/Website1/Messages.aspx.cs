@@ -41,12 +41,14 @@ public partial class Messages : System.Web.UI.Page
         }
     }
 
+
     protected void NicknameLinkButton_Click(object sender, EventArgs e)
     {
         LinkButton pressed = sender as LinkButton;
         String newUrl = "PublicProfile.aspx?nickname=" + pressed.Text;
         Response.Redirect(newUrl);
     }
+
 
     protected void Button_SelectSend(object sender, EventArgs e)
     {
