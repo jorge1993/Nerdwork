@@ -13,36 +13,42 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(Session["Name"] != null) {
-            UsuarioCEN usuario = new UsuarioCEN();
-
-            UsuarioEN usuario2 = new UsuarioEN();
-            usuario2 = usuario.Searchbynick((String)Session["Name"]);
-
-            Image1.ImageUrl = usuario2.Avatar;
-            TextBoxName.Text = usuario2.Name;
-            TextBoxSurname.Text = usuario2.Surname;
-            TextBoxPhone.Text = usuario2.Phone;
-            TextBoxEmail.Text = usuario2.Email;
-
-        }
-        HobbyCEN allhobby=new HobbyCEN();
-       IList<HobbyEN> listaHobbies=new List<HobbyEN>();
-       listaHobbies = allhobby.GetHobbyNotAssign((String)Session["Name"]);
-
-        for(int i=0; i < listaHobbies.Count;i++){
-            ListAllHobbies.Items.Add(listaHobbies[i].Name);
-        }
-
-        HobbyCEN allhobbyuser = new HobbyCEN();
-        IList<HobbyEN> listaHobbiesuser = new List<HobbyEN>();
-        listaHobbies = allhobbyuser.GetHobbyAssign((String)Session["Name"]);
-
-        for (int i = 0; i < listaHobbiesuser.Count; i++)
+        if (!IsPostBack)
         {
-            ListUserHobbies.Items.Add(listaHobbies[i].Name);
-        }
+            if (Session["Name"] != null)
+            {
+                UsuarioCEN usuario = new UsuarioCEN();
 
+                UsuarioEN usuario2 = new UsuarioEN();
+                usuario2 = usuario.Searchbynick((String)Session["Name"]);
+
+                Image1.ImageUrl = usuario2.Avatar;
+                TextBoxName.Text = usuario2.Name;
+                TextBoxSurname.Text = usuario2.Surname;
+                TextBoxPhone.Text = usuario2.Phone;
+                TextBoxEmail.Text = usuario2.Email;
+
+            }
+            HobbyCEN allhobby = new HobbyCEN();
+            IList<HobbyEN> listaHobbies = new List<HobbyEN>();
+            listaHobbies = allhobby.GetHobbyNotAssign((String)Session["Name"]);
+
+            //ListAllHobbies.Items.Clear();
+            for (int i = 0; i < listaHobbies.Count; i++)
+            {
+                ListAllHobbies.Items.Add(listaHobbies[i].Name);
+            }
+
+            HobbyCEN allhobbyuser = new HobbyCEN();
+            IList<HobbyEN> listaHobbiesuser = new List<HobbyEN>();
+            listaHobbiesuser = allhobbyuser.GetHobbyAssign((String)Session["Name"]);
+
+            //ListUserHobbies.Items.Clear();
+            for (int i = 0; i < listaHobbiesuser.Count; i++)
+            {
+                ListUserHobbies.Items.Add(listaHobbiesuser[i].Name);
+            }
+        }
         
 
     }
@@ -82,32 +88,46 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void Save_Click(object sender, EventArgs e)
     {
-        /*UsuarioCEN usuario = new UsuarioCEN();
-        UsuarioEN usuario2 = new UsuarioEN();
-        usuario2 = usuario.Searchbynick((String)Session["Name"]);
+        UsuarioCEN us = new UsuarioCEN();
+        UsuarioEN useren = new UsuarioEN();
+        String password;
+        useren = us.Searchbynick((String)Session["Name"]);
+        String nombredefoto = useren.Avatar;
+
+        if (TextBoxConfirm.Enabled)
+            password = TextBoxConfirm.Text;
+        else password = useren.Password;
+
         if (FileUpload1.HasFile)
         {
-            usuario.Modify(usuario2.Nickname, TextBoxEmail.Text, TextBoxPassword.Text, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, FileUpload1.FileName);
+            nombredefoto = "~/images/" + useren.Name + FileUpload1.FileName;
+            FileUpload1.SaveAs(Server.MapPath(nombredefoto));
         }
-        else
-        {
-            usuario.Modify(usuario2.Nickname, TextBoxEmail.Text, TextBoxPassword.Text, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, usuario2.Avatar);
-        }
-        //usuario2.Hobby.Clear();
-        HobbyCEN allhobby = new HobbyCEN();
-        IList<HobbyEN> listaHobbies = new List<HobbyEN>();
-        listaHobbies = allhobby.GetAllHobby();
-        for(int i=0; i < ListUserHobbies.Items.Count;i++){
-           
-            usuario2.Hobby.Add(allhobby.Search(ListUserHobbies.Items[i].Text));
-        }
-     */
 
-        UsuarioCEN us = new UsuarioCEN();
-        us.
+        us.Modify(useren.Nickname, TextBoxEmail.Text, password, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, nombredefoto);
+        
+        HobbyCEN allhobbyuser = new HobbyCEN();
+        IList<HobbyEN> listaHobbiesUser = allhobbyuser.GetHobbyAssign((String)Session["Name"]);
+        IList<String> listaHobbieNew = new List<String>();
+        IList<String> listaHobbieOld = new List<String>();
+
+        for (int i = 0; i < listaHobbiesUser.Count; i++ )
+            listaHobbieOld.Add(listaHobbiesUser[i].Name);
+
+        for (int i = 0; i < ListUserHobbies.Items.Count; i++ )
+            listaHobbieNew.Add(ListUserHobbies.Items[i].Text);
+
+        UsuarioCEN user = new UsuarioCEN();
+        user.DeleteHobbies(useren.Nickname, listaHobbieOld);
+        user.AddHobbies(useren.Nickname, listaHobbieNew);
+
+        Response.Redirect("PerfilPrivate.aspx");
+
     }
     protected void TextBoxPassword_TextChanged(object sender, EventArgs e)
     {
         TextBoxConfirm.Enabled = true;
+        if (TextBoxPassword.Text.Length == 0)
+            TextBoxConfirm.Enabled = false;
     }
 }

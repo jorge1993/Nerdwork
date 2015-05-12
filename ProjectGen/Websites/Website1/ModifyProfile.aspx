@@ -26,12 +26,6 @@
                         <strong>List of Hobbies</strong><br />
                         <asp:ListBox ID="ListAllHobbies" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name"></asp:ListBox>
                        
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT name FROM Hobby WHERE (name NOT IN (SELECT FK_name_idHobby FROM hobby_user  WHERE (FK_nickname_idUser = @name)))">
-                            <SelectParameters>
-                                <asp:SessionParameter DefaultValue="" Name="name" SessionField="Name" Type="String" />
-                            </SelectParameters>
-                        </asp:SqlDataSource>
-                       
                     </td>
                     <td> <asp:Button ID="Toleft" runat="server" Text="&gt;" OnClick="Toleft_Click" style="width: 22px" /><br>
                         <asp:Button ID="ToRight" runat="server" Text="&lt;" OnClick="ToRight_Click" />
@@ -40,11 +34,6 @@
                     <td>
                         <strong>My Hobbies</strong><br />
                         <asp:ListBox ID="ListUserHobbies" runat="server" DataSourceID="SqlDataSource2" DataTextField="FK_name_idHobby" DataValueField="FK_name_idHobby"></asp:ListBox>
-                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT [FK_name_idHobby] FROM [hobby_user] WHERE ([FK_nickname_idUser] = @FK_nickname_idUser)">
-                            <SelectParameters>
-                                <asp:SessionParameter Name="FK_nickname_idUser" SessionField="Name" Type="String" />
-                            </SelectParameters>
-                        </asp:SqlDataSource>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -109,7 +98,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>Confirm New Password:<asp:TextBox ID="TextBoxConfirm" runat="server" TextMode="Password" Enabled="False"></asp:TextBox>
+                    <td>Confirm New Password:<asp:TextBox ID="TextBoxConfirm" runat="server" TextMode="Password" ClientIDMode="Predictable"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">

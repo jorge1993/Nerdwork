@@ -124,6 +124,15 @@ public partial class PerfilPrivate : System.Web.UI.Page
             LabelPosted.Text = "Post must have text and at least one hobby.";
             LabelPosted.Visible = true;
         }
+        ListUserHobbies.Items.Clear();
+
+        HobbyCEN ho = new HobbyCEN();
+        IList<HobbyEN> hobbydr = new List<HobbyEN>();
+
+        hobbydr = ho.GetHobbyAssign((string)Session["NAME"]);
+
+        foreach (HobbyEN s in hobbydr)
+            ListUserHobbies.Items.Add(s.Name);
     }
 
     protected void ButtonToRight_Click(object sender, EventArgs e)
