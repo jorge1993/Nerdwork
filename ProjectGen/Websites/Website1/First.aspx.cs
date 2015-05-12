@@ -4,6 +4,9 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -54,34 +57,44 @@ public partial class _Default : System.Web.UI.Page
     {
         String email = TextBox5.Text;
         String nick = TextBox3.Text;
-        String pass = TextBox4.Text;
+        Random passw = new Random(2000);
+        String pass = ((int)(passw.Next() + 4000)).ToString();
 
         //Collection<HobbyEN> p_hobby;
         IList<HobbyEN> p_hobby = null;
 
 
 
-        if (pass.Length >= 4 && pass.Length <= 16)
+        try
         {
-            try
-            {
-                UsuarioCEN user = new UsuarioCEN();
-                user.Create(nick, email, pass, "", "", "", "~/images/default_avatar.png", null);
-                Label5.Text = "Register successfully";
-                Label5.Visible = true;
-            }
-            catch (Exception ex)
-            {
-                Label5.Text = "User or email already in use";
-                Label5.Visible = true;
-            }
+            SmtpClient client = new SmtpClient();
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            client.Timeout = 10000;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new System.Net.NetworkCredential("nerdworksocial@gmail.com", "vvV-7Pa-vGL-vCM");
+
+            MailMessage mm = new MailMessage("nerdworksocial@gmail.com", TextBox5.Text, "Login for our awesome page", "This is your new password " + pass);
+            mm.BodyEncoding = UTF8Encoding.UTF8;
+            mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+
+            client.Send(mm);
+
+            UsuarioCEN user = new UsuarioCEN();
+            user.Create(nick, email, pass, "", "", "", "~/images/default_avatar.png", null);
+            Label5.Text = "Register successfully";
+            Label5.Visible = true;
         }
-        else
+        catch (Exception ex)
         {
-            Label5.Text = "Invalid Password: Length(4-16)";
+            Label5.Text = "User or email already in use";
             Label5.Visible = true;
         }
 
+        
+        
     }
 
 }

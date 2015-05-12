@@ -118,32 +118,7 @@
                              ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
-                <tr>
-                    <td align="right" class="auto-style8">
-                        <asp:Label ID="Label3" runat="server" Text="Password [Length(4-16)]:"></asp:Label>
-                    </td>
-                    <td align="left" class="auto-style1">
-                        <asp:TextBox ID="TextBox4" runat="server" TextMode="Password"></asp:TextBox>
-                    </td>
-                    <td align="left" class="auto-style4">          
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                                 ControlToValidate="TextBox3" ValidationGroup="Register" ErrorMessage="*Password is required" 
-                                 ForeColor="Red"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right" class="auto-style5">
-                        <asp:Label ID="Label4" runat="server" Text="Confirm Password:"></asp:Label>
-                    </td>
-                    <td align="left" class="auto-style6">
-                        <asp:TextBox ID="TextBox6" runat="server" TextMode="Password"></asp:TextBox>
-                    </td>
-                    <td align="left" class="auto-style7">
-                        <asp:CompareValidator ID="CompareValidator1" runat="server" 
-                                 ControlToCompare="TextBox4"  ValidationGroup="Register" ControlToValidate="TextBox6" 
-                                 ErrorMessage="*Password doesn't match" ForeColor="Red"></asp:CompareValidator>
-                    </td>
-                </tr>
+               
                 <tr>
                     <td align="center" class="style2" colspan="3">
                         <asp:Label ID="Label5" runat="server" Text="Label" Visible="false"></asp:Label>
