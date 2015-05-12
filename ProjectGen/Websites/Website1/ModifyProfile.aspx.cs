@@ -20,8 +20,33 @@ public partial class _Default : System.Web.UI.Page
             usuario2 = usuario.Searchbynick((String)Session["Name"]);
 
             Image1.ImageUrl = usuario2.Avatar;
+            TextBoxName.Text = usuario2.Name;
+            TextBoxSurname.Text = usuario2.Surname;
+            TextBoxPhone.Text = usuario2.Phone;
+            TextBoxEmail.Text = usuario2.Email;
+
         }
+        HobbyCEN allhobby=new HobbyCEN();
+       IList<HobbyEN> listaHobbies=new List<HobbyEN>();
+       listaHobbies = allhobby.GetHobbyNotAssign((String)Session["Name"]);
+
+        for(int i=0; i < listaHobbies.Count;i++){
+            ListAllHobbies.Items.Add(listaHobbies[i].Name);
+        }
+
+        HobbyCEN allhobbyuser = new HobbyCEN();
+        IList<HobbyEN> listaHobbiesuser = new List<HobbyEN>();
+        listaHobbies = allhobby.GetHobbyAssign((String)Session["Name"]);
+
+        for (int i = 0; i < listaHobbiesuser.Count; i++)
+        {
+            ListUserHobbies.Items.Add(listaHobbies[i].Name);
+        }
+
+        
+
     }
+
 
     protected void Toleft_Click(object sender, EventArgs e)
     {
@@ -68,6 +93,15 @@ public partial class _Default : System.Web.UI.Page
         {
             usuario.Modify(usuario2.Nickname, TextBoxEmail.Text, TextBoxPassword.Text, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, usuario2.Avatar);
         }
+        usuario2.Hobby.Clear();
+        HobbyCEN allhobby = new HobbyCEN();
+        IList<HobbyEN> listaHobbies = new List<HobbyEN>();
+        listaHobbies = allhobby.GetAllHobby();
+        for(int i=0; i < ListUserHobbies.Items.Count;i++){
+           
+            usuario2.Hobby.Add(allhobby.Search(ListUserHobbies.Items[i].Text));
+        }
+     
     }
 
 
