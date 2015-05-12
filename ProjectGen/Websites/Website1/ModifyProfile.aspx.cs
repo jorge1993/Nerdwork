@@ -36,7 +36,7 @@ public partial class _Default : System.Web.UI.Page
 
         HobbyCEN allhobbyuser = new HobbyCEN();
         IList<HobbyEN> listaHobbiesuser = new List<HobbyEN>();
-        listaHobbies = allhobby.GetHobbyAssign((String)Session["Name"]);
+        listaHobbies = allhobbyuser.GetHobbyAssign((String)Session["Name"]);
 
         for (int i = 0; i < listaHobbiesuser.Count; i++)
         {
@@ -85,13 +85,22 @@ public partial class _Default : System.Web.UI.Page
         UsuarioCEN usuario = new UsuarioCEN();
         UsuarioEN usuario2 = new UsuarioEN();
         usuario2 = usuario.Searchbynick((String)Session["Name"]);
-        if (FileUpload1.HasFile)
+        String password;
+        if (TextBoxPassword.Text != "")
         {
-            usuario.Modify(usuario2.Nickname, TextBoxEmail.Text, TextBoxPassword.Text, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, FileUpload1.FileName);
+            password = TextBoxPassword.Text;
         }
         else
         {
-            usuario.Modify(usuario2.Nickname, TextBoxEmail.Text, TextBoxPassword.Text, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, usuario2.Avatar);
+            password = usuario2.Password;
+        }
+        if (FileUpload1.HasFile)
+        {
+            usuario.Modify(usuario2.Nickname, TextBoxEmail.Text, password, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, FileUpload1.FileName);
+        }
+        else
+        {
+            usuario.Modify(usuario2.Nickname, TextBoxEmail.Text, password, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text, usuario2.Avatar);
         }
         usuario2.Hobby.Clear();
         HobbyCEN allhobby = new HobbyCEN();
