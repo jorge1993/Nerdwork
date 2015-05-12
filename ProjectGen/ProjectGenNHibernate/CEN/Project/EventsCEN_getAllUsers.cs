@@ -12,16 +12,36 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class EventsCEN
+public partial class EventsCEN : BasicCAD
 {
 public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> GetAllUsers ()
 {
         /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Events_getAllUsers) ENABLED START*/
 
         // Write here your custom code...
+    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> aux = new System.Collections.Generic.List<UsuarioEN>();
+    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> lista = new System.Collections.Generic.List<UsuarioEN>();
+    try
+    {
+        SessionInitializeTransaction();
+        EventsCAD eve = new EventsCAD(session);
+        UsuarioCAD usercad = new UsuarioCAD(session);
+        EventsEN even = eve.ReadOIDDefault(0);
+        aux = usercad.GetAllUsers();
 
-        throw new NotImplementedException ("Method GetAllUsers() not yet implemented.");
+        foreach (UsuarioEN u in aux)
+        {
+            if (u.Nickname.Equals(even.Usuario))
+                lista.Add(u);
+        }
+        SessionCommit();
+    }
+    catch (Exception ex)
+    {
+        SessionRollBack();
+    }
 
+    return lista;
         /*PROTECTED REGION END*/
 }
 }
