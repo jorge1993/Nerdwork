@@ -12,11 +12,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <div id="modifyglobal" style="width:100%;height:100%;">
-    
-          
-        
-           
-        
             <table style="width:99%; height: 320px; text-align: center;">
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
@@ -24,7 +19,7 @@
                     <td>&nbsp;</td>
                     <td class="auto-style1">
                         <strong>List of Hobbies</strong><br />
-                        <asp:ListBox ID="ListAllHobbies" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name"></asp:ListBox>
+                        <asp:ListBox ID="ListAllHobbies" runat="server"></asp:ListBox>
                        
                     </td>
                     <td> <asp:Button ID="Toleft" runat="server" Text="&gt;" OnClick="Toleft_Click" style="width: 22px" /><br>
@@ -33,7 +28,7 @@
                     </td>
                     <td>
                         <strong>My Hobbies</strong><br />
-                        <asp:ListBox ID="ListUserHobbies" runat="server" DataSourceID="SqlDataSource2" DataTextField="FK_name_idHobby" DataValueField="FK_name_idHobby"></asp:ListBox>
+                        <asp:ListBox ID="ListUserHobbies" runat="server"></asp:ListBox>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -64,10 +59,10 @@
                     <td>&nbsp;</td>
                     <td class="auto-style1">     
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                             ControlToValidate="TextBoxEmail"  ValidationGroup="Register" ErrorMessage="*Email is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                             ControlToValidate="TextBoxEmail"  ValidationGroup="Modify" ErrorMessage="*Email is required" ForeColor="Red"></asp:RequiredFieldValidator>
                      
                          <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                             ControlToValidate="TextBoxEmail"  ValidationGroup="Register" ErrorMessage="*Valid mail is required" 
+                             ControlToValidate="TextBoxEmail"  ValidationGroup="Modify" ErrorMessage="*Valid mail is required" 
                              ForeColor="Red" 
                              ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </td>
@@ -98,12 +93,12 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>Confirm New Password:<asp:TextBox ID="TextBoxConfirm" runat="server" TextMode="Password" ClientIDMode="Predictable"></asp:TextBox>
+                    <td>Confirm New Password:<asp:TextBox ID="TextBoxConfirm" runat="server" TextMode="Password" ClientIDMode="Predictable" Enabled="False"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">
                         <asp:CompareValidator ID="CompareValidator1" runat="server" 
-                                 ControlToCompare="TextBoxPassword"  ValidationGroup="Register" ControlToValidate="TextBoxConfirm" 
+                                 ControlToCompare="TextBoxPassword"  ValidationGroup="Modify" ControlToValidate="TextBoxConfirm" 
                                  ErrorMessage="*Password doesn't match" ForeColor="Red"></asp:CompareValidator>
                     </td>
                     <td>&nbsp;</td>
@@ -129,7 +124,7 @@
                     <td class="auto-style1">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:Button ID="Save" runat="server" Text="Save hobbies" OnClick="Save_Click" />
+                        <asp:Button ID="Save" runat="server" Text="Save hobbies" OnClick="Save_Click" Validationgroup="Modify"/>
                         <br />
                         <asp:Label ID="SavedText" runat="server" Visible="false" style="font-weight: 700" Text="Label"></asp:Label>
                     </td>
