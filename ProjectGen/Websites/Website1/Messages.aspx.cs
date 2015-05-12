@@ -25,12 +25,17 @@ public partial class Messages : System.Web.UI.Page
         {
             foreach(string s in dr)
             {
-                recievelist.Items.Add(s);
+                if (recievelist.Items.FindByText(s) == null)
+                {
+                    recievelist.Items.Add(s);
+                }
             }
 
-            foreach (MessagesEN mes in dr2)
-            {               
-                sendlist.Items.Add(mes.Userreceive.Nickname);                
+            foreach (MessagesEN mes in dr2)                
+            {
+                if(sendlist.Items.FindByText(mes.Userreceive.Nickname)==null){          
+                    sendlist.Items.Add(mes.Userreceive.Nickname);  
+                }
             }
             
         }
@@ -43,17 +48,15 @@ public partial class Messages : System.Web.UI.Page
         Response.Redirect(newUrl);
     }
 
-    protected void Button_SelectSee(object sender, EventArgs e)
+    protected void Button_SelectSend(object sender, EventArgs e)
     {
-        int i;
-        
         string selected = sendlist.SelectedItem.Text;
        
         ProjectGenNHibernate.CEN.Project.MessagesCEN m = new ProjectGenNHibernate.CEN.Project.MessagesCEN();
         
         System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> dr;
 
-        dr = m.GetReceive(selected, (string)Session["NAME"]);
+        dr = m.GetReceive((string)Session["NAME"], selected);
          
         DataTable dt = new DataTable();
         dt.Columns.Add("nickname", typeof(string));
@@ -61,6 +64,36 @@ public partial class Messages : System.Web.UI.Page
         dt.Columns.Add("description", typeof(String));
 
         for (int j = 0; j < dr.Count; j++) {
+
+            DataRow Row1;
+            Row1 = dt.NewRow();
+            Row1["nickname"] = selected;
+            Row1["subject"] = dr[j].Subject;
+            Row1["description"] = dr[j].Description;
+
+            dt.Rows.Add(Row1);
+            SendMessages.DataSource = dt;
+            SendMessages.DataBind();
+        }
+    }
+
+    protected void Button_SelectRecieve(object sender, EventArgs e)
+    {
+        string selected = recievelist.SelectedItem.Text;
+
+        ProjectGenNHibernate.CEN.Project.MessagesCEN m = new ProjectGenNHibernate.CEN.Project.MessagesCEN();
+
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> dr;
+
+        dr = m.GetReceive(selected, (string)Session["NAME"]);
+
+        DataTable dt = new DataTable();
+        dt.Columns.Add("nickname", typeof(string));
+        dt.Columns.Add("subject", typeof(string));
+        dt.Columns.Add("description", typeof(String));
+
+        for (int j = 0; j < dr.Count; j++)
+        {
 
             DataRow Row1;
             Row1 = dt.NewRow();

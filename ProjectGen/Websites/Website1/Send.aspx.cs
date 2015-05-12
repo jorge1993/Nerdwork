@@ -27,6 +27,25 @@ public partial class Send : System.Web.UI.Page
             }
         }
 
+        String nickname = "";
+        try
+        {
+            nickname = Request.QueryString["Nickname"];
+
+        }
+        catch (Exception ex)
+        {
+        }
+        finally
+        {
+            if (nickname != "")
+            {
+                reciever.Text = nickname;
+            }
+        }
+
+
+
     }
 
 

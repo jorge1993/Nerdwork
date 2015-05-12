@@ -4,15 +4,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
 
-<div style="float: left; margin-left: 5%";>
+<div style="float: left; margin-left: 5%; margin-top:1%";>
 INBOX
 <p>
 <asp:ListBox ID="recievelist" runat="server" BorderColor="Black" ReadOnly="true" Height="30%" Width="100%">
             </asp:ListBox>
     </p>
     <p>
-    <asp:Button ID="select" runat="server" BorderColor="#999999" 
-                         BorderStyle="Solid" Text="SELECT" OnClick="Button_SelectSee"
+    <asp:Button ID="selectrecieve" runat="server" BorderColor="#999999" 
+                         BorderStyle="Solid" Text="SELECT" OnClick="Button_SelectRecieve"
                           />
   </p>
    
@@ -51,22 +51,19 @@ INBOX
                     <SortedDescendingCellStyle BackColor="#F1E5CE" />
                     <SortedDescendingHeaderStyle BackColor="#93451F" />
                 </asp:GridView>
-               
-
 
 </div>
-
-<div style="float: left; margin-left:5%; width:20%">
+<div style="float: left; margin-left:5%; margin-top:10%";>
 
 OUTBOX
 <p>
 <asp:ListBox ID="sendlist" runat="server" BorderColor="Black" ReadOnly="true" 
-        Height="30%" Width="50%">
+        Height="30%" Width="100%">
             </asp:ListBox>
     </p>
     <p>
-    <asp:Button ID="see" runat="server" BorderColor="#999999" 
-                         BorderStyle="Solid" Text="SELECT" OnClick="Button_SelectSee"
+    <asp:Button ID="selectsend" runat="server" BorderColor="#999999" 
+                         BorderStyle="Solid" Text="SELECT" OnClick="Button_SelectSend"
                           />
   </p>
    

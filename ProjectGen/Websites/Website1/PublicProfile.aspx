@@ -13,6 +13,9 @@
                     <td>
                         <h1>
                             <asp:Label ID="nicknamePublic" runat="server" Text="Public Nickname"></asp:Label>
+                            <asp:Button ID="ButtonMessage" runat="server" BorderColor="#999999" 
+                             BorderStyle="Solid" Text="Send a Message" OnClick="Button_Click"
+                              ValidationGroup="Register" />
                         </h1>
                     </td>
                 </tr>

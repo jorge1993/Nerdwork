@@ -62,4 +62,9 @@ public partial class _Default : System.Web.UI.Page
         avatarPublic.Height = 100;
         nicknamePublic.Text = publicUser;
     }
+
+    protected void Button_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Send.aspx?Nickname=" + nicknamePublic.Text);
+    }
 }
