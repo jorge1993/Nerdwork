@@ -50,6 +50,82 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
+                    <td>Name:<asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style1">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>Surname:<asp:TextBox ID="TextBoxSurname" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style1">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>E-mail:<asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style1">     
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                             ControlToValidate="TextBoxEmail"  ValidationGroup="Register" ErrorMessage="*Email is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                     
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                             ControlToValidate="TextBoxEmail"  ValidationGroup="Register" ErrorMessage="*Valid mail is required" 
+                             ForeColor="Red" 
+                             ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>Phone:<asp:TextBox ID="TextBoxPhone" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style1">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>New Password:<asp:TextBox ID="TextBoxPassword" runat="server" TextMode="Password"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style1">          
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                 ControlToValidate="TextBoxPassword" ValidationGroup="Register" ErrorMessage="*Password is required" 
+                                 ForeColor="Red"></asp:RequiredFieldValidator>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>Confirm New Password:<asp:TextBox ID="TextBoxConfirm" runat="server" TextMode="Password"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style1">
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                                 ControlToCompare="TextBoxPassword"  ValidationGroup="Register" ControlToValidate="TextBoxConfirm" 
+                                 ErrorMessage="*Password doesn't match" ForeColor="Red"></asp:CompareValidator>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
                     <td>Upload your photo<br />
                         <asp:FileUpload ID="FileUpload1" runat="server" /></td>
                     <td>&nbsp;</td>
@@ -61,9 +137,7 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td>
-                        <asp:Button ID="SavePhoto" runat="server" Text="Save avatar" OnClick="Save_Avatar_Click" />
                         <br />
-                        <asp:Label ID="SavedPhotoLabel" runat="server" Visible="false" style="font-weight: 700" Text="Label"></asp:Label>
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
