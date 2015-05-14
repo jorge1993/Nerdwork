@@ -14,7 +14,7 @@ namespace ProjectGenNHibernate.CEN.Project
 {
 public partial class UsuarioCEN
 {
-public void Encrypt (string arg0)
+public string Encrypt (string arg0)
 {
         /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Usuario_encrypt) ENABLED START*/
 

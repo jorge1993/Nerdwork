@@ -22,10 +22,13 @@
 			
 			
 		  			
-						<many-to-one name="Post" class="ProjectGenNHibernate.EN.Project.PostEN" >	
-								<column name="[FK_id_idPost]"/>
-						</many-to-one>
-											 					
+						<bag name="Post" >
+							<key>
+								<column name="[FK_Id_idGroups]"/>
+					      	</key>
+							<one-to-many class="ProjectGenNHibernate.EN.Project.PostEN"/>
+					    </bag>
+					
 			
 		  			
 						<bag name="Hobby" table="[hobby_groups]" inverse="true" >

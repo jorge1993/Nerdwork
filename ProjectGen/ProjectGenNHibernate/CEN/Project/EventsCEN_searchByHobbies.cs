@@ -14,7 +14,7 @@ namespace ProjectGenNHibernate.CEN.Project
 {
 public partial class EventsCEN : BasicCAD
 {
-public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> SearchByHobbies (int p_oid)
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> SearchByHobbies (string hobby)
 {
         /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Events_searchByHobbies) ENABLED START*/
 

@@ -30,13 +30,10 @@
     					</bag>
 			
 		  			
-						<bag name="Groups" >
-							<key>
-								<column name="[FK_id_idPost]"/>
-					      	</key>
-							<one-to-many class="ProjectGenNHibernate.EN.Project.GroupsEN"/>
-					    </bag>
-					
+						<many-to-one name="Groups" class="ProjectGenNHibernate.EN.Project.GroupsEN" >	
+								<column name="[FK_Id_idGroups]"/>
+						</many-to-one>
+											 					
 					
 					
 					

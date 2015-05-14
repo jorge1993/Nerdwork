@@ -112,11 +112,6 @@ public int New_ (GroupsEN groups)
         try
         {
                 SessionInitializeTransaction ();
-                if (groups.Post != null) {
-                        groups.Post = (ProjectGenNHibernate.EN.Project.PostEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.PostEN), groups.Post.Id);
-
-                        groups.Post.Groups.Add (groups);
-                }
                 if (groups.Usuario != null) {
                         for (int i = 0; i < groups.Usuario.Count; i++) {
                                 groups.Usuario [i] = (ProjectGenNHibernate.EN.Project.UsuarioEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.UsuarioEN), groups.Usuario [i].Nickname);

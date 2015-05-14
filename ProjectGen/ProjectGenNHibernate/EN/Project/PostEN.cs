@@ -33,7 +33,7 @@ private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN
  *
  */
 
-private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups;
+private ProjectGenNHibernate.EN.Project.GroupsEN groups;
 
 
 
@@ -59,7 +59,7 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 }
 
 
-public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> Groups {
+public virtual ProjectGenNHibernate.EN.Project.GroupsEN Groups {
         get { return groups; } set { groups = value;  }
 }
 
@@ -70,12 +70,11 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 public PostEN()
 {
         hobby = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
-        groups = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.GroupsEN>();
 }
 
 
 
-public PostEN(int id, string description, ProjectGenNHibernate.EN.Project.UsuarioEN user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups)
+public PostEN(int id, string description, ProjectGenNHibernate.EN.Project.UsuarioEN user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, ProjectGenNHibernate.EN.Project.GroupsEN groups)
 {
         this.init (id, description, user, hobby, groups);
 }
@@ -86,7 +85,7 @@ public PostEN(PostEN post)
         this.init (post.Id, post.Description, post.User, post.Hobby, post.Groups);
 }
 
-private void init (int id, string description, ProjectGenNHibernate.EN.Project.UsuarioEN user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups)
+private void init (int id, string description, ProjectGenNHibernate.EN.Project.UsuarioEN user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, ProjectGenNHibernate.EN.Project.GroupsEN groups)
 {
         this.Id = id;
 

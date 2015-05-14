@@ -44,7 +44,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN
 {
         return _IGroupsCAD.GetAllGroups ();
 }
-public int New_ (string p_Name, string p_Description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum p_State, int p_post, System.Collections.Generic.IList<string> p_usuario)
+public int New_ (string p_Name, string p_Description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum p_State, System.Collections.Generic.IList<string> p_usuario)
 {
         GroupsEN groupsEN = null;
         int oid;
@@ -56,12 +56,6 @@ public int New_ (string p_Name, string p_Description, ProjectGenNHibernate.Enume
         groupsEN.Description = p_Description;
 
         groupsEN.State = p_State;
-
-
-        if (p_post != -1) {
-                groupsEN.Post = new ProjectGenNHibernate.EN.Project.PostEN ();
-                groupsEN.Post.Id = p_post;
-        }
 
 
         groupsEN.Usuario = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.UsuarioEN>();

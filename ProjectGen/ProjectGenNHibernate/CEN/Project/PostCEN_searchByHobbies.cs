@@ -14,7 +14,7 @@ namespace ProjectGenNHibernate.CEN.Project
 {
 public partial class PostCEN
 {
-public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> SearchByHobbies (int p_oid)
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> SearchByHobbies (string arg0)
 {
         /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Post_searchByHobbies) ENABLED START*/
 

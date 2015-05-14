@@ -33,7 +33,7 @@ private ProjectGenNHibernate.Enumerated.Project.EstadoEnum state;
  *
  */
 
-private ProjectGenNHibernate.EN.Project.PostEN post;
+private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post;
 
 /**
  *
@@ -71,7 +71,7 @@ public virtual ProjectGenNHibernate.Enumerated.Project.EstadoEnum State {
 }
 
 
-public virtual ProjectGenNHibernate.EN.Project.PostEN Post {
+public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> Post {
         get { return post; } set { post = value;  }
 }
 
@@ -91,13 +91,14 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 
 public GroupsEN()
 {
+        post = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.PostEN>();
         hobby = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
         usuario = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.UsuarioEN>();
 }
 
 
 
-public GroupsEN(int id, string name, string description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum state, ProjectGenNHibernate.EN.Project.PostEN post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario)
+public GroupsEN(int id, string name, string description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum state, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario)
 {
         this.init (id, name, description, state, post, hobby, usuario);
 }
@@ -108,7 +109,7 @@ public GroupsEN(GroupsEN groups)
         this.init (groups.Id, groups.Name, groups.Description, groups.State, groups.Post, groups.Hobby, groups.Usuario);
 }
 
-private void init (int id, string name, string description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum state, ProjectGenNHibernate.EN.Project.PostEN post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario)
+private void init (int id, string name, string description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum state, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario)
 {
         this.Id = Id;
 

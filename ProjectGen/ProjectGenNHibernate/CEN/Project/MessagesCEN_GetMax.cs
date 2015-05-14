@@ -12,7 +12,7 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class MessagesCEN
+public partial class MessagesCEN :BasicCAD 
 {
 public int GetMax ()
 {
