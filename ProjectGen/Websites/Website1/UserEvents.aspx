@@ -13,7 +13,7 @@ Create an event
 </h2>
 
 <div>
-<p>&nbsp; Name&nbsp; <asp:TextBox ID="reciever" ReadOnly="true" Height="30%" Width="50%" BorderColor="Black" runat="server">
+<p>&nbsp; Name&nbsp; <asp:TextBox ID="name" ReadOnly="true" Height="30%" Width="50%" BorderColor="Black" runat="server">
 </asp:TextBox>
 </div>
 <div>
