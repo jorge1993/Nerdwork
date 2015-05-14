@@ -12,9 +12,9 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class EventsCEN :BasicCAD
+public partial class EventsCEN
 {
-public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> GetAllHobbies ()
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> GetAllHobbies (int arg0)
 {
         /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Events_getAllHobbies) ENABLED START*/
 

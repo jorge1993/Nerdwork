@@ -12,7 +12,7 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class HobbyCEN : BasicCAD
+public partial class HobbyCEN
 {
 public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> GetHobbyAssign (string p_oid)
 {
