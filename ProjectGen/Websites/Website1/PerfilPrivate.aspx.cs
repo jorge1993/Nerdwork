@@ -89,10 +89,7 @@ public partial class PerfilPrivate : System.Web.UI.Page
 
         if (postDesc.Equals("") == false && ListPostHobbies.Items.Count > 0)
         {
-            // Para controlar el ID de los Posts lo que se me ha ocurrido es consultar el número de filas
-            // que tiene la tabla Post y aumentarlo en 1.
-            // Pero cuando hagamos lo de borrar posts vamos a tener problemas. Lo que se podría hacer al
-            // eliminarlos es modificar todos los ID de los mensajes posteriores.
+            
             String postUser = Session["Name"].ToString();
 
             PostCEN post = new PostCEN();
