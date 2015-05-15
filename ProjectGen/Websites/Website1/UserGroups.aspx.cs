@@ -38,7 +38,7 @@ public partial class UserGroups : System.Web.UI.Page
             Row1 = dt.NewRow();
             IList<GroupsEN> use = new List<GroupsEN>();
 
-            use = eve.SearchByName(dr[j].Name);
+            //use = eve.SearchByName(dr[j].Name);
 
             Row1[0] = use[0].Name;
             Row1[1] = use[0].Description;
@@ -72,6 +72,11 @@ public partial class UserGroups : System.Web.UI.Page
         LinkButton pressed = sender as LinkButton;
         String newUrl = "PublicProfile.aspx?nickname=" + pressed.Text;
         Response.Redirect(newUrl);
+    }
+
+    protected void GridViewTimeline_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 
 

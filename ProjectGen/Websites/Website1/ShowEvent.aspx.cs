@@ -19,7 +19,8 @@ public partial class ShowEvent : System.Web.UI.Page
 
         EventsCEN eve = new EventsCEN();
         IList<EventsEN> eventen = new List<EventsEN>();
-        eventen = eve.SearchByName(evento);
+        eventen = eve.SearchByName("Hola");
+        description.Text = eventen[0].DateEnd.ToString();
 
         foreach (EventsEN en in eventen)
         {
@@ -47,6 +48,7 @@ public partial class ShowEvent : System.Web.UI.Page
                     direccion.Text = en.Place;
                     TimeSpan auxinit = en.DateStart;
                     TimeSpan auxned = en.DateEnd;
+
                     TextBox1.Visible = false;
                     TextBox2.Visible = false;
 
