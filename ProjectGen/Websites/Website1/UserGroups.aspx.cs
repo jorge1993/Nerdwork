@@ -38,7 +38,9 @@ public partial class UserGroups : System.Web.UI.Page
             Row1 = dt.NewRow();
             IList<GroupsEN> use = new List<GroupsEN>();
 
-            //use = eve.SearchByName(dr[j].Name);
+            String nametolookfor = dr[j].Name;
+           
+            use = eve.SearchByName(nametolookfor);
 
             Row1[0] = use[0].Name;
             Row1[1] = use[0].Description;
@@ -58,7 +60,7 @@ public partial class UserGroups : System.Web.UI.Page
                 contador++;
             }
 
-            Row1[3] = listaHobbies;
+            Row1[2] = listaHobbies;
 
             dt.Rows.Add(Row1);
             GridViewTimeline.DataSource = dt;
@@ -80,4 +82,8 @@ public partial class UserGroups : System.Web.UI.Page
     }
 
 
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/CreateGroup.aspx");
+    }
 }
