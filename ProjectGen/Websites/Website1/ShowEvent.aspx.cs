@@ -17,10 +17,10 @@ public partial class ShowEvent : System.Web.UI.Page
     {
         String evento = Request.QueryString["nickname"];
 
-        EventsCEN eve = new EventsCEN();
+
         IList<EventsEN> eventen = new List<EventsEN>();
-        eventen = eve.SearchByName("Hola");
-        description.Text = eventen[0].DateEnd.ToString();
+        EventsCEN eve = new EventsCEN();
+        eventen = eve.SearchByName(evento);
 
         foreach (EventsEN en in eventen)
         {

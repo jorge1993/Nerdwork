@@ -26,7 +26,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioE
                 SessionInitializeTransaction ();
                 EventsCAD eve = new EventsCAD (session);
                 UsuarioCAD usercad = new UsuarioCAD (session);
-                EventsEN even = eve.ReadOIDDefault (0);
+                EventsEN even = eve.ReadOIDDefault (arg0);
                 aux = usercad.GetAllUsers ();
 
                 foreach (UsuarioEN u in aux) {
