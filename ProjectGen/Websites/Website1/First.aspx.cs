@@ -63,29 +63,39 @@ public partial class _Default : System.Web.UI.Page
         //Collection<HobbyEN> p_hobby;
         IList<HobbyEN> p_hobby = null;
 
+        UsuarioCEN user = new UsuarioCEN();
+        UsuarioEN useren = user.Searchbynick(nick);
 
 
         try
         {
-            SmtpClient client = new SmtpClient();
-            client.Port = 587;
-            client.Host = "smtp.gmail.com";
-            client.EnableSsl = true;
-            client.Timeout = 10000;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("nerdworksocial@gmail.com", "vvV-7Pa-vGL-vCM");
+            if (useren == null)
+            {
+                SmtpClient client = new SmtpClient();
+                client.Port = 587;
+                client.Host = "smtp.gmail.com";
+                client.EnableSsl = true;
+                client.Timeout = 10000;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new System.Net.NetworkCredential("nerdworksocial@gmail.com", "vvV-7Pa-vGL-vCM");
 
-            MailMessage mm = new MailMessage("nerdworksocial@gmail.com", TextBox5.Text, "Login for our awesome page", "This is your new password " + pass);
-            mm.BodyEncoding = UTF8Encoding.UTF8;
-            mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                MailMessage mm = new MailMessage("nerdworksocial@gmail.com", TextBox5.Text, "Login for our awesome page", "This is your new password " + pass);
+                mm.BodyEncoding = UTF8Encoding.UTF8;
+                mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 
-            client.Send(mm);
+                client.Send(mm);
 
-            UsuarioCEN user = new UsuarioCEN();
-            user.Create(nick, email, pass, "", "", "", "~/images/default_avatar.png", null);
-            Label5.Text = "Register successfully";
-            Label5.Visible = true;
+
+                user.Create(nick, email, pass, "", "", "", "~/images/default_avatar.png", null);
+                Label5.Text = "Register successfully";
+                Label5.Visible = true;
+            }
+            else
+            {
+                Label5.Text = "User or email already in use";
+                Label5.Visible = true;
+            }
         }
         catch (Exception ex)
         {

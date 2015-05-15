@@ -13,7 +13,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <div id="modifyglobal" style="width:100%;height:100%;">
             <table style="width:99%; height: 320px; text-align: center;">
-                <tr>
+                <%--<tr>--%>
                     <td class="auto-style2">&nbsp;</td>
                     <td><asp:Image ID="Image1" runat="server" Height="100px" Width="100px" /></td>
                     <td>&nbsp;</td>

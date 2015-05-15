@@ -79,6 +79,8 @@
                     </td>
                 </tr>
             </table>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Forget.aspx" Width="100%" Font-Strikeout="False" Font-Underline="True" CssClass="myLink">Forgot your password?</asp:HyperLink>
+            <br />
             <br />
             <table style="width: 500px; height: 250px; margin-left: 0px; background-color: #ffd800; margin-right: 30px;" align="center" border="1">
                 <tr>
