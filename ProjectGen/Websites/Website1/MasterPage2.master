@@ -40,7 +40,12 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:HyperLink ID="LinkGroups" runat="server" NavigateUrl="~/UserGroups">Groups</asp:HyperLink>
+                            <asp:HyperLink ID="LinkGroups" runat="server" NavigateUrl="~/UserGroups.aspx">Groups</asp:HyperLink>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ShowEvent.aspx">Show Events</asp:HyperLink>
                         </td>
                     </tr>
                     <tr>
