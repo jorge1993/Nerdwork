@@ -183,7 +183,7 @@ public partial class CreateEvents : System.Web.UI.Page
                     IList<String> event_hobbies = new List<string>();
 
                     EventsCEN eve = new EventsCEN();
-                    eve.New_(name, des, x, init, end, lugar, usuarios);
+                    int id = eve.New_(name, des, x, init, end, lugar, usuarios);
 
                     int i;
                     for (i = 0; i < ListEventHobbies.Items.Count; i++)
@@ -193,8 +193,8 @@ public partial class CreateEvents : System.Web.UI.Page
                         event_hobbies.Add(itemText);
                     }
 
-                    int id = eve.GetAll().Count;
-                    eve.AddHobbies(id, event_hobbies);
+                    //int id = eve.GetAll().Count
+                    eve.AddHobbies((Int32) id, event_hobbies);
 
                     Label1.Text = "Event Created";
                     Label1.Visible = true;
