@@ -139,6 +139,7 @@
 			<Compile Include="CEN\Project\GroupsCEN_GetAllHobbies.cs" />
 			<Compile Include="CEN\Project\GroupsCEN_GetAllUsers.cs" />
 			<Compile Include="CEN\Project\GroupsCEN_SearchByHobbies.cs" />
+			<Compile Include="CEN\Project\GroupsCEN_SearchByName.cs" />
 	<Compile Include="EN\Project\EventsEN.cs" />
 	<Compile Include="CEN\Project\EventsCEN.cs" />
 	<Compile Include="CAD\Project\IEventsCAD.cs" />

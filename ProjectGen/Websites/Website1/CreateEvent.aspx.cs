@@ -176,25 +176,22 @@ public partial class CreateEvents : System.Web.UI.Page
                         x = EstadoEnum.Private;
                     else
                         x = EstadoEnum.Public;
-
                     IList<String> usuarios = new List<string>();
+                    IList<String> hobbyevent = new List<string>();
+                    
                     usuarios.Add(usuario);
 
-                    IList<String> event_hobbies = new List<string>();
-
-                    EventsCEN eve = new EventsCEN();
-                    int id = eve.New_(name, des, x, init, end, lugar, usuarios);
-
-                    int i;
-                    for (i = 0; i < ListEventHobbies.Items.Count; i++)
+                    for (int i = 0; i < ListEventHobbies.Items.Count; i++)
                     {
                         ListItem item = ListEventHobbies.Items[i];
                         string itemText = item.Text;
-                        event_hobbies.Add(itemText);
+                        hobbyevent.Add(itemText);
                     }
+                    
+                    EventsCEN evento = new EventsCEN();
+                    int id = evento.New_(name, des, x, init, end, lugar, usuarios);
 
-                    //int id = eve.GetAll().Count
-                    eve.AddHobbies((Int32) id, event_hobbies);
+                    evento.AddHobbies(id, hobbyevent);
 
                     Label1.Text = "Event Created";
                     Label1.Visible = true;
