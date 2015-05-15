@@ -11,4 +11,17 @@ public partial class ShowEvent : System.Web.UI.Page
     {
 
     }
+
+    protected void ButtonPost_Click(object sender, EventArgs e) 
+    {
+
+    }
+
+
+    protected void NicknameLinkButton_Click(object sender, EventArgs e)
+    {
+        LinkButton pressed = sender as LinkButton;
+        String newUrl = "PublicProfile.aspx?nickname=" + pressed.Text;
+        Response.Redirect(newUrl);
+    }
 }

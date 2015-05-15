@@ -47,8 +47,6 @@ public partial class ShowEvent : System.Web.UI.Page
                     direccion.Text = en.Place;
                     TimeSpan auxinit = en.DateStart;
                     TimeSpan auxned = en.DateEnd;
-                    DateTime aux = en.DateStart;
-                    auxinit.D
                     TextBox1.Visible = false;
                     TextBox2.Visible = false;
 
