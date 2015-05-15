@@ -170,9 +170,9 @@ public partial class CreateEvents : System.Web.UI.Page
             else
             {
 
-                if (state == "private" || state == "public")
+                if (state == "Private" || state == "Public")
                 {
-                    if (state == "private")
+                    if (state == "Private")
                         x = EstadoEnum.Private;
                     else
                         x = EstadoEnum.Public;
