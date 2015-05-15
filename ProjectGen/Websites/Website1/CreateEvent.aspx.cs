@@ -12,6 +12,9 @@ using ProjectGenNHibernate.Enumerated.Project;
 
 public partial class CreateEvents : System.Web.UI.Page
 {
+    private DateTime timeInit;
+    private DateTime timeEnd;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         IList<HobbyEN> hobbydr = new List<HobbyEN>();
@@ -120,7 +123,7 @@ public partial class CreateEvents : System.Web.UI.Page
         {
             String name = TBname.Text;
             String des = description.Text;
-            String state = estado.Text.ToLower();
+            String state = estado.SelectedValue;
             String inicio = iniciotext.Text;
             String lugar = Lugar.Text;
             String final = fintext.Text;
@@ -213,5 +216,36 @@ public partial class CreateEvents : System.Web.UI.Page
             }
            
 
+        }
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            timeInit = Calendar1.SelectedDate.Date;
+            iniciotext.Text = Calendar1.SelectedDate.Date.Day + "/" + Calendar1.SelectedDate.Date.Month + "/" + Calendar1.SelectedDate.Date.Year;
+        }
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            timeInit.AddMinutes(DropDownList1.SelectedIndex);
+            iniciotext.Text = timeInit.Date.ToString();
+        }
+        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            timeInit.AddSeconds(DropDownList2.SelectedIndex);
+            iniciotext.Text = timeInit.Date.ToString();
+        }
+    // //
+        protected void Calendar2_SelectionChanged(object sender, EventArgs e)
+        {
+            timeEnd = Calendar2.SelectedDate.Date;
+            fintext.Text = Calendar2.SelectedDate.Date.Day + "/" + Calendar1.SelectedDate.Date.Month + "/" + Calendar1.SelectedDate.Date.Year;
+        }
+        protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            timeEnd.AddMinutes(DropDownList3.SelectedIndex);
+            fintext.Text = timeInit.Date.ToString();
+        }
+        protected void DropDownList4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            timeEnd.AddSeconds(DropDownList4.SelectedIndex);
+            fintext.Text = timeInit.Date.ToString();
         }
 }

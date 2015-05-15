@@ -46,7 +46,7 @@ public partial class _Default : System.Web.UI.Page
                 client.Send(mm);
 
                 user.Modify(useren.Nickname, useren.Email, pass, useren.Name, useren.Surname, useren.Phone, useren.Avatar);
-                //user.Create(nick, email, pass, "", "", "", "~/images/default_avatar.png", null);
+
                 Label5.Text = "We send you an email with the new password";
             }
             else
@@ -57,7 +57,7 @@ public partial class _Default : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Label5.Text = "User or email already in use";
+            Label5.Text = "The user didn't exist";
             Label5.Visible = true;
         }
     }
