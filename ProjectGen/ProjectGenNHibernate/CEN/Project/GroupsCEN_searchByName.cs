@@ -14,7 +14,7 @@ namespace ProjectGenNHibernate.CEN.Project
 {
 public partial class GroupsCEN : BasicCAD
 {
-public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> SearchByName (string arg0)
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> SearchByName (string arg1)
 {
         /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Groups_searchByName) ENABLED START*/
 
@@ -33,7 +33,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN
 
         foreach (GroupsEN h in lista)
         {
-            if (h.Name.Contains(arg0))
+            if (h.Name.Contains(arg1))
             {
                 ret.Add(h);
             }

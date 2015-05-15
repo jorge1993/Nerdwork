@@ -39,8 +39,8 @@ public partial class UserGroups : System.Web.UI.Page
             IList<GroupsEN> use = new List<GroupsEN>();
 
             String nametolookfor = dr[j].Name;
-           
-            use = eve.SearchByName(nametolookfor);
+            use = eve.SearchByName(dr[j].Name);
+          
 
             Row1[0] = use[0].Name;
             Row1[1] = use[0].Description;
@@ -72,7 +72,7 @@ public partial class UserGroups : System.Web.UI.Page
     protected void NicknameLinkButton_Click(object sender, EventArgs e)
     {
         LinkButton pressed = sender as LinkButton;
-        String newUrl = "PublicProfile.aspx?nickname=" + pressed.Text;
+        String newUrl = "ShowGroup.aspx?name=" + pressed.Text;
         Response.Redirect(newUrl);
     }
 
