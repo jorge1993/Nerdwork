@@ -61,9 +61,18 @@ public partial class UserGroups : System.Web.UI.Page
             Row1[3] = listaHobbies;
 
             dt.Rows.Add(Row1);
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
+            GridViewTimeline.DataSource = dt;
+            GridViewTimeline.DataBind();
         }
 
     }
+
+    protected void NicknameLinkButton_Click(object sender, EventArgs e)
+    {
+        LinkButton pressed = sender as LinkButton;
+        String newUrl = "PublicProfile.aspx?nickname=" + pressed.Text;
+        Response.Redirect(newUrl);
+    }
+
+
 }
