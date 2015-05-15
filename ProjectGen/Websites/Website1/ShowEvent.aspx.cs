@@ -29,8 +29,15 @@ public partial class ShowEvent : System.Web.UI.Page
                 eventname.Text = evento;
                 description.Text = en.Description;
                 ListHobby.Text = "Hobbies";
+                bool aux = false;
 
-                if (en.State == EstadoEnum.Private)
+                foreach (UsuarioEN us in en.Usuario)
+                {
+                    if (us.Name == Session["Name"])
+                        aux = true; break;
+                }
+
+                if (en.State == EstadoEnum.Private && aux!=true)
                 {
                     estadoTB.Text = "Private";
                     place.Visible = false;
@@ -44,7 +51,11 @@ public partial class ShowEvent : System.Web.UI.Page
                 }
                 else
                 {
-                    estadoTB.Text = "Public";
+                    if (aux == true)
+                        estadoTB.Text = "Private";
+                    else
+                        estadoTB.Text = "Public";
+
                     direccion.Text = en.Place;
                     TimeSpan auxinit = en.DateStart;
                     TimeSpan auxned = en.DateEnd;
