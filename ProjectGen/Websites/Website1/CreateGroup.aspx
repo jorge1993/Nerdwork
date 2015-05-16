@@ -74,7 +74,7 @@ Description
                           <asp:Label id="Label1" runat="server"></asp:Label>
 
 <asp:Button ID="Button" runat="server" BorderColor="#999999" 
-                         BorderStyle="Solid" Text="Create Event" OnClick="Button_Create"
+                         BorderStyle="Solid" Text="Create Group" OnClick="Button_Create"
                           />
 </p>
 

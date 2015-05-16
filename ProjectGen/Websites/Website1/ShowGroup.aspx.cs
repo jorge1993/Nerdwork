@@ -20,10 +20,23 @@ public partial class ShowEvent : System.Web.UI.Page
         //Aquí tiene que recoger todos los posts de ese grupo)
         //posts = p.
        // posts = p.GetUserPosts(publicUser);
+        GroupsCEN g = new GroupsCEN();
 
+        IList<GroupsEN> gen = new List<GroupsEN>();
+        gen = g.SearchByName(Grupo);
+        TBname.Text = gen[0].Name;
+        description.Text = gen[0].Description;
+        estado.SelectedIndex = (int)gen[0].State;
+
+        GroupsCEN g2 = new GroupsCEN();
+        posts = g2.GetAllPost(gen[0].Id);
+     
+        
         DataTable dt = new DataTable();
+        dt.Columns.Add("avatar", typeof(string));
+        dt.Columns.Add("nickname", typeof(string));
         dt.Columns.Add("description", typeof(string));
-        dt.Columns.Add("hobbies", typeof(string));
+      
 
         foreach (PostEN post in posts)
         {
@@ -31,39 +44,21 @@ public partial class ShowEvent : System.Web.UI.Page
             string listaHobbies = "";
             Row1 = dt.NewRow();
 
-            Row1[0] = post.Description;
+            UsuarioCEN us = new UsuarioCEN();
+            UsuarioEN use = new UsuarioEN();
 
-            IList<HobbyEN> listaHobby = new List<HobbyEN>();
-            HobbyCEN hobbycen = new HobbyCEN();
-            listaHobby = hobbycen.GetHobbybyID(post.Id);
-            int aux = listaHobby.Count;
-            int contador = 1;
+            use = us.Searchbynick(post.User.Nickname);
 
-            foreach (HobbyEN hobby in listaHobby)
-            {
-                listaHobbies += hobby.Name;
-                if (aux != contador)
-                    listaHobbies += " - ";
-                contador++;
-            }
-
-            Row1[1] = listaHobbies;
+            Row1[0] = use.Avatar;
+            Row1[1] = use.Nickname;
+            Row1[2] = post.Description;
 
             dt.Rows.Add(Row1);
             GridViewTimeline.DataSource = dt;
             GridViewTimeline.DataBind();
         }
 
-        GroupsCEN g = new GroupsCEN();
-        
-        IList<GroupsEN> gen = new List<GroupsEN>();
-        gen = g.SearchByName(Grupo);
-        TBname.Text = gen[0].Name;
-        description.Text = gen[0].Description;
-        estado.SelectedIndex = (int)gen[0].State;
-
-        UsuarioCEN u = new UsuarioCEN();
-        UsuarioEN user = new UsuarioEN();
+     
 
     }
 

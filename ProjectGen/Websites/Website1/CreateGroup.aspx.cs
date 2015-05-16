@@ -178,7 +178,7 @@ public partial class CreateEvents : System.Web.UI.Page
                     //int id = eve.GetAll().Count
                     eve.AddHobbies((Int32) id, event_hobbies);
 
-                    Label1.Text = "Event Created";
+                    Label1.Text = "Group Created";
                     Label1.Visible = true;
                     TBname.Text = "";
                     description.Text = "";
