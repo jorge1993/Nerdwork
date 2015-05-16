@@ -117,7 +117,7 @@ public partial class ShowEvent : System.Web.UI.Page
         hobbydr = ho.GetHobbyAssign((string)Session["NAME"]);
 
         foreach (HobbyEN s in hobbydr)
-            ListUserHobbies.Items.Add(s.Name);
+            ListUserHobbies.Items.Add(s.Name);*/
     }
 
 
@@ -125,6 +125,6 @@ public partial class ShowEvent : System.Web.UI.Page
     {
         LinkButton pressed = sender as LinkButton;
         String newUrl = "PublicProfile.aspx?nickname=" + pressed.Text;
-        Response.Redirect(newUrl);*/
+        Response.Redirect(newUrl);
     }
 }

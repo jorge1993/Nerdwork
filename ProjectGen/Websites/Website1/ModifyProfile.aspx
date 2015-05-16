@@ -92,18 +92,15 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td>Confirm New Password:<asp:TextBox ID="TextBoxConfirm" runat="server" TextMode="Password" ClientIDMode="Predictable" Enabled="False"></asp:TextBox>
+                    <td class="auto-style2"></td>
+                    <td>
                     </td>
-                    <td>&nbsp;</td>
+                    <td></td>
                     <td class="auto-style1">
-                        <asp:CompareValidator ID="CompareValidator1" runat="server" 
-                                 ControlToCompare="TextBoxPassword"  ValidationGroup="Modify" ControlToValidate="TextBoxConfirm" 
-                                 ErrorMessage="*Password doesn't match" ForeColor="Red"></asp:CompareValidator>
                     </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>

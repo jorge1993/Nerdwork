@@ -45,7 +45,7 @@ public partial class _Default : System.Web.UI.Page
 
                 client.Send(mm);
 
-                user.Modify(useren.Nickname, useren.Email, pass, useren.Name, useren.Surname, useren.Phone, useren.Avatar);
+                user.Modify(useren.Nickname, useren.Email, user.Encrypt(pass), useren.Name, useren.Surname, useren.Phone, useren.Avatar);
 
                 Label5.Text = "We send you an email with the new password";
             }

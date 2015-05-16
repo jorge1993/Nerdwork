@@ -33,7 +33,7 @@ public partial class _Default : System.Web.UI.Page
         {
             UsuarioEN en = user.Searchbynick(nick);
 
-            if (en.Password == pass)
+            if (en.Password == user.Encrypt(pass))
             {
                 Session["Name"] = nick;
 
@@ -87,7 +87,7 @@ public partial class _Default : System.Web.UI.Page
                 client.Send(mm);
 
 
-                user.Create(nick, email, pass, "", "", "", "~/images/default_avatar.png", null);
+                user.Create(nick, email, user.Encrypt(pass), "", "", "", "~/images/default_avatar.png", null);
                 Label5.Text = "Register successfully";
                 Label5.Visible = true;
             }

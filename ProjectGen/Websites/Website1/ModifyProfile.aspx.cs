@@ -94,8 +94,8 @@ public partial class _Default : System.Web.UI.Page
         useren = us.Searchbynick((String)Session["Name"]);
         String nombredefoto = useren.Avatar;
 
-        if (TextBoxConfirm.Enabled)
-            password = TextBoxConfirm.Text;
+        if (TextBoxPassword.Text == "" || (TextBoxPassword.Text.Length >= 4))
+            password = us.Encrypt( TextBoxPassword.Text);
         else password = useren.Password;
 
         if (FileUpload1.HasFile)
@@ -126,8 +126,6 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void TextBoxPassword_TextChanged(object sender, EventArgs e)
     {
-        TextBoxConfirm.Enabled = true;
-        if (TextBoxPassword.Text.Length == 0)
-            TextBoxConfirm.Enabled = false;
+
     }
 }
