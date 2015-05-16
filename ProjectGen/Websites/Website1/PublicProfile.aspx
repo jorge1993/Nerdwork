@@ -23,18 +23,21 @@
         </div>
         <div id="divTimeline" style="height: 80%; margin-left: 2%; margin-right: 2%; margin-bottom: 2%; margin-top: 2%;">
             <div id="cabecera" style="height:40px; width:100%;">
-                <table id="cabeceraTimeline" style="width: 100%; height:100%; background-color:#A55129; color:white; font-weight: bold; border-color: #DEBA84; border-style:none; border-width: 1px; text-align:center">
-                    <tr>
-                        <td style ="width:70%;">Post</td>
-                        <td style ="width:30%;">Hobby</td>
-                    </tr>
-                </table>
+                <asp:Table id="cabeceraTimeline" runat="server" style="width: 100%; height:100%; background-color:#A55129; color:white; font-weight: bold; border-color: #DEBA84; border-style:none; border-width: 1px; text-align:center">
+                    <asp:TableRow>
+                        <asp:TableCell style ="width:50%;">Post</asp:TableCell>
+                        <asp:TableCell style ="width:30%;">Hobby</asp:TableCell>
+                        <asp:TableCell style ="width:20%;">Options</asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
             </div>
             <div id="grid" style="height:330px; width:100%; overflow:scroll;">
-                <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="False" >
+                <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="False" OnRowCommand="GridViewTimeline_RowCommand" OnSelectedIndexChanged="GridViewTimeline_SelectedIndexChanged" >
                     <Columns>
-                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="60%" />
-                        <asp:BoundField DataField="hobbies" HeaderText="hobbies" SortExpression="hobbies" ItemStyle-Width="40%" />
+                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="50%" />
+                        <asp:BoundField DataField="hobbies" HeaderText="hobbies" SortExpression="hobbies" ItemStyle-Width="30%" />
+                        <asp:ButtonField ButtonType="button" HeaderText="Modify" SortExpression="buttonModify"  Text="Modify" ItemStyle-Width="10%" CommandName="modifyClick" />
+                        <asp:ButtonField ButtonType="button" HeaderText="Delete" SortExpression="buttonDelete"  Text="Delete" ItemStyle-Width="10%" CommandName="deleteClick" />
                     </Columns>
 
                     <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />

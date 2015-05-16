@@ -93,7 +93,7 @@ public partial class PerfilPrivate : System.Web.UI.Page
             String postUser = Session["Name"].ToString();
 
             PostCEN post = new PostCEN();
-            post.Create(postDesc, postUser);
+            int postID = post.Create(postDesc, postUser);
 
             List<String> post_hobbies = new List<string>();
 
@@ -104,8 +104,7 @@ public partial class PerfilPrivate : System.Web.UI.Page
                 String itemText = item.Text;
                 post_hobbies.Add(itemText);
             }
-            int postID = post.GetAllPost().Count;
-
+            
             post.AddHobbies(postID, post_hobbies);
             
             LabelPosted.Text = "Posted correctly.";
