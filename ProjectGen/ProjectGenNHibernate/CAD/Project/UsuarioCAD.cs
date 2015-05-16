@@ -288,14 +288,14 @@ public void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int
         {
                 SessionInitializeTransaction ();
                 usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
-                ProjectGenNHibernate.EN.Project.EventsEN eventsENAux = null;
+                ProjectGenNHibernate.EN.Project.EventosEN eventsENAux = null;
                 if (usuarioEN.Events == null) {
-                        usuarioEN.Events = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventsEN>();
+                        usuarioEN.Events = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventosEN>();
                 }
 
                 foreach (int item in p_events_OIDs) {
-                        eventsENAux = new ProjectGenNHibernate.EN.Project.EventsEN ();
-                        eventsENAux = (ProjectGenNHibernate.EN.Project.EventsEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventsEN), item);
+                        eventsENAux = new ProjectGenNHibernate.EN.Project.EventosEN ();
+                        eventsENAux = (ProjectGenNHibernate.EN.Project.EventosEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventosEN), item);
                         eventsENAux.Usuario.Add (usuarioEN);
 
                         usuarioEN.Events.Add (eventsENAux);
@@ -328,10 +328,10 @@ public void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<
                 ProjectGenNHibernate.EN.Project.UsuarioEN usuarioEN = null;
                 usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
 
-                ProjectGenNHibernate.EN.Project.EventsEN eventsENAux = null;
+                ProjectGenNHibernate.EN.Project.EventosEN eventsENAux = null;
                 if (usuarioEN.Events != null) {
                         foreach (int item in p_events_OIDs) {
-                                eventsENAux = (ProjectGenNHibernate.EN.Project.EventsEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventsEN), item);
+                                eventsENAux = (ProjectGenNHibernate.EN.Project.EventosEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventosEN), item);
                                 if (usuarioEN.Events.Contains (eventsENAux) == true) {
                                         usuarioEN.Events.Remove (eventsENAux);
                                         eventsENAux.Usuario.Remove (usuarioEN);
@@ -405,10 +405,10 @@ public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<
                 ProjectGenNHibernate.EN.Project.UsuarioEN usuarioEN = null;
                 usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
 
-                ProjectGenNHibernate.EN.Project.EventsEN eventsENAux = null;
+                ProjectGenNHibernate.EN.Project.EventosEN eventsENAux = null;
                 if (usuarioEN.Events != null) {
                         foreach (int item in p_events_OIDs) {
-                                eventsENAux = (ProjectGenNHibernate.EN.Project.EventsEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventsEN), item);
+                                eventsENAux = (ProjectGenNHibernate.EN.Project.EventosEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventosEN), item);
                                 if (usuarioEN.Events.Contains (eventsENAux) == true) {
                                         usuarioEN.Events.Remove (eventsENAux);
                                         eventsENAux.Usuario.Remove (usuarioEN);

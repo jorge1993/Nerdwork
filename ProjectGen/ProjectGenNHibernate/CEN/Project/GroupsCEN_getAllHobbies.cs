@@ -12,7 +12,7 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class GroupsCEN : BasicCAD
+public partial class GroupsCEN
 {
 public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> GetAllHobbies (int arg0)
 {
@@ -20,29 +20,28 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN>
 
         // Write here your custom code...
 
-    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> aux = new System.Collections.Generic.List<HobbyEN>();
-    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> lista = new System.Collections.Generic.List<HobbyEN>();
-    try
-    {
-        SessionInitializeTransaction();
-        GroupsCAD eve = new GroupsCAD(session);
-        HobbyCAD hobbycad = new HobbyCAD(session);
-        GroupsEN even = eve.ReadOIDDefault(arg0);
-        aux = hobbycad.GetAllHobby();
-
-        foreach (HobbyEN h in aux)
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> aux = new System.Collections.Generic.List<HobbyEN>();
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> lista = new System.Collections.Generic.List<HobbyEN>();
+        try
         {
-            if (h.Name.Equals(even.Hobby))
-                lista.Add(h);
-        }
-        SessionCommit();
-    }
-    catch (Exception ex)
-    {
-        SessionRollBack();
-    }
+                SessionInitializeTransaction ();
+                GroupsCAD eve = new GroupsCAD (session);
+                HobbyCAD hobbycad = new HobbyCAD (session);
+                GroupsEN even = eve.ReadOIDDefault (arg0);
+                aux = hobbycad.GetAllHobby ();
 
-    return lista;
+                foreach (HobbyEN h in aux) {
+                        if (h.Name.Equals (even.Hobby))
+                                lista.Add (h);
+                }
+                SessionCommit ();
+        }
+        catch (Exception ex)
+        {
+                SessionRollBack ();
+        }
+
+        return lista;
         /*PROTECTED REGION END*/
 }
 }

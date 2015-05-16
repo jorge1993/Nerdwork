@@ -33,7 +33,7 @@ private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsE
  *
  */
 
-private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events;
+private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> events;
 
 
 
@@ -59,7 +59,7 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 }
 
 
-public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> Events {
+public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> Events {
         get { return events; } set { events = value;  }
 }
 
@@ -72,12 +72,12 @@ public HobbyEN()
         post = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.PostEN>();
         user = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.UsuarioEN>();
         groups = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.GroupsEN>();
-        events = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventsEN>();
+        events = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventosEN>();
 }
 
 
 
-public HobbyEN(string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events)
+public HobbyEN(string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> events)
 {
         this.init (name, post, user, groups, events);
 }
@@ -88,7 +88,7 @@ public HobbyEN(HobbyEN hobby)
         this.init (hobby.Name, hobby.Post, hobby.User, hobby.Groups, hobby.Events);
 }
 
-private void init (string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events)
+private void init (string name, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> user, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> events)
 {
         this.Name = name;
 

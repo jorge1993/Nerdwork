@@ -18,11 +18,11 @@ public partial class ShowEvent : System.Web.UI.Page
         String evento = Request.QueryString["nickname"];
 
 
-        IList<EventsEN> eventen = new List<EventsEN>();
-        EventsCEN eve = new EventsCEN();
+        IList<EventosEN> eventen = new List<EventosEN>();
+        EventosCEN eve = new EventosCEN();
         eventen = eve.SearchByName(evento);
 
-        foreach (EventsEN en in eventen)
+        foreach (EventosEN en in eventen)
         {
             if (en.Name.Length == evento.Length)
             {

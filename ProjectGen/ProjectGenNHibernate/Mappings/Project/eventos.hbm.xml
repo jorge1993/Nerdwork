@@ -2,7 +2,7 @@
 		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
 		                   assembly="ProjectGenNHibernate"
 		                   namespace="ProjectGenNHibernate.EN.Project">
-			<class name="EventsEN" table="[Events]">
+			<class name="EventosEN" table="[Eventos]">
 				  	
 						<id name="Id" column="[Id]" type="integer">
 							<generator class="identity"/>
@@ -64,7 +64,7 @@
 		
 		  </class>
 		  
-		  <query name="EventsENReadAllHQL">from EventsEN</query>
-		  <query name="EventsENgetAllHQL"><![CDATA[FROM EventsEN]]></query>
+		  <query name="EventosENReadAllHQL">from EventosEN</query>
+		  <query name="EventosENgetAllHQL"><![CDATA[FROM EventosEN]]></query>
 		</hibernate-mapping>
 	

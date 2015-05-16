@@ -82,7 +82,7 @@
 							<key>
 									<column name="[FK_nickname_idUsuario]"/>
 							</key>
-      						<many-to-many class="ProjectGenNHibernate.EN.Project.EventsEN">
+      						<many-to-many class="ProjectGenNHibernate.EN.Project.EventosEN">
 									<column name="[FK_Id_idEvents]"/>
       						</many-to-many>
     					</bag>

@@ -23,8 +23,8 @@ System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> GetAl
 
 
 
-void AddHobbies (int p_Events_OID, System.Collections.Generic.IList<string> p_hobby_OIDs);
-
 void DeleteHobbies (int p_Events_OID, System.Collections.Generic.IList<string> p_hobby_OIDs);
+
+void AddHobbies (int p_Events_OID, System.Collections.Generic.IList<string> p_hobby_OIDs);
 }
 }

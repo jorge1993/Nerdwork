@@ -3,7 +3,7 @@ using System;
 
 namespace ProjectGenNHibernate.EN.Project
 {
-public partial class EventsEN
+public partial class EventosEN
 {
 /**
  *
@@ -111,7 +111,7 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 
 
 
-public EventsEN()
+public EventosEN()
 {
         usuario = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.UsuarioEN>();
         hobby = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
@@ -119,15 +119,15 @@ public EventsEN()
 
 
 
-public EventsEN(int id, string name, string description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum state, TimeSpan dateStart, TimeSpan dateEnd, string place, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
+public EventosEN(int id, string name, string description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum state, TimeSpan dateStart, TimeSpan dateEnd, string place, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
 {
         this.init (id, name, description, state, dateStart, dateEnd, place, usuario, hobby);
 }
 
 
-public EventsEN(EventsEN events)
+public EventosEN(EventosEN eventos)
 {
-        this.init (events.Id, events.Name, events.Description, events.State, events.DateStart, events.DateEnd, events.Place, events.Usuario, events.Hobby);
+        this.init (eventos.Id, eventos.Name, eventos.Description, eventos.State, eventos.DateStart, eventos.DateEnd, eventos.Place, eventos.Usuario, eventos.Hobby);
 }
 
 private void init (int id, string name, string description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum state, TimeSpan dateStart, TimeSpan dateEnd, string place, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby)
@@ -156,7 +156,7 @@ public override bool Equals (object obj)
 {
         if (obj == null)
                 return false;
-        EventsEN t = obj as EventsEN;
+        EventosEN t = obj as EventosEN;
         if (t == null)
                 return false;
         if (Id.Equals (t.Id))

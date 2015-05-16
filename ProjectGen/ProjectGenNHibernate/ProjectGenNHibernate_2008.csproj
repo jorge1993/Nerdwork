@@ -127,14 +127,14 @@
 			<Compile Include="CEN\Project\GroupsCEN_GetAllUsers.cs" />
 			<Compile Include="CEN\Project\GroupsCEN_SearchByHobbies.cs" />
 			<Compile Include="CEN\Project\GroupsCEN_SearchByName.cs" />
-	<Compile Include="EN\Project\EventsEN.cs" />
-	<Compile Include="CEN\Project\EventsCEN.cs" />
-	<Compile Include="CAD\Project\IEventsCAD.cs" />
-	<Compile Include="CAD\Project\EventsCAD.cs" />
-			<Compile Include="CEN\Project\EventsCEN_GetAllHobbies.cs" />
-			<Compile Include="CEN\Project\EventsCEN_GetAllUsers.cs" />
-			<Compile Include="CEN\Project\EventsCEN_SearchByName.cs" />
-			<Compile Include="CEN\Project\EventsCEN_SearchByHobbies.cs" />
+	<Compile Include="EN\Project\EventosEN.cs" />
+	<Compile Include="CEN\Project\EventosCEN.cs" />
+	<Compile Include="CAD\Project\IEventosCAD.cs" />
+	<Compile Include="CAD\Project\EventosCAD.cs" />
+			<Compile Include="CEN\Project\EventosCEN_GetAllHobbies.cs" />
+			<Compile Include="CEN\Project\EventosCEN_GetAllUsers.cs" />
+			<Compile Include="CEN\Project\EventosCEN_SearchByName.cs" />
+			<Compile Include="CEN\Project\EventosCEN_SearchByHobbies.cs" />
 	<Compile Include="Enumerated\Project\EstadoEnum.cs" />
 	
 	
@@ -156,7 +156,7 @@
 	<EmbeddedResource Include="Mappings\Project\messages.hbm.xml" />
 	<EmbeddedResource Include="Mappings\Project\hobby.hbm.xml" />
 	<EmbeddedResource Include="Mappings\Project\groups.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Project\events.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Project\eventos.hbm.xml" />
 	
 	
 

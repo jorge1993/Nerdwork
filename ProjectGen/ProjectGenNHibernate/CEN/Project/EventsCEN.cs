@@ -98,17 +98,17 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN
 {
         return _IEventsCAD.GetAll ();
 }
-public void AddHobbies (int p_Events_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
-{
-        //Call to EventsCAD
-
-        _IEventsCAD.AddHobbies (p_Events_OID, p_hobby_OIDs);
-}
 public void DeleteHobbies (int p_Events_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
 {
         //Call to EventsCAD
 
         _IEventsCAD.DeleteHobbies (p_Events_OID, p_hobby_OIDs);
+}
+public void AddHobbies (int p_Events_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
+{
+        //Call to EventsCAD
+
+        _IEventsCAD.AddHobbies (p_Events_OID, p_hobby_OIDs);
 }
 }
 }

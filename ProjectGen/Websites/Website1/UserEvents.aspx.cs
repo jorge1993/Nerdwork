@@ -18,11 +18,11 @@ public partial class UserEvents : System.Web.UI.Page
     private void reloadTimeLine()
     {
         
-            IList<EventsEN> dr = new List<EventsEN>();
-            EventsCEN eve = new EventsCEN();
+            IList<EventosEN> dr = new List<EventosEN>();
+            EventosCEN eve = new EventosCEN();
 
             dr = eve.GetAll();
-            int size = eve.GetAll().Count;
+            int size = dr.Count;
 
             DataTable dt = new DataTable();
             dt.Columns.Add("name", typeof(string));
@@ -37,7 +37,7 @@ public partial class UserEvents : System.Web.UI.Page
                 DataRow Row1;
                 string listaHobbies = "";
                 Row1 = dt.NewRow();
-                IList<EventsEN> use = new List<EventsEN>();
+                IList<EventosEN> use = new List<EventosEN>();
 
                 use = eve.SearchByName(dr[j].Name);
 

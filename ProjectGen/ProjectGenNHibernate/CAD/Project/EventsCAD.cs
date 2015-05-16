@@ -177,45 +177,6 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN
 
         return result;
 }
-public void AddHobbies (int p_Events_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
-{
-        ProjectGenNHibernate.EN.Project.EventsEN eventsEN = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                eventsEN = (EventsEN)session.Load (typeof(EventsEN), p_Events_OID);
-                ProjectGenNHibernate.EN.Project.HobbyEN hobbyENAux = null;
-                if (eventsEN.Hobby == null) {
-                        eventsEN.Hobby = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
-                }
-
-                foreach (string item in p_hobby_OIDs) {
-                        hobbyENAux = new ProjectGenNHibernate.EN.Project.HobbyEN ();
-                        hobbyENAux = (ProjectGenNHibernate.EN.Project.HobbyEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.HobbyEN), item);
-                        hobbyENAux.Events.Add (eventsEN);
-
-                        eventsEN.Hobby.Add (hobbyENAux);
-                }
-
-
-                session.Update (eventsEN);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in EventsCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
-
 public void DeleteHobbies (int p_Events_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
 {
         try
@@ -236,6 +197,44 @@ public void DeleteHobbies (int p_Events_OID, System.Collections.Generic.IList<st
                                         throw new ModelException ("The identifier " + item + " in p_hobby_OIDs you are trying to unrelationer, doesn't exist in EventsEN");
                         }
                 }
+
+                session.Update (eventsEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in EventsCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void AddHobbies (int p_Events_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
+{
+        ProjectGenNHibernate.EN.Project.EventsEN eventsEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                eventsEN = (EventsEN)session.Load (typeof(EventsEN), p_Events_OID);
+                ProjectGenNHibernate.EN.Project.HobbyEN hobbyENAux = null;
+                if (eventsEN.Hobby == null) {
+                        eventsEN.Hobby = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
+                }
+
+                foreach (string item in p_hobby_OIDs) {
+                        hobbyENAux = new ProjectGenNHibernate.EN.Project.HobbyEN ();
+                        hobbyENAux = (ProjectGenNHibernate.EN.Project.HobbyEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.HobbyEN), item);
+                        hobbyENAux.Events.Add (eventsEN);
+
+                        eventsEN.Hobby.Add (hobbyENAux);
+                }
+
 
                 session.Update (eventsEN);
                 SessionCommit ();

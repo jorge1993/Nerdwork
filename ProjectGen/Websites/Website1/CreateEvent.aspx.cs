@@ -188,7 +188,7 @@ public partial class CreateEvents : System.Web.UI.Page
                         hobbyevent.Add(itemText);
                     }
                     
-                    EventsCEN evento = new EventsCEN();
+                    EventosCEN evento = new EventosCEN();
                     int id = evento.New_(name, des, x, init, end, lugar, usuarios);
 
                     evento.AddHobbies(id, hobbyevent);

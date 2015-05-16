@@ -12,11 +12,11 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class UsuarioCEN
+public partial class EventosCEN
 {
-public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> SearchByHobbies (string p_oid)
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> SearchByHobbies (string hobby)
 {
-        /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Usuario_searchByHobbies) ENABLED START*/
+        /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Eventos_searchByHobbies) ENABLED START*/
 
         // Write here your custom code...
 

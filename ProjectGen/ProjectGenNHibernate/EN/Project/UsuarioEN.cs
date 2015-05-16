@@ -81,7 +81,7 @@ private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsE
  *
  */
 
-private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events;
+private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> events;
 
 
 
@@ -147,7 +147,7 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 }
 
 
-public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> Events {
+public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> Events {
         get { return events; } set { events = value;  }
 }
 
@@ -162,12 +162,12 @@ public UsuarioEN()
         messagessend = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.MessagesEN>();
         hobby = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
         groups = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.GroupsEN>();
-        events = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventsEN>();
+        events = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventosEN>();
 }
 
 
 
-public UsuarioEN(string nickname, string email, string password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events)
+public UsuarioEN(string nickname, string email, string password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> events)
 {
         this.init (nickname, email, password, name, surname, phone, avatar, messagesreceive, post, messagessend, hobby, groups, events);
 }
@@ -178,7 +178,7 @@ public UsuarioEN(UsuarioEN usuario)
         this.init (usuario.Nickname, usuario.Email, usuario.Password, usuario.Name, usuario.Surname, usuario.Phone, usuario.Avatar, usuario.Messagesreceive, usuario.Post, usuario.Messagessend, usuario.Hobby, usuario.Groups, usuario.Events);
 }
 
-private void init (string nickname, string email, string password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventsEN> events)
+private void init (string nickname, string email, string password, string name, string surname, string phone, string avatar, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagesreceive, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> post, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.MessagesEN> messagessend, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> groups, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> events)
 {
         this.Nickname = nickname;
 
