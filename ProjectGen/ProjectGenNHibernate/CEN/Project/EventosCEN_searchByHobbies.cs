@@ -20,7 +20,34 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosE
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method SearchByHobbies() not yet implemented.");
+    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> lista = new System.Collections.Generic.List<EventosEN>();
+    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> listaux = new System.Collections.Generic.List<EventosEN>();
+    try
+    {
+        SessionInitializeTransaction();
+        HobbyCAD hobbycad = new HobbyCAD(session);
+        EventosCAD evecad = new EventosCAD(session);
+        listaux = evecad.GetAll();
+
+        foreach (EventosEN eve in listaux)
+        {
+            foreach (HobbyEN ho in eve.Hobby)
+            {
+                if (ho.Name.Contains(hobby))
+                {
+                    lista.Add(eve);
+                    break;
+                }
+            }
+
+        }
+        SessionCommit();
+    }
+    catch (Exception ex)
+    {
+        SessionRollBack();
+    }
+    return lista;
 
         /*PROTECTED REGION END*/
 }

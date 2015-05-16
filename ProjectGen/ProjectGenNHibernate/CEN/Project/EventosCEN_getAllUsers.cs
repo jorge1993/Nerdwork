@@ -19,8 +19,26 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioE
         /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Eventos_getAllUsers) ENABLED START*/
 
         // Write here your custom code...
+    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> lista = new System.Collections.Generic.List<UsuarioEN>();
+    try
+    {
+        SessionInitializeTransaction();
+        UsuarioCAD usuariocad = new UsuarioCAD(session);
+        EventosCAD evecad = new EventosCAD(session);
+        EventosEN eveen = evecad.ReadOIDDefault(arg0);
 
-        throw new NotImplementedException ("Method GetAllUsers() not yet implemented.");
+        foreach (UsuarioEN us in eveen.Usuario)
+        {
+            lista.Add(us);
+        }
+        SessionCommit();
+    }
+    catch (Exception ex)
+    {
+        SessionRollBack();
+    }
+    return lista;
+
 
         /*PROTECTED REGION END*/
 }
