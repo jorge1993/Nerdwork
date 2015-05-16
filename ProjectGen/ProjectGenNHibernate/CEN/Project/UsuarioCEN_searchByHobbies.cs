@@ -19,8 +19,35 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioE
         /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Usuario_searchByHobbies) ENABLED START*/
 
         // Write here your custom code...
+    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> lista = new System.Collections.Generic.List<UsuarioEN>();
+    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> listaux = new System.Collections.Generic.List<UsuarioEN>();
+    try
+    {
+        SessionInitializeTransaction();
+        HobbyCAD hobbycad = new HobbyCAD(session);
+        UsuarioEN usercad = new UsuarioEN();
+        UsuarioCEN us = new UsuarioCEN();
+        listaux = us.GetAllUsers();
 
-        throw new NotImplementedException ("Method SearchByHobbies() not yet implemented.");
+        foreach (UsuarioEN eve in listaux)
+        {
+            foreach (HobbyEN ho in eve.Hobby)
+            {
+                if (ho.Name.Contains(p_oid))
+                {
+                    lista.Add(eve);
+                    break;
+                }
+            }
+
+        }
+        SessionCommit();
+    }
+    catch (Exception ex)
+    {
+        SessionRollBack();
+    }
+    return lista;
 
         /*PROTECTED REGION END*/
 }
