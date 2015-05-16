@@ -61,6 +61,11 @@ public partial class _Default : System.Web.UI.Page
         avatarPublic.Width = 100;
         avatarPublic.Height = 100;
         nicknamePublic.Text = publicUser;
+
+        if (publicUser.Equals((String)Session["Name"]))
+        {
+            ButtonMessage.Visible = false;
+        }
     }
 
     protected void Button_Click(object sender, EventArgs e)

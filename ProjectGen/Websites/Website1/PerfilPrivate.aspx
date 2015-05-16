@@ -81,8 +81,8 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="20%" />
-                            <asp:BoundField DataField="hobbies" HeaderText="hobbies" SortExpression="hobbies" ItemStyle-Width="50%" />
+                            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="50%" />
+                            <asp:BoundField DataField="hobbies" HeaderText="hobbies" SortExpression="hobbies" ItemStyle-Width="20%" />
                         
                     </Columns>
                     <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
