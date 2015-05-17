@@ -19,32 +19,30 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosE
         /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Eventos_searchByName) ENABLED START*/
 
         // Write here your custom code...
-    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> lista = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventosEN>();
-    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> ret = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventosEN>();
-    ProjectGenNHibernate.CEN.Project.EventosCEN evencen = new EventosCEN();
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> lista = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventosEN>();
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> ret = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventosEN>();
+        ProjectGenNHibernate.CEN.Project.EventosCEN evencen = new EventosCEN ();
 
-    try
-    {
-        SessionInitializeTransaction();
-        EventosCAD evecad = new EventosCAD(session);
-        //EventosCEN eve = new EventosCEN(session);
-        lista = evecad.GetAll();
-
-        foreach (EventosEN h in lista)
+        try
         {
-            if (h.Name.Contains(arg1))
-            {
-                ret.Add(h);
-            }
-        }
-        SessionCommit();
-    }
-    catch (Exception ex)
-    {
-        SessionRollBack();
-    }
+                SessionInitializeTransaction ();
+                EventosCAD evecad = new EventosCAD (session);
+                //EventosCEN eve = new EventosCEN(session);
+                lista = evecad.GetAll ();
 
-    return ret;
+                foreach (EventosEN h in lista) {
+                        if (h.Name.Contains (arg1)) {
+                                ret.Add (h);
+                        }
+                }
+                SessionCommit ();
+        }
+        catch (Exception ex)
+        {
+                SessionRollBack ();
+        }
+
+        return ret;
 
         /*PROTECTED REGION END*/
 }

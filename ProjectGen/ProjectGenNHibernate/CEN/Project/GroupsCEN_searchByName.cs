@@ -12,7 +12,7 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class GroupsCEN  : BasicCAD
+public partial class GroupsCEN
 {
 public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> SearchByName (string arg0)
 {
@@ -20,30 +20,28 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN
 
         // Write here your custom code...
 
-    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> lista = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.GroupsEN>();
-    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> ret = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.GroupsEN>();
-    ProjectGenNHibernate.CEN.Project.GroupsCEN evencen = new GroupsCEN();
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> lista = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.GroupsEN>();
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> ret = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.GroupsEN>();
+        ProjectGenNHibernate.CEN.Project.GroupsCEN evencen = new GroupsCEN ();
 
-    try
-    {
-        SessionInitializeTransaction();
-        GroupsCAD groupcad = new GroupsCAD(session);
-        //EventosCEN eve = new EventosCEN(session);
-        lista = groupcad.GetAllGroups();
-
-        foreach (GroupsEN h in lista)
+        try
         {
-            if (h.Name.Contains(arg0))
-            {
-                ret.Add(h);
-            }
+                SessionInitializeTransaction ();
+                GroupsCAD groupcad = new GroupsCAD (session);
+                //EventosCEN eve = new EventosCEN(session);
+                lista = groupcad.GetAllGroups ();
+
+                foreach (GroupsEN h in lista) {
+                        if (h.Name.Contains (arg0)) {
+                                ret.Add (h);
+                        }
+                }
+                SessionCommit ();
         }
-        SessionCommit();
-    }
-    catch (Exception ex)
-    {
-        SessionRollBack();
-    }
+        catch (Exception ex)
+        {
+                SessionRollBack ();
+        }
         return ret;
         /*PROTECTED REGION END*/
 }

@@ -58,3 +58,33 @@ D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\log4net.
 D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.csprojResolveAssemblyReference.cache
 D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.dll
 D:\Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.pdb
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\hibernate.cfg.xml
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.dll.config
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.dll
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.pdb
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.dll
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\Iesi.Collections.dll
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\bin\Debug\log4net.dll
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.csprojResolveAssemblyReference.cache
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.dll
+E:\Mis Documentos\GitHub\Nerdwork\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.pdb
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.csprojResolveAssemblyReference.cache
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.dll
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\hibernate.cfg.xml
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.dll.config
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.dll
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\ProjectGenNHibernate.pdb
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\NHibernate.dll
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\Iesi.Collections.dll
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\bin\Debug\log4net.dll
+E:\Mis Documentos\workspaceEclipse-DSS\ProjectGen\ProjectGenNHibernate\obj\Debug\ProjectGenNHibernate.pdb

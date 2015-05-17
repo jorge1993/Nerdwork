@@ -20,34 +20,30 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN
 
         // Write here your custom code...
 
-    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> lista = new System.Collections.Generic.List<GroupsEN>();
-    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> listaux = new System.Collections.Generic.List<GroupsEN>();
-    try
-    {
-        SessionInitializeTransaction();
-        HobbyCAD hobbycad = new HobbyCAD(session);
-        GroupsCAD evecad = new GroupsCAD(session);
-        listaux = evecad.GetAllGroups();
-
-        foreach (GroupsEN eve in listaux)
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> lista = new System.Collections.Generic.List<GroupsEN>();
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.GroupsEN> listaux = new System.Collections.Generic.List<GroupsEN>();
+        try
         {
-            foreach (HobbyEN ho in eve.Hobby)
-            {
-                if (ho.Name.Contains(arg0))
-                {
-                    lista.Add(eve);
-                    break;
-                }
-            }
+                SessionInitializeTransaction ();
+                HobbyCAD hobbycad = new HobbyCAD (session);
+                GroupsCAD evecad = new GroupsCAD (session);
+                listaux = evecad.GetAllGroups ();
 
+                foreach (GroupsEN eve in listaux) {
+                        foreach (HobbyEN ho in eve.Hobby) {
+                                if (ho.Name.Contains (arg0)) {
+                                        lista.Add (eve);
+                                        break;
+                                }
+                        }
+                }
+                SessionCommit ();
         }
-        SessionCommit();
-    }
-    catch (Exception ex)
-    {
-        SessionRollBack();
-    }
-    return lista;
+        catch (Exception ex)
+        {
+                SessionRollBack ();
+        }
+        return lista;
 
         /*PROTECTED REGION END*/
 }

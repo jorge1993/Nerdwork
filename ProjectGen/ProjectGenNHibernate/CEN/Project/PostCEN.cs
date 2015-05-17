@@ -74,5 +74,30 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> 
 {
         return _IPostCAD.GetAllPost ();
 }
+public void Modify (int p_Post_OID, string p_description)
+{
+        PostEN postEN = null;
+
+        //Initialized PostEN
+        postEN = new PostEN ();
+        postEN.Id = p_Post_OID;
+        postEN.Description = p_description;
+        //Call to PostCAD
+
+        _IPostCAD.Modify (postEN);
+}
+
+public void AddGroup (int p_Post_OID, int p_groups_OID)
+{
+        //Call to PostCAD
+
+        _IPostCAD.AddGroup (p_Post_OID, p_groups_OID);
+}
+public void DeleteGroup (int p_Post_OID, int p_groups_OID)
+{
+        //Call to PostCAD
+
+        _IPostCAD.DeleteGroup (p_Post_OID, p_groups_OID);
+}
 }
 }
