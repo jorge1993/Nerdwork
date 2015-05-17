@@ -85,4 +85,10 @@ public partial class UserEvents : System.Web.UI.Page
     {
         Response.Redirect("~/CreateEvent.aspx");
     }
+
+    protected void ButtonSearch_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Busqueda.aspx?Hobby=" +
+            TextbosSearch.Text + "&Show=All");
+    }
 }

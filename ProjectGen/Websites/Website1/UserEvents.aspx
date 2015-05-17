@@ -5,10 +5,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
 
 <div>
-
+<div style="float: left; margin-top:2%; margin-left:10%;">
 <asp:Button ID="Button" runat="server" BorderColor="#999999" 
                          BorderStyle="Solid" Text="Create an Event" OnClick="Button_Create"
                           />
+
+                          </div>
+<div id="search"; style="float: right; width: 300px; height: 50px; margin-top: 10px; margin-bottom: 0px; margin-right: 30px; text-align: right;">
+                    <asp:TextBox ID="TextbosSearch" runat="server"></asp:TextBox>
+                    &nbsp;
+                    <asp:Button ID="ButtonSearch" runat="server" Text="Search Events" OnClick="ButtonSearch_Click" />
+                </div>
 
 <table id="cabeceraTimeline" style="width: 100%; background-color:#A55129; color:white; font-weight: bold; border-color: #DEBA84; border-style:none; border-width: 1px; text-align:center">
                     <tr>
