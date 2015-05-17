@@ -12,6 +12,8 @@ public partial class ShowEvent : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        
         String Grupo = Request.QueryString["name"];
 
         
@@ -140,8 +142,10 @@ public partial class ShowEvent : System.Web.UI.Page
          UsuarioCEN us = new UsuarioCEN();
             UsuarioEN use = new UsuarioEN();
             //Descomentar cuando esté arreglado el metodo
-           // us.AddGroup(Session["Name"].ToString(), gen[0].Id);
-            
+            IList<int> newgroup = new List<int>();
+            newgroup.Add(gen[0].Id);
+           us.AddGroup(Session["Name"].ToString(),newgroup);
+           Response.Redirect("ShowGroup.aspx?name=" + Request.QueryString["name"]);
 
         
     }
@@ -157,7 +161,11 @@ public partial class ShowEvent : System.Web.UI.Page
         UsuarioCEN us = new UsuarioCEN();
         UsuarioEN use = new UsuarioEN();
         //Descomentar cuando esté arreglado el metodo
-        //us.DeleteGroup(Session["Name"].ToString(), gen[0].Id);
+        IList<int> deletegroup = new List<int>();
+        deletegroup.Add(gen[0].Id);
+        
+        us.DeleteGroup(Session["Name"].ToString(),deletegroup);
+        Response.Redirect("ShowGroup.aspx?name=" + Request.QueryString["name"]);
     }
 
     protected void Delete_Click(object sender, EventArgs e)
