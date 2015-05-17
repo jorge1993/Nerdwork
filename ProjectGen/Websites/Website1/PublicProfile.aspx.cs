@@ -89,8 +89,8 @@ public partial class _Default : System.Web.UI.Page
             GridViewRow row = GridViewTimeline.Rows[index];
 
             // Code to modify the post.
-
-            Response.Redirect("~/Send.aspx?Nickname=" + nicknamePublic.Text);
+            int postID = searchPostID(row);
+            Response.Redirect("~/ModifyPost.aspx?ID=" + postID);
         }
 
         else if (e.CommandName == "deleteClick")
@@ -124,71 +124,154 @@ public partial class _Default : System.Web.UI.Page
 
         foreach (PostEN post in posts)
         {
-            String db_postText = post.Description;
-            String selected_postText = HttpUtility.HtmlDecode(row.Cells[0].Text);
+            if(post.Groups == null) {
+                String db_postText = post.Description;
+                String selected_postText = HttpUtility.HtmlDecode(row.Cells[0].Text);
 
-            if (selected_postText.Equals(db_postText))
-            {
-                // Ya he encontrado un post con la misma descripción.
-                // Ahora tengo que comprobar que sus hobbies sean los mismos.
-                // Por si hay algún post igual pero con otros hobbies.
-                IList<HobbyEN> listaHobby = new List<HobbyEN>();
-                HobbyCEN hobbycen = new HobbyCEN();
-                listaHobby = hobbycen.GetHobbybyID(post.Id);
-
-                // Tengo que separar todos los hobbies de la fila del gridView, compararlos con 
-                // los del post que he encontrado en la BD y ver si coinciden todos.
-                String listaHobbies = row.Cells[1].Text;
-                String[] arrayHobbies = Regex.Split(listaHobbies, " - ");
-                List<String> listaArrayHobbies = arrayHobbies.ToList();
-
-                if (listaHobby.Count == listaArrayHobbies.Count)
+                if (selected_postText.Equals(db_postText))
                 {
-                    Boolean todosCorrectos = true;
+                    // Ya he encontrado un post con la misma descripción.
+                    // Ahora tengo que comprobar que sus hobbies sean los mismos.
+                    // Por si hay algún post igual pero con otros hobbies.
+                    IList<HobbyEN> listaHobby = new List<HobbyEN>();
+                    HobbyCEN hobbycen = new HobbyCEN();
+                    listaHobby = hobbycen.GetHobbybyID(post.Id);
 
-                    foreach (HobbyEN hobby in listaHobby)
+                    // Tengo que separar todos los hobbies de la fila del gridView, compararlos con 
+                    // los del post que he encontrado en la BD y ver si coinciden todos.
+                    String listaHobbies = row.Cells[1].Text;
+                    String[] arrayHobbies = Regex.Split(listaHobbies, " - ");
+                    List<String> listaArrayHobbies = arrayHobbies.ToList();
+
+                    if (listaHobby.Count == listaArrayHobbies.Count)
                     {
-                        Boolean actualCorrecto = false;
+                        Boolean todosCorrectos = true;
 
-                        foreach (String selected_HobbyName in listaArrayHobbies)
+                        foreach (HobbyEN hobby in listaHobby)
                         {
-                            if (selected_HobbyName.Equals(hobby.Name))
+                            Boolean actualCorrecto = false;
+
+                            foreach (String selected_HobbyName in listaArrayHobbies)
                             {
-                                actualCorrecto = true;
+                                if (selected_HobbyName.Equals(hobby.Name))
+                                {
+                                    actualCorrecto = true;
+                                    break;
+                                }
+                            }
+
+                            if (actualCorrecto == false)
+                            {
+                                todosCorrectos = false;
                                 break;
                             }
                         }
 
-                        if (actualCorrecto == false)
+                        if (todosCorrectos)
                         {
-                            todosCorrectos = false;
-                            break;
+                            PostCEN post_toDelete = new PostCEN();
+                            int id_toDelete = post.Id;
+                            post_toDelete.DeleteHobbies(id_toDelete, listaArrayHobbies);
+                            post_toDelete.Delete(id_toDelete);
+                            eliminado = true;
+                            return eliminado;
+                        }
+                        else
+                        {
+                            // todosCorrectos == false;
+                            eliminado = false;
                         }
                     }
+                }
 
-                    if (todosCorrectos)
-                    {
-                        PostCEN post_toDelete = new PostCEN();
-                        int id_toDelete = post.Id;
-                        post_toDelete.DeleteHobbies(id_toDelete, listaArrayHobbies);
-                        post_toDelete.Delete(id_toDelete);
-                        eliminado = true;
-                        return eliminado;
-                    }
-                    else
-                    {
-                        // todosCorrectos == false;
-                        eliminado = false;
-                    }
+                if (eliminado)
+                {
+                    break;
                 }
             }
-
-            if (eliminado)
-            {
-                break;
-            }
-            
         }
         return eliminado;
+    }
+
+
+    public int searchPostID(GridViewRow row)
+    {
+        Boolean encontrado = false;
+        int postID = int.MaxValue;
+
+        // Para eliminar un post necesito su ID. Por lo que tengo que encontrarlo.
+        String publicUser = (String)Session["Name"];
+        PostCEN p = new PostCEN();
+        IList<PostEN> posts = new List<PostEN>();
+        posts = p.GetUserPosts(publicUser);
+
+        foreach (PostEN post in posts)
+        {
+            if (post.Groups == null)
+            {
+                String db_postText = post.Description;
+                String selected_postText = HttpUtility.HtmlDecode(row.Cells[0].Text);
+
+                if (selected_postText.Equals(db_postText))
+                {
+                    // Ya he encontrado un post con la misma descripción.
+                    // Ahora tengo que comprobar que sus hobbies sean los mismos.
+                    // Por si hay algún post igual pero con otros hobbies.
+                    IList<HobbyEN> listaHobby = new List<HobbyEN>();
+                    HobbyCEN hobbycen = new HobbyCEN();
+                    listaHobby = hobbycen.GetHobbybyID(post.Id);
+
+                    // Tengo que separar todos los hobbies de la fila del gridView, compararlos con 
+                    // los del post que he encontrado en la BD y ver si coinciden todos.
+                    String listaHobbies = row.Cells[1].Text;
+                    String[] arrayHobbies = Regex.Split(listaHobbies, " - ");
+                    List<String> listaArrayHobbies = arrayHobbies.ToList();
+
+                    if (listaHobby.Count == listaArrayHobbies.Count)
+                    {
+                        Boolean todosCorrectos = true;
+
+                        foreach (HobbyEN hobby in listaHobby)
+                        {
+                            Boolean actualCorrecto = false;
+
+                            foreach (String selected_HobbyName in listaArrayHobbies)
+                            {
+                                if (selected_HobbyName.Equals(hobby.Name))
+                                {
+                                    actualCorrecto = true;
+                                    break;
+                                }
+                            }
+
+                            if (actualCorrecto == false)
+                            {
+                                todosCorrectos = false;
+                                break;
+                            }
+                        }
+
+                        if (todosCorrectos)
+                        {
+                            PostCEN post_encontrado = new PostCEN();
+                            postID = post.Id;
+                            encontrado = true;
+                            return postID;
+                        }
+                        else
+                        {
+                            // todosCorrectos == false;
+                            encontrado = false;
+                        }
+                    }
+                }
+
+                if (encontrado)
+                {
+                    break;
+                }
+            }
+        }
+        return postID;
     }
 }

@@ -10,11 +10,20 @@ using ProjectGenNHibernate.EN.Project;
 public partial class _ModifyPost : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
-        IList<HobbyEN> hobbydr = new List<HobbyEN>();
-
+    { 
         if (!IsPostBack)
         {
+            String postID = Request.QueryString["ID"];
+            /*
+            PostEN buscado = 
+
+            PostCEN aux = new PostCEN();
+            IList<PostEN> lista = aux.GetAllPost();
+            lista.
+
+            TextBoxPost.Text = postID;
+            */
+            IList<HobbyEN> hobbydr = new List<HobbyEN>();
             HobbyCEN ho = new HobbyCEN();
             hobbydr = ho.GetHobbyAssign((string)Session["NAME"]);
 

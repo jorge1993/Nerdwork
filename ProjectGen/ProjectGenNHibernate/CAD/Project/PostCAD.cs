@@ -300,5 +300,31 @@ public void DeleteGroup (int p_Post_OID, int p_groups_OID)
                 SessionClose ();
         }
 }
+public PostEN GetByID (int id)
+{
+        PostEN postEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                postEN = (PostEN)session.Get (typeof(PostEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in PostCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return postEN;
+}
 }
 }

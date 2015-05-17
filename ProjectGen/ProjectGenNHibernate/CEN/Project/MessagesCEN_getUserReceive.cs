@@ -12,7 +12,7 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class MessagesCEN : BasicCAD
+    public partial class MessagesCEN : BasicCAD
 {
 public System.Collections.Generic.IList<string> GetUserReceive (string emisor)
 {

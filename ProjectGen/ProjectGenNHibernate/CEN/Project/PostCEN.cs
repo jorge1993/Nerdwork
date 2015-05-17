@@ -99,5 +99,12 @@ public void DeleteGroup (int p_Post_OID, int p_groups_OID)
 
         _IPostCAD.DeleteGroup (p_Post_OID, p_groups_OID);
 }
+public PostEN GetByID (int id)
+{
+        PostEN postEN = null;
+
+        postEN = _IPostCAD.GetByID (id);
+        return postEN;
+}
 }
 }

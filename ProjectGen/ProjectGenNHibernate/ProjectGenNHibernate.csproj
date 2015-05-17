@@ -109,6 +109,7 @@
 			<Compile Include="CEN\Project\PostCEN_GetMax.cs" />
 			<Compile Include="CEN\Project\PostCEN_GetUserPosts.cs" />
 			<Compile Include="CEN\Project\PostCEN_SearchByHobbies.cs" />
+			<Compile Include="CEN\Project\PostCEN_SearchPostID.cs" />
 	<Compile Include="EN\Project\UsuarioEN.cs" />
 	<Compile Include="CEN\Project\UsuarioCEN.cs" />
 	<Compile Include="CAD\Project\IUsuarioCAD.cs" />
