@@ -31,7 +31,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosE
 
                 foreach (EventosEN eve in listaux) {
                         foreach (HobbyEN ho in eve.Hobby) {
-                                if (ho.Name.Contains (name)) {
+                                if (ho.Name.IndexOf (name)>=0) {
                                         lista.Add (eve);
                                         break;
                                 }

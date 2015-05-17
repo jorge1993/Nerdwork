@@ -176,8 +176,8 @@ public partial class CreateEvents : System.Web.UI.Page
                         x = EstadoEnum.Private;
                     else
                         x = EstadoEnum.Public;
-                    IList<String> usuarios = new List<string>();
-                    IList<String> hobbyevent = new List<string>();
+                    IList<string> usuarios = new List<string>();
+                    IList<string> hobbyevent = new List<string>();
                     
                     usuarios.Add(usuario);
 

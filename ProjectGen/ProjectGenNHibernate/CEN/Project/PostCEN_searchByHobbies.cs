@@ -30,7 +30,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> 
 
                 foreach (PostEN eve in listaux) {
                         foreach (HobbyEN ho in eve.Hobby) {
-                                if (ho.Name.Contains (arg0)) {
+                                if (ho.Name.IndexOf(arg0)>=0) {
                                         lista.Add (eve);
                                         break;
                                 }
@@ -40,7 +40,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> 
         }
         catch (Exception ex)
         {
-                SessionRollBack ();
+            SessionRollBack ();
         }
         return lista;
 

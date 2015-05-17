@@ -9,22 +9,34 @@
             <asp:TableRow runat="server">
                 <asp:TableCell>
                     <asp:HyperLink ID ="AllLink" runat="server">All</asp:HyperLink>
-                 </asp:TableCell>
+                 
+</asp:TableCell>
             </asp:TableRow>
            <asp:TableRow ID="TableRow1" runat="server">
                 <asp:TableCell>
                     <asp:HyperLink ID="PeopleLink" runat="server">People</asp:HyperLink>
-                 </asp:TableCell>
+                 
+</asp:TableCell>
             </asp:TableRow>
              <asp:TableRow ID="TableRow2" runat="server">
                 <asp:TableCell>
                     <asp:HyperLink ID="PostsLink" runat="server">Posts</asp:HyperLink>
-                 </asp:TableCell>
+
+</asp:TableCell>
+            </asp:TableRow>
+             <asp:TableRow ID="TableRow4" runat="server">
+                <asp:TableCell>
+                    <asp:HyperLink ID="GroupsLink" runat="server">Groups</asp:HyperLink>
+                 
+</asp:TableCell>
+            </asp:TableRow>
+             <asp:TableRow runat="server">
             </asp:TableRow>
              <asp:TableRow ID="TableRow3" runat="server">
                 <asp:TableCell>
                     <asp:HyperLink ID="EventsLink" runat="server">Events</asp:HyperLink>
-                 </asp:TableCell>
+                 
+</asp:TableCell>
             </asp:TableRow>
         </asp:Table>
 
@@ -32,7 +44,7 @@
     </div>
     <div id="left" style=" float: left; margin-left: 5px">
         <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="60%" DataKeyNames="nickname" DataSourceID="SqlDataSource1" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="60%" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                 <Columns>
                     <asp:TemplateField HeaderText="Avatar" ItemStyle-Width="20%">
                         <EditItemTemplate>
@@ -58,13 +70,8 @@
                 <SortedDescendingCellStyle BackColor="#F1E5CE" />
                 <SortedDescendingHeaderStyle BackColor="#93451F" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT Usuario.nickname, Usuario.avatar, hobby_user.FK_name_idHobby FROM hobby_user INNER JOIN Usuario ON hobby_user.FK_nickname_idUser = Usuario.nickname WHERE (hobby_user.FK_name_idHobby LIKE '%' + @name + '%')">
-            <SelectParameters>
-                <asp:QueryStringParameter Name="name" QueryStringField="Hobby" />
-            </SelectParameters>
-        </asp:SqlDataSource>
         <br />
-        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="nickname" DataSourceID="SqlDataSource2">
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="nickname">
             <Columns>
                 <asp:TemplateField HeaderText="Avatar" ItemStyle-Width="20%">
                         <EditItemTemplate>
@@ -91,10 +98,65 @@
             <SortedDescendingCellStyle BackColor="#F1E5CE" />
             <SortedDescendingHeaderStyle BackColor="#93451F" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectGenNHibernateConnectionString %>" SelectCommand="SELECT Usuario.nickname, Post.description, hobby_post.FK_name_idHobby, Usuario.avatar FROM hobby_post INNER JOIN Post ON hobby_post.FK_id_idPost = Post.id INNER JOIN Usuario ON Post.FK_nickname_idUser = Usuario.nickname WHERE (hobby_post.FK_name_idHobby LIKE N'%' + @name + N'%')">
-            <SelectParameters>
-                <asp:QueryStringParameter Name="name" QueryStringField="Hobby" />
-            </SelectParameters>
-        </asp:SqlDataSource>
+        <br />
+        <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="100%" Width="100%">
+            <Columns>
+                <asp:TemplateField HeaderText="Name" ItemStyle-Width="20%">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="nicknameLinkButton0" runat="server" CommandArgument='<%# Eval("name") %>' CommandName="name" OnClick="GroupLinkButton_Click" Text='<%# Eval("name") %>'></asp:LinkButton>
+                    </ItemTemplate>
+                    <ItemStyle Width="20%" />
+                </asp:TemplateField>
+                <asp:BoundField DataField="description" HeaderText="Description" ItemStyle-Width="50%" SortExpression="description">
+                <ItemStyle Width="50%" />
+                </asp:BoundField>
+                <asp:BoundField DataField="hobbies" HeaderText="Hobbies" ItemStyle-Width="20%" SortExpression="hobbies">
+                <ItemStyle Width="20%" />
+                </asp:BoundField>
+            </Columns>
+            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+            <SortedDescendingHeaderStyle BackColor="#93451F" />
+        </asp:GridView>
+        <br />
+        <asp:GridView ID="GridView4" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" >
+                    <Columns>
+                    <asp:TemplateField ItemStyle-Width="20%" HeaderText="Name">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="nicknameLinkButton" runat="server" OnClick="NicknameLinkButton_Click" CommandName="nickname"
+                                    CommandArgument='<%# Eval("nickname") %>'  Text='<%# Eval("nickname") %>' ></asp:LinkButton>
+                        </ItemTemplate>
+
+<ItemStyle Width="20%"></ItemStyle>
+                    </asp:TemplateField>
+
+                        <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" ItemStyle-Width="50%" >
+<ItemStyle Width="50%"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:BoundField DataField="hobbies" HeaderText="Hobbies" SortExpression="hobbies" ItemStyle-Width="20%" >
+                       
+                        
+<ItemStyle Width="20%"></ItemStyle>
+                        </asp:BoundField>
+                       
+                        
+                    </Columns>
+
+                    <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+                    <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                    <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#FFF1D4" />
+                    <SortedAscendingHeaderStyle BackColor="#B95C30" />
+                    <SortedDescendingCellStyle BackColor="#F1E5CE" />
+                    <SortedDescendingHeaderStyle BackColor="#93451F" />
+                </asp:GridView>
     </div>
 </asp:Content>

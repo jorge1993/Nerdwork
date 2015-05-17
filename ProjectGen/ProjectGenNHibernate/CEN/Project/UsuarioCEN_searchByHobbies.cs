@@ -12,7 +12,7 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class UsuarioCEN
+public partial class UsuarioCEN : BasicCAD
 {
 public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> SearchByHobbies (string p_oid)
 {
@@ -25,13 +25,15 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioE
         {
                 SessionInitializeTransaction ();
                 HobbyCAD hobbycad = new HobbyCAD (session);
-                UsuarioEN usercad = new UsuarioEN ();
-                UsuarioCEN us = new UsuarioCEN ();
-                listaux = us.GetAllUsers ();
+                UsuarioCAD usercad = new UsuarioCAD (session);
+
+                listaux = usercad.GetAllUsers();
 
                 foreach (UsuarioEN eve in listaux) {
-                        foreach (HobbyEN ho in eve.Hobby) {
-                                if (ho.Name.Contains (p_oid)) {
+                    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> listaux2 = new System.Collections.Generic.List<HobbyEN>();
+                    listaux2 = eve.Hobby;
+                        foreach (HobbyEN ho in listaux2) {
+                                if (ho.Name.IndexOf(p_oid)>=0) {
                                         lista.Add (eve);
                                         break;
                                 }
