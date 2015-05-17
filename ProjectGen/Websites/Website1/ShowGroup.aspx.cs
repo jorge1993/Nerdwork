@@ -66,37 +66,41 @@ public partial class ShowEvent : System.Web.UI.Page
     {
         String postDesc = TextBoxPost.Text;
 
-        if (postDesc.Equals(""))
+        if (!postDesc.Equals(""))
         {
 
             String postUser = Session["Name"].ToString();
 
             PostCEN post = new PostCEN();
+            
             post.Create(postDesc, postUser);
+            
 
             List<String> post_hobbies = new List<string>();
-            GroupsCEN g = new GroupsCEN();
+            IList<HobbyEN> listhobby = new List<HobbyEN>();
 
             IList<GroupsEN> gen = new List<GroupsEN>();
+            GroupsCEN g = new GroupsCEN();
             gen = g.SearchByName(Request.QueryString["name"]);
-            IList<HobbyEN> listhobby = new List<HobbyEN>();
-            listhobby=g.GetAllHobbies(gen[0].Id);
+
+            GroupsCEN g2 = new GroupsCEN();
+            
+            listhobby=g2.GetAllHobbies(gen[0].Id);
+          
             int i;
             for (i = 0; i < listhobby.Count; i++)
             {
                 
                 post_hobbies.Add(listhobby[i].Name);
             }
-           /* int postID = post.GetAllPost().Count;
+            int postID = post.GetAllPost().Count;
 
             post.AddHobbies(postID, post_hobbies);
-
+            post.AddGroup(postID, gen[0].Id);
             LabelPosted.Text = "Posted correctly.";
             LabelPosted.Visible = true;
             TextBoxPost.Text = "";
-            reloadTimeLine(); // databind del timeline
-            ListUserHobbies.DataBind();
-            ListPostHobbies.Items.Clear();*/
+            Response.Redirect("ShowGroup.aspx?name=" + Request.QueryString["name"]);
         }
 
         else
