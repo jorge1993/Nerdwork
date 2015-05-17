@@ -23,16 +23,6 @@ public partial class _ModifyPost : System.Web.UI.Page
             {
                 // La descripción es la misma que hay en la BD.
                 TextBoxPost.Text = buscado.Description;
-
-                // Se eliminan los hobbies del post para que el usuario los meta de nuevo.
-                HobbyCEN hobby_cen = new HobbyCEN();
-                IList<HobbyEN> listHobbyEN = new List<HobbyEN>();
-                listHobbyEN = hobby_cen.GetHobbybyID(postIDint);
-
-                List<String> listHobbyString = new List<String>();
-                listHobbyString = listHobbyEN.Select(aux => aux.Name).ToList();
-
-                cen.DeleteHobbies(postIDint, listHobbyString);
                 
                 // Se cargan los hobbies del usuario.
                 IList<HobbyEN> hobbydr = new List<HobbyEN>();
@@ -47,7 +37,16 @@ public partial class _ModifyPost : System.Web.UI.Page
 
             else
             {
-
+                // En principio nunca debería llegar aquí. La única forma sería 
+                // escribir directamente la URL en el navegador.
+                if ((string)Session["NAME"] != null)
+                {
+                    Response.Redirect("~/PerfilPrivate.aspx", true);
+                }
+                else
+                {
+                    Response.Redirect("First.aspx");
+                }
             }
         }
     }
@@ -87,32 +86,33 @@ public partial class _ModifyPost : System.Web.UI.Page
     }
     
 
-
-    
-    ////////////////////////////////////////////////////////////////////
-    /******************************************************************
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * ****************************************************************/
-    // Falta hacer esto
     protected void ButtonPost_Click(object sender, EventArgs e)
     {
         String postDesc = TextBoxPost.Text;
 
         if (postDesc.Equals("") == false && ListPostHobbies.Items.Count > 0)
         {
-
             String postUser = Session["Name"].ToString();
+            String postIDstring = Request.QueryString["ID"];
+            int postIDint = int.Parse(postIDstring);
 
-            PostCEN post = new PostCEN();
-            int postID = post.Create(postDesc, postUser);
+            // Se eliminan los hobbies del post para que el usuario los meta de nuevo.
+            PostCEN cen = new PostCEN();
+            PostEN buscado = cen.GetByID(postIDint);
 
+            HobbyCEN hobby_cen = new HobbyCEN();
+            IList<HobbyEN> listHobbyEN = new List<HobbyEN>();
+            listHobbyEN = hobby_cen.GetHobbybyID(postIDint);
+
+            List<String> listHobbyString = new List<String>();
+            listHobbyString = listHobbyEN.Select(aux => aux.Name).ToList();
+
+            cen.DeleteHobbies(postIDint, listHobbyString);
+
+
+            cen.Modify(postIDint, postDesc);
+            
             List<String> post_hobbies = new List<string>();
-
             int i;
             for (i = 0; i < ListPostHobbies.Items.Count; i++)
             {
@@ -121,12 +121,11 @@ public partial class _ModifyPost : System.Web.UI.Page
                 post_hobbies.Add(itemText);
             }
 
-            post.AddHobbies(postID, post_hobbies);
+            cen.AddHobbies(postIDint, post_hobbies);
 
-            LabelPosted.Text = "Posted correctly.";
+            LabelPosted.Text = "Posted modified correctly.";
             LabelPosted.Visible = true;
-            TextBoxPost.Text = "";
-            //reloadTimeLine(); // databind del timeline
+            
             ListUserHobbies.DataBind();
             ListPostHobbies.Items.Clear();
         }

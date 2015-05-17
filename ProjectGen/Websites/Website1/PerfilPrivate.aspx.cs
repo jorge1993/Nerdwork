@@ -67,8 +67,6 @@ public partial class PerfilPrivate : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
         reloadTimeLine();
         IList<HobbyEN> hobbydr = new List<HobbyEN>();
 
