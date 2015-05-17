@@ -7,12 +7,19 @@
 <asp:Label ID="eventname" runat="server" Text="groupname"></asp:Label>
 </h2>
 <div>
-<p style="height: 55px">&nbsp; Name&nbsp; <asp:TextBox ID="TBname" Height="30%" Width="50%" BorderColor="Black" runat="server">
-</asp:TextBox>
+<p style="height: 55px">&nbsp; Name&nbsp; <asp:TextBox ID="TBname" Height="30%" Width="50%" BorderColor="Black" runat="server" Enabled="False"></asp:TextBox>
+
+    <asp:Button ID="Join1" runat="server" OnClick="Join1_Click" Text="Join the group" />
+    <asp:Button ID="Leave" runat="server" OnClick="Leave_Click" Text="Leave the group" />
+    <asp:Label ID="Label2" runat="server" Text="You are part of this group!"></asp:Label>
+    <p style="height: 55px">&nbsp;<asp:Button ID="Delete" runat="server" OnClick="Delete_Click" Text="Delete" />
+        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Modify" />
+        <asp:Button ID="Save" runat="server" OnClick="Save_Click" Text="Save changes" Visible="False" />
+
 </div>
 <div>
 &nbsp; State &nbsp; 
-    <asp:DropDownList ID="estado" runat="server" Height="16px" Width="117px">
+    <asp:DropDownList ID="estado" runat="server" Height="16px" Width="117px" Enabled="False">
         <asp:ListItem>Public</asp:ListItem>
         <asp:ListItem>Private</asp:ListItem>
     </asp:DropDownList>
@@ -29,7 +36,7 @@ Description
 <div style=" float:left; height:15%; width:50%";>
 
 <asp:TextBox ID="description" runat="server" BorderColor="Black" Height="100%" 
-        Width="100%" TextMode="MultiLine"></asp:TextBox>
+        Width="100%" TextMode="MultiLine" Enabled="False"></asp:TextBox>
 </div>
 
 <div>

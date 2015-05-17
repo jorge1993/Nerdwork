@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using ProjectGenNHibernate.Enumerated.Project;
 public partial class ShowEvent : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -84,8 +84,8 @@ public partial class ShowEvent : System.Web.UI.Page
             gen = g.SearchByName(Request.QueryString["name"]);
 
             GroupsCEN g2 = new GroupsCEN();
+            listhobby = g2.GetAllHobbies(gen[0].Id);
             
-            listhobby=g2.GetAllHobbies(gen[0].Id);
           
             int i;
             for (i = 0; i < listhobby.Count; i++)
@@ -125,5 +125,82 @@ public partial class ShowEvent : System.Web.UI.Page
         LinkButton pressed = sender as LinkButton;
         String newUrl = "PublicProfile.aspx?nickname=" + pressed.Text;
         Response.Redirect(newUrl);
+    }
+
+    protected void Join1_Click(object sender, EventArgs e)
+    {
+
+         IList<GroupsEN> gen = new List<GroupsEN>();
+            GroupsCEN g = new GroupsCEN();
+            gen = g.SearchByName(Request.QueryString["name"]);
+
+            GroupsCEN g2 = new GroupsCEN();
+            
+            g2.GetAllHobbies(gen[0].Id);
+         UsuarioCEN us = new UsuarioCEN();
+            UsuarioEN use = new UsuarioEN();
+            //Descomentar cuando esté arreglado el metodo
+           // us.AddGroup(Session["Name"].ToString(), gen[0].Id);
+            
+
+        
+    }
+    protected void Leave_Click(object sender, EventArgs e)
+    {
+        IList<GroupsEN> gen = new List<GroupsEN>();
+        GroupsCEN g = new GroupsCEN();
+        gen = g.SearchByName(Request.QueryString["name"]);
+
+        GroupsCEN g2 = new GroupsCEN();
+
+        g2.GetAllHobbies(gen[0].Id);
+        UsuarioCEN us = new UsuarioCEN();
+        UsuarioEN use = new UsuarioEN();
+        //Descomentar cuando esté arreglado el metodo
+        //us.DeleteGroup(Session["Name"].ToString(), gen[0].Id);
+    }
+
+    protected void Delete_Click(object sender, EventArgs e)
+    {
+        IList<GroupsEN> gen = new List<GroupsEN>();
+        GroupsCEN g = new GroupsCEN();
+        gen = g.SearchByName(Request.QueryString["name"]);
+
+        GroupsCEN g2 = new GroupsCEN();
+
+        g2.Destroy(gen[0].Id);
+        Response.Redirect("UserGroups.aspx");
+    }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        TBname.Enabled = true;
+        estado.Enabled = true;
+        description.Enabled = true;
+        Button3.Visible = false;
+        Save.Visible = true;
+
+    }
+    protected void Save_Click(object sender, EventArgs e)
+    {
+        IList<GroupsEN> gen = new List<GroupsEN>();
+        GroupsCEN g = new GroupsCEN();
+        gen = g.SearchByName(Request.QueryString["name"]);
+
+        GroupsCEN g2 = new GroupsCEN();
+        String state = estado.SelectedValue;
+        EstadoEnum x;
+        if (state == "Private")
+            x = EstadoEnum.Private;
+        else
+            x = EstadoEnum.Public;
+
+        g2.Modify(gen[0].Id, TBname.Text, description.Text, x);
+
+
+        TBname.Enabled = false;
+        estado.Enabled = false;
+        description.Enabled = false;
+        Button3.Visible = true;
+        Save.Visible = false;
     }
 }
