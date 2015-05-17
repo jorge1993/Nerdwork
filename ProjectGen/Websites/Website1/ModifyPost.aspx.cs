@@ -13,22 +13,42 @@ public partial class _ModifyPost : System.Web.UI.Page
     { 
         if (!IsPostBack)
         {
-            String postID = Request.QueryString["ID"];
-            /*
-            PostEN buscado = 
+            String postIDstring = Request.QueryString["ID"];
+            int postIDint = int.Parse(postIDstring);
 
-            PostCEN aux = new PostCEN();
-            IList<PostEN> lista = aux.GetAllPost();
-            lista.
+            PostCEN cen = new PostCEN();
+            PostEN buscado = cen.GetByID(postIDint);
 
-            TextBoxPost.Text = postID;
-            */
-            IList<HobbyEN> hobbydr = new List<HobbyEN>();
-            HobbyCEN ho = new HobbyCEN();
-            hobbydr = ho.GetHobbyAssign((string)Session["NAME"]);
+            if (buscado.User.Nickname.Equals((string)Session["NAME"]))
+            {
+                // La descripción es la misma que hay en la BD.
+                TextBoxPost.Text = buscado.Description;
 
-            foreach (HobbyEN s in hobbydr)
-                ListUserHobbies.Items.Add(s.Name);
+                // Se eliminan los hobbies del post para que el usuario los meta de nuevo.
+                HobbyCEN hobby_cen = new HobbyCEN();
+                IList<HobbyEN> listHobbyEN = new List<HobbyEN>();
+                listHobbyEN = hobby_cen.GetHobbybyID(postIDint);
+
+                List<String> listHobbyString = new List<String>();
+                listHobbyString = listHobbyEN.Select(aux => aux.Name).ToList();
+
+                cen.DeleteHobbies(postIDint, listHobbyString);
+                
+                // Se cargan los hobbies del usuario.
+                IList<HobbyEN> hobbydr = new List<HobbyEN>();
+                HobbyCEN ho = new HobbyCEN();
+                hobbydr = ho.GetHobbyAssign((string)Session["NAME"]);
+
+                foreach (HobbyEN s in hobbydr)
+                {
+                    ListUserHobbies.Items.Add(s.Name);
+                }
+            }
+
+            else
+            {
+
+            }
         }
     }
 
@@ -66,6 +86,19 @@ public partial class _ModifyPost : System.Web.UI.Page
         }
     }
     
+
+
+    
+    ////////////////////////////////////////////////////////////////////
+    /******************************************************************
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * ****************************************************************/
+    // Falta hacer esto
     protected void ButtonPost_Click(object sender, EventArgs e)
     {
         String postDesc = TextBoxPost.Text;

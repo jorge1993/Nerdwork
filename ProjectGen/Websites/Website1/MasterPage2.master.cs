@@ -13,7 +13,6 @@ public partial class MasterPage2 : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (Session.Count == 0)
         {
            Response.Redirect("First.aspx");
