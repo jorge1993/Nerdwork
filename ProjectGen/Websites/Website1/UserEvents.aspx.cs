@@ -51,7 +51,7 @@ public partial class UserEvents : System.Web.UI.Page
                 int aux = listaHobby.Count;
                 int contador = 1;
 
-                foreach (HobbyEN hobby in even.Hobby)
+                foreach (HobbyEN hobby in listaHobby)
                 {
                     listaHobbies += hobby.Name;
                     if (aux != contador)
@@ -96,7 +96,6 @@ public partial class UserEvents : System.Web.UI.Page
     protected void EventLinkButton_Click(object sender, EventArgs e)
     {
         LinkButton pressed = sender as LinkButton;
-        String newUrl = "ShowEvent.aspx?Name" + pressed.Text;
         Response.Redirect(newUrl);
     }
 }
