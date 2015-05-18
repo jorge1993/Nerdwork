@@ -12,7 +12,7 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class EventosCEN
+public partial class EventosCEN : BasicCAD
 {
 public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> SearchByHobbies (string name)
 {
@@ -31,7 +31,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosE
 
                 foreach (EventosEN eve in listaux) {
                         foreach (HobbyEN ho in eve.Hobby) {
-                                if (ho.Name.IndexOf (name)>=0) {
+                                if (ho.Name.IndexOf (name) >= 0) {
                                         lista.Add (eve);
                                         break;
                                 }

@@ -281,24 +281,24 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioE
 
         return result;
 }
-public void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs)
+public void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs)
 {
         ProjectGenNHibernate.EN.Project.UsuarioEN usuarioEN = null;
         try
         {
                 SessionInitializeTransaction ();
                 usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
-                ProjectGenNHibernate.EN.Project.EventosEN eventsENAux = null;
-                if (usuarioEN.Events == null) {
-                        usuarioEN.Events = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventosEN>();
+                ProjectGenNHibernate.EN.Project.EventosEN eventosENAux = null;
+                if (usuarioEN.Eventos == null) {
+                        usuarioEN.Eventos = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.EventosEN>();
                 }
 
-                foreach (int item in p_events_OIDs) {
-                        eventsENAux = new ProjectGenNHibernate.EN.Project.EventosEN ();
-                        eventsENAux = (ProjectGenNHibernate.EN.Project.EventosEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventosEN), item);
-                        eventsENAux.Usuario.Add (usuarioEN);
+                foreach (int item in p_eventos_OIDs) {
+                        eventosENAux = new ProjectGenNHibernate.EN.Project.EventosEN ();
+                        eventosENAux = (ProjectGenNHibernate.EN.Project.EventosEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventosEN), item);
+                        eventosENAux.Usuario.Add (usuarioEN);
 
-                        usuarioEN.Events.Add (eventsENAux);
+                        usuarioEN.Eventos.Add (eventosENAux);
                 }
 
 
@@ -320,7 +320,7 @@ public void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int
         }
 }
 
-public void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs)
+public void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs)
 {
         try
         {
@@ -328,16 +328,16 @@ public void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<
                 ProjectGenNHibernate.EN.Project.UsuarioEN usuarioEN = null;
                 usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
 
-                ProjectGenNHibernate.EN.Project.EventosEN eventsENAux = null;
-                if (usuarioEN.Events != null) {
-                        foreach (int item in p_events_OIDs) {
-                                eventsENAux = (ProjectGenNHibernate.EN.Project.EventosEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventosEN), item);
-                                if (usuarioEN.Events.Contains (eventsENAux) == true) {
-                                        usuarioEN.Events.Remove (eventsENAux);
-                                        eventsENAux.Usuario.Remove (usuarioEN);
+                ProjectGenNHibernate.EN.Project.EventosEN eventosENAux = null;
+                if (usuarioEN.Eventos != null) {
+                        foreach (int item in p_eventos_OIDs) {
+                                eventosENAux = (ProjectGenNHibernate.EN.Project.EventosEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventosEN), item);
+                                if (usuarioEN.Eventos.Contains (eventosENAux) == true) {
+                                        usuarioEN.Eventos.Remove (eventosENAux);
+                                        eventosENAux.Usuario.Remove (usuarioEN);
                                 }
                                 else
-                                        throw new ModelException ("The identifier " + item + " in p_events_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
+                                        throw new ModelException ("The identifier " + item + " in p_eventos_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
                         }
                 }
 
@@ -397,7 +397,7 @@ public void AddGroup (string p_Usuario_OID, System.Collections.Generic.IList<int
         }
 }
 
-public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs)
+public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs)
 {
         try
         {
@@ -405,16 +405,16 @@ public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<
                 ProjectGenNHibernate.EN.Project.UsuarioEN usuarioEN = null;
                 usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
 
-                ProjectGenNHibernate.EN.Project.EventosEN eventsENAux = null;
-                if (usuarioEN.Events != null) {
-                        foreach (int item in p_events_OIDs) {
-                                eventsENAux = (ProjectGenNHibernate.EN.Project.EventosEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventosEN), item);
-                                if (usuarioEN.Events.Contains (eventsENAux) == true) {
-                                        usuarioEN.Events.Remove (eventsENAux);
-                                        eventsENAux.Usuario.Remove (usuarioEN);
+                ProjectGenNHibernate.EN.Project.EventosEN eventosENAux = null;
+                if (usuarioEN.Eventos != null) {
+                        foreach (int item in p_eventos_OIDs) {
+                                eventosENAux = (ProjectGenNHibernate.EN.Project.EventosEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventosEN), item);
+                                if (usuarioEN.Eventos.Contains (eventosENAux) == true) {
+                                        usuarioEN.Eventos.Remove (eventosENAux);
+                                        eventosENAux.Usuario.Remove (usuarioEN);
                                 }
                                 else
-                                        throw new ModelException ("The identifier " + item + " in p_events_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
+                                        throw new ModelException ("The identifier " + item + " in p_eventos_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
                         }
                 }
 

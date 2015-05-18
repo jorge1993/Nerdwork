@@ -27,13 +27,13 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioE
                 HobbyCAD hobbycad = new HobbyCAD (session);
                 UsuarioCAD usercad = new UsuarioCAD (session);
 
-                listaux = usercad.GetAllUsers();
+                listaux = usercad.GetAllUsers ();
 
                 foreach (UsuarioEN eve in listaux) {
-                    System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> listaux2 = new System.Collections.Generic.List<HobbyEN>();
-                    listaux2 = eve.Hobby;
+                        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> listaux2 = new System.Collections.Generic.List<HobbyEN>();
+                        listaux2 = eve.Hobby;
                         foreach (HobbyEN ho in listaux2) {
-                                if (ho.Name.IndexOf(p_oid)>=0) {
+                                if (ho.Name.IndexOf (p_oid) >= 0) {
                                         lista.Add (eve);
                                         break;
                                 }

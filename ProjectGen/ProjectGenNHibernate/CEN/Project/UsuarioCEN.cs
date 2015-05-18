@@ -120,17 +120,17 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioE
 {
         return _IUsuarioCAD.GetAllUsers ();
 }
-public void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs)
+public void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs)
 {
         //Call to UsuarioCAD
 
-        _IUsuarioCAD.AddEvent (p_Usuario_OID, p_events_OIDs);
+        _IUsuarioCAD.AddEvent (p_Usuario_OID, p_eventos_OIDs);
 }
-public void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs)
+public void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs)
 {
         //Call to UsuarioCAD
 
-        _IUsuarioCAD.DeleteEvent (p_Usuario_OID, p_events_OIDs);
+        _IUsuarioCAD.DeleteEvent (p_Usuario_OID, p_eventos_OIDs);
 }
 public void AddGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs)
 {
@@ -138,11 +138,11 @@ public void AddGroup (string p_Usuario_OID, System.Collections.Generic.IList<int
 
         _IUsuarioCAD.AddGroup (p_Usuario_OID, p_groups_OIDs);
 }
-public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs)
+public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs)
 {
         //Call to UsuarioCAD
 
-        _IUsuarioCAD.DeleteGroup (p_Usuario_OID, p_events_OIDs);
+        _IUsuarioCAD.DeleteGroup (p_Usuario_OID, p_eventos_OIDs);
 }
 }
 }

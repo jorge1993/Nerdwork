@@ -37,7 +37,7 @@
     					</bag>
 			
 		  			
-						<bag name="Events" table="[events_hobby]" inverse="true" >
+						<bag name="Eventos" table="[events_hobby]" inverse="true" >
 							<key>
 									<column name="[FK_name_idHobby]"/>
 							</key>

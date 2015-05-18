@@ -12,7 +12,7 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-    public partial class UsuarioCEN : BasicCAD
+public partial class UsuarioCEN : BasicCAD
 {
 public bool HasHobbies (string p_oid)
 {

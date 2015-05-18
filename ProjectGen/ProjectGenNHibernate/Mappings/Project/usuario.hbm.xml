@@ -78,7 +78,7 @@
     					</bag>
 			
 		  			
-						<bag name="Events" table="[events_usuario]" inverse="true" >
+						<bag name="Eventos" table="[events_usuario]" inverse="true" >
 							<key>
 									<column name="[FK_nickname_idUsuario]"/>
 							</key>

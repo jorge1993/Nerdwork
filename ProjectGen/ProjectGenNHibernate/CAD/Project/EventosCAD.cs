@@ -59,7 +59,7 @@ public int New_ (EventosEN eventos)
                 if (eventos.Usuario != null) {
                         for (int i = 0; i < eventos.Usuario.Count; i++) {
                                 eventos.Usuario [i] = (ProjectGenNHibernate.EN.Project.UsuarioEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.UsuarioEN), eventos.Usuario [i].Nickname);
-                                eventos.Usuario [i].Events.Add (eventos);
+                                eventos.Usuario [i].Eventos.Add (eventos);
                         }
                 }
 
@@ -191,7 +191,7 @@ public void DeleteHobbies (int p_Eventos_OID, System.Collections.Generic.IList<s
                                 hobbyENAux = (ProjectGenNHibernate.EN.Project.HobbyEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.HobbyEN), item);
                                 if (eventosEN.Hobby.Contains (hobbyENAux) == true) {
                                         eventosEN.Hobby.Remove (hobbyENAux);
-                                        hobbyENAux.Events.Remove (eventosEN);
+                                        hobbyENAux.Eventos.Remove (eventosEN);
                                 }
                                 else
                                         throw new ModelException ("The identifier " + item + " in p_hobby_OIDs you are trying to unrelationer, doesn't exist in EventosEN");
@@ -230,7 +230,7 @@ public void AddHobbies (int p_Eventos_OID, System.Collections.Generic.IList<stri
                 foreach (string item in p_hobby_OIDs) {
                         hobbyENAux = new ProjectGenNHibernate.EN.Project.HobbyEN ();
                         hobbyENAux = (ProjectGenNHibernate.EN.Project.HobbyEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.HobbyEN), item);
-                        hobbyENAux.Events.Add (eventosEN);
+                        hobbyENAux.Eventos.Add (eventosEN);
 
                         eventosEN.Hobby.Add (hobbyENAux);
                 }

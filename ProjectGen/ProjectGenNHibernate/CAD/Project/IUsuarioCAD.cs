@@ -28,12 +28,12 @@ System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> GetA
 
 
 
-void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs);
+void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs);
 
-void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs);
+void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs);
 
 void AddGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs);
 
-void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_events_OIDs);
+void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs);
 }
 }
