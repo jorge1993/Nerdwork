@@ -123,19 +123,20 @@ public partial class CreateEvents : System.Web.UI.Page
                         x = EstadoEnum.Private;
                     else
                         x = EstadoEnum.Public;
-                    IList<string> usuarios = new List<string>();
-                    IList<string> hobbyevent = new List<string>();
+                    IList<String> usuarios = new List<string>();
+                    IList<String> hobbyevent = new List<string>();
+                    EventosCEN evento = new EventosCEN();
                     
                     usuarios.Add(usuario);
-
-                    for (int i = 0; i < ListEventHobbies.Items.Count; i++)
+                    int i;
+                    for (i = 0; i < ListEventHobbies.Items.Count; i++)
                     {
                         ListItem item = ListEventHobbies.Items[i];
                         string itemText = item.Text;
                         hobbyevent.Add(itemText);
                     }
                     
-                    EventosCEN evento = new EventosCEN();
+                    
                     int id = evento.New_(name, des, x, init, end, lugar, usuarios);
 
                     evento.AddHobbies((Int32) id, hobbyevent);
