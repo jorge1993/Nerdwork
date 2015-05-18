@@ -65,58 +65,6 @@ public partial class CreateEvents : System.Web.UI.Page
     }
 
 
-        private void reloadTimeLine() 
-        {/*
-        
-            IList<PostEN> dr = new List<PostEN>();
-            PostCEN p = new PostCEN();
-
-            dr = p.GetAllPost();
-            int size = p.GetAllPost().Count;
-
-            DataTable dt = new DataTable();
-            dt.Columns.Add("avatar", typeof(string));
-            dt.Columns.Add("nickname", typeof(string));
-            dt.Columns.Add("description", typeof(string));
-            dt.Columns.Add("hobbies", typeof(string));
-
-
-            for (int j = 0; j < size; j++)
-            {
-
-                DataRow Row1;
-                string listaHobbies = "";
-                Row1 = dt.NewRow();
-                UsuarioCEN us = new UsuarioCEN();
-                UsuarioEN use = new UsuarioEN();
-
-                use = us.Searchbynick(dr[j].User.Nickname);
-
-                Row1[0] = use.Avatar;
-                Row1[1] = use.Nickname;
-                Row1[2] = dr[j].Description;
-
-                IList<HobbyEN> listaHobby = new List<HobbyEN>();
-                HobbyCEN hobbycen = new HobbyCEN();
-                listaHobby = hobbycen.GetHobbybyID(dr[j].Id);
-                int aux = listaHobby.Count;
-                int contador = 1;
-
-                foreach (HobbyEN hobby in listaHobby)
-                {
-                    listaHobbies += hobby.Name;
-                    if (aux != contador)
-                        listaHobbies += " - ";
-                    contador++;
-                }
-
-                Row1[3] = listaHobbies;
-
-                dt.Rows.Add(Row1);
-                GridViewTimeline.DataSource = dt;
-                GridViewTimeline.DataBind();
-          */
-        }
 
         protected void Button_Create(object sender, EventArgs e)
         {
@@ -183,8 +131,6 @@ public partial class CreateEvents : System.Web.UI.Page
                     TBname.Text = "";
                     description.Text = "";
                     estado.Text = "";
-                 
-                    reloadTimeLine(); // databind del timeline
                     ListUserHobbies.DataBind();
                     ListEventHobbies.Items.Clear();
                 }

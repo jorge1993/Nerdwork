@@ -18,7 +18,7 @@ public partial class UserEvents : System.Web.UI.Page
     private void reloadTimeLine()
     {
         
-            IList<EventosEN> dr = new List<EventosEN>();
+            /*IList<EventosEN> dr = new List<EventosEN>();
             EventosCEN eve = new EventosCEN();
 
             dr = eve.GetAll();
@@ -64,7 +64,7 @@ public partial class UserEvents : System.Web.UI.Page
                 dt.Rows.Add(Row1);
                 GridViewTimeline.DataSource = dt;
                 GridViewTimeline.DataBind();
-            }
+            }*/
           
     }
 

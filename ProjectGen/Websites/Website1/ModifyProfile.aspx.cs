@@ -94,7 +94,7 @@ public partial class _Default : System.Web.UI.Page
         useren = us.Searchbynick((String)Session["Name"]);
         String nombredefoto = useren.Avatar;
 
-        if (TextBoxPassword.Text == "" || (TextBoxPassword.Text.Length >= 4))
+        if (TextBoxPassword.Text != "" && (TextBoxPassword.Text.Length >= 4))
             password = us.Encrypt( TextBoxPassword.Text);
         else password = useren.Password;
 
