@@ -45,7 +45,7 @@ Description
                         </td>
                         <td></td>
                         <td>
-                            <asp:Label ID="LabelEventHobbies" runat="server" Text="Event hobbies:"></asp:Label>
+                            <asp:Label ID="LabelEventHobbies" runat="server" Text="Group hobbies:"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -70,6 +70,35 @@ Description
     <br />
 </div>
 
+    <div style=" float:left;";>
+        <table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <asp:Label ID="LabelUsers" runat="server" Text="Users:"></asp:Label>
+                        </td>
+                        <td></td>
+                        <td>
+                            <asp:Label ID="LabelGroupUsers" runat="server" Text="Group users:"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:ListBox ID="ListBoxUsers" runat="server" Width="150px" >
+                            </asp:ListBox>
+                        </td>
+                        <td>
+                            <asp:Button ID="Button1" runat="server" Text=">>" OnClick="ButtonToRightUsers_Click" CausesValidation="False" ValidateRequestMode="Disabled" />
+                            <asp:Button ID="Button2" runat="server" Text="<<" OnClick="ButtonToLeftUsers_Click" />
+                        </td>
+                        <td>
+                            <asp:ListBox ID="ListBoxGroupUsers" runat="server"  Width="150">
+                            </asp:ListBox>
+                        </td>
+                    </tr>
+                </table>
+</div>
+
+    <div style=" float:right;";>
 <p style="float: right; margin-right: 20%";>
                           <asp:Label id="Label1" runat="server"></asp:Label>
 
@@ -77,6 +106,7 @@ Description
                          BorderStyle="Solid" Text="Create Group" OnClick="Button_Create"
                           />
 </p>
+        </div>
 
 </div>
 

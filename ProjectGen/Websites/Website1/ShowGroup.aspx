@@ -8,7 +8,7 @@
 </h2>
 <div>
 <p style="height: 55px">&nbsp; Name&nbsp; 
-    <asp:TextBox ID="TBname" Height="30%" Width="50%" BorderColor="Black" runat="server" Enabled="False"></asp:TextBox>
+    <asp:TextBox ID="TBname" Height="30%" Width="50%" BorderColor="Black" runat="server" Enabled="false"></asp:TextBox>
     <br />
     Owner&nbsp;
     <asp:Label ID="OwnerLabel" runat="server" Text="owner name"></asp:Label>
@@ -41,9 +41,9 @@ Description
 
 </div>
 <div style=" float:left; height:15%; width:50%";>
-
+    
 <asp:TextBox ID="description" runat="server" BorderColor="Black" Height="100%" 
-        Width="100%" TextMode="MultiLine" Enabled="False"></asp:TextBox>
+        Width="100%" TextMode="MultiLine" Enabled="false"></asp:TextBox>
 </div>
 
 <div>
@@ -109,12 +109,12 @@ Description
             </div>
 
         
-      <div id="grid" style="height:175px; width:100%; overflow:scroll;">
+      <div id="grid" style="height:175px; width:100%; overflow:scroll; text-align: center;">
                 <asp:GridView ID="GridViewTimeline" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="100%" Height="100%" ShowHeader="False" >
                     <Columns>
-                        <asp:TemplateField>
+                        <asp:TemplateField ItemStyle-Width="10%">
                             <ItemTemplate>
-                                <asp:Image ID="avatarUser" runat="server" Height="50px" Width="50px" CommandName="avatar"
+                                <asp:Image ID="avatarUser" runat="server" Height="50px" Width="50px" CommandName="avatar" ImageAlign="Middle"
                                         CommandArgument='<%# Eval("avatar") %>'  ImageUrl='<%# Eval("avatar") %>' >
                                 </asp:Image>
                             </ItemTemplate>
@@ -122,15 +122,15 @@ Description
                     
                         <asp:TemplateField ItemStyle-Width="20%">
                             <ItemTemplate>
-                                <asp:LinkButton ID="nicknameLinkButton" runat="server" OnClick="NicknameLinkButton_Click" CommandName="nickname"
+                                <asp:LinkButton ID="nicknameLinkButton" runat="server" OnClick="NicknameLinkButton_Click" CommandName="nickname" 
                                         CommandArgument='<%# Eval("nickname") %>'  Text='<%# Eval("nickname") %>' ></asp:LinkButton>
                             </ItemTemplate>
 
 <ItemStyle Width="20%"></ItemStyle>
                         </asp:TemplateField>
 
-                            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="20%" >
-<ItemStyle Width="20%"></ItemStyle>
+                            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" ItemStyle-Width="70%" >
+<ItemStyle Width="80%"></ItemStyle>
                         </asp:BoundField>
                         
                     </Columns>

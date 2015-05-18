@@ -30,38 +30,40 @@ public partial class PerfilPrivate : System.Web.UI.Page
 
         for (int j = 0; j < size; j++)
         {
-
-            DataRow Row1;
-            string listaHobbies = "";
-            Row1 = dt.NewRow();
-            UsuarioCEN us = new UsuarioCEN();
-            UsuarioEN use = new UsuarioEN();
-
-            use = us.Searchbynick(dr[j].User.Nickname);
-
-            Row1[0] = use.Avatar;
-            Row1[1] = use.Nickname;
-            Row1[2] = dr[j].Description;
-
-            IList<HobbyEN> listaHobby = new List<HobbyEN>();
-            HobbyCEN hobbycen = new HobbyCEN();
-            listaHobby = hobbycen.GetHobbybyID(dr[j].Id);
-            int aux = listaHobby.Count;
-            int contador = 1;
-
-            foreach (HobbyEN hobby in listaHobby)
+            if (dr[j].Groups == null)
             {
-                listaHobbies += hobby.Name;
-                if (aux != contador)
-                    listaHobbies += " - ";
-                contador++;
+                DataRow Row1;
+                string listaHobbies = "";
+                Row1 = dt.NewRow();
+                UsuarioCEN us = new UsuarioCEN();
+                UsuarioEN use = new UsuarioEN();
+
+                use = us.Searchbynick(dr[j].User.Nickname);
+
+                Row1[0] = use.Avatar;
+                Row1[1] = use.Nickname;
+                Row1[2] = dr[j].Description;
+
+                IList<HobbyEN> listaHobby = new List<HobbyEN>();
+                HobbyCEN hobbycen = new HobbyCEN();
+                listaHobby = hobbycen.GetHobbybyID(dr[j].Id);
+                int aux = listaHobby.Count;
+                int contador = 1;
+
+                foreach (HobbyEN hobby in listaHobby)
+                {
+                    listaHobbies += hobby.Name;
+                    if (aux != contador)
+                        listaHobbies += " - ";
+                    contador++;
+                }
+
+                Row1[3] = listaHobbies;
+
+                dt.Rows.Add(Row1);
+                GridViewTimeline.DataSource = dt;
+                GridViewTimeline.DataBind();
             }
-
-            Row1[3] = listaHobbies;
-
-            dt.Rows.Add(Row1);
-            GridViewTimeline.DataSource = dt;
-            GridViewTimeline.DataBind();
         }
     }
 

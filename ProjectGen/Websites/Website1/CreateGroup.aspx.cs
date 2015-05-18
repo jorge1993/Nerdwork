@@ -17,6 +17,7 @@ public partial class CreateEvents : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         IList<HobbyEN> hobbydr = new List<HobbyEN>();
+        IList<UsuarioEN> user_list = new List<UsuarioEN>();
 
         if (!IsPostBack)
         {
@@ -26,6 +27,16 @@ public partial class CreateEvents : System.Web.UI.Page
             foreach (HobbyEN s in hobbydr)
                 ListUserHobbies.Items.Add(s.Name);
 
+
+            UsuarioCEN user_cen = new UsuarioCEN();
+            user_list = user_cen.GetAllUsers();
+
+            foreach (UsuarioEN u in user_list)
+            {
+                if(u.Nickname.Equals((string)Session["NAME"]) == false) {
+                    ListBoxUsers.Items.Add(u.Nickname);
+                }
+            }
         }
     }
 
@@ -126,6 +137,22 @@ public partial class CreateEvents : System.Web.UI.Page
                     //int id = eve.GetAll().Count
                     eve.AddHobbies((Int32) id, event_hobbies);
 
+
+                    for (i = 0; i < ListBoxGroupUsers.Items.Count; i++)
+                    {
+                        ListItem item = ListBoxGroupUsers.Items[i];
+                        string itemText = item.Text;
+
+                        UsuarioCEN user_cen = new UsuarioCEN();
+                        UsuarioEN user_en = new UsuarioEN();
+                        user_en = user_cen.Searchbynick(itemText);
+
+                        IList<int> groupID_array = new List<int>();
+                        groupID_array.Add(id);
+                        user_cen.AddGroup(itemText, groupID_array);
+                    }
+
+
                     Label1.Text = "Group Created";
                     Label1.Visible = true;
                     TBname.Text = "";
@@ -145,6 +172,41 @@ public partial class CreateEvents : System.Web.UI.Page
             }
            
 
+        }
+
+
+        protected void ButtonToRightUsers_Click(object sender, EventArgs e)
+        {
+            int i;
+            for (i = 0; i < ListBoxUsers.Items.Count; i++)
+            {
+                ListItem item = ListBoxUsers.Items[i];
+                if (item.Selected == true)
+                {
+                    ListBoxUsers.Items.Remove(item);
+                    ListBoxGroupUsers.Items.Add(item);
+
+                    ListBoxUsers.ClearSelection();
+                    ListBoxGroupUsers.ClearSelection();
+                }
+            }
+        }
+
+        protected void ButtonToLeftUsers_Click(object sender, EventArgs e)
+        {
+            int i;
+            for (i = 0; i < ListBoxGroupUsers.Items.Count; i++)
+            {
+                ListItem item = ListBoxGroupUsers.Items[i];
+                if (item.Selected == true)
+                {
+                    ListBoxGroupUsers.Items.Remove(item);
+                    ListBoxUsers.Items.Add(item);
+
+                    ListBoxUsers.ClearSelection();
+                    ListBoxGroupUsers.ClearSelection();
+                }
+            }
         }
     
 }
