@@ -139,7 +139,7 @@ public partial class CreateEvents : System.Web.UI.Page
                     
                     int id = evento.New_(name, des, x, init, end, lugar, usuarios);
 
-                    evento.AddHobbies((Int32) id, hobbyevent);
+                    //evento.AddHobbies((Int32) id, hobbyevent);
 
                     Label1.Text = "Event Created";
                     Label1.Visible = true;
@@ -148,7 +148,15 @@ public partial class CreateEvents : System.Web.UI.Page
                     estado.Text = "";
                     iniciotext.Text = "";
                     fintext.Text = "";
-                    ListUserHobbies.DataBind();
+                    Lugar.Text = "";
+                    ListUserHobbies.Items.Clear();
+
+                    IList<HobbyEN> hobbydr = new List<HobbyEN>();
+                    HobbyCEN ho = new HobbyCEN();
+                    hobbydr = ho.GetHobbyAssign((string)Session["NAME"]);
+                    foreach (HobbyEN s in hobbydr)
+                        ListUserHobbies.Items.Add(s.Name);          
+
                     ListEventHobbies.Items.Clear();
                 }
 
