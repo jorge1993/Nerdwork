@@ -48,12 +48,12 @@ Description
 </div>
 
 <div style="float:left; margin-top:20%">
-<asp:Button ID="Delete" runat="server" OnClick="Delete_Click" Text="Delete" />
+<asp:Button ID="Delete" runat="server" OnClick="Delete_Click" Text="Delete" Visible="false"/>
 <asp:Button ID="ButtonModify" runat="server" Text="Modify" OnClick="ButtonModify_Click" />
 </div>
 
 <div>
-<asp:Table runat="server" ID="tableInvitation" border="0" cellpadding="0" cellspacing="0">
+<asp:Table runat="server" ID="tableInvitation" border="0" cellpadding="0" cellspacing="0" Visible="false">
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="LabelUsers" runat="server" Text="Users:"></asp:Label>

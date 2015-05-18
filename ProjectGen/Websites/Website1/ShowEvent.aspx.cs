@@ -19,18 +19,20 @@ public partial class ShowEvent : System.Web.UI.Page
         IList<HobbyEN> hobbydr = new List<HobbyEN>();
         IList<UsuarioEN> user_list = new List<UsuarioEN>();
 
-        
 
+        Delete.Visible = false;
         String evento = Request.QueryString["Name"];
 
         if (!IsPostBack)
         {
-
+            tableInvitation.Visible = false;
             UsuarioCEN user_cen = new UsuarioCEN();
             user_list = user_cen.GetAllUsers();
 
             EventosCEN ere = new EventosCEN();
             IList<EventosEN> tremor = ere.SearchByName(evento);
+
+            Delete.Visible = false;
 
 
 
@@ -112,11 +114,17 @@ public partial class ShowEvent : System.Web.UI.Page
                     foreach (UsuarioEN us in en.Usuario)
                     {
                         if (us.Nickname.Equals(Session["Name"]))
+                        {
                             aux = true; break;
+                            TextBox1.Visible = true;
+                            TextBox2.Visible = true;
+                            Label1.Visible = true;
+                            Label2.Visible = true;
+                        }
                     }
 
                     if (en.Usuario[0].Nickname.Equals(Session["Name"]))
-                        owner.Visible = true;
+                        owner.Visible = true; Delete.Visible = true;
 
                     if (en.State == EstadoEnum.Private && aux != true)
                     {
@@ -134,17 +142,18 @@ public partial class ShowEvent : System.Web.UI.Page
                         if (aux == true && en.State == EstadoEnum.Private)
                         {
                             estadoTB.SelectedValue = "Private"; estadoTB.Enabled = false;
+                            tableInvitation.Visible = true;
 
 
                         }
                         else if (aux == true && en.State == EstadoEnum.Public)
                         {
                             estadoTB.SelectedValue = "Public"; estadoTB.Enabled = false;
+                            tableInvitation.Visible = true;
                         }
                         else
                         {
                             estadoTB.SelectedValue = "Public"; estadoTB.Enabled = false;
-                            tableInvitation.Visible = false;
                             ButtonModify.Visible = false;
                             Delete.Visible = false;
                         }
@@ -163,41 +172,44 @@ public partial class ShowEvent : System.Web.UI.Page
 
     protected void Join1_Click(object sender, EventArgs e)
     {
+        if (Join1.Text == "Join")
+        {
+            IList<EventosEN> gen = new List<EventosEN>();
+            EventosCEN g = new EventosCEN();
+            gen = g.SearchByName(Request.QueryString["name"]);
 
-        IList<GroupsEN> gen = new List<GroupsEN>();
-        GroupsCEN g = new GroupsCEN();
-        gen = g.SearchByName(Request.QueryString["name"]);
+            EventosCEN g2 = new EventosCEN();
 
-        GroupsCEN g2 = new GroupsCEN();
+            g2.GetAllHobbies(gen[0].Id);
+            UsuarioCEN us = new UsuarioCEN();
+            UsuarioEN use = new UsuarioEN();
+            //Descomentar cuando esté arreglado el metodo
+            IList<int> newgroup = new List<int>();
+            newgroup.Add(gen[0].Id);
+            us.AddEvent(Session["Name"].ToString(), newgroup);
+            Response.Redirect("ShowEvent.aspx?name=" + Request.QueryString["name"]);
+        }
+        else
+        {
+            IList<EventosEN> gen = new List<EventosEN>();
+            EventosCEN g = new EventosCEN();
+            gen = g.SearchByName(Request.QueryString["name"]);
 
-        g2.GetAllHobbies(gen[0].Id);
-        UsuarioCEN us = new UsuarioCEN();
-        UsuarioEN use = new UsuarioEN();
-        //Descomentar cuando esté arreglado el metodo
-        IList<int> newgroup = new List<int>();
-        newgroup.Add(gen[0].Id);
-        us.AddGroup(Session["Name"].ToString(), newgroup);
-        Response.Redirect("ShowGroup.aspx?name=" + Request.QueryString["name"]);
+            EventosCEN g2 = new EventosCEN();
+
+            g2.GetAllHobbies(gen[0].Id);
+            UsuarioCEN us = new UsuarioCEN();
+            UsuarioEN use = new UsuarioEN();
+            //Descomentar cuando esté arreglado el metodo
+            IList<int> deletegroup = new List<int>();
+            deletegroup.Add(gen[0].Id);
+
+            us.DeleteEvent(Session["Name"].ToString(), deletegroup);
+            Response.Redirect("ShowEvent.aspx?name=" + Request.QueryString["name"]);
+        }
+
     }
 
-    protected void Leave_Click(object sender, EventArgs e)
-    {
-        IList<GroupsEN> gen = new List<GroupsEN>();
-        GroupsCEN g = new GroupsCEN();
-        gen = g.SearchByName(Request.QueryString["name"]);
-
-        GroupsCEN g2 = new GroupsCEN();
-
-        g2.GetAllHobbies(gen[0].Id);
-        UsuarioCEN us = new UsuarioCEN();
-        UsuarioEN use = new UsuarioEN();
-        //Descomentar cuando esté arreglado el metodo
-        IList<int> deletegroup = new List<int>();
-        deletegroup.Add(gen[0].Id);
-
-        us.DeleteGroup(Session["Name"].ToString(), deletegroup);
-        Response.Redirect("ShowGroup.aspx?name=" + Request.QueryString["name"]);
-    }
 
     protected void ButtonModify_Click(object sender, EventArgs e)
     {
