@@ -124,25 +124,23 @@ public partial class ShowEvent : System.Web.UI.Page
             }
 
 
-            IList<UsuarioEN> allUsers_list = new List<UsuarioEN>();
+            //////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////
+            /////////////////////////// Faltar cargar este listBox
+            /////////////////////// Y cambiar el método save
+            IList<UsuarioEN> user_list = new List<UsuarioEN>();
             UsuarioCEN user_cen2 = new UsuarioCEN();
-            allUsers_list = user_cen2.GetAllUsers();
+            user_list = user_cen2.GetAllUsers();
 
-            IList<UsuarioEN> groupUsers_list = new List<UsuarioEN>();
             GroupsCEN group = new GroupsCEN();
-            groupUsers_list = group.GetAllUsers(gen[0].Id);
+            group.GetAllUsers(gen[0].Id);
 
-            IList<UsuarioEN> result_list = new List<UsuarioEN>();
-            result_list = allUsers_list.Except(groupUsers_list).ToList();
-
-            foreach (UsuarioEN u in result_list)
+            foreach (UsuarioEN u in user_list)
             {
-                ListBoxUsers.Items.Add(u.Nickname);
-            }
-
-            foreach (UsuarioEN u in groupUsers_list)
-            {
-                ListBoxGroupUsers.Items.Add(u.Nickname);
+                if (u.Nickname.Equals((string)Session["NAME"]) == false)
+                {
+                    ListBoxUsers.Items.Add(u.Nickname);
+                }
             }
         }
     }
@@ -291,33 +289,7 @@ public partial class ShowEvent : System.Web.UI.Page
         else
             x = EstadoEnum.Public;
 
-        IList<UsuarioEN> groupUsers_list = new List<UsuarioEN>();
-        GroupsCEN group = new GroupsCEN();
-        groupUsers_list = group.GetAllUsers(gen[0].Id);
-
-
         g2.Modify(gen[0].Id, TBname.Text, description.Text, x);
-
-
-        int i = 0;
-        for (i = 0; i < ListBoxGroupUsers.Items.Count; i++)
-        {
-            ListItem item = ListBoxGroupUsers.Items[i];
-            string itemText = item.Text;
-
-            UsuarioCEN user_cen = new UsuarioCEN();
-            UsuarioEN user_en = new UsuarioEN();
-            user_en = user_cen.Searchbynick(itemText);
-
-
-            if (groupUsers_list.Contains(user_en) == false)
-            {
-                IList<int> groupID_array = new List<int>();
-                groupID_array.Add(gen[0].Id);
-                user_cen.AddGroup(itemText, groupID_array);
-            }
-        }
-
 
         Response.Redirect("ShowGroup.aspx?name=" + TBname.Text);
     }

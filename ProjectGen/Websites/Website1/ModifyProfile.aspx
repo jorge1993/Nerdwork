@@ -122,7 +122,7 @@
                     <td class="auto-style1">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:Button ID="Save" runat="server" Text="Save profile" OnClick="Save_Click" Validationgroup="Modify"/>
+                        <asp:Button ID="Save" runat="server" Text="Save hobbies" OnClick="Save_Click" Validationgroup="Modify"/>
                         <br />
                         <asp:Label ID="SavedText" runat="server" Visible="false" style="font-weight: 700" Text="Label"></asp:Label>
                     </td>
