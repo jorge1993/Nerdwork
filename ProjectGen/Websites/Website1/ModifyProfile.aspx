@@ -54,7 +54,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>E-mail:<asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
+                    <td>E-mail:<asp:TextBox ID="TextBoxEmail" runat="server" ReadOnly="true"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">     

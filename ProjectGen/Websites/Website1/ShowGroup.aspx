@@ -7,12 +7,19 @@
 <asp:Label ID="eventname" runat="server" Text="groupname"></asp:Label>
 </h2>
 <div>
-<p style="height: 55px">&nbsp; Name&nbsp; <asp:TextBox ID="TBname" Height="30%" Width="50%" BorderColor="Black" runat="server" Enabled="False"></asp:TextBox>
+<p style="height: 55px">&nbsp; Name&nbsp; 
+    <asp:TextBox ID="TBname" Height="30%" Width="50%" BorderColor="Black" runat="server" Enabled="False"></asp:TextBox>
+    <br />
+    Owner&nbsp;
+    <asp:Label ID="OwnerLabel" runat="server" Text="owner name"></asp:Label>
 
+
+    <br />
     <asp:Button ID="Join1" runat="server" OnClick="Join1_Click" Text="Join the group" />
     <asp:Button ID="Leave" runat="server" OnClick="Leave_Click" Text="Leave the group" />
     <asp:Label ID="Label2" runat="server" Text="You are part of this group!"></asp:Label>
-    <p style="height: 55px">&nbsp;<asp:Button ID="Delete" runat="server" OnClick="Delete_Click" Text="Delete" />
+    <p style="height: 55px">&nbsp;
+        <asp:Button ID="Delete" runat="server" OnClick="Delete_Click" Text="Delete" />
         <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Modify" />
         <asp:Button ID="Save" runat="server" OnClick="Save_Click" Text="Save changes" Visible="False" />
 
@@ -49,7 +56,9 @@ Description
 </p>
 
 </div>
- <div> <div id="divCreatePost" style="height: 50%; margin-left: 2%; margin-right: 2%">
+    <br />
+    <br />
+<div id="divCreatePost" style="height: 50%; margin-left: 2%; margin-right: 2%">
             <p>
                 Write a post:
             </p>

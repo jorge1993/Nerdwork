@@ -19,16 +19,89 @@ public partial class ShowEvent : System.Web.UI.Page
         
         PostCEN p = new PostCEN();
         IList<PostEN> posts = new List<PostEN>();
-        //Aquí tiene que recoger todos los posts de ese grupo)
-        //posts = p.
-       // posts = p.GetUserPosts(publicUser);
         GroupsCEN g = new GroupsCEN();
 
         IList<GroupsEN> gen = new List<GroupsEN>();
         gen = g.SearchByName(Grupo);
+        eventname.Text = gen[0].Name;
         TBname.Text = gen[0].Name;
         description.Text = gen[0].Description;
-        estado.SelectedIndex = (int)gen[0].State;
+
+        if (gen[0].State.ToString().Equals("Public"))
+        {
+            estado.SelectedValue = "Public";
+        }
+        else
+        {
+            estado.SelectedValue = "Private";
+        }
+
+
+        GroupsCEN g_cen = new GroupsCEN();
+        IList<UsuarioEN> g_users = new List<UsuarioEN>();
+
+        g_users = g_cen.GetAllUsers(gen[0].Id);
+        UsuarioEN propietario = g_users[0];
+
+        OwnerLabel.Text = propietario.Nickname;
+
+        if (propietario.Nickname.Equals((String)Session["Name"]))
+        {
+            Join1.Visible = false;
+            Leave.Visible = false;
+            Label2.Text = "You are the owner of this group";
+            Label2.Visible = true;
+            Delete.Visible = true;
+            Button3.Visible = true;
+        }
+        else
+        {
+            UsuarioCEN user_cen = new UsuarioCEN();
+            UsuarioEN user_en = new UsuarioEN();
+            user_en = user_cen.Searchbynick((String)Session["Name"]);
+
+            if (g_users.Contains(user_en))
+            {
+                Join1.Visible = false;
+                Leave.Visible = true;
+                Label2.Text = "You are a member of this group";
+                Label2.Visible = true;
+                Delete.Visible = false;
+                Button3.Visible = false;
+            }
+            else
+            {
+                if (gen[0].State.ToString().Equals("Public"))
+                {
+                    Join1.Visible = true;
+                    Leave.Visible = false;
+                    Label2.Text = "You are not a member of this group";
+                    Label2.Visible = true;
+                    Delete.Visible = false;
+                    Button3.Visible = false;
+                    ButtonPost.Visible = false;
+                    GridViewTimeline.Visible = false;
+                }
+                else
+                {
+                    Join1.Visible = false;
+                    Leave.Visible = false;
+                    Label2.Text = "This is a private group";
+                    Label2.Visible = true;
+                    Delete.Visible = false;
+                    Button3.Visible = false;
+                    ButtonPost.Visible = false;
+                    GridViewTimeline.Visible = false;
+                }
+            }
+        }
+
+
+
+
+
+
+
 
         GroupsCEN g2 = new GroupsCEN();
         posts = g2.GetAllPost(gen[0].Id);

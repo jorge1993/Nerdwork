@@ -133,6 +133,8 @@ public partial class CreateEvents : System.Web.UI.Page
                     estado.Text = "";
                     ListUserHobbies.DataBind();
                     ListEventHobbies.Items.Clear();
+
+                    Response.Redirect("~/UserGroups.aspx");
                 }
 
                 else

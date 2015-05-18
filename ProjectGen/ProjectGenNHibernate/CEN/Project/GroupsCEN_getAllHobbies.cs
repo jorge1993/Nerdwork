@@ -30,10 +30,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN>
                 GroupsEN even = eve.ReadOIDDefault (arg0);
                 aux = hobbycad.GetAllHobby ();
 
-                foreach (HobbyEN h in aux) {
-                        if (h.Name.Equals (even.Hobby))
-                                lista.Add (h);
-                }
+                lista = even.Hobby;
                 SessionCommit ();
         }
         catch (Exception ex)
