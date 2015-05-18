@@ -17,47 +17,55 @@ public partial class UserEvents : System.Web.UI.Page
 
     private void reloadTimeLine()
     {
-        
-            IList<EventosEN> dr = new List<EventosEN>();
-            EventosCEN eve = new EventosCEN();
 
-            dr = eve.GetAllEventos();
-            int size = dr.Count;
+        IList<EventosEN> dr = new List<EventosEN>();
+        EventosCEN eve = new EventosCEN();
 
-            DataTable dt = new DataTable();
-            dt.Columns.Add("name", typeof(string));
-            dt.Columns.Add("description", typeof(string));
-            dt.Columns.Add("hobbies", typeof(string));
+        dr = eve.GetAllEventos();
+        int size = dr.Count;
 
+        DataTable dt = new DataTable();
+        dt.Columns.Add("name", typeof(string));
+        dt.Columns.Add("description", typeof(string));
+        dt.Columns.Add("hobbies", typeof(string));
 
-            foreach (EventosEN even in dr)
+        UsuarioCEN u = new UsuarioCEN();
+        UsuarioEN user = new UsuarioEN();
+        user = u.Searchbynick((String)Session["NAME"]);
+
+        foreach (EventosEN even in dr){
+            DataRow Row1;
+            Row1 = dt.NewRow();
+            IList<EventosEN> use = new List<EventosEN>();
+
+            EventosCEN eve3 = new EventosCEN();
+            if (eve3.GetAllUser(even.Id).Contains(user))
             {
-                DataRow Row1;
-                string listaHobbies = "";
-                Row1 = dt.NewRow();
-                IList<UsuarioEN> lista = eve.GetAllUser(even.Id);
-                foreach (UsuarioEN u in lista)
-                {
-                    if (u.Nickname.Equals(Session["Name"]))
-                    {
-                        Row1[0] = even.Name;
-                        Row1[1] = even.Description;
-                    }
-                }
-                string list = "";
+                Row1[0] = even.Name;
+                Row1[1] = even.Description;
 
-                EventosCEN evento = new EventosCEN();
-                IList<HobbyEN> listaeve =  new List<HobbyEN>();
-                listaeve = evento.GetAllHobbies(even.Id);
-                foreach (HobbyEN ho in listaeve)
-                { 
-                    list += ho.Name + " - ";
+                string listaHobbies = "";
+                IList<HobbyEN> listaHobby = new List<HobbyEN>();
+                EventosCEN groupcen = new EventosCEN();
+                listaHobby = groupcen.GetAllHobbies(even.Id);
+                int aux = listaHobby.Count;
+                int contador = 1;
+
+                foreach (HobbyEN hobby in even.Hobby)
+                {
+                    listaHobbies += hobby.Name;
+                    if (aux != contador)
+                        listaHobbies += " - ";
+                    contador++;
                 }
-                Row1[2] = list;
+
+                Row1[2] = listaHobbies;
+
                 dt.Rows.Add(Row1);
+                GridViewTimeline.DataSource = dt;
+                GridViewTimeline.DataBind();
             }
-        GridViewTimeline.DataSource = dt;
-        GridViewTimeline.DataBind();
+        }
           
     }
 
