@@ -23,11 +23,11 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioE
     try
     {
         SessionInitializeTransaction();
-        UsuarioCAD usuariocad = new UsuarioCAD(session);
-        EventosCAD groupcad = new EventosCAD(session);
-        EventosEN groupen = groupcad.ReadOIDDefault(p_oid);
+        UsuarioCAD usucad = new UsuarioCAD(session);
+        EventosCAD eventcad = new EventosCAD(session);
+        EventosEN eventen = eventcad.ReadOIDDefault(p_oid);
 
-        foreach (UsuarioEN us in groupen.Usuario)
+        foreach (UsuarioEN us in eventen.Usuario)
         {
             lista.Add(us);
         }
