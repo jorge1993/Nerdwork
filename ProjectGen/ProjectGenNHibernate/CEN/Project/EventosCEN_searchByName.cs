@@ -14,7 +14,7 @@ namespace ProjectGenNHibernate.CEN.Project
 {
 public partial class EventosCEN : BasicCAD
 {
-public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> SearchByName (string arg1)
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> SearchByName (string arg0)
 {
         /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Eventos_searchByName) ENABLED START*/
 
@@ -31,7 +31,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosE
                 lista = evecad.GetAllEventos ();
 
                 foreach (EventosEN h in lista) {
-                        if (h.Name.Contains (arg1)) {
+                        if (h.Name.Contains (arg0)) {
                                 ret.Add (h);
                         }
                 }

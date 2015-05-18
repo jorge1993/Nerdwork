@@ -34,6 +34,6 @@ void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_
 
 void AddGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs);
 
-void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs);
+void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs);
 }
 }

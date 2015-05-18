@@ -135,9 +135,8 @@ public partial class CreateEvents : System.Web.UI.Page
                         string itemText = item.Text;
                         hobbyevent.Add(itemText);
                     }
-                    
-                    
-                    int id = evento.New_(name, des, x, init, end, lugar, usuarios);
+
+                    int id = evento.New_(name, des, x, inicio, final, usuarios);
 
                     evento.AddHobbies((Int32) id, hobbyevent);
 

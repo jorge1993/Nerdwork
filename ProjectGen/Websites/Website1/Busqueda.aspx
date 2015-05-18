@@ -130,7 +130,7 @@
                     <asp:TemplateField ItemStyle-Width="20%" HeaderText="Name">
                         <ItemTemplate>
                             <asp:LinkButton ID="nicknameLinkButton" runat="server" OnClick="NicknameLinkButton_Click" CommandName="nickname"
-                                    CommandArgument='<%# Eval("nickname") %>'  Text='<%# Eval("nickname") %>' ></asp:LinkButton>
+                                    CommandArgument='<%# Eval("name") %>'  Text='<%# Eval("name") %>' ></asp:LinkButton>
                         </ItemTemplate>
 
 <ItemStyle Width="20%"></ItemStyle>

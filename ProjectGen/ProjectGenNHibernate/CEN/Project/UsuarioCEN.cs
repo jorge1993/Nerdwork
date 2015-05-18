@@ -138,11 +138,11 @@ public void AddGroup (string p_Usuario_OID, System.Collections.Generic.IList<int
 
         _IUsuarioCAD.AddGroup (p_Usuario_OID, p_groups_OIDs);
 }
-public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs)
+public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs)
 {
         //Call to UsuarioCAD
 
-        _IUsuarioCAD.DeleteGroup (p_Usuario_OID, p_eventos_OIDs);
+        _IUsuarioCAD.DeleteGroup (p_Usuario_OID, p_groups_OIDs);
 }
 }
 }

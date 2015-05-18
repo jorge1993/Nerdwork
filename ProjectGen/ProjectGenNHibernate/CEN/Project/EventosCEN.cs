@@ -32,7 +32,7 @@ public IEventosCAD get_IEventosCAD ()
         return this._IEventosCAD;
 }
 
-public int New_ (string p_Name, string p_Description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum p_State, TimeSpan p_DateStart, TimeSpan p_DateEnd, string p_Place, System.Collections.Generic.IList<string> p_usuario)
+public int New_ (string p_Name, string p_Description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum p_State, string p_DateStart, string p_DateEnd, System.Collections.Generic.IList<string> p_usuario)
 {
         EventosEN eventosEN = null;
         int oid;
@@ -48,8 +48,6 @@ public int New_ (string p_Name, string p_Description, ProjectGenNHibernate.Enume
         eventosEN.DateStart = p_DateStart;
 
         eventosEN.DateEnd = p_DateEnd;
-
-        eventosEN.Place = p_Place;
 
 
         eventosEN.Usuario = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.UsuarioEN>();
@@ -71,7 +69,7 @@ public int New_ (string p_Name, string p_Description, ProjectGenNHibernate.Enume
         return oid;
 }
 
-public void Modify (int p_Eventos_OID, string p_Name, string p_Description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum p_State, TimeSpan p_DateStart, TimeSpan p_DateEnd, string p_Place)
+public void Modify (int p_Eventos_OID, string p_Name, string p_Description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum p_State, string p_DateStart, string p_DateEnd)
 {
         EventosEN eventosEN = null;
 
@@ -83,7 +81,6 @@ public void Modify (int p_Eventos_OID, string p_Name, string p_Description, Proj
         eventosEN.State = p_State;
         eventosEN.DateStart = p_DateStart;
         eventosEN.DateEnd = p_DateEnd;
-        eventosEN.Place = p_Place;
         //Call to EventosCAD
 
         _IEventosCAD.Modify (eventosEN);
@@ -94,21 +91,29 @@ public void Destroy (int Id)
         _IEventosCAD.Destroy (Id);
 }
 
+public void AddHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
+{
+        //Call to EventosCAD
+
+        _IEventosCAD.AddHobbies (p_Eventos_OID, p_hobby_OIDs);
+}
+public void DeleteHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
+{
+        //Call to EventosCAD
+
+        _IEventosCAD.DeleteHobbies (p_Eventos_OID, p_hobby_OIDs);
+}
+public EventosEN ReadOID (int Id)
+{
+        EventosEN eventosEN = null;
+
+        eventosEN = _IEventosCAD.ReadOID (Id);
+        return eventosEN;
+}
+
 public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> GetAllEventos ()
 {
         return _IEventosCAD.GetAllEventos ();
-}
-public void DeleteHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobbyEvent_OIDs)
-{
-        //Call to EventosCAD
-
-        _IEventosCAD.DeleteHobbies (p_Eventos_OID, p_hobbyEvent_OIDs);
-}
-public void AddHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobbyEvent_OIDs)
-{
-        //Call to EventosCAD
-
-        _IEventosCAD.AddHobbies (p_Eventos_OID, p_hobbyEvent_OIDs);
 }
 }
 }

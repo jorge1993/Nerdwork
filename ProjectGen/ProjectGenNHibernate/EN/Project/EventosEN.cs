@@ -33,31 +33,25 @@ private ProjectGenNHibernate.Enumerated.Project.EstadoEnum state;
  *
  */
 
-private TimeSpan dateStart;
+private string dateStart;
 
 /**
  *
  */
 
-private TimeSpan dateEnd;
+private string dateEnd;
 
 /**
  *
  */
 
-private string place;
+private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby;
 
 /**
  *
  */
 
 private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario;
-
-/**
- *
- */
-
-private System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobbyEvent;
 
 
 
@@ -83,18 +77,18 @@ public virtual ProjectGenNHibernate.Enumerated.Project.EstadoEnum State {
 }
 
 
-public virtual TimeSpan DateStart {
+public virtual string DateStart {
         get { return dateStart; } set { dateStart = value;  }
 }
 
 
-public virtual TimeSpan DateEnd {
+public virtual string DateEnd {
         get { return dateEnd; } set { dateEnd = value;  }
 }
 
 
-public virtual string Place {
-        get { return place; } set { place = value;  }
+public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> Hobby {
+        get { return hobby; } set { hobby = value;  }
 }
 
 
@@ -103,34 +97,29 @@ public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.
 }
 
 
-public virtual System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> HobbyEvent {
-        get { return hobbyEvent; } set { hobbyEvent = value;  }
-}
-
-
 
 
 
 public EventosEN()
 {
+        hobby = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
         usuario = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.UsuarioEN>();
-        hobbyEvent = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
 }
 
 
 
-public EventosEN(int id, string name, string description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum state, TimeSpan dateStart, TimeSpan dateEnd, string place, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobbyEvent)
+public EventosEN(int id, string name, string description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum state, string dateStart, string dateEnd, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario)
 {
-        this.init (id, name, description, state, dateStart, dateEnd, place, usuario, hobbyEvent);
+        this.init (id, name, description, state, dateStart, dateEnd, hobby, usuario);
 }
 
 
 public EventosEN(EventosEN eventos)
 {
-        this.init (eventos.Id, eventos.Name, eventos.Description, eventos.State, eventos.DateStart, eventos.DateEnd, eventos.Place, eventos.Usuario, eventos.HobbyEvent);
+        this.init (eventos.Id, eventos.Name, eventos.Description, eventos.State, eventos.DateStart, eventos.DateEnd, eventos.Hobby, eventos.Usuario);
 }
 
-private void init (int id, string name, string description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum state, TimeSpan dateStart, TimeSpan dateEnd, string place, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobbyEvent)
+private void init (int id, string name, string description, ProjectGenNHibernate.Enumerated.Project.EstadoEnum state, string dateStart, string dateEnd, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> hobby, System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> usuario)
 {
         this.Id = Id;
 
@@ -145,11 +134,9 @@ private void init (int id, string name, string description, ProjectGenNHibernate
 
         this.DateEnd = dateEnd;
 
-        this.Place = place;
+        this.Hobby = hobby;
 
         this.Usuario = usuario;
-
-        this.HobbyEvent = hobbyEvent;
 }
 
 public override bool Equals (object obj)

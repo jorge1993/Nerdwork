@@ -115,7 +115,7 @@ public partial class _Default : System.Web.UI.Page
         IList<EventosEN> dr = new List<EventosEN>();
         EventosCEN eve = new EventosCEN();
 
-        dr = eve.SearchByHobbies(p_hobby);
+        dr = eve.SearchByHobbie(p_hobby);
 
         DataTable dt = new DataTable();
         dt.Columns.Add("name", typeof(string));

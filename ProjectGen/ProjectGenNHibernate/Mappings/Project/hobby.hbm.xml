@@ -37,12 +37,12 @@
     					</bag>
 			
 		  			
-						<bag name="Eventos" table="[events_hobby]" inverse="true" >
+						<bag name="Eventos" table="[eventos_hobby]" inverse="true" >
 							<key>
 									<column name="[FK_name_idHobby]"/>
 							</key>
       						<many-to-many class="ProjectGenNHibernate.EN.Project.EventosEN">
-									<column name="[FK_Id_idEvents]"/>
+									<column name="[FK_Id_idEventos]"/>
       						</many-to-many>
     					</bag>
 					

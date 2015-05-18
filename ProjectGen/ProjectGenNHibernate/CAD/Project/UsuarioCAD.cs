@@ -397,7 +397,7 @@ public void AddGroup (string p_Usuario_OID, System.Collections.Generic.IList<int
         }
 }
 
-public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs)
+public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs)
 {
         try
         {
@@ -405,16 +405,16 @@ public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<
                 ProjectGenNHibernate.EN.Project.UsuarioEN usuarioEN = null;
                 usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
 
-                ProjectGenNHibernate.EN.Project.EventosEN eventosENAux = null;
-                if (usuarioEN.Eventos != null) {
-                        foreach (int item in p_eventos_OIDs) {
-                                eventosENAux = (ProjectGenNHibernate.EN.Project.EventosEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.EventosEN), item);
-                                if (usuarioEN.Eventos.Contains (eventosENAux) == true) {
-                                        usuarioEN.Eventos.Remove (eventosENAux);
-                                        eventosENAux.Usuario.Remove (usuarioEN);
+                ProjectGenNHibernate.EN.Project.GroupsEN groupsENAux = null;
+                if (usuarioEN.Groups != null) {
+                        foreach (int item in p_groups_OIDs) {
+                                groupsENAux = (ProjectGenNHibernate.EN.Project.GroupsEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.GroupsEN), item);
+                                if (usuarioEN.Groups.Contains (groupsENAux) == true) {
+                                        usuarioEN.Groups.Remove (groupsENAux);
+                                        groupsENAux.Usuario.Remove (usuarioEN);
                                 }
                                 else
-                                        throw new ModelException ("The identifier " + item + " in p_eventos_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
+                                        throw new ModelException ("The identifier " + item + " in p_groups_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
                         }
                 }
 

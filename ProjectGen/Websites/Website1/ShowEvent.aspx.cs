@@ -56,9 +56,9 @@ public partial class ShowEvent : System.Web.UI.Page
                     else
                         estadoTB.Text = "Public";
 
-                    direccion.Text = en.Place;
-                    TimeSpan auxinit = en.DateStart;
-                    TimeSpan auxned = en.DateEnd;
+                    //direccion.Text = en.Place;
+                    string auxinit = en.DateStart;
+                    string auxned = en.DateEnd;
 
                     TextBox1.Visible = false;
                     TextBox2.Visible = false;

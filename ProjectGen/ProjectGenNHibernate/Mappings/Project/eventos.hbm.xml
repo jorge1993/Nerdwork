@@ -8,7 +8,7 @@
 							<generator class="identity"/>
 						</id>
 					<property name="Name" type="string"> 
-						<column name="[Name]"  not-null="true"/>
+						<column name="[Name]"  unique="true" not-null="true"/>
 					</property>
 					<property name="Description" type="string"> 
 						<column name="[Description]"  not-null="true"/>
@@ -16,16 +16,12 @@
 					<property name="State" > 
 						<column name="[State]"  not-null="true"/>
 					</property>
-					<property name="DateStart" type="timestamp"> 
+					<property name="DateStart" type="string"> 
 						<column name="[DateStart]"  not-null="true"/>
 					</property>
-					<property name="DateEnd" type="timestamp"> 
+					<property name="DateEnd" type="string"> 
 						<column name="[DateEnd]"  not-null="true"/>
 					</property>
-					<property name="Place" type="string"> 
-						<column name="[Place]"  not-null="true"/>
-					</property>
-			
 			
 			
 			
@@ -34,25 +30,24 @@
 			
 			
 		  			
-						<bag name="Usuario" table="[events_usuario]"  >
+						<bag name="Hobby" table="[eventos_hobby]"  >
 							<key>
-									<column name="[FK_Id_idEvents]"/>
-							</key>
-      						<many-to-many class="ProjectGenNHibernate.EN.Project.UsuarioEN">
-									<column name="[FK_nickname_idUsuario]"/>
-      						</many-to-many>
-    					</bag>
-			
-		  			
-						<bag name="HobbyEvent" table="[events_hobby]"  >
-							<key>
-									<column name="[FK_Id_idEvents]"/>
+									<column name="[FK_Id_idEventos]"/>
 							</key>
       						<many-to-many class="ProjectGenNHibernate.EN.Project.HobbyEN">
 									<column name="[FK_name_idHobby]"/>
       						</many-to-many>
     					</bag>
-					
+			
+		  			
+						<bag name="Usuario" table="[eventos_usuario]"  >
+							<key>
+									<column name="[FK_Id_idEventos]"/>
+							</key>
+      						<many-to-many class="ProjectGenNHibernate.EN.Project.UsuarioEN">
+									<column name="[FK_nickname_idUsuario]"/>
+      						</many-to-many>
+    					</bag>
 					
 					
 					

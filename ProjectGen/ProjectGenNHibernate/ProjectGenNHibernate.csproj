@@ -146,9 +146,9 @@
 	<Compile Include="CAD\Project\IEventosCAD.cs" />
 	<Compile Include="CAD\Project\EventosCAD.cs" />
 			<Compile Include="CEN\Project\EventosCEN_GetAllHobbies.cs" />
-			<Compile Include="CEN\Project\EventosCEN_GetAllUsers.cs" />
+			<Compile Include="CEN\Project\EventosCEN_GetAllUser.cs" />
 			<Compile Include="CEN\Project\EventosCEN_SearchByName.cs" />
-			<Compile Include="CEN\Project\EventosCEN_SearchByHobbies.cs" />
+			<Compile Include="CEN\Project\EventosCEN_SearchByHobbie.cs" />
 	<Compile Include="Enumerated\Project\EstadoEnum.cs" />
 	
 	
