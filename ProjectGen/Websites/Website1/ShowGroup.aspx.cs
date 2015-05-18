@@ -12,129 +12,115 @@ public partial class ShowEvent : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        
-        String Grupo = Request.QueryString["name"];
-
-        
-        PostCEN p = new PostCEN();
-        IList<PostEN> posts = new List<PostEN>();
-        GroupsCEN g = new GroupsCEN();
-
-        IList<GroupsEN> gen = new List<GroupsEN>();
-        gen = g.SearchByName(Grupo);
-        eventname.Text = gen[0].Name;
-        TBname.Text = gen[0].Name;
-        description.Text = gen[0].Description;
-
-        if (gen[0].State.ToString().Equals("Public"))
+        if (!Page.IsPostBack)
         {
-            estado.SelectedValue = "Public";
-        }
-        else
-        {
-            estado.SelectedValue = "Private";
-        }
+            String Grupo = Request.QueryString["name"];
 
+            PostCEN p = new PostCEN();
+            IList<PostEN> posts = new List<PostEN>();
+            GroupsCEN g = new GroupsCEN();
 
-        GroupsCEN g_cen = new GroupsCEN();
-        IList<UsuarioEN> g_users = new List<UsuarioEN>();
+            IList<GroupsEN> gen = new List<GroupsEN>();
+            gen = g.SearchByName(Grupo);
+            eventname.Text = gen[0].Name;
+            TBname.Text = gen[0].Name;
+            description.Text = gen[0].Description;
 
-        g_users = g_cen.GetAllUsers(gen[0].Id);
-        UsuarioEN propietario = g_users[0];
-
-        OwnerLabel.Text = propietario.Nickname;
-
-        if (propietario.Nickname.Equals((String)Session["Name"]))
-        {
-            Join1.Visible = false;
-            Leave.Visible = false;
-            Label2.Text = "You are the owner of this group";
-            Label2.Visible = true;
-            Delete.Visible = true;
-            Button3.Visible = true;
-        }
-        else
-        {
-            UsuarioCEN user_cen = new UsuarioCEN();
-            UsuarioEN user_en = new UsuarioEN();
-            user_en = user_cen.Searchbynick((String)Session["Name"]);
-
-            if (g_users.Contains(user_en))
+            if (gen[0].State.ToString().Equals("Public"))
             {
-                Join1.Visible = false;
-                Leave.Visible = true;
-                Label2.Text = "You are a member of this group";
-                Label2.Visible = true;
-                Delete.Visible = false;
-                Button3.Visible = false;
+                estado.SelectedValue = "Public";
             }
             else
             {
-                if (gen[0].State.ToString().Equals("Public"))
+                estado.SelectedValue = "Private";
+            }
+
+            GroupsCEN g_cen = new GroupsCEN();
+            IList<UsuarioEN> g_users = new List<UsuarioEN>();
+
+            g_users = g_cen.GetAllUsers(gen[0].Id);
+            UsuarioEN propietario = g_users[0];
+
+            OwnerLabel.Text = propietario.Nickname;
+
+            if (propietario.Nickname.Equals((String)Session["Name"]))
+            {
+                Join1.Visible = false;
+                Leave.Visible = false;
+                Label2.Text = "You are the owner of this group";
+                Label2.Visible = true;
+                Delete.Visible = true;
+                Button3.Visible = true;
+            }
+            else
+            {
+                UsuarioCEN user_cen = new UsuarioCEN();
+                UsuarioEN user_en = new UsuarioEN();
+                user_en = user_cen.Searchbynick((String)Session["Name"]);
+
+                if (g_users.Contains(user_en))
                 {
-                    Join1.Visible = true;
-                    Leave.Visible = false;
-                    Label2.Text = "You are not a member of this group";
+                    Join1.Visible = false;
+                    Leave.Visible = true;
+                    Label2.Text = "You are a member of this group";
                     Label2.Visible = true;
                     Delete.Visible = false;
                     Button3.Visible = false;
-                    ButtonPost.Visible = false;
-                    GridViewTimeline.Visible = false;
                 }
                 else
                 {
-                    Join1.Visible = false;
-                    Leave.Visible = false;
-                    Label2.Text = "This is a private group";
-                    Label2.Visible = true;
-                    Delete.Visible = false;
-                    Button3.Visible = false;
-                    ButtonPost.Visible = false;
-                    GridViewTimeline.Visible = false;
+                    if (gen[0].State.ToString().Equals("Public"))
+                    {
+                        Join1.Visible = true;
+                        Leave.Visible = false;
+                        Label2.Text = "You are not a member of this group";
+                        Label2.Visible = true;
+                        Delete.Visible = false;
+                        Button3.Visible = false;
+                        ButtonPost.Visible = false;
+                        GridViewTimeline.Visible = false;
+                    }
+                    else
+                    {
+                        Join1.Visible = false;
+                        Leave.Visible = false;
+                        Label2.Text = "This is a private group";
+                        Label2.Visible = true;
+                        Delete.Visible = false;
+                        Button3.Visible = false;
+                        ButtonPost.Visible = false;
+                        GridViewTimeline.Visible = false;
+                    }
                 }
             }
+
+            GroupsCEN g2 = new GroupsCEN();
+            posts = g2.GetAllPost(gen[0].Id);
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("avatar", typeof(string));
+            dt.Columns.Add("nickname", typeof(string));
+            dt.Columns.Add("description", typeof(string));
+
+            foreach (PostEN post in posts)
+            {
+                DataRow Row1;
+                Row1 = dt.NewRow();
+
+                UsuarioCEN us = new UsuarioCEN();
+                UsuarioEN use = new UsuarioEN();
+
+                use = us.Searchbynick(post.User.Nickname);
+
+                Row1[0] = use.Avatar;
+                Row1[1] = use.Nickname;
+                Row1[2] = post.Description;
+
+                dt.Rows.Add(Row1);
+                GridViewTimeline.DataSource = dt;
+                GridViewTimeline.DataBind();
+            }
         }
-
-
-
-
-
-
-
-
-        GroupsCEN g2 = new GroupsCEN();
-        posts = g2.GetAllPost(gen[0].Id);
-     
-        
-        DataTable dt = new DataTable();
-        dt.Columns.Add("avatar", typeof(string));
-        dt.Columns.Add("nickname", typeof(string));
-        dt.Columns.Add("description", typeof(string));
-      
-
-        foreach (PostEN post in posts)
-        {
-            DataRow Row1;
-            string listaHobbies = "";
-            Row1 = dt.NewRow();
-
-            UsuarioCEN us = new UsuarioCEN();
-            UsuarioEN use = new UsuarioEN();
-
-            use = us.Searchbynick(post.User.Nickname);
-
-            Row1[0] = use.Avatar;
-            Row1[1] = use.Nickname;
-            Row1[2] = post.Description;
-
-            dt.Rows.Add(Row1);
-            GridViewTimeline.DataSource = dt;
-            GridViewTimeline.DataBind();
-        }
-
-     
-
     }
 
     protected void ButtonPost_Click(object sender, EventArgs e) 
@@ -219,9 +205,8 @@ public partial class ShowEvent : System.Web.UI.Page
             newgroup.Add(gen[0].Id);
            us.AddGroup(Session["Name"].ToString(),newgroup);
            Response.Redirect("ShowGroup.aspx?name=" + Request.QueryString["name"]);
-
-        
     }
+
     protected void Leave_Click(object sender, EventArgs e)
     {
         IList<GroupsEN> gen = new List<GroupsEN>();
@@ -248,10 +233,15 @@ public partial class ShowEvent : System.Web.UI.Page
         gen = g.SearchByName(Request.QueryString["name"]);
 
         GroupsCEN g2 = new GroupsCEN();
+        IList<String> listaHobbies = g2.GetAllHobbies(gen[0].Id).Select(aux => aux.Name).ToList();;
 
-        g2.Destroy(gen[0].Id);
+        GroupsCEN g3 = new GroupsCEN();
+        g3.DeleteHobbies(gen[0].Id, listaHobbies);
+
+        g.Destroy(gen[0].Id);
         Response.Redirect("UserGroups.aspx");
     }
+
     protected void Button3_Click(object sender, EventArgs e)
     {
         TBname.Enabled = true;
@@ -259,8 +249,9 @@ public partial class ShowEvent : System.Web.UI.Page
         description.Enabled = true;
         Button3.Visible = false;
         Save.Visible = true;
-
+        ButtonPost.Visible = false;
     }
+
     protected void Save_Click(object sender, EventArgs e)
     {
         IList<GroupsEN> gen = new List<GroupsEN>();
@@ -277,11 +268,6 @@ public partial class ShowEvent : System.Web.UI.Page
 
         g2.Modify(gen[0].Id, TBname.Text, description.Text, x);
 
-
-        TBname.Enabled = false;
-        estado.Enabled = false;
-        description.Enabled = false;
-        Button3.Visible = true;
-        Save.Visible = false;
+        Response.Redirect("ShowGroup.aspx?name=" + TBname.Text);
     }
 }

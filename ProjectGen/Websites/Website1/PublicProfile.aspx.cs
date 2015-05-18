@@ -27,30 +27,33 @@ public partial class _Default : System.Web.UI.Page
 
         foreach (PostEN post in posts) 
         {
-            DataRow Row1;
-            string listaHobbies = "";
-            Row1 = dt.NewRow();
-            Row1[0] = post.Description;
-
-            IList<HobbyEN> listaHobby = new List<HobbyEN>();
-            HobbyCEN hobbycen = new HobbyCEN();
-            listaHobby = hobbycen.GetHobbybyID(post.Id);
-            int aux = listaHobby.Count;
-            int contador = 1;
-
-            foreach (HobbyEN hobby in listaHobby)
+            if (post.Groups == null)
             {
-                listaHobbies += hobby.Name;
-                if (aux != contador)
-                    listaHobbies += " - ";
-                contador++;
+                DataRow Row1;
+                string listaHobbies = "";
+                Row1 = dt.NewRow();
+                Row1[0] = post.Description;
+
+                IList<HobbyEN> listaHobby = new List<HobbyEN>();
+                HobbyCEN hobbycen = new HobbyCEN();
+                listaHobby = hobbycen.GetHobbybyID(post.Id);
+                int aux = listaHobby.Count;
+                int contador = 1;
+
+                foreach (HobbyEN hobby in listaHobby)
+                {
+                    listaHobbies += hobby.Name;
+                    if (aux != contador)
+                        listaHobbies += " - ";
+                    contador++;
+                }
+
+                Row1[1] = listaHobbies;
+
+                dt.Rows.Add(Row1);
+                GridViewTimeline.DataSource = dt;
+                GridViewTimeline.DataBind();
             }
-
-            Row1[1] = listaHobbies;
-
-            dt.Rows.Add(Row1);
-            GridViewTimeline.DataSource = dt;
-            GridViewTimeline.DataBind();
         }
 
         UsuarioCEN u = new UsuarioCEN();
