@@ -30,7 +30,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN>
                 aux = hobbycad.GetAllHobby ();
 
                 foreach (HobbyEN h in aux) {
-                        if (h.Name.Equals (even.Hobby))
+                        if (h.Name.Equals (even.HobbyEvent))
                                 lista.Add (h);
                 }
                 SessionCommit ();

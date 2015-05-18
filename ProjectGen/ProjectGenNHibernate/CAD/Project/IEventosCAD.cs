@@ -19,12 +19,12 @@ void Destroy (int Id);
 
 
 
-System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> GetAll ();
+System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> GetAllEventos ();
 
 
 
-void DeleteHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobby_OIDs);
+void DeleteHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobbyEvent_OIDs);
 
-void AddHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobby_OIDs);
+void AddHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobbyEvent_OIDs);
 }
 }

@@ -94,21 +94,21 @@ public void Destroy (int Id)
         _IEventosCAD.Destroy (Id);
 }
 
-public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> GetAll ()
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> GetAllEventos ()
 {
-        return _IEventosCAD.GetAll ();
+        return _IEventosCAD.GetAllEventos ();
 }
-public void DeleteHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
+public void DeleteHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobbyEvent_OIDs)
 {
         //Call to EventosCAD
 
-        _IEventosCAD.DeleteHobbies (p_Eventos_OID, p_hobby_OIDs);
+        _IEventosCAD.DeleteHobbies (p_Eventos_OID, p_hobbyEvent_OIDs);
 }
-public void AddHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
+public void AddHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobbyEvent_OIDs)
 {
         //Call to EventosCAD
 
-        _IEventosCAD.AddHobbies (p_Eventos_OID, p_hobby_OIDs);
+        _IEventosCAD.AddHobbies (p_Eventos_OID, p_hobbyEvent_OIDs);
 }
 }
 }

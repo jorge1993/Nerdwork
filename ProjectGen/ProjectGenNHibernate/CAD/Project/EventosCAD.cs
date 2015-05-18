@@ -148,7 +148,7 @@ public void Destroy (int Id)
         }
 }
 
-public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> GetAll ()
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> GetAllEventos ()
 {
         System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> result;
         try
@@ -156,7 +156,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosE
                 SessionInitializeTransaction ();
                 //String sql = @"FROM EventosEN self where FROM EventosEN";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("EventosENgetAllHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("EventosENgetAllEventosHQL");
 
                 result = query.List<ProjectGenNHibernate.EN.Project.EventosEN>();
                 SessionCommit ();
@@ -177,7 +177,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosE
 
         return result;
 }
-public void DeleteHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
+public void DeleteHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobbyEvent_OIDs)
 {
         try
         {
@@ -185,16 +185,16 @@ public void DeleteHobbies (int p_Eventos_OID, System.Collections.Generic.IList<s
                 ProjectGenNHibernate.EN.Project.EventosEN eventosEN = null;
                 eventosEN = (EventosEN)session.Load (typeof(EventosEN), p_Eventos_OID);
 
-                ProjectGenNHibernate.EN.Project.HobbyEN hobbyENAux = null;
-                if (eventosEN.Hobby != null) {
-                        foreach (string item in p_hobby_OIDs) {
-                                hobbyENAux = (ProjectGenNHibernate.EN.Project.HobbyEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.HobbyEN), item);
-                                if (eventosEN.Hobby.Contains (hobbyENAux) == true) {
-                                        eventosEN.Hobby.Remove (hobbyENAux);
-                                        hobbyENAux.Eventos.Remove (eventosEN);
+                ProjectGenNHibernate.EN.Project.HobbyEN hobbyEventENAux = null;
+                if (eventosEN.HobbyEvent != null) {
+                        foreach (string item in p_hobbyEvent_OIDs) {
+                                hobbyEventENAux = (ProjectGenNHibernate.EN.Project.HobbyEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.HobbyEN), item);
+                                if (eventosEN.HobbyEvent.Contains (hobbyEventENAux) == true) {
+                                        eventosEN.HobbyEvent.Remove (hobbyEventENAux);
+                                        hobbyEventENAux.Eventos.Remove (eventosEN);
                                 }
                                 else
-                                        throw new ModelException ("The identifier " + item + " in p_hobby_OIDs you are trying to unrelationer, doesn't exist in EventosEN");
+                                        throw new ModelException ("The identifier " + item + " in p_hobbyEvent_OIDs you are trying to unrelationer, doesn't exist in EventosEN");
                         }
                 }
 
@@ -215,24 +215,24 @@ public void DeleteHobbies (int p_Eventos_OID, System.Collections.Generic.IList<s
                 SessionClose ();
         }
 }
-public void AddHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobby_OIDs)
+public void AddHobbies (int p_Eventos_OID, System.Collections.Generic.IList<string> p_hobbyEvent_OIDs)
 {
         ProjectGenNHibernate.EN.Project.EventosEN eventosEN = null;
         try
         {
                 SessionInitializeTransaction ();
                 eventosEN = (EventosEN)session.Load (typeof(EventosEN), p_Eventos_OID);
-                ProjectGenNHibernate.EN.Project.HobbyEN hobbyENAux = null;
-                if (eventosEN.Hobby == null) {
-                        eventosEN.Hobby = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
+                ProjectGenNHibernate.EN.Project.HobbyEN hobbyEventENAux = null;
+                if (eventosEN.HobbyEvent == null) {
+                        eventosEN.HobbyEvent = new System.Collections.Generic.List<ProjectGenNHibernate.EN.Project.HobbyEN>();
                 }
 
-                foreach (string item in p_hobby_OIDs) {
-                        hobbyENAux = new ProjectGenNHibernate.EN.Project.HobbyEN ();
-                        hobbyENAux = (ProjectGenNHibernate.EN.Project.HobbyEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.HobbyEN), item);
-                        hobbyENAux.Eventos.Add (eventosEN);
+                foreach (string item in p_hobbyEvent_OIDs) {
+                        hobbyEventENAux = new ProjectGenNHibernate.EN.Project.HobbyEN ();
+                        hobbyEventENAux = (ProjectGenNHibernate.EN.Project.HobbyEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.HobbyEN), item);
+                        hobbyEventENAux.Eventos.Add (eventosEN);
 
-                        eventosEN.Hobby.Add (hobbyENAux);
+                        eventosEN.HobbyEvent.Add (hobbyEventENAux);
                 }
 
 

@@ -12,7 +12,7 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class EventosCEN :BasicCAD
+public partial class EventosCEN : BasicCAD
 {
 public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosEN> SearchByName (string arg1)
 {
@@ -28,7 +28,7 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.EventosE
                 SessionInitializeTransaction ();
                 EventosCAD evecad = new EventosCAD (session);
                 //EventosCEN eve = new EventosCEN(session);
-                lista = evecad.GetAll ();
+                lista = evecad.GetAllEventos ();
 
                 foreach (EventosEN h in lista) {
                         if (h.Name.Contains (arg1)) {

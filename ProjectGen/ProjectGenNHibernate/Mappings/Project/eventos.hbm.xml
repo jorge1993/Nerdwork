@@ -44,7 +44,7 @@
     					</bag>
 			
 		  			
-						<bag name="Hobby" table="[events_hobby]"  >
+						<bag name="HobbyEvent" table="[events_hobby]"  >
 							<key>
 									<column name="[FK_Id_idEvents]"/>
 							</key>
@@ -65,6 +65,6 @@
 		  </class>
 		  
 		  <query name="EventosENReadAllHQL">from EventosEN</query>
-		  <query name="EventosENgetAllHQL"><![CDATA[FROM EventosEN]]></query>
+		  <query name="EventosENgetAllEventosHQL"><![CDATA[FROM EventosEN]]></query>
 		</hibernate-mapping>
 	
