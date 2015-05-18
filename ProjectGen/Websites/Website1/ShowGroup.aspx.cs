@@ -16,6 +16,8 @@ public partial class ShowEvent : System.Web.UI.Page
         {
             String Grupo = Request.QueryString["name"];
 
+            tableInvitation.Visible = false;
+
             PostCEN p = new PostCEN();
             IList<PostEN> posts = new List<PostEN>();
             GroupsCEN g = new GroupsCEN();
@@ -119,6 +121,26 @@ public partial class ShowEvent : System.Web.UI.Page
                 dt.Rows.Add(Row1);
                 GridViewTimeline.DataSource = dt;
                 GridViewTimeline.DataBind();
+            }
+
+
+            //////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////
+            /////////////////////////// Faltar cargar este listBox
+            /////////////////////// Y cambiar el método save
+            IList<UsuarioEN> user_list = new List<UsuarioEN>();
+            UsuarioCEN user_cen2 = new UsuarioCEN();
+            user_list = user_cen2.GetAllUsers();
+
+            GroupsCEN group = new GroupsCEN();
+            group.GetAllUsers(gen[0].Id);
+
+            foreach (UsuarioEN u in user_list)
+            {
+                if (u.Nickname.Equals((string)Session["NAME"]) == false)
+                {
+                    ListBoxUsers.Items.Add(u.Nickname);
+                }
             }
         }
     }
@@ -250,6 +272,7 @@ public partial class ShowEvent : System.Web.UI.Page
         Button3.Visible = false;
         Save.Visible = true;
         ButtonPost.Visible = false;
+        tableInvitation.Visible = true;
     }
 
     protected void Save_Click(object sender, EventArgs e)
@@ -269,5 +292,39 @@ public partial class ShowEvent : System.Web.UI.Page
         g2.Modify(gen[0].Id, TBname.Text, description.Text, x);
 
         Response.Redirect("ShowGroup.aspx?name=" + TBname.Text);
+    }
+
+    protected void ButtonToRightUsers_Click(object sender, EventArgs e)
+    {
+        int i;
+        for (i = 0; i < ListBoxUsers.Items.Count; i++)
+        {
+            ListItem item = ListBoxUsers.Items[i];
+            if (item.Selected == true)
+            {
+                ListBoxUsers.Items.Remove(item);
+                ListBoxGroupUsers.Items.Add(item);
+
+                ListBoxUsers.ClearSelection();
+                ListBoxGroupUsers.ClearSelection();
+            }
+        }
+    }
+
+    protected void ButtonToLeftUsers_Click(object sender, EventArgs e)
+    {
+        int i;
+        for (i = 0; i < ListBoxGroupUsers.Items.Count; i++)
+        {
+            ListItem item = ListBoxGroupUsers.Items[i];
+            if (item.Selected == true)
+            {
+                ListBoxGroupUsers.Items.Remove(item);
+                ListBoxUsers.Items.Add(item);
+
+                ListBoxUsers.ClearSelection();
+                ListBoxGroupUsers.ClearSelection();
+            }
+        }
     }
 }

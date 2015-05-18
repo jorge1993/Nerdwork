@@ -58,6 +58,39 @@ Description
 </div>
     <br />
     <br />
+    <br />
+    <br />
+
+    <div>
+        <asp:Table runat="server" ID="tableInvitation" border="0" cellpadding="0" cellspacing="0">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="LabelUsers" runat="server" Text="Users:"></asp:Label>
+                        </asp:TableCell>
+                        <asp:TableCell> 
+                            <asp:Label ID="aux" runat="server" Text=""></asp:Label>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="LabelGroupUsers" runat="server" Text="Group users:"></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:ListBox ID="ListBoxUsers" runat="server" Width="150px" >
+                            </asp:ListBox>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Button ID="Button1" runat="server" Text=">>" OnClick="ButtonToRightUsers_Click" CausesValidation="False" ValidateRequestMode="Disabled" />
+                            <asp:Button ID="Button2" runat="server" Text="<<" OnClick="ButtonToLeftUsers_Click" />
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:ListBox ID="ListBoxGroupUsers" runat="server"  Width="150">
+                            </asp:ListBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+</div>
+    <br />
 <div id="divCreatePost" style="height: 50%; margin-left: 2%; margin-right: 2%">
             <p>
                 Write a post:
