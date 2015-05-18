@@ -11,14 +11,11 @@
 
         </div>
 
-        <div id="search"; style="float: right; width: 300px; height: 50px; margin-top: 10px; margin-bottom: 0px; margin-right: 30px; text-align: right;">
-            <asp:TextBox ID="TextbosSearch" runat="server"></asp:TextBox>
-            &nbsp;
-            <asp:Button ID="ButtonSearch" runat="server" Text="Search Groups" OnClick="ButtonSearch_Click" />
-        </div>
-
     </div>
-    
+    <br />
+    <br />
+    <br />
+    <br />
     <div>
         <table id="cabeceraTimeline" style="width: 100%; background-color:#A55129; color:white; font-weight: bold; border-color: #DEBA84; border-style:none; border-width: 1px; text-align:center">
                     <tr>

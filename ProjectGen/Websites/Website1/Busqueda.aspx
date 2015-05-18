@@ -110,9 +110,6 @@
                 <asp:BoundField DataField="description" HeaderText="Description" ItemStyle-Width="50%" SortExpression="description">
                 <ItemStyle Width="50%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="hobbies" HeaderText="Hobbies" ItemStyle-Width="20%" SortExpression="hobbies">
-                <ItemStyle Width="20%" />
-                </asp:BoundField>
             </Columns>
             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
@@ -138,11 +135,6 @@
 
                         <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" ItemStyle-Width="50%" >
 <ItemStyle Width="50%"></ItemStyle>
-                        </asp:BoundField>
-                        <asp:BoundField DataField="hobbies" HeaderText="Hobbies" SortExpression="hobbies" ItemStyle-Width="20%" >
-                       
-                        
-<ItemStyle Width="20%"></ItemStyle>
                         </asp:BoundField>
                        
                         
