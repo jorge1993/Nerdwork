@@ -15,20 +15,32 @@ public partial class ShowEvent : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        String evento = Request.QueryString["nickname"];
+        String evento = Request.QueryString["name"];
 
 
         IList<EventosEN> eventen = new List<EventosEN>();
         EventosCEN eve = new EventosCEN();
+        String hobbies = "";
         eventen = eve.SearchByName(evento);
 
         foreach (EventosEN en in eventen)
         {
+            int sizeHo = en.Hobby.Count;
+            int contador  =1;
+            foreach (HobbyEN hobby in en.Hobby)
+            {
+                hobbies += hobby.Name;
+                if (sizeHo != contador)
+                    hobbies += " - ";
+                contador++;
+            }
             if (en.Name.Length == evento.Length)
             {
                 eventname.Text = evento;
                 description.Text = en.Description;
-                ListHobby.Text = "Hobbies";
+                ListHobby.Text = hobbies;
+                TextBox1.Text = en.DateStart;
+                TextBox2.Text = en.DateEnd;
                 bool aux = false;
 
                 foreach (UsuarioEN us in en.Usuario)
@@ -40,12 +52,8 @@ public partial class ShowEvent : System.Web.UI.Page
                 if (en.State == EstadoEnum.Private && aux!=true)
                 {
                     estadoTB.Text = "Private";
-                    place.Visible = false;
-                    direccion.Visible = false;
                     TextBox1.Visible = false;
                     TextBox2.Visible = false;
-                    TextBox3.Visible = false;
-                    TextBox4.Visible = false;
                     Label1.Visible = false;
                     Label2.Visible = false;
                 }
@@ -60,11 +68,8 @@ public partial class ShowEvent : System.Web.UI.Page
                     string auxinit = en.DateStart;
                     string auxned = en.DateEnd;
 
-                    TextBox1.Visible = false;
-                    TextBox2.Visible = false;
-
-                    TextBox3.Visible = false;
-                    TextBox4.Visible = false;
+                    //TextBox1.Visible = false;
+                    //TextBox2.Visible = false;
                 }
             }
         }

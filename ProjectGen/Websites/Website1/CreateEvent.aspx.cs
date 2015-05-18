@@ -71,12 +71,10 @@ public partial class CreateEvents : System.Web.UI.Page
             String name = TBname.Text;
             String des = description.Text;
             String state = estado.SelectedValue;
-            String inicio = iniciotext.Text;
-            String lugar = Lugar.Text;
-            String final = fintext.Text;
+            String inicio = iniciotext.Text + " " + DropDownList1.SelectedValue + ":" + DropDownList2.SelectedValue;
+            String final = fintext.Text + " " + DropDownList3.SelectedValue + ":" + DropDownList4.SelectedValue;
             String usuario = Session["Name"].ToString();
-            TimeSpan init = new TimeSpan();
-            TimeSpan end = new TimeSpan();
+
 
             EstadoEnum x;
             if (name == "")
@@ -102,11 +100,6 @@ public partial class CreateEvents : System.Web.UI.Page
             else if (final == "")
             {
                 Label1.Text = "End DateTime is required";
-                Label1.Visible = true;
-            }
-            else if (lugar == "")
-            {
-                Label1.Text = "Place is required";
                 Label1.Visible = true;
             }
             else if (ListEventHobbies.Items.Count==0)

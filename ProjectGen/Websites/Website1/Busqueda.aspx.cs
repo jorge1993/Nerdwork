@@ -237,4 +237,11 @@ public partial class _Default : System.Web.UI.Page
         String newUrl = "ShowGroup.aspx?name=" + pressed.Text;
         Response.Redirect(newUrl);
     }
+
+    protected void EventLinkButton_Click(object sender, EventArgs e)
+    {
+        LinkButton pressed = sender as LinkButton;
+        String newUrl = "ShowEvent.aspx?name=" + pressed.Text;
+        Response.Redirect(newUrl);
+    }
 }
