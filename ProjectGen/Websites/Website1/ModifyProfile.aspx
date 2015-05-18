@@ -86,7 +86,8 @@
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">          
-                        &nbsp;</td>
+                        <asp:Label ID="Label1" runat="server" Text="Password length > 4"></asp:Label>
+                    </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
