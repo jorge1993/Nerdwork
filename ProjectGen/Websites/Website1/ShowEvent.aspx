@@ -9,7 +9,10 @@
 </h2>
 <div>
 &nbsp; State &nbsp; 
-    <asp:TextBox ID="estadoTB" Height="30%" Width="15%" Readonly="true" BorderColor="Black" runat="server"></asp:TextBox>
+    <asp:DropDownList ID="estadoTB" runat="server" Height="16px" Width="117px">
+        <asp:ListItem>Public</asp:ListItem>
+        <asp:ListItem>Private</asp:ListItem>
+    </asp:DropDownList>
 &nbsp;<p style="float:right; margin-right:30%">
 
 </p>
@@ -40,14 +43,10 @@ Description
 </p>
 
 </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+
+<div style="float:left; margin-top:20%">
+
+<asp:Button ID="ButtonModify" runat="server" Text="Modify" OnClick="ButtonSearch_Click" />
+</div>
 </asp:Content>
 

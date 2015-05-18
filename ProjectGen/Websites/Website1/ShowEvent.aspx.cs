@@ -15,13 +15,28 @@ public partial class ShowEvent : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        String evento = Request.QueryString["name"];
+        String evento = Request.QueryString["Name"];
 
 
         IList<EventosEN> eventen = new List<EventosEN>();
         EventosCEN eve = new EventosCEN();
-        String hobbies = "";
+
+        ButtonModify.Enabled = false;
+
         eventen = eve.SearchByName(evento);
+
+        IList<UsuarioEN> e_users = new List<UsuarioEN>();
+
+        EventosCEN eve2 = new EventosCEN();
+        e_users = eve2.GetAllUser(eventen[0].Id);
+        
+        if (Session["Name"].Equals(e_users[0].Nickname))
+        {
+            ButtonModify.Enabled = true;
+        }
+
+        String hobbies = "";
+        
 
         foreach (EventosEN en in eventen)
         {
@@ -51,7 +66,8 @@ public partial class ShowEvent : System.Web.UI.Page
 
                 if (en.State == EstadoEnum.Private && aux!=true)
                 {
-                    estadoTB.Text = "Private";
+                    estadoTB.SelectedValue = "Private";
+                    estadoTB.Enabled = false;
                     TextBox1.Visible = false;
                     TextBox2.Visible = false;
                     Label1.Visible = false;
@@ -60,9 +76,13 @@ public partial class ShowEvent : System.Web.UI.Page
                 else
                 {
                     if (aux == true)
-                        estadoTB.Text = "Private";
+                    {
+                        estadoTB.SelectedValue = "Private"; estadoTB.Enabled = false;
+                    }
                     else
-                        estadoTB.Text = "Public";
+                    {
+                        estadoTB.SelectedValue = "Public"; estadoTB.Enabled = false;
+                    }
 
                     //direccion.Text = en.Place;
                     string auxinit = en.DateStart;
@@ -73,6 +93,18 @@ public partial class ShowEvent : System.Web.UI.Page
                 }
             }
         }
+    }
+
+    protected void ButtonSearch_Click(object sender, EventArgs e)
+    {
+        
+        estadoTB.Enabled = true;
+        TextBox1.Visible = true;
+        TextBox2.Visible = true;
+        Label1.Visible = true;
+        Label2.Visible = true;
+        description.ReadOnly = false;
+
     }
 
  
