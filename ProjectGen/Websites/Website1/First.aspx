@@ -39,7 +39,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <div id="index"; style="height: 646px">
         <div id="login"; style="float: right; width: 500px; margin-right: 300px; margin-top: 120px;">
-            <table style="width: 250px; height: 180px; margin-left: 0px;" align="center" border="1">
+            <table style="width: 250px; height: 180px; margin-left: 0px; background-color: #FFFFFF;" align="center" class="bordertables">
                 <tr>
                     <td colspan="3" valign="middle" align="center" class="auto-style3">
                         <h1>
@@ -49,10 +49,10 @@
                 </tr>
                 <tr>
                     <td align="right" class="style4">
-                        <asp:Label ID="Label7" runat="server" Text="Nickname:"></asp:Label>
+                        <asp:Label ID="Label7" runat="server" Text="Nickname:" style="font-weight: 700"></asp:Label>
                     </td>
                     <td align="left" class="auto-style1">
-                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" runat="server" CssClass="css-input"></asp:TextBox>
                     </td>
                     <td align="left" class="style3">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ForeColor="Red" ValidationGroup="Login" runat="server" ErrorMessage="*Nick is required" ControlToValidate ="TextBox2"></asp:RequiredFieldValidator>
@@ -61,10 +61,10 @@
                 </tr>
                 <tr>
                     <td align="right" class="style4">
-                        <asp:Label ID="Label8" runat="server" Text="Password:"></asp:Label>
+                        <asp:Label ID="Label8" runat="server" Text="Password:" style="font-weight: 700"></asp:Label>
                     </td>
                     <td align="left" class="auto-style1">
-                        <asp:TextBox ID="TextBox7" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:TextBox ID="TextBox7" runat="server" TextMode="Password" CssClass="css-input"></asp:TextBox>
                     </td>
                     <td align="left" class="style3">          
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="Login" ForeColor="Red" ErrorMessage="*Password is required" ControlToValidate="TextBox7"></asp:RequiredFieldValidator>
@@ -75,14 +75,14 @@
                 <tr>
                     <td align="center" class="style2" colspan="3">
                         <asp:Label ID="Label10" runat="server" Text="Label" Visible="false"></asp:Label><br />
-                        <asp:Button ID="Button1" runat="server" BorderColor="#999999" BorderStyle="Solid" Text="Log in" OnClick="Button1_Click" ValidationGroup ="Login"/>
+                        <asp:Button ID="Button1" runat="server" BorderColor="#999999" BorderStyle="Solid" Text="Log in" OnClick="Button1_Click" ValidationGroup ="Login" CssClass="btn"/>
                     </td>
                 </tr>
             </table>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Forget.aspx" Width="100%" Font-Strikeout="False" Font-Underline="True" CssClass="myLink">Forgot your password?</asp:HyperLink>
             <br />
             <br />
-            <table style="width: 500px; height: 250px; margin-left: 0px; background-color: #ffd800; margin-right: 30px;" align="center" border="1">
+            <table style="width: 500px; height: 250px; margin-left: 0px; background-color: #FFFFFF; margin-right: 30px;" align="center" class="bordertables">
                 <tr>
                     <td colspan="3" valign="middle" align="center" class="auto-style3">
                         <h1>
@@ -92,10 +92,10 @@
                 </tr>
                 <tr>
                     <td align="right" class="auto-style8">
-                        <asp:Label ID="Label1" runat="server" Text="Email:"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="Email:" style="font-weight: 700"></asp:Label>
                     </td>
                     <td align="left" class="auto-style1">
-                        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox5" runat="server" CssClass="css-input"></asp:TextBox>
                     </td>
                     <td align="left" class="auto-style4">     
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
@@ -109,10 +109,10 @@
                 </tr>
                 <tr>
                     <td align="right" class="auto-style8">
-                        <asp:Label ID="Label2" runat="server" Text="Nickname:"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="Nickname:" style="font-weight: 700"></asp:Label>
                     </td>
                     <td align="left" class="auto-style1">
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox3" runat="server" CssClass="css-input"></asp:TextBox>
                     </td>
                     <td align="left" class="auto-style4">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
@@ -127,7 +127,7 @@
                         <br />
                         <asp:Button ID="Button2" runat="server" BorderColor="#999999" 
                              BorderStyle="Solid" Text="Register" OnClick="Button2_Click"
-                              ValidationGroup="Register" />
+                              ValidationGroup="Register" CssClass="btn" />
                     </td>
                 </tr>
             </table> 
