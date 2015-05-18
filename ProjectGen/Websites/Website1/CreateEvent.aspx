@@ -8,13 +8,12 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
-<h2 style="margin-left:30%">
+    <h2 style="margin-left:30%">
 Create an event
 </h2>
 
 <div>
-<p style="height: 55px">&nbsp; Name&nbsp; <asp:TextBox ID="TBname" Height="30%" Width="50%" BorderColor="Black" runat="server">
-</asp:TextBox>
+<p style="height: 55px">&nbsp; Name&nbsp; <asp:TextBox ID="TBname" Height="30%" Width="50%" BorderColor="Black" runat="server" CssClass="css-input"></asp:TextBox>
 </div>
 <div>
 &nbsp; State &nbsp; 
@@ -35,7 +34,7 @@ Description
 <div style=" float:left; height:15%; width:50%";>
 
 <asp:TextBox ID="description" runat="server" BorderColor="Black" Height="100%" 
-        Width="100%" TextMode="MultiLine"></asp:TextBox>
+        Width="100%" TextMode="MultiLine" CssClass="css-input"></asp:TextBox>
 </div>
 
 <div style=" float:right;";>
@@ -291,14 +290,13 @@ Description
 
 <p>
 &nbsp; Place &nbsp;
-<asp:TextBox ID="Lugar" Height="30%" Width="50%" BorderColor="Black" runat="server">
-</asp:TextBox>
+<asp:TextBox ID="Lugar" Height="30%" Width="50%" BorderColor="Black" runat="server" CssClass="css-input"></asp:TextBox>
 </p>
 <p style="float: right; margin-right: 20%";>
                           <asp:Label id="Label1" runat="server"></asp:Label>
 
 <asp:Button ID="Button" runat="server" BorderColor="#999999" 
-                         BorderStyle="Solid" Text="Create Event" OnClick="Button_Create"
+                         BorderStyle="Solid" Text="Create Event" OnClick="Button_Create" CssClass="btn"
                           />
 </p>
 

@@ -25,7 +25,7 @@
            <div id="index"; style="height: 646px">
                <div id="login"; style="float: right; width: 500px; margin-right: 300px; margin-top: 120px;">
             <br />
-            <table style="width: 500px; height: 250px; margin-left: 0px; background-color: #ffd800; margin-right: 30px;" align="center" border="1">
+            <table style="width: 500px; height: 250px; margin-left: 0px; background-color: #FFFFFF; margin-right: 30px;" align="center" class="bordertables">
                 <tr>
                     <td colspan="3" valign="middle" align="center" class="auto-style3">
                         <h1>
@@ -69,10 +69,10 @@
                         <br />
                         <asp:Button ID="Button2" runat="server" BorderColor="#999999" 
                              BorderStyle="Solid" Text="Send" OnClick="Button2_Click"
-                              ValidationGroup="Register" />
+                              ValidationGroup="Register" CssClass="btn" />
                         &nbsp;
                         <asp:Button ID="Button1" runat="server" BorderColor="#999999" 
-                             BorderStyle="Solid" Text="Back" OnClick="Button1_Click"/>
+                             BorderStyle="Solid" Text="Back" OnClick="Button1_Click" CssClass="btn"/>
                     </td>
                 </tr>
             </table> 

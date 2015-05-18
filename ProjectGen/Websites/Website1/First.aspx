@@ -79,7 +79,7 @@
                     </td>
                 </tr>
             </table>
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Forget.aspx" Width="100%" Font-Strikeout="False" Font-Underline="True" CssClass="myLink">Forgot your password?</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Forget.aspx" Width="100%" Font-Strikeout="False" Font-Underline="True" CssClass="myLink" BorderColor="Black" BorderStyle="None" Font-Bold="True" ForeColor="Black">Forgot your password?</asp:HyperLink>
             <br />
             <br />
             <table style="width: 500px; height: 250px; margin-left: 0px; background-color: #FFFFFF; margin-right: 30px;" align="center" class="bordertables">

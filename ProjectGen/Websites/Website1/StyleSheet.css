@@ -52,10 +52,51 @@
   text-decoration: none;
 }
 
+  .groupmenu {
+
+  font-family: Arial;
+  color: #131314;
+  
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+ 
+ 
+}
+
+.groupmenu:hover {
+  font-family: Arial;
+    color: #e69f53;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  
+}
+
 .bordertables {
     -webkit-border-radius: 40px;
 border-radius: 40px;
 }
 
+.borderdivs {
+    -webkit-border-radius: 10px;
+border-radius: 10px;
+}
+
  .css-input { border-color:#cccccc; border-radius:14px; border-style:inset; border-width:4px; padding:3px; font-size:16px; text-align:left; box-shadow: -1px 0px 5px 0px rgba(42,42,42,.75); font-family:sans-serif;  } 
 .css-input:focus { outline:none; } 
+
+
+
+
+
+
+  a:link a:visited {
+  
+     color: #FF9900;
+ 
+  }
+  a:hover {
+   
+    
+     color: #000000;
+
+  }

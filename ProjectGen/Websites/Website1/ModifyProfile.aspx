@@ -14,6 +14,7 @@
     <div id="modifyglobal" style="width:100%;height:100%;">
             <table style="width:99%; height: 320px; text-align: center;">
                 <%--<tr>--%>
+                    
                     <td class="auto-style2">&nbsp;</td>
                     <td><asp:Image ID="Image1" runat="server" Height="100px" Width="100px" /></td>
                     <td>&nbsp;</td>
@@ -33,8 +34,9 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td>Name:<asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+                    <td class="auto-style2"></td>
+                    <td class="auto-style2" style="text-align: right">Name:</td>
+                    <td><asp:TextBox ID="TextBoxName" runat="server" CssClass="css-input"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
@@ -43,8 +45,9 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td>Surname:<asp:TextBox ID="TextBoxSurname" runat="server"></asp:TextBox>
+                    <td class="auto-style2"></td>
+                    <td class="auto-style2" style="text-align: right">Surname:</td>
+                    <td><asp:TextBox ID="TextBoxSurname" runat="server" CssClass="css-input"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
@@ -53,8 +56,9 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td>E-mail:<asp:TextBox ID="TextBoxEmail" runat="server" ReadOnly="true"></asp:TextBox>
+                    <td class="auto-style2"></td>
+                    <td class="auto-style2" style="text-align: right">Email:</td>
+                    <td><asp:TextBox ID="TextBoxEmail" runat="server" ReadOnly="true" CssClass="css-input"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">     
@@ -71,8 +75,9 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td>Phone:<asp:TextBox ID="TextBoxPhone" runat="server"></asp:TextBox>
+                    <td class="auto-style2"></td>
+                    <td class="auto-style2" style="text-align: right">Phone:</td>
+                    <td><asp:TextBox ID="TextBoxPhone" runat="server" CssClass="css-input"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
@@ -81,8 +86,9 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td>New Password:<asp:TextBox ID="TextBoxPassword" runat="server" TextMode="Password" OnTextChanged="TextBoxPassword_TextChanged" ></asp:TextBox>
+                    <td class="auto-style2"></td>
+                    <td class="auto-style2" style="text-align: right">New Password:</td>
+                    <td><asp:TextBox ID="TextBoxPassword" runat="server" TextMode="Password" OnTextChanged="TextBoxPassword_TextChanged" CssClass="css-input" ></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="auto-style1">          
@@ -122,7 +128,7 @@
                     <td class="auto-style1">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:Button ID="Save" runat="server" Text="Save profile" OnClick="Save_Click" Validationgroup="Modify"/>
+                        <asp:Button ID="Save" runat="server" Text="Save profile" OnClick="Save_Click" Validationgroup="Modify" CssClass="btn"/>
                         <br />
                         <asp:Label ID="SavedText" runat="server" Visible="false" style="font-weight: 700" Text="Label"></asp:Label>
                     </td>

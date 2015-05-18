@@ -7,7 +7,7 @@
 <div>
 <div style="float: left; margin-top:2%; margin-left:10%;">
 <asp:Button ID="Button" runat="server" BorderColor="#999999" 
-                         BorderStyle="Solid" Text="Create an Event" OnClick="Button_Create"
+                         BorderStyle="Solid" Text="Create an Event" OnClick="Button_Create" CssClass="btn"
                           />
 
                           </div>

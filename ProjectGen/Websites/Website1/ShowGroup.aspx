@@ -8,20 +8,20 @@
 </h2>
 <div>
 <p style="height: 55px">&nbsp; Name&nbsp; 
-    <asp:TextBox ID="TBname" Height="30%" Width="50%" BorderColor="Black" runat="server" Enabled="false"></asp:TextBox>
+    <asp:TextBox ID="TBname" Height="30%" Width="50%" BorderColor="Black" runat="server" Enabled="false" CssClass="css-input"></asp:TextBox>
     <br />
     Owner&nbsp;
     <asp:Label ID="OwnerLabel" runat="server" Text="owner name"></asp:Label>
 
 
     <br />
-    <asp:Button ID="Join1" runat="server" OnClick="Join1_Click" Text="Join the group" />
-    <asp:Button ID="Leave" runat="server" OnClick="Leave_Click" Text="Leave the group" />
+    <asp:Button ID="Join1" runat="server" OnClick="Join1_Click" Text="Join the group" CssClass="btn" />
+    <asp:Button ID="Leave" runat="server" OnClick="Leave_Click" Text="Leave the group" CssClass="btn" />
     <asp:Label ID="Label2" runat="server" Text="You are part of this group!"></asp:Label>
     <p style="height: 55px">&nbsp;
-        <asp:Button ID="Delete" runat="server" OnClick="Delete_Click" Text="Delete" />
-        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Modify" />
-        <asp:Button ID="Save" runat="server" OnClick="Save_Click" Text="Save changes" Visible="False" />
+        <asp:Button ID="Delete" runat="server" OnClick="Delete_Click" Text="Delete" CssClass="btn" />
+        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Modify" CssClass="btn" />
+        <asp:Button ID="Save" runat="server" OnClick="Save_Click" Text="Save changes" Visible="False" CssClass="btn" />
 
 </div>
 <div>
@@ -43,7 +43,7 @@ Description
 <div style=" float:left; height:15%; width:50%";>
     
 <asp:TextBox ID="description" runat="server" BorderColor="Black" Height="100%" 
-        Width="100%" TextMode="MultiLine" Enabled="false"></asp:TextBox>
+        Width="100%" TextMode="MultiLine" Enabled="false" CssClass="css-input"></asp:TextBox>
 </div>
 
 <div>
@@ -96,7 +96,7 @@ Description
                 Write a post:
             </p>
             <p>
-                <asp:TextBox ID="TextBoxPost" runat="server" TextMode="MultiLine" Width="100%" Height="80px"></asp:TextBox>
+                <asp:TextBox ID="TextBoxPost" runat="server" TextMode="MultiLine" Width="100%" Height="80px" CssClass="css-input"></asp:TextBox>
             </p>
             <p>
                 <table border="0" cellpadding="0" cellspacing="0">
@@ -117,7 +117,7 @@ Description
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button ID="ButtonPost" runat="server" OnClick="ButtonPost_Click" Text="Post" />
+                            <asp:Button ID="ButtonPost" runat="server" OnClick="ButtonPost_Click" Text="Post" CssClass="btn" />
                         </td>
                         <td>
                         </td>

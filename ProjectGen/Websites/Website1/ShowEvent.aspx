@@ -25,28 +25,28 @@ Description
 </p>
 
 <asp:TextBox ID="description" runat="server" BorderColor="Black" Readonly="true" Height="100%" 
-        Width="100%" TextMode="MultiLine"></asp:TextBox>
+        Width="100%" TextMode="MultiLine" CssClass="css-input"></asp:TextBox>
 </div>
 
 <div style="float:left; margin-left:5%;">
 <p>
 &nbsp; Hobbies &nbsp;
-<asp:TextBox ID="ListHobby" Height="3%" Width="140%" BorderColor="Black" Readonly="true" runat="server"></asp:TextBox>
+<asp:TextBox ID="ListHobby" Height="3%" Width="140%" BorderColor="Black" Readonly="true" runat="server" CssClass="css-input"></asp:TextBox>
 </p>
     <p>
         <asp:Label ID="Label1" runat="server" Text="Start"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox1" Height="3%" Width="60%" BorderColor="Black" Readonly="true" runat="server"></asp:TextBox>
+&nbsp;<asp:TextBox ID="TextBox1" Height="3%" Width="60%" BorderColor="Black" Readonly="true" runat="server" CssClass="css-input"></asp:TextBox>
 </p>
     <p>
         <asp:Label ID="Label2" runat="server" Text="End"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox2" Height="3%" Width="70%" BorderColor="Black" Readonly="true" runat="server"></asp:TextBox>
+&nbsp;<asp:TextBox ID="TextBox2" Height="3%" Width="70%" BorderColor="Black" Readonly="true" runat="server" CssClass="css-input"></asp:TextBox>
 </p>
 
 </div>
 
 <div style="float:left; margin-top:20%">
 
-<asp:Button ID="ButtonModify" runat="server" Text="Modify" OnClick="ButtonSearch_Click" />
+<asp:Button ID="ButtonModify" runat="server" Text="Modify" OnClick="ButtonSearch_Click" CssClass="btn" />
 </div>
 </asp:Content>
 

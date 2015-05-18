@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <div style="margin-left: 40px">
         <div style="float: left; margin-top:2%; margin-left:10%;">
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Create a group" />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Create a group" CssClass="btn" />
 
         </div>
 

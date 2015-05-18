@@ -10,7 +10,7 @@
                 Write a post:
             </p>
             <p>
-                <asp:TextBox ID="TextBoxPost" runat="server" TextMode="MultiLine" Width="100%" Height="80px"></asp:TextBox>
+                <asp:TextBox ID="TextBoxPost" runat="server" TextMode="MultiLine" Width="100%" Height="80px" CssClass="css-input"></asp:TextBox>
             </p>
             <p>
                 <table border="0" cellpadding="0" cellspacing="0">
@@ -39,7 +39,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button ID="ButtonPost" runat="server" OnClick="ButtonPost_Click" Text="Post" />
+                            <asp:Button ID="ButtonPost" runat="server" OnClick="ButtonPost_Click" Text="Post" CssClass="btn" />
                         </td>
                         <td>
                         </td>
