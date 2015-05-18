@@ -29,8 +29,8 @@
                     <Columns>
                     <asp:TemplateField ItemStyle-Width="20%">
                         <ItemTemplate>
-                            <asp:LinkButton ID="nicknameLinkButton" runat="server" OnClick="NicknameLinkButton_Click" CommandName="nickname"
-                                    CommandArgument='<%# Eval("nickname") %>'  Text='<%# Eval("nickname") %>' ></asp:LinkButton>
+                            <asp:LinkButton ID="nicknameLinkButton" runat="server" OnClick="EventLinkButton_Click" CommandName="Name"
+                                    CommandArgument='<%# Eval("Name") %>'  Text='<%# Eval("Name") %>' ></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
 

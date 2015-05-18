@@ -23,17 +23,15 @@ public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN>
         System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.HobbyEN> lista = new System.Collections.Generic.List<HobbyEN>();
         try
         {
-                SessionInitializeTransaction ();
-                EventosCAD eve = new EventosCAD (session);
-                HobbyCAD hobbycad = new HobbyCAD (session);
-                EventosEN even = eve.ReadOIDDefault (p_oid);
-                aux = hobbycad.GetAllHobby ();
+            SessionInitializeTransaction();
+            EventosCAD eve = new EventosCAD(session);
+            HobbyCAD hobbycad = new HobbyCAD(session);
+            EventosEN even = eve.ReadOID(p_oid);
+            aux = hobbycad.GetAllHobby();
 
-                foreach (HobbyEN h in aux) {
-                        if (h.Name.Equals (even.Hobby))
-                                lista.Add (h);
-                }
-                SessionCommit ();
+            lista = even.Hobby;
+            SessionCommit();
+                
         }
         catch (Exception ex)
         {

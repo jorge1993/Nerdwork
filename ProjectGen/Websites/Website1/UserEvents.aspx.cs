@@ -18,53 +18,46 @@ public partial class UserEvents : System.Web.UI.Page
     private void reloadTimeLine()
     {
         
-            /*IList<EventosEN> dr = new List<EventosEN>();
+            IList<EventosEN> dr = new List<EventosEN>();
             EventosCEN eve = new EventosCEN();
 
-            dr = eve.GetAll();
+            dr = eve.GetAllEventos();
             int size = dr.Count;
 
             DataTable dt = new DataTable();
             dt.Columns.Add("name", typeof(string));
             dt.Columns.Add("description", typeof(string));
-            dt.Columns.Add("place", typeof(string));
             dt.Columns.Add("hobbies", typeof(string));
 
 
-            for (int j = 0; j < size; j++)
+            foreach (EventosEN even in dr)
             {
-
                 DataRow Row1;
                 string listaHobbies = "";
                 Row1 = dt.NewRow();
-                IList<EventosEN> use = new List<EventosEN>();
-
-                use = eve.SearchByName(dr[j].Name);
-
-                Row1[0] = use[0].Name;
-                Row1[1] = use[0].Description;
-                Row1[2] = use[0].Place;
-
-                IList<HobbyEN> listaHobby = new List<HobbyEN>();
-                HobbyCEN hobbycen = new HobbyCEN();
-                listaHobby = hobbycen.GetHobbybyID(dr[j].Id);
-                int aux = listaHobby.Count;
-                int contador = 1;
-
-                foreach (HobbyEN hobby in listaHobby)
+                IList<UsuarioEN> lista = eve.GetAllUser(even.Id);
+                foreach (UsuarioEN u in lista)
                 {
-                    listaHobbies += hobby.Name;
-                    if (aux != contador)
-                        listaHobbies += " - ";
-                    contador++;
+                    if (u.Nickname.Equals(Session["Name"]))
+                    {
+                        Row1[0] = even.Name;
+                        Row1[1] = even.Description;
+                    }
                 }
+                string list = "";
 
-                Row1[3] = listaHobbies;
-
+                EventosCEN evento = new EventosCEN();
+                IList<HobbyEN> listaeve =  new List<HobbyEN>();
+                listaeve = evento.GetAllHobbies(even.Id);
+                foreach (HobbyEN ho in listaeve)
+                { 
+                    list += ho.Name + " - ";
+                }
+                Row1[2] = list;
                 dt.Rows.Add(Row1);
-                GridViewTimeline.DataSource = dt;
-                GridViewTimeline.DataBind();
-            }*/
+            }
+        GridViewTimeline.DataSource = dt;
+        GridViewTimeline.DataBind();
           
     }
 
@@ -90,5 +83,12 @@ public partial class UserEvents : System.Web.UI.Page
     {
         Response.Redirect("Busqueda.aspx?Hobby=" +
             TextbosSearch.Text + "&Show=All");
+    }
+
+    protected void EventLinkButton_Click(object sender, EventArgs e)
+    {
+        LinkButton pressed = sender as LinkButton;
+        String newUrl = "ShowEvent.aspx?Name" + pressed.Text;
+        Response.Redirect(newUrl);
     }
 }
