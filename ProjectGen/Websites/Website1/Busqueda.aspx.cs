@@ -29,38 +29,40 @@ public partial class _Default : System.Web.UI.Page
 
         foreach (PostEN post in dr)
         {
-
-            DataRow Row1;
-            string listaHobbies = "";
-            Row1 = dt.NewRow();
-            UsuarioCEN us = new UsuarioCEN();
-            UsuarioEN use = new UsuarioEN();
-
-            use = us.Searchbynick(post.User.Nickname);
-
-            Row1[0] = use.Avatar;
-            Row1[1] = use.Nickname;
-            Row1[2] = post.Description;
-
-            IList<HobbyEN> listaHobby = new List<HobbyEN>();
-            HobbyCEN hobbycen = new HobbyCEN();
-            listaHobby = hobbycen.GetHobbybyID(post.Id);
-            int aux = listaHobby.Count;
-            int contador = 1;
-
-            foreach (HobbyEN hobby in listaHobby)
+            if (post.Groups == null)
             {
-                listaHobbies += hobby.Name;
-                if (aux != contador)
-                    listaHobbies += " - ";
-                contador++;
+                DataRow Row1;
+                string listaHobbies = "";
+                Row1 = dt.NewRow();
+                UsuarioCEN us = new UsuarioCEN();
+                UsuarioEN use = new UsuarioEN();
+
+                use = us.Searchbynick(post.User.Nickname);
+
+                Row1[0] = use.Avatar;
+                Row1[1] = use.Nickname;
+                Row1[2] = post.Description;
+
+                IList<HobbyEN> listaHobby = new List<HobbyEN>();
+                HobbyCEN hobbycen = new HobbyCEN();
+                listaHobby = hobbycen.GetHobbybyID(post.Id);
+                int aux = listaHobby.Count;
+                int contador = 1;
+
+                foreach (HobbyEN hobby in listaHobby)
+                {
+                    listaHobbies += hobby.Name;
+                    if (aux != contador)
+                        listaHobbies += " - ";
+                    contador++;
+                }
+
+                Row1[3] = listaHobbies;
+
+                dt.Rows.Add(Row1);
+                GridView2.DataSource = dt;
+                GridView2.DataBind();
             }
-
-            Row1[3] = listaHobbies;
-
-            dt.Rows.Add(Row1);
-            GridView2.DataSource = dt;
-            GridView2.DataBind();
         }
     }
 
@@ -78,8 +80,10 @@ public partial class _Default : System.Web.UI.Page
 
         foreach (GroupsEN group in dr)
         {
+            /*
             if (group.State.ToString() == "Public")
             {
+             */ 
                 DataRow Row1;
                 string listaHobbies = "";
                 Row1 = dt.NewRow();
@@ -106,7 +110,7 @@ public partial class _Default : System.Web.UI.Page
                 dt.Rows.Add(Row1);
                 GridView3.DataSource = dt;
                 GridView3.DataBind();
-            }
+            /*}*/
         }
     }
 

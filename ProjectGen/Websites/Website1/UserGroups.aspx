@@ -11,11 +11,10 @@
 
         </div>
 
-        <div id="search"; style="float: right; width: 300px; height: 50px; margin-top: 10px; margin-bottom: 0px; margin-right: 30px; text-align: right;">
-            <asp:TextBox ID="TextbosSearch" runat="server"></asp:TextBox>
-            &nbsp;
-            <asp:Button ID="ButtonSearch" runat="server" Text="Search Groups" OnClick="ButtonSearch_Click" />
-        </div>
+        
+        <br />
+        <br />
+        <br />
 
     </div>
     
