@@ -82,6 +82,11 @@ public partial class CreateEvents : System.Web.UI.Page
                 Label1.Text = "Name is required";
                 Label1.Visible = true;
             }
+            else if (Calendar1.SelectedDate.AddHours(Convert.ToInt32(DropDownList1.SelectedValue)).AddMinutes(Convert.ToInt32(DropDownList2.SelectedValue)) > Calendar2.SelectedDate.AddHours(Convert.ToInt32(DropDownList3.SelectedValue)).AddMinutes(Convert.ToInt32(DropDownList4.SelectedValue)))
+            {
+                Label1.Text = "Invalid date: the init date shouldn't be greater then the end one";
+                Label1.Visible = true;
+            }
             else if (state == "")
             {
                 Label1.Text = "State is required";
