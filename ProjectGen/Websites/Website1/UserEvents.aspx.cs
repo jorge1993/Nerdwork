@@ -96,6 +96,7 @@ public partial class UserEvents : System.Web.UI.Page
     protected void EventLinkButton_Click(object sender, EventArgs e)
     {
         LinkButton pressed = sender as LinkButton;
+        String newUrl = "ShowEvent.aspx?name=" + pressed.Text;
         Response.Redirect(newUrl);
     }
 }
