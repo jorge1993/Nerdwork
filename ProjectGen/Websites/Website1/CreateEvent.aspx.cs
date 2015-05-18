@@ -18,6 +18,7 @@ public partial class CreateEvents : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         IList<HobbyEN> hobbydr = new List<HobbyEN>();
+        IList<UsuarioEN> user_list = new List<UsuarioEN>();
 
         if (!IsPostBack)
         {
@@ -26,6 +27,18 @@ public partial class CreateEvents : System.Web.UI.Page
 
             foreach (HobbyEN s in hobbydr)
                 ListUserHobbies.Items.Add(s.Name);
+
+
+            UsuarioCEN user_cen = new UsuarioCEN();
+            user_list = user_cen.GetAllUsers();
+
+            foreach (UsuarioEN u in user_list)
+            {
+                if (u.Nickname.Equals((string)Session["NAME"]) == false)
+                {
+                    ListBoxUsers.Items.Add(u.Nickname);
+                }
+            }
 
         }
     }
@@ -126,6 +139,9 @@ public partial class CreateEvents : System.Web.UI.Page
                     EventosCEN evento = new EventosCEN();
                     
                     usuarios.Add(usuario);
+                    foreach (ListItem s in ListBoxGroupUsers.Items)
+                        usuarios.Add(s.Text);
+
                     int i;
                     for (i = 0; i < ListEventHobbies.Items.Count; i++)
                     {
@@ -138,23 +154,7 @@ public partial class CreateEvents : System.Web.UI.Page
 
                     evento.AddHobbies((Int32) id, hobbyevent);
 
-                    Label1.Text = "Event Created";
-                    Label1.Visible = true;
-                    TBname.Text = "";
-                    description.Text = "";
-                    estado.Text = "";
-                    iniciotext.Text = "";
-                    fintext.Text = "";
-                    Lugar.Text = "";
-                    ListUserHobbies.Items.Clear();
-
-                    IList<HobbyEN> hobbydr = new List<HobbyEN>();
-                    HobbyCEN ho = new HobbyCEN();
-                    hobbydr = ho.GetHobbyAssign((string)Session["NAME"]);
-                    foreach (HobbyEN s in hobbydr)
-                        ListUserHobbies.Items.Add(s.Name);          
-
-                    ListEventHobbies.Items.Clear();
+                    Response.Redirect("~/UserEvents.aspx");
                 }
 
                 else
@@ -196,5 +196,40 @@ public partial class CreateEvents : System.Web.UI.Page
         {
             timeEnd.AddSeconds(DropDownList4.SelectedIndex);
             fintext.Text = timeInit.Date.ToString();
+        
+        }
+
+        protected void ButtonToRightUsers_Click(object sender, EventArgs e)
+        {
+            int i;
+            for (i = 0; i < ListBoxUsers.Items.Count; i++)
+            {
+                ListItem item = ListBoxUsers.Items[i];
+                if (item.Selected == true)
+                {
+                    ListBoxUsers.Items.Remove(item);
+                    ListBoxGroupUsers.Items.Add(item);
+
+                    ListBoxUsers.ClearSelection();
+                    ListBoxGroupUsers.ClearSelection();
+                }
+            }
+        }
+
+        protected void ButtonToLeftUsers_Click(object sender, EventArgs e)
+        {
+            int i;
+            for (i = 0; i < ListBoxGroupUsers.Items.Count; i++)
+            {
+                ListItem item = ListBoxGroupUsers.Items[i];
+                if (item.Selected == true)
+                {
+                    ListBoxGroupUsers.Items.Remove(item);
+                    ListBoxUsers.Items.Add(item);
+
+                    ListBoxUsers.ClearSelection();
+                    ListBoxGroupUsers.ClearSelection();
+                }
+            }
         }
 }
