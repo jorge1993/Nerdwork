@@ -200,8 +200,29 @@ public partial class ShowEvent : System.Web.UI.Page
             IList<int> deletegroup = new List<int>();
             deletegroup.Add(gen[0].Id);
 
-            us.DeleteEvent(Session["Name"].ToString(), deletegroup);
-            Response.Redirect("ShowEvent.aspx?name=" + Request.QueryString["name"]);
+            EventosCEN aux = new EventosCEN();
+            IList<UsuarioEN> lista = aux.GetAllUser(gen[0].Id);
+
+            if (lista.Count > 1)
+            {
+                us.DeleteEvent(Session["Name"].ToString(), deletegroup);
+                Response.Redirect("ShowEvent.aspx?name=" + Request.QueryString["name"]);
+            }
+            else
+            {
+                IList<EventosEN> genAux = new List<EventosEN>();
+                EventosCEN gAux = new EventosCEN();
+                genAux = gAux.SearchByName(Request.QueryString["name"]);
+
+                EventosCEN g2aux = new EventosCEN();
+                IList<String> listaHobbies = g2aux.GetAllHobbies(genAux[0].Id).Select(aux1 => aux1.Name).ToList(); ;
+
+                EventosCEN g3 = new EventosCEN();
+                g3.DeleteHobbies(genAux[0].Id, listaHobbies);
+
+                gAux.Destroy(genAux[0].Id);
+                Response.Redirect("UserEvents.aspx");
+            }
         }
 
     }
