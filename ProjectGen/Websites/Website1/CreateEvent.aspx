@@ -286,13 +286,10 @@ Description
         </asp:TableRow>
     </asp:Table>
     <br />
-</div>
-
-<p>
-<<<<<<< HEAD
-&nbsp; Place &nbsp;
+&nbsp;</div>
+    <p>
+        Place &nbsp;
 <asp:TextBox ID="Lugar" Height="30%" Width="50%" BorderColor="Black" runat="server" CssClass="css-input"></asp:TextBox>
-=======
 <asp:Table runat="server" ID="tableInvitation" border="0" cellpadding="0" cellspacing="0">
                     <asp:TableRow>
                         <asp:TableCell>
@@ -320,7 +317,6 @@ Description
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
->>>>>>> prueba-hql
 </p>
 <p style="float: right; margin-right: 20%";>
                           <asp:Label id="Label1" runat="server"></asp:Label>

@@ -25,22 +25,23 @@ public partial class Send : System.Web.UI.Page
                 if (user.Nickname != (string)Session["Name"])
                     sendlist.Items.Add(user.Nickname);
             }
-        }
 
-        String nickname = "";
-        try
-        {
-            nickname = Request.QueryString["Nickname"];
 
-        }
-        catch (Exception ex)
-        {
-        }
-        finally
-        {
-            if (nickname != "")
+            String nickname = "";
+            try
             {
-                reciever.Text = nickname;
+                nickname = Request.QueryString["Nickname"];
+
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                if (nickname != "")
+                {
+                    reciever.Text = nickname;
+                }
             }
         }
 

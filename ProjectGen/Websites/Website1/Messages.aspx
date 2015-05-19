@@ -53,6 +53,7 @@ INBOX
                 </asp:GridView>
 
 </div>
+    <br />
 <div style="float: left; margin-left:5%; margin-top:10%";>
 
 OUTBOX
@@ -68,6 +69,7 @@ OUTBOX
   </p>
    
 </div>
+    <br />
 <div style="float: right; margin-right: 5%; height:50%; width:75% ";>
 
 <table id="Table1" style="width: 100%; background-color:#A55129; color:white; font-weight: bold; border-color: #DEBA84; border-style:none; border-width: 1px; text-align:center">
