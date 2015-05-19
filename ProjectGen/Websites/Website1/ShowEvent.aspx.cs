@@ -19,7 +19,6 @@ public partial class ShowEvent : System.Web.UI.Page
         IList<HobbyEN> hobbydr = new List<HobbyEN>();
         IList<UsuarioEN> user_list = new List<UsuarioEN>();
 
-
         Delete.Visible = false;
         String evento = Request.QueryString["Name"];
 
@@ -31,8 +30,6 @@ public partial class ShowEvent : System.Web.UI.Page
 
             EventosCEN ere = new EventosCEN();
             IList<EventosEN> tremor = ere.SearchByName(evento);
-
-            Delete.Visible = false;
 
 
 
@@ -74,7 +71,7 @@ public partial class ShowEvent : System.Web.UI.Page
             EventosCEN eve = new EventosCEN();
 
             owner.Visible = false;
-            ButtonModify.Enabled = false;
+            ButtonModify.Visible = false;
 
             eventen = eve.SearchByName(evento);
 
@@ -85,7 +82,11 @@ public partial class ShowEvent : System.Web.UI.Page
 
             if (Session["Name"].Equals(e_users[0].Nickname))
             {
-                ButtonModify.Enabled = true;
+                Join1.Text = "Leave";
+                owner.Visible = true;
+                ButtonModify.Visible = true;
+                Delete.Visible = true;
+                tableInvitation.Visible = true;
             }
 
             String hobbies = "";
@@ -123,9 +124,6 @@ public partial class ShowEvent : System.Web.UI.Page
                         }
                     }
 
-                    if (en.Usuario[0].Nickname.Equals(Session["Name"]))
-                        owner.Visible = true; Delete.Visible = true;
-
                     if (en.State == EstadoEnum.Private && aux != true)
                     {
                         estadoTB.SelectedValue = "Private";
@@ -135,21 +133,19 @@ public partial class ShowEvent : System.Web.UI.Page
                         Label1.Visible = false;
                         Label2.Visible = false;
                         ButtonModify.Visible = false;
-                        Delete.Visible = false;
+                        Join1.Visible = false;
                     }
                     else
                     {
                         if (aux == true && en.State == EstadoEnum.Private)
                         {
                             estadoTB.SelectedValue = "Private"; estadoTB.Enabled = false;
-                            tableInvitation.Visible = true;
 
 
                         }
                         else if (aux == true && en.State == EstadoEnum.Public)
                         {
                             estadoTB.SelectedValue = "Public"; estadoTB.Enabled = false;
-                            tableInvitation.Visible = true;
                         }
                         else
                         {

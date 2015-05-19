@@ -18,7 +18,7 @@
 </p>
 
     <br />
-    <asp:Button ID="Join1" runat="server" OnClick="Join1_Click" Text="Join the group" />
+    <asp:Button ID="Join1" runat="server" OnClick="Join1_Click" Text="" />
 </div>
 
 
@@ -62,7 +62,7 @@ Description
                             <asp:Label ID="aux" runat="server" Text=""></asp:Label>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Label ID="LabelGroupUsers" runat="server" Text="Event users:"></asp:Label>
+                            <asp:Label ID="LabelGroupUsers" runat="server" Text="New Event users:"></asp:Label>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
