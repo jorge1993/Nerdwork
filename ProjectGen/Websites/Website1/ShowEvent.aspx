@@ -52,9 +52,7 @@ Description
 <asp:Button ID="ButtonModify" runat="server" Text="Modify" OnClick="ButtonModify_Click" />
 </div>
 
-<<<<<<< HEAD
-<asp:Button ID="ButtonModify" runat="server" Text="Modify" OnClick="ButtonSearch_Click" CssClass="btn" />
-=======
+
 <div>
 <asp:Table runat="server" ID="tableInvitation" border="0" cellpadding="0" cellspacing="0" Visible="false">
                     <asp:TableRow>
@@ -83,7 +81,6 @@ Description
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
->>>>>>> prueba-hql
 </div>
 <div> <asp:Label id="owner" runat="server" Text="You're the owner of this event"></asp:Label></div>
 
