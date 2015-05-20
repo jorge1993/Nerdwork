@@ -13,6 +13,11 @@ public partial class MasterPage2 : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Para que no se guarde la página en caché (sin esto, el log out no funciona).
+        // El problema es que, con esto, ya no puedo volver a la página anterior.
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+        Response.Cache.SetNoStore();
 
         if (Session.Count == 0)
         {

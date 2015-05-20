@@ -3,7 +3,10 @@
 		                   assembly="ProjectGenNHibernate"
 		                   namespace="ProjectGenNHibernate.EN.Project">
 			<class name="PostEN" table="[Post]">
-						<id name="Id" column="[id]"/>
+				  	
+						<id name="Id" column="[id]" type="integer">
+							<generator class="identity"/>
+						</id>
 					<property name="Description" type="string"> 
 						<column name="[description]"  not-null="true"/>
 					</property>
@@ -25,6 +28,13 @@
 									<column name="[FK_name_idHobby]"/>
       						</many-to-many>
     					</bag>
+			
+		  			
+						<many-to-one name="Groups" class="ProjectGenNHibernate.EN.Project.GroupsEN" >	
+								<column name="[FK_Id_idGroups]"/>
+						</many-to-one>
+											 					
+					
 					
 					
 					
@@ -33,5 +43,6 @@
 		  </class>
 		  
 		  <query name="PostENReadAllHQL">from PostEN</query>
+		  <query name="PostENgetAllPostHQL"><![CDATA[FROM PostEN]]></query>
 		</hibernate-mapping>
 	

@@ -3,7 +3,10 @@
 		                   assembly="ProjectGenNHibernate"
 		                   namespace="ProjectGenNHibernate.EN.Project">
 			<class name="MessagesEN" table="[Messages]">
-						<id name="Id" column="[ID]"/>
+				  	
+						<id name="Id" column="[ID]" type="integer">
+							<generator class="identity"/>
+						</id>
 					<property name="Subject" type="string"> 
 						<column name="[subject]"  not-null="true"/>
 					</property>

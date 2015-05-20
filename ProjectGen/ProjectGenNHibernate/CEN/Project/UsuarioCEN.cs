@@ -116,5 +116,33 @@ public void DeleteHobbies (string p_Usuario_OID, System.Collections.Generic.ILis
 
         _IUsuarioCAD.DeleteHobbies (p_Usuario_OID, p_hobby_OIDs);
 }
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> GetAllUsers ()
+{
+        return _IUsuarioCAD.GetAllUsers ();
+}
+public void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs)
+{
+        //Call to UsuarioCAD
+
+        _IUsuarioCAD.AddEvent (p_Usuario_OID, p_eventos_OIDs);
+}
+public void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs)
+{
+        //Call to UsuarioCAD
+
+        _IUsuarioCAD.DeleteEvent (p_Usuario_OID, p_eventos_OIDs);
+}
+public void AddGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs)
+{
+        //Call to UsuarioCAD
+
+        _IUsuarioCAD.AddGroup (p_Usuario_OID, p_groups_OIDs);
+}
+public void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs)
+{
+        //Call to UsuarioCAD
+
+        _IUsuarioCAD.DeleteGroup (p_Usuario_OID, p_groups_OIDs);
+}
 }
 }

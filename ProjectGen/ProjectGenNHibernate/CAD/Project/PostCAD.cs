@@ -183,5 +183,148 @@ public void DeleteHobbies (int p_Post_OID, System.Collections.Generic.IList<stri
                 SessionClose ();
         }
 }
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> GetAllPost ()
+{
+        System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PostEN self where FROM PostEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PostENgetAllPostHQL");
+
+                result = query.List<ProjectGenNHibernate.EN.Project.PostEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in PostCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public void Modify (PostEN post)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                PostEN postEN = (PostEN)session.Load (typeof(PostEN), post.Id);
+
+                postEN.Description = post.Description;
+
+                session.Update (postEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in PostCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void AddGroup (int p_Post_OID, int p_groups_OID)
+{
+        ProjectGenNHibernate.EN.Project.PostEN postEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                postEN = (PostEN)session.Load (typeof(PostEN), p_Post_OID);
+                postEN.Groups = (ProjectGenNHibernate.EN.Project.GroupsEN)session.Load (typeof(ProjectGenNHibernate.EN.Project.GroupsEN), p_groups_OID);
+
+                postEN.Groups.Post.Add (postEN);
+
+
+
+                session.Update (postEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in PostCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void DeleteGroup (int p_Post_OID, int p_groups_OID)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                ProjectGenNHibernate.EN.Project.PostEN postEN = null;
+                postEN = (PostEN)session.Load (typeof(PostEN), p_Post_OID);
+
+                if (postEN.Groups.Id == p_groups_OID) {
+                        postEN.Groups = null;
+                }
+                else
+                        throw new ModelException ("The identifier " + p_groups_OID + " in p_groups_OID you are trying to unrelationer, doesn't exist in PostEN");
+
+                session.Update (postEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in PostCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public PostEN GetByID (int id)
+{
+        PostEN postEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                postEN = (PostEN)session.Get (typeof(PostEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ProjectGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new ProjectGenNHibernate.Exceptions.DataLayerException ("Error in PostCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return postEN;
+}
 }
 }

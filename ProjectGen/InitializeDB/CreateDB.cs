@@ -77,12 +77,12 @@ public static void InitializeData ()
         /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
         try
         {
-            HobbyCEN hobby = new HobbyCEN();
-            hobby.Create("Harry Potter");
-            hobby.Create("Batman");
-            hobby.Create("Pokemon");
-            hobby.Create("The Lord of Rings");
-            hobby.Create("Star Wars");
+                HobbyCEN hobby = new HobbyCEN ();
+                hobby.Create ("Harry Potter");
+                hobby.Create ("Batman");
+                hobby.Create ("Pokemon");
+                hobby.Create ("The Lord of Rings");
+                hobby.Create ("Star Wars");
                 /*List<ProjectGenNHibernate.EN.Mediaplayer.MusicTrackEN> musicTracks = new List<ProjectGenNHibernate.EN.Mediaplayer.MusicTrackEN>();
                  * ProjectGenNHibernate.EN.Mediaplayer.UserEN userEN = new ProjectGenNHibernate.EN.Mediaplayer.UserEN();
                  * ProjectGenNHibernate.EN.Mediaplayer.ArtistEN artistEN = new ProjectGenNHibernate.EN.Mediaplayer.ArtistEN();

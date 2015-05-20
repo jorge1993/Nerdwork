@@ -13,41 +13,110 @@
  <link href="StyleSheet.css" rel="stylesheet" type="text/css" /> 
     <form id="form1" runat="server">
         <div id="main"; style="width: 100%; height: 100%">
-            <div id="profile"; style="float: left; width: 250px; height: 300px; margin-left: 50px; margin-top: 100px; margin-bottom: 50px; background-color: white;">
-                <table style="width: 100%; height: 100%;">
+            <div id="profile"; style="float: left; width: 300px; height: 400px; margin-left: 50px; margin-top: 100px; margin-bottom: 50px; ">
+                <table style="width: 100%; height: 100%; background-color: #FFFFFF;" class="bordertables">
                     <tr>
+                        <td>
+                           
+                        </td>
+                         <td>
+                           
+                        </td>
                         <td>
                             <asp:Image ID="avatar" runat="server" />
                         </td>
                         <td>
-                            <asp:HyperLink ID="linkNickname" runat="server" NavigateUrl="~/PerfilPrivate.aspx">Nickname</asp:HyperLink>
+                            <asp:HyperLink ID="linkNickname" runat="server" NavigateUrl="~/PerfilPrivate.aspx" style="font-weight: 700; font-size: medium" CssClass="groupmenu">Nickname</asp:HyperLink>
                         </td>
                     </tr>
                     <tr>
+                         <td>
+                           
+                        </td>
                         <td>
-                            <asp:HyperLink ID="linkPrivateMessages" runat="server" NavigateUrl="~/Messages.aspx">Private Messages</asp:HyperLink>
+                           
+                        </td>
+                        <td>
+                            <asp:HyperLink ID="linkPrivateMessages" runat="server" NavigateUrl="~/Messages.aspx" style="font-weight: 700" CssClass="groupmenu">Mail</asp:HyperLink>
                         </td>
                     </tr>
                     <tr>
+                         <td>
+                           
+                        </td>
                         <td>
-                            <asp:HyperLink ID="linkModifyProfile" runat="server" NavigateUrl="~/ModifyProfile.aspx">Modify Profile</asp:HyperLink>
+                           
+                        </td>
+                        <td>
+                            <asp:HyperLink ID="linkSendPrivateMessages" runat="server" NavigateUrl="~/Send.aspx" style="font-weight: 700" CssClass="groupmenu">Send Messages</asp:HyperLink>
                         </td>
                     </tr>
                     <tr>
+                         <td>
+                           
+                        </td>
                         <td>
-                            <asp:LinkButton ID="LinkButtonLogOut" runat="server" OnClick="LinkButtonLogOut_Click">Log Out</asp:LinkButton>
+                           
+                        </td>
+                        <td>
+                            <asp:HyperLink ID="LinkEvents" runat="server" NavigateUrl="~/UserEvents.aspx" style="font-weight: 700" CssClass="groupmenu">Events</asp:HyperLink>
+                        </td>
+                    </tr>
+                    <tr>
+                         <td>
+                           
+                        </td>
+                        <td>
+                           
+                        </td>
+                        <td>
+                            <asp:HyperLink ID="LinkGroups" runat="server" NavigateUrl="~/UserGroups.aspx" style="font-weight: 700" CssClass="groupmenu">Groups</asp:HyperLink>
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                         <td>
+                           
+                        </td>
+                        <td>
+                           
+                        </td>
+                        <td>
+                            <asp:HyperLink ID="linkModifyProfile" runat="server" NavigateUrl="~/ModifyProfile.aspx" style="font-weight: 700" CssClass="groupmenu">Modify Profile</asp:HyperLink>
+                        </td>
+                    </tr>
+                    <tr>
+                         <td>
+                           
+                        </td>
+                        <td>
+                           
+                        </td>
+                        <td>
+                            <asp:LinkButton ID="LinkButtonLogOut" runat="server" OnClick="LinkButtonLogOut_Click" style="font-weight: 700" CssClass="groupmenu">Log Out</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                         <td>
+                           
+                        </td>
+                        <td>
+                           
+                        </td>
+                        <td>
+                            
                         </td>
                     </tr>
                 </table>
 
             </div>
-            <div id="rightMain"; style="float: right; width: 800px; height: 500px; margin-right: 100px; margin-top: 0px; margin-bottom: 50px;">
+            <div id="rightMain"; style="float: right; width: 900px; height: 100%; margin-right: 100px; margin-top: 100px; margin-bottom: 50px; background-color: #FFFFFF;" class="borderdivs">
                 <div id="search"; style="float: right; width: 300px; height: 50px; margin-top: 10px; margin-bottom: 0px; text-align: right;">
                     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                     &nbsp;
                     <asp:Button ID="ButtonSearch" runat="server" Text="Search" OnClick="ButtonSearch_Click" />
                 </div>
-                <div id="content"; style="width: 800px; height: 500px; margin-right: 0px; margin-top: 100px; margin-bottom: 50px; background-color: white">
+                <div id="content"; style="width: 100%; height: 100%; margin-right: 0px; margin-top: 100px; margin-bottom: 50px; background-color: white" class="borderdivs">
                     <asp:ContentPlaceHolder id="body" runat="server"> 
                     </asp:ContentPlaceHolder>
                 </div>

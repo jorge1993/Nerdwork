@@ -32,15 +32,13 @@ public IPostCAD get_IPostCAD ()
         return this._IPostCAD;
 }
 
-public int Create (int p_id, string p_description, string p_user)
+public int Create (string p_description, string p_user)
 {
         PostEN postEN = null;
         int oid;
 
         //Initialized PostEN
         postEN = new PostEN ();
-        postEN.Id = p_id;
-
         postEN.Description = p_description;
 
 
@@ -71,6 +69,42 @@ public void DeleteHobbies (int p_Post_OID, System.Collections.Generic.IList<stri
         //Call to PostCAD
 
         _IPostCAD.DeleteHobbies (p_Post_OID, p_hobby_OIDs);
+}
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.PostEN> GetAllPost ()
+{
+        return _IPostCAD.GetAllPost ();
+}
+public void Modify (int p_Post_OID, string p_description)
+{
+        PostEN postEN = null;
+
+        //Initialized PostEN
+        postEN = new PostEN ();
+        postEN.Id = p_Post_OID;
+        postEN.Description = p_description;
+        //Call to PostCAD
+
+        _IPostCAD.Modify (postEN);
+}
+
+public void AddGroup (int p_Post_OID, int p_groups_OID)
+{
+        //Call to PostCAD
+
+        _IPostCAD.AddGroup (p_Post_OID, p_groups_OID);
+}
+public void DeleteGroup (int p_Post_OID, int p_groups_OID)
+{
+        //Call to PostCAD
+
+        _IPostCAD.DeleteGroup (p_Post_OID, p_groups_OID);
+}
+public PostEN GetByID (int id)
+{
+        PostEN postEN = null;
+
+        postEN = _IPostCAD.GetByID (id);
+        return postEN;
 }
 }
 }

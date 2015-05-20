@@ -12,15 +12,15 @@ using ProjectGenNHibernate.CAD.Project;
 
 namespace ProjectGenNHibernate.CEN.Project
 {
-public partial class PostCEN
+public partial class UsuarioCEN
 {
-public int CountRows (int p_oid)
+public System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> GetAllUsers ()
 {
-        /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Post_CountRows) ENABLED START*/
+        /*PROTECTED REGION ID(ProjectGenNHibernate.CEN.Project_Usuario_getAllUsers) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method CountRows() not yet implemented.");
+        throw new NotImplementedException ("Method GetAllUsers() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ProjectGenNHibernate"
+		                   namespace="ProjectGenNHibernate.EN.Project">
+			<class name="EventsEN" table="[Events]">
+				  	
+						<id name="Id" column="[Id]" type="integer">
+							<generator class="identity"/>
+						</id>
+					<property name="Name" type="string"> 
+						<column name="[Name]"  not-null="true"/>
+					</property>
+					<property name="Description" type="string"> 
+						<column name="[Description]"  not-null="true"/>
+					</property>
+					<property name="State" > 
+						<column name="[State]"  not-null="true"/>
+					</property>
+					<property name="DateStart" type="timestamp"> 
+						<column name="[DateStart]"  not-null="true"/>
+					</property>
+					<property name="DateEnd" type="timestamp"> 
+						<column name="[DateEnd]"  not-null="true"/>
+					</property>
+					<property name="Place" type="string"> 
+						<column name="[Place]"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Usuario" table="[events_usuario]"  >
+							<key>
+									<column name="[FK_Id_idEvents]"/>
+							</key>
+      						<many-to-many class="ProjectGenNHibernate.EN.Project.UsuarioEN">
+									<column name="[FK_nickname_idUsuario]"/>
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Hobby" table="[events_hobby]"  >
+							<key>
+									<column name="[FK_Id_idEvents]"/>
+							</key>
+      						<many-to-many class="ProjectGenNHibernate.EN.Project.HobbyEN">
+									<column name="[FK_name_idHobby]"/>
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		  </class>
+		  
+		  <query name="EventsENReadAllHQL">from EventsEN</query>
+		  <query name="EventsENgetAllHQL"><![CDATA[FROM EventsEN]]></query>
+		</hibernate-mapping>
+	

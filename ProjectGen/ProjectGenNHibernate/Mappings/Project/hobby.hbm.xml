@@ -25,6 +25,28 @@
 									<column name="[FK_nickname_idUser]"/>
       						</many-to-many>
     					</bag>
+			
+		  			
+						<bag name="Groups" table="[hobby_groups]"  >
+							<key>
+									<column name="[FK_name_idHobby]"/>
+							</key>
+      						<many-to-many class="ProjectGenNHibernate.EN.Project.GroupsEN">
+									<column name="[FK_Id_idGroups]"/>
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Eventos" table="[eventos_hobby]" inverse="true" >
+							<key>
+									<column name="[FK_name_idHobby]"/>
+							</key>
+      						<many-to-many class="ProjectGenNHibernate.EN.Project.EventosEN">
+									<column name="[FK_Id_idEventos]"/>
+      						</many-to-many>
+    					</bag>
+					
+					
 					
 					
 					
@@ -32,5 +54,6 @@
 		  </class>
 		  
 		  <query name="HobbyENReadAllHQL">from HobbyEN</query>
+		  <query name="HobbyENgetAllHobbyHQL"><![CDATA[FROM HobbyEN]]></query>
 		</hibernate-mapping>
 	

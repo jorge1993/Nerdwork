@@ -22,5 +22,18 @@ UsuarioEN Searchbynick (string nickname);
 void AddHobbies (string p_Usuario_OID, System.Collections.Generic.IList<string> p_hobby_OIDs);
 
 void DeleteHobbies (string p_Usuario_OID, System.Collections.Generic.IList<string> p_hobby_OIDs);
+
+
+System.Collections.Generic.IList<ProjectGenNHibernate.EN.Project.UsuarioEN> GetAllUsers ();
+
+
+
+void AddEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs);
+
+void DeleteEvent (string p_Usuario_OID, System.Collections.Generic.IList<int> p_eventos_OIDs);
+
+void AddGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs);
+
+void DeleteGroup (string p_Usuario_OID, System.Collections.Generic.IList<int> p_groups_OIDs);
 }
 }
